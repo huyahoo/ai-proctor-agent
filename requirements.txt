@@ -1,0 +1,9 @@
+opencv-python
+numpy
+mediapipe
+ultralytics
+google-generativeai
+PyQt6
+Pillow
+python-dotenv
+colorama
