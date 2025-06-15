@@ -4,6 +4,7 @@ import cv2
 from cv.base_detector import BaseDetector
 from core.config import Config
 from core.utils import create_blank_frame, draw_gaze
+from core.logger import logger
 
 class GazeTracker(BaseDetector):
     def __init__(self, config: Config):
@@ -76,7 +77,7 @@ class GazeTracker(BaseDetector):
                 image_points = np.array(image_points, dtype=np.double)
 
                 if len(image_points) != len(self.model_points):
-                    print(f"Warning: Mismatch in model points ({len(self.model_points)}) and image points ({len(image_points)}). Skipping face.")
+                    logger.warning(f"Warning: Mismatch in model points ({len(self.model_points)}) and image points ({len(image_points)}). Skipping face.")
                     continue
 
                 # Solve for pose
@@ -112,7 +113,7 @@ class GazeTracker(BaseDetector):
                         'head_pose': [nose_tip[0], nose_tip[1], pitch_deg, yaw_deg, roll_deg] # Storing in degrees
                     })
                 except cv2.error as e:
-                    print(f"Head pose estimation solvePnP error: {e}")
+                    logger.error(f"Head pose estimation solvePnP error: {e}")
                     continue
 
         return gaze_data

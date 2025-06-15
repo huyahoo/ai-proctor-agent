@@ -5,6 +5,7 @@ from core.config import Config
 from PIL import Image
 import numpy as np
 import time # For unique ID
+from core.logger import logger
 
 class FeedbackLearner:
     def __init__(self, config: Config):
@@ -12,7 +13,7 @@ class FeedbackLearner:
         os.makedirs(self.config.FEEDBACK_DATA_DIR, exist_ok=True)
         os.makedirs(os.path.join(self.config.FEEDBACK_DATA_DIR, "images"), exist_ok=True)
         self.annotation_file_path = self.config.FEEDBACK_ANNOTATIONS_FILE
-        print(f"Feedback data will be stored in: {self.config.FEEDBACK_DATA_DIR}")
+        logger.info(f"\nFeedback data will be stored in: {self.config.FEEDBACK_DATA_DIR}")
 
     def save_feedback(self, event_data: dict, frame_sequence: list, vlm_decision: str, human_feedback: str, vlm_explanation: str):
         """
@@ -41,7 +42,7 @@ class FeedbackLearner:
                 # Store relative path from FEEDBACK_DATA_DIR for dataset portability
                 image_save_path = os.path.relpath(image_save_path_full, self.config.FEEDBACK_DATA_DIR)
             except Exception as e:
-                print(f"Warning: Could not save representative frame {image_save_path_full}: {e}")
+                logger.warning(f"Warning: Could not save representative frame {image_save_path_full}: {e}")
 
         annotation = {
             "event_id": event_data.get('event_id', f"event_{int(time.time()*1000)}"),
@@ -58,7 +59,7 @@ class FeedbackLearner:
 
         with open(self.annotation_file_path, 'a') as f:
             f.write(json.dumps(annotation) + '\n')
-        print(f"Feedback saved for event '{annotation['event_id']}': {human_feedback}")
+        logger.info(f"Feedback saved for event '{annotation['event_id']}': {human_feedback}")
 
     def prepare_for_finetuning(self):
         """
@@ -67,10 +68,10 @@ class FeedbackLearner:
         This method would be called periodically to generate a new fine-tuning dataset.
         For a hackathon, this is more conceptual and shows the data format.
         """
-        print(f"Preparing data from {self.annotation_file_path} for VLM fine-tuning...")
+        logger.info(f"Preparing data from {self.annotation_file_path} for VLM fine-tuning...")
         finetuning_data = []
         if not os.path.exists(self.annotation_file_path):
-            print("No feedback annotations found yet.")
+            logger.info("No feedback annotations found yet.")
             return []
 
         with open(self.annotation_file_path, 'r') as f:
@@ -109,6 +110,6 @@ class FeedbackLearner:
         with open(output_finetune_path, 'w') as f:
             for entry in finetuning_data:
                 f.write(json.dumps(entry) + '\n')
-        print(f"Prepared {len(finetuning_data)} samples for VLM fine-tuning in {output_finetune_path}")
+        logger.info(f"Prepared {len(finetuning_data)} samples for VLM fine-tuning in {output_finetune_path}")
         return finetuning_data
 

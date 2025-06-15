@@ -3,6 +3,7 @@ import os
 from PyQt6.QtWidgets import QApplication, QMessageBox
 from ui.main_window import ProctorAgentApp
 from core.config import Config
+from core.logger import logger
 
 # Ensure necessary folders exist
 os.makedirs("data/videos", exist_ok=True)
@@ -16,8 +17,8 @@ os.makedirs("models", exist_ok=True)
 
 if __name__ == "__main__":
     # Print config to console for verification
-    print("Starting Proctor Agent...")
-    print(Config())
+    logger.step("Starting Proctor Agent...")
+    logger.info(Config())
 
     app = QApplication(sys.argv)
     window = ProctorAgentApp()

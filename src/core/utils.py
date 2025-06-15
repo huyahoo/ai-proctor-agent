@@ -4,15 +4,16 @@ import os
 import json
 from PIL import Image # For VLM input processing
 import mediapipe as mp # For pose drawing connections if needed for utility
+from core.logger import logger
 
 def load_video_capture(video_path):
     """Loads a video file and returns a cv2.VideoCapture object."""
     if not os.path.exists(video_path):
-        print(f"Error: Video file not found at {video_path}")
+        logger.error(f"Error: Video file not found at {video_path}")
         return None
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
-        print(f"Error: Could not open video file at {video_path}")
+        logger.error(f"Error: Could not open video file at {video_path}")
         return None
     return cap
 

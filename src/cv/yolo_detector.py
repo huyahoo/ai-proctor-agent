@@ -5,15 +5,16 @@ from cv.base_detector import BaseDetector
 from core.config import Config
 from core.constants import YOLO_CLASSES_OF_INTEREST
 from core.utils import create_blank_frame, draw_bbox
+from core.logger import logger  
 
 class YOLODetector(BaseDetector):
     def __init__(self, config: Config):
         super().__init__(config)
         try:
             self.model = YOLO(self.config.YOLO_MODEL_PATH)
-            print(f"YOLO model loaded from {self.config.YOLO_MODEL_PATH}")
+            logger.info(f"YOLO model loaded from {self.config.YOLO_MODEL_PATH}")
         except Exception as e:
-            print(f"Error loading YOLO model from {self.config.YOLO_MODEL_PATH}: {e}. Make sure the model file exists and path is correct.")
+            logger.error(f"Error loading YOLO model from {self.config.YOLO_MODEL_PATH}: {e}. Make sure the model file exists and path is correct.")
             self.model = None
 
     def detect(self, frame: np.ndarray) -> list:

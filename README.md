@@ -1,7 +1,7 @@
 # protor-agent
 This is repository for Hackathon "HACK U TOKYO 2025" organized by LINE YAHOO Corporation!
 
-# Folder structure
+## Folder structure
 ```text
 proctor_agent/
 ├── data/
@@ -41,28 +41,27 @@ proctor_agent/
 └── .env                    # Environment variables (API keys)
 ```
 
-# Installation
+## Installation
 
-## Environment
-
-### Create ENV
+- Create conda environment. This project use python 3.10
 ``` bash
 conda create -n proctor_agent python=3.10
+```
+- Activate conda environment
+``` bash
 conda activate proctor_agent
 ```
-
-### Install Python Package
+- Install Python Package
 ``` bash
 pip install -r requirements.txt
 ```
 
-### Create .env from .env.example
-Create .env config file then add your gemini api key
+-Create .env config file from .env.example, then add your gemini api key
 ``` bash
 cp .env.example .env
 ```
 
-# Run
+## Run
 ``` bash
 cd proctor-agent
 python src/main.py
