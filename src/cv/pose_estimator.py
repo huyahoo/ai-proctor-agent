@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from cv.base_detector import BaseDetector
 from core.config import Config
-from core.utils import create_blank_frame, draw_keypoints
+from core.utils import draw_keypoints
 from core.constants import POSE_CONNECTIONS_INDICES # Use the pre-converted indices
 
 class PoseEstimator(BaseDetector):
@@ -61,19 +61,17 @@ class PoseEstimator(BaseDetector):
             })
         return poses_data
 
-    def draw_results(self, frame_shape: tuple, poses_data: list) -> np.ndarray:
+    def draw_results(self, original_frame: np.ndarray, poses_data: list) -> np.ndarray:
         """
-        Draws pose estimations (keypoints and connections) on a blank frame.
+        Draws pose estimations (keypoints and connections) on a copy of the original frame.
         Args:
-            frame_shape (tuple): (height, width, channels) of the original frame.
+            original_frame (np.ndarray): The frame to draw on.
             poses_data (list): Output from self.detect method.
         Returns:
-            np.ndarray: A new frame with only pose detections.
+            np.ndarray: A new frame with pose detections drawn.
         """
-        display_frame = create_blank_frame(frame_shape[1], frame_shape[0])
+        display_frame = original_frame.copy() # Draw on a copy of the original frame
         for pose_data in poses_data:
             if pose_data['keypoints']:
-                # Pass the keypoints list and pre-defined connections indices
                 draw_keypoints(display_frame, pose_data['keypoints'], connections=POSE_CONNECTIONS_INDICES, color=(0, 255, 255)) # Cyan color
         return display_frame
-

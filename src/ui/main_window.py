@@ -73,14 +73,15 @@ class VideoProcessingThread(QThread):
                 pose_estimations = self.pose_estimator.detect(frame)
                 gaze_estimations = self.gaze_tracker.detect(frame)
 
-                # Generate CV visualization frames (on black background)
-                yolo_viz_frame = self.yolo_detector.draw_results(frame.shape, yolo_detections)
-                pose_viz_frame = self.pose_estimator.draw_results(frame.shape, pose_estimations)
-                gaze_viz_frame = self.gaze_tracker.draw_results(frame.shape, gaze_estimations)
+                # Generate CV visualization frames by drawing on a COPY of the original frame
+                # Pass the original frame to the draw_results methods
+                yolo_viz_frame = self.yolo_detector.draw_results(frame.copy(), yolo_detections)
+                pose_viz_frame = self.pose_estimator.draw_results(frame.copy(), pose_estimations)
+                gaze_viz_frame = self.gaze_tracker.draw_results(frame.copy(), gaze_estimations)
 
                 # Emit all frames and current timestamp for UI display
                 self.frame_update.emit({
-                    'original': frame.copy(),
+                    'original': frame.copy(), # Send a copy for the original display
                     'yolo': yolo_viz_frame,
                     'pose': pose_viz_frame,
                     'gaze': gaze_viz_frame,
@@ -102,9 +103,13 @@ class VideoProcessingThread(QThread):
                     anomaly['video_path'] = self.video_path
                     # Assign a unique ID for each event instance
                     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
-                    self.anomaly_detected.emit(anomaly) # Trigger LLM/VLM process
+                    self.anomaly_detected.emit(anomaly) 
 
-            time.sleep(1 / (self.config.FPS / self.config.FRAME_SKIP)) # Control processing speed
+            # Control processing speed to match desired FPS / FRAME_SKIP
+            # This sleep is meant to slow down processing if it's faster than target FPS / FRAME_SKIP.
+            # If processing is *slower*, this sleep will effectively be 0 or negative (and capped at 0).
+            # The actual FPS will be limited by the slowest part of the pipeline.
+            time.sleep(1 / (self.config.FPS / self.config.FRAME_SKIP)) 
 
         self.cap.release()
         self.processing_finished.emit()
