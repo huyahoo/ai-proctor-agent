@@ -2,15 +2,8 @@ opencv-python
 numpy
 mediapipe
 ultralytics
-google-generativeai # or openai
+google-generativeai
 PyQt6
 Pillow
 python-dotenv
-# If using local LLaVA (advanced):
-# torch
-# transformers
-# peft
-# bitsandbytes
-# accelerate
-# sentencepiece
-# einops
+colorama

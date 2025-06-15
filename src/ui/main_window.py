@@ -34,7 +34,6 @@ class VideoProcessingThread(QThread):
         self.video_path = video_path
         self.config = config
         self.stop_flag = False
-
         self.yolo_detector = YOLODetector(config)
         self.pose_estimator = PoseEstimator(config)
         self.gaze_tracker = GazeTracker(config)
@@ -77,15 +76,6 @@ class VideoProcessingThread(QThread):
                     'frame_height': frame.shape[0]
                 }
                 anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
-
-                # dummy 
-                anomalies = [{
-                    'type': 'collaborative_hand_gesture_proximity',
-                    'person_ids': [1, 2],
-                    'confidence': 0.7,
-                    'timestamp': current_timestamp_sec,
-                    'description': f"Hands of {1} and {2} in close proximity, possibly exchanging object."
-                }]
 
                 for anomaly in anomalies:
                     anomaly['video_path'] = self.video_path  # Add video path for later VLM analysis
