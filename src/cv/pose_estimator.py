@@ -5,6 +5,10 @@ from cv.base_detector import BaseDetector
 from core.config import Config
 from core.utils import create_blank_frame, draw_keypoints
 from core.constants import POSE_CONNECTIONS_INDICES # Use the pre-converted indices
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), 'OpenPoseNet'))
 
 class PoseEstimator(BaseDetector):
     def __init__(self, config: Config):
