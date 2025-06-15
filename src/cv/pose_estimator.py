@@ -7,18 +7,46 @@ from core.utils import draw_keypoints
 from core.constants import POSE_CONNECTIONS_INDICES # Use the pre-converted indices
 import os
 import sys
+import torch
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'OpenPoseNet'))
 
+from util.decode_pose import decode_pose
+from util.openpose_net import OpenPoseNet
+
 class PoseEstimator(BaseDetector):
-    def __init__(self, config: Config):
-        super().__init__(config)
-        self.mp_pose = mp.solutions.pose
-        self.pose = self.mp_pose.Pose(
-            min_detection_confidence=self.config.POSE_MIN_CONFIDENCE,
-            min_tracking_confidence=self.config.POSE_MIN_CONFIDENCE
+    # def __init__(self, config: Config):
+    #     super().__init__(config)
+    #     self.mp_pose = mp.solutions.pose
+    #     self.pose = self.mp_pose.Pose(
+    #         min_detection_confidence=self.config.POSE_MIN_CONFIDENCE,
+    #         min_tracking_confidence=self.config.POSE_MIN_CONFIDENCE
+    #     )
+    #     self.mp_drawing = mp.solutions.drawing_utils
+
+    def __init__(self):
+        self.net = OpenPoseNet()
+        self.current_dir = os.path.dirname(os.path.abspath(__file__))
+        weight_file_path = os.path.join(self.current_dir, 'weights', 'pose_model_scratch.pth')
+        # Update torch.load with weights_only=True
+        self.net_weights = torch.load(
+            weight_file_path, 
+            map_location={'cuda:0': 'cpu'},
+            weights_only=True  # Add this parameter
         )
-        self.mp_drawing = mp.solutions.drawing_utils
+        keys = list(self.net_weights.keys())
+        # print(keys)
+        weights_load = {}
+
+        for i in range(len(keys)):
+            weights_load[list(self.net.state_dict().keys())[i]
+                        ] = self.net_weights[list(keys)[i]]
+
+        state = self.net.state_dict()
+        state.update(weights_load)
+        self.net.load_state_dict(state)
+
+        print('Pose Estimation Model Loaded')
 
     def detect(self, frame: np.ndarray) -> list:
         """
