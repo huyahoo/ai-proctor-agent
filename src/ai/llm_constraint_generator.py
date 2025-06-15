@@ -1,13 +1,14 @@
 import google.generativeai as genai
 import re
 from core.config import Config
+from core.logger import logger
 
 class LLMConstraintGenerator:
     def __init__(self, config: Config):
         self.config = config
         genai.configure(api_key=self.config.GEMINI_API_KEY)
         self.model = genai.GenerativeModel(self.config.LLM_MODEL_NAME)
-        print(f"LLM model '{self.config.LLM_MODEL_NAME}' initialized for constraint generation.")
+        logger.success(f"LLM model '{self.config.LLM_MODEL_NAME}' initialized for constraint generation.")
 
     def generate_constraints(self, event_data: dict) -> str:
         """
@@ -23,10 +24,10 @@ class LLMConstraintGenerator:
             if response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
                 return response.candidates[0].content.parts[0].text
             else:
-                print("LLM response did not contain expected content or was blocked.")
+                logger.warning("LLM response did not contain expected content or was blocked.")
                 return "Analyze for any further suspicious activity in the video segment."
         except Exception as e:
-            print(f"Error calling LLM for constraint generation: {e}")
+            logger.error(f"Error calling LLM for constraint generation: {e}")
             return f"Analyze for any further suspicious activity. LLM error: {e}"
 
     def _build_prompt(self, event_data: dict) -> str:

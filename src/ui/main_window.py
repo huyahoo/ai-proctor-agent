@@ -21,6 +21,7 @@ from ai.vlm_analyzer import VLMAnalyzer
 from ai.feedback_learner import FeedbackLearner
 from core.config import Config
 from core.utils import load_video_capture, cv2_to_pil # Renamed to load_video_capture
+from core.logger import logger
 
 # Thread for processing video frames, running CV models, and emitting frames/anomalies
 class VideoProcessingThread(QThread):
@@ -47,7 +48,7 @@ class VideoProcessingThread(QThread):
     def run(self):
         self.cap = load_video_capture(self.video_path)
         if not self.cap:
-            print("Failed to open video in processing thread.")
+            logger.error("Failed to open video in processing thread.")
             return
 
         self.cap.set(cv2.CAP_PROP_POS_FRAMES, self.current_frame_idx) # Set initial position
@@ -72,14 +73,15 @@ class VideoProcessingThread(QThread):
                 pose_estimations = self.pose_estimator.detect(frame)
                 gaze_estimations = self.gaze_tracker.detect(frame)
 
-                # Generate CV visualization frames (on black background)
-                yolo_viz_frame = self.yolo_detector.draw_results(frame.shape, yolo_detections)
-                pose_viz_frame = self.pose_estimator.draw_results(frame.shape, pose_estimations)
-                gaze_viz_frame = self.gaze_tracker.draw_results(frame.shape, gaze_estimations)
+                # Generate CV visualization frames by drawing on a COPY of the original frame
+                # Pass the original frame to the draw_results methods
+                yolo_viz_frame = self.yolo_detector.draw_results(frame.copy(), yolo_detections)
+                pose_viz_frame = self.pose_estimator.draw_results(frame.copy(), pose_estimations)
+                gaze_viz_frame = self.gaze_tracker.draw_results(frame.copy(), gaze_estimations)
 
                 # Emit all frames and current timestamp for UI display
                 self.frame_update.emit({
-                    'original': frame.copy(),
+                    'original': frame.copy(), # Send a copy for the original display
                     'yolo': yolo_viz_frame,
                     'pose': pose_viz_frame,
                     'gaze': gaze_viz_frame,
@@ -101,9 +103,13 @@ class VideoProcessingThread(QThread):
                     anomaly['video_path'] = self.video_path
                     # Assign a unique ID for each event instance
                     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
-                    self.anomaly_detected.emit(anomaly) # Trigger LLM/VLM process
+                    self.anomaly_detected.emit(anomaly) 
 
-            time.sleep(1 / (self.config.FPS / self.config.FRAME_SKIP)) # Control processing speed
+            # Control processing speed to match desired FPS / FRAME_SKIP
+            # This sleep is meant to slow down processing if it's faster than target FPS / FRAME_SKIP.
+            # If processing is *slower*, this sleep will effectively be 0 or negative (and capped at 0).
+            # The actual FPS will be limited by the slowest part of the pipeline.
+            time.sleep(1 / (self.config.FPS / self.config.FRAME_SKIP)) 
 
         self.cap.release()
         self.processing_finished.emit()
@@ -142,12 +148,12 @@ class AnomalyConsumer(QThread):
             try:
                 # Use a short timeout to allow the thread to gracefully exit if stop_flag is set
                 event_data = self.event_queue.get(timeout=0.1)
-                print(f"Consumer: Processing event {event_data.get('type')} at {event_data.get('timestamp'):.2f}s")
+                logger.info(f"Consumer: Processing event {event_data.get('type')} at {event_data.get('timestamp'):.2f}s")
 
                 # Step 1: LLM generates constraints
                 llm_constraint = self.llm_generator.generate_constraints(event_data)
                 self.llm_constraint_generated.emit(llm_constraint)
-                print(f"Consumer: LLM generated constraint: {llm_constraint}")
+                logger.info(f"Consumer: LLM generated constraint: {llm_constraint}")
 
                 # Step 2: VLM analyzes frames with constraints
                 # Retrieve a short sequence of original frames around the timestamp for VLM
@@ -170,10 +176,10 @@ class AnomalyConsumer(QThread):
                         frames_for_vlm.append(cv2_to_pil(frame)) # Convert to PIL Image for VLM
                     cap_temp.release()
                 else:
-                    print(f"Consumer: Failed to open video {video_path} for VLM frame extraction.")
+                    logger.error(f"Consumer: Failed to open video {video_path} for VLM frame extraction.")
 
                 vlm_result = self.vlm_analyzer.analyze_and_explain(frames_for_vlm, llm_constraint)
-                print(f"Consumer: VLM analysis complete: {vlm_result}")
+                logger.info(f"Consumer: VLM analysis complete: {vlm_result}")
 
                 # Emit full data for UI update
                 self.vlm_analysis_complete.emit({'event_data': event_data, 'llm_constraint': llm_constraint, 'vlm_result': vlm_result})
@@ -182,7 +188,7 @@ class AnomalyConsumer(QThread):
             except queue.Empty:
                 continue
             except Exception as e:
-                print(f"Consumer Thread Error processing event: {e}")
+                logger.error(f"Consumer Thread Error processing event: {e}")
                 import traceback
                 traceback.print_exc()
                 self.event_queue.task_done()
@@ -214,7 +220,7 @@ class ProctorAgentApp(QMainWindow):
         self.anomaly_consumer.llm_constraint_generated.connect(self.alert_panel.update_llm_constraint)
         self.anomaly_consumer.vlm_analysis_complete.connect(self.on_vlm_analysis_complete)
         self.anomaly_consumer_thread.start()
-        print("Anomaly consumer thread started.")
+        logger.success("\nAnomaly consumer thread started.")
 
 
     def _init_ui(self):
@@ -351,7 +357,7 @@ class ProctorAgentApp(QMainWindow):
         self.processing_thread.start()
         self.play_pause_btn.setChecked(True) # Set to play state
         self.play_pause_btn.setText("⏸️ Pause")
-        print(f"Started processing for: {video_path}")
+        logger.step(f"Started processing for: {video_path}")
 
     def load_video_file(self):
         file_dialog = QFileDialog(self)
@@ -406,7 +412,7 @@ class ProctorAgentApp(QMainWindow):
 
         # Optionally clear anomaly events or reset alert panel
         # self.alert_panel.clear_all_events()
-        print("Stopped all video processing and cleared displays.")
+        logger.step("Stopped all video processing and cleared displays.")
 
     def _on_slider_moved(self, position: int):
         self.seeking = True
@@ -443,7 +449,7 @@ class ProctorAgentApp(QMainWindow):
     def on_anomaly_detected(self, event_data: dict):
         """Called when AnomalyDetector flags an event. Adds it to queue."""
         self.anomaly_event_queue.put(event_data)
-        print(f"Anomaly detected and added to queue: {event_data.get('type')} at {event_data.get('timestamp'):.2f}s (ID: {event_data.get('event_id')})")
+        logger.info(f"Anomaly detected and added to queue: {event_data.get('type')} at {event_data.get('timestamp'):.2f}s (ID: {event_data.get('event_id')})")
         self.alert_panel.add_event(event_data) # Display initial event in UI list
 
     def on_vlm_analysis_complete(self, data: dict):
@@ -457,7 +463,7 @@ class ProctorAgentApp(QMainWindow):
 
     def on_feedback_provided(self, event_data: dict, feedback_type: str):
         """Handles feedback from the UI and passes it to the FeedbackLearner."""
-        print(f"Received feedback: {feedback_type} for event ID: {event_data.get('event_id')}")
+        logger.info(f"Received feedback: {feedback_type} for event ID: {event_data.get('event_id')}")
 
         # Retrieve the relevant frames for saving for RL
         frames_to_save = []
@@ -488,10 +494,10 @@ class ProctorAgentApp(QMainWindow):
                 vlm_explanation=event_data['vlm_explanation_text'] # Using text from the VLM display
             )
         else:
-            print("Could not retrieve frames for feedback saving.")
+            logger.error("Could not retrieve frames for feedback saving.")
 
     def on_processing_finished(self):
-        print("Video processing thread finished.")
+        logger.info("Video processing thread finished.")
         self.play_pause_btn.setChecked(False)
         self.play_pause_btn.setText("▶️ Play")
         # Ensure slider is at end if video finished naturally

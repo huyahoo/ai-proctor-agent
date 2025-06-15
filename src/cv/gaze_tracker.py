@@ -3,7 +3,8 @@ import numpy as np
 import cv2
 from cv.base_detector import BaseDetector
 from core.config import Config
-from core.utils import create_blank_frame, draw_gaze
+from core.utils import draw_gaze
+from core.logger import logger
 
 class GazeTracker(BaseDetector):
     def __init__(self, config: Config):
@@ -76,7 +77,7 @@ class GazeTracker(BaseDetector):
                 image_points = np.array(image_points, dtype=np.double)
 
                 if len(image_points) != len(self.model_points):
-                    print(f"Warning: Mismatch in model points ({len(self.model_points)}) and image points ({len(image_points)}). Skipping face.")
+                    logger.warning(f"Warning: Mismatch in model points ({len(self.model_points)}) and image points ({len(image_points)}). Skipping face.")
                     continue
 
                 # Solve for pose
@@ -112,23 +113,22 @@ class GazeTracker(BaseDetector):
                         'head_pose': [nose_tip[0], nose_tip[1], pitch_deg, yaw_deg, roll_deg] # Storing in degrees
                     })
                 except cv2.error as e:
-                    print(f"Head pose estimation solvePnP error: {e}")
+                    logger.error(f"Head pose estimation solvePnP error: {e}")
                     continue
 
         return gaze_data
 
-    def draw_results(self, frame_shape: tuple, gaze_data: list) -> np.ndarray:
+    def draw_results(self, original_frame: np.ndarray, gaze_data: list) -> np.ndarray:
         """
-        Draws gaze estimation (head pose vectors) on a blank frame.
+        Draws gaze estimation (head pose vectors) on a copy of the original frame.
         Args:
-            frame_shape (tuple): (height, width, channels) of the original frame.
+            original_frame (np.ndarray): The frame to draw on.
             gaze_data (list): Output from self.detect method.
         Returns:
-            np.ndarray: A new frame with only gaze detections.
+            np.ndarray: A new frame with gaze detections drawn.
         """
-        display_frame = create_blank_frame(frame_shape[1], frame_shape[0])
+        display_frame = original_frame.copy() # Draw on a copy of the original frame
         for data in gaze_data:
             if data['head_pose']:
                 draw_gaze(display_frame, data['head_pose'], color=(255, 0, 0)) # Red color for gaze
         return display_frame
-

@@ -6,13 +6,14 @@ import io
 import re
 import numpy as np # For np.linspace
 from core.config import Config
+from core.logger import logger
 
 class VLMAnalyzer:
     def __init__(self, config: Config):
         self.config = config
         genai.configure(api_key=self.config.GEMINI_API_KEY)
         self.model = genai.GenerativeModel(self.config.VLM_MODEL_NAME)
-        print(f"VLM model '{self.config.VLM_MODEL_NAME}' initialized for analysis.")
+        logger.success(f"VLM model '{self.config.VLM_MODEL_NAME}' initialized for analysis.")
 
     def analyze_and_explain(self, frame_sequence: list, constraints: str) -> dict:
         """
@@ -39,11 +40,11 @@ class VLMAnalyzer:
         for img in selected_frames:
             # Ensure img is a PIL Image
             if not isinstance(img, Image.Image):
-                print("Warning: Expected PIL Image, got different type. Attempting conversion.")
+                logger.warning("Warning: Expected PIL Image, got different type. Attempting conversion.")
                 if isinstance(img, np.ndarray):
                     img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
                 else:
-                    print(f"Error: Cannot convert image type {type(img)}")
+                    logger.error(f"Error: Cannot convert image type {type(img)}")
                     continue # Skip this frame
 
             buffered = io.BytesIO()
@@ -79,10 +80,10 @@ class VLMAnalyzer:
             else:
                 # Handle cases where response might be empty or blocked due to safety settings
                 safety_ratings = response.prompt_feedback.safety_ratings if response.prompt_feedback else "N/A"
-                print(f"VLM response did not contain expected content or was blocked. Safety Ratings: {safety_ratings}")
+                logger.warning(f"VLM response did not contain expected content or was blocked. Safety Ratings: {safety_ratings}")
                 return {"decision": "Error", "explanation": f"VLM could not process the request or response was empty/blocked. Safety: {safety_ratings}"}
         except Exception as e:
-            print(f"Error calling VLM for analysis: {e}")
+            logger.error(f"Error calling VLM for analysis: {e}")
             return {"decision": "Error", "explanation": f"VLM API error: {e}. Check API key, quota, or input content."}
 
 
