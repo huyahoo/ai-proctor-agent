@@ -2,6 +2,7 @@
 This is repository for Hackathon "HACK U TOKYO 2025" organized by LINE YAHOO Corporation!
 
 # Folder structure
+```text
 proctor_agent/
 ├── data/
 │   ├── videos/             # Store input videos (e.g., example_exam.mp4)
@@ -38,6 +39,7 @@ proctor_agent/
 ├── README.md               # Project documentation
 ├── requirements.txt        # List of pip dependencies
 └── .env                    # Environment variables (API keys)
+```
 
 # Installation
 
@@ -58,4 +60,10 @@ pip install -r requirements.txt
 Create .env config file then add your gemini api key
 ``` bash
 cp .env.example .env
+```
+
+# Run
+``` bash
+cd proctor-agent
+python src/main.py
 ```
