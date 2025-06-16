@@ -9,10 +9,10 @@ import os
 import sys
 import torch
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'OpenPoseNet'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model'))
 
-from util.decode_pose import decode_pose
-from util.openpose_net import OpenPoseNet
+from OpenPoseNet.util.decode_pose import decode_pose
+from OpenPoseNet.util.openpose_net import OpenPoseNet
 
 class PoseEstimator(BaseDetector):
     # def __init__(self, config: Config):
@@ -24,10 +24,19 @@ class PoseEstimator(BaseDetector):
     #     )
     #     self.mp_drawing = mp.solutions.drawing_utils
 
-    def __init__(self):
+    def __init__(self, config: Config):
+        super().__init__(config)
         self.net = OpenPoseNet()
         self.current_dir = os.path.dirname(os.path.abspath(__file__))
-        weight_file_path = os.path.join(self.current_dir, 'weights', 'pose_model_scratch.pth')
+
+        # Update path to weights file
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))  # Get src directory
+        weight_file_path = os.path.join(
+            base_dir, 
+            'models', 
+            'pose_model_scratch.pth'
+        )
+
         # Update torch.load with weights_only=True
         self.net_weights = torch.load(
             weight_file_path, 
@@ -99,62 +108,59 @@ class PoseEstimator(BaseDetector):
         Returns a list of dictionaries:
         [{'keypoints': [[x, y, visibility], ...], 'bbox': [x1, y1, x2, y2]}, ...]
         """
-        # Preprocess image
-        h, w, _ = frame.shape
-        input_w, input_h = 368, 368  # Standard input size for OpenPose
-        
-        # Resize and normalize image
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        scaled_img = cv2.resize(frame_rgb, (input_w, input_h)) / 255.0
-        scaled_img = scaled_img.transpose(2, 0, 1)[None]  # NHWC -> NCHW
-        
-        # Convert to tensor
-        img_tensor = torch.FloatTensor(scaled_img)
-        
-        # Get network prediction
-        with torch.no_grad():
-            predicted_outputs = self.net(img_tensor)
-        
+        oriImg = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    
+        # Resize the image to the input size of the model
+        size = (368, 368)
+        img = cv2.resize(oriImg, size, interpolation=cv2.INTER_CUBIC)
+
+        # Preprocess the image
+        img = img.astype(np.float32) / 255.
+
+        # Standardization of color information
+        color_mean = [0.485, 0.456, 0.406]
+        color_std = [0.229, 0.224, 0.225]
+
+        # Color channels in wrong order
+        preprocessed_img = img.copy()  # RGB
+
+        for i in range(3):
+            preprocessed_img[:, :, i] = preprocessed_img[:, :, i] - color_mean[i]
+            preprocessed_img[:, :, i] = preprocessed_img[:, :, i] / color_std[i]
+
+        # (H, W, C) -> (C, H, W)
+        img = preprocessed_img.transpose((2, 0, 1)).astype(np.float32)
+
+        # Convert to PyTorch tensor
+        img = torch.from_numpy(img)
+
+        # Add batch dimension
+        x = img.unsqueeze(0)
+
+        # Calculate heatmaps and PAFs with OpenPose
+        self.net.eval()
+        predicted_outputs, _ = self.net(x)
+
+        # Resize outputs to original image size
+        pafs = predicted_outputs[0][0].detach().numpy().transpose(1, 2, 0)
+        heatmaps = predicted_outputs[1][0].detach().numpy().transpose(1, 2, 0)
+
+        pafs = cv2.resize(pafs, size, interpolation=cv2.INTER_CUBIC)
+        heatmaps = cv2.resize(heatmaps, size, interpolation=cv2.INTER_CUBIC)
+
+        pafs = cv2.resize(
+            pafs, (oriImg.shape[1], oriImg.shape[0]), interpolation=cv2.INTER_CUBIC)
+        heatmaps = cv2.resize(
+            heatmaps, (oriImg.shape[1], oriImg.shape[0]), interpolation=cv2.INTER_CUBIC)
+
         # Decode poses
-        poses = decode_pose(predicted_outputs)
+        _, result_img, joint_list, person_to_joint_assoc = decode_pose(oriImg, heatmaps, pafs)
+        result_img = cv2.cvtColor(result_img, cv2.COLOR_BGR2RGB)
         
-        poses_data = []
-        for pose in poses:
-            keypoints = []
-            x_coords = []
-            y_coords = []
-            
-            # Convert normalized coordinates back to original image scale
-            for kp in pose:
-                if kp is not None:
-                    cx = int(kp[0] * w / input_w)
-                    cy = int(kp[1] * h / input_h)
-                    conf = float(kp[2]) if len(kp) > 2 else 1.0
-                    
-                    keypoints.append([cx, cy, conf])
-                    x_coords.append(cx)
-                    y_coords.append(cy)
-            
-            if x_coords and y_coords:
-                # Create bounding box
-                x_min, y_min = min(x_coords), min(y_coords)
-                x_max, y_max = max(x_coords), max(y_coords)
-                
-                # Add buffer to bbox
-                buffer = 20
-                x_min = max(0, x_min - buffer)
-                y_min = max(0, y_min - buffer)
-                x_max = min(w, x_max + buffer)
-                y_max = min(h, y_max + buffer)
-                bbox = [x_min, y_min, x_max, y_max]
-            else:
-                bbox = [0, 0, 0, 0]  # Fallback
-                
-            poses_data.append({
-                'keypoints': keypoints,
-                'bbox': bbox
-            })
-        
+        poses_data = {
+            'image': result_img,  # The image with poses drawn
+        }
+
         return poses_data
 
     def draw_results(self, original_frame: np.ndarray, poses_data: list) -> np.ndarray:
@@ -167,62 +173,7 @@ class PoseEstimator(BaseDetector):
             np.ndarray: A new frame with pose detections drawn.
         """
         display_frame = original_frame.copy() # Draw on a copy of the original frame
-        for pose_data in poses_data:
-            if pose_data['keypoints']:
-                draw_keypoints(display_frame, pose_data['keypoints'], connections=POSE_CONNECTIONS_INDICES, color=(0, 255, 255)) # Cyan color
-        return display_frame
-    
-
-if __name__ == "__main__":
-    # Example usage
-    pose_estimator = PoseEstimator()
-    # cap = cv2.VideoCapture(0)  # Use webcam or replace with video file path
-    video_path = '/home/dh11255z/Documents/proctor_agent_base/test.mp4'
-    cap = cv2.VideoCapture(video_path)
-    
-    # Kiểm tra video có mở thành công không
-    if not cap.isOpened():
-        print("Error: Could not open video")
-        exit()
-        
-    # Lấy thông tin video
-    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = int(cap.get(cv2.CAP_PROP_FPS))
-    
-    # Tạo VideoWriter để lưu output video (nếu cần)
-    # out = cv2.VideoWriter('output.mp4', 
-    #                      cv2.VideoWriter_fourcc(*'mp4v'), 
-    #                      fps, 
-    #                      (frame_width, frame_height))
-
-    while cap.isOpened():
-        ret, frame = cap.read()
-        if not ret:
-            break
-            
-        try:
-            # Detect poses
-            poses_data = pose_estimator.detect(frame)
-            
-            # Draw results
-            output_frame = pose_estimator.draw_results(frame, poses_data)
-            
-            # Hiển thị frame
-            cv2.imshow('OpenPose Detection', output_frame)
-            
-            # Lưu video output (nếu cần)
-            # out.write(output_frame)
-            
-            # Nhấn 'q' để thoát
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
-                
-        except Exception as e:
-            print(f"Error processing frame: {str(e)}")
-            continue
-
-    # Giải phóng resources
-    cap.release()
-    # out.release()
-    cv2.destroyAllWindows()
+        # for pose_data in poses_data:
+        #     if pose_data['keypoints']:
+        #         draw_keypoints(display_frame, pose_data['keypoints'], connections=POSE_CONNECTIONS_INDICES, color=(0, 255, 255)) # Cyan color
+        return poses_data['image'] if 'image' in poses_data else display_frame

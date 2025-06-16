@@ -74,9 +74,9 @@ class AnomalyDetector:
             person_map[person_id] = {'bbox': p_yolo['bbox'], 'pose': None, 'gaze': None}
 
             # Attempt to match pose and gaze detections to this YOLO person bbox
-            for p_pose in frame_data['pose_estimations']:
-                if self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
-                    person_map[person_id]['pose'] = p_pose['keypoints']
+            # for p_pose in frame_data['pose_estimations']:
+            #     if p_pose['bbox'] and self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
+            #         person_map[person_id]['pose'] = p_pose['keypoints']
             for p_gaze in frame_data['gaze_estimations']:
                 if self._check_overlap(p_yolo['bbox'], p_gaze['bbox'], threshold=0.6):
                     person_map[person_id]['gaze'] = p_gaze['head_pose']
