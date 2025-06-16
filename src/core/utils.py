@@ -5,6 +5,7 @@ import json
 from PIL import Image # For VLM input processing
 import mediapipe as mp # For pose drawing connections if needed for utility
 from core.logger import logger
+from core.constants import COCO_PERSON_SKELETON_INDICES
 
 def load_video_capture(video_path):
     """Loads a video file and returns a cv2.VideoCapture object."""
@@ -29,21 +30,43 @@ def draw_bbox(frame, bbox, label=None, color=(0, 255, 0)):
         cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
 def draw_keypoints(frame, keypoints, color=(0, 255, 0), connections=None):
-    """Draws keypoints and connections on the frame."""
-    for kp in keypoints:
-        x, y = int(kp[0]), int(kp[1])
-        cv2.circle(frame, (x, y), 3, color, -1)
-    if connections:
-        for connection in connections:
-            # Ensure keypoints have visibility/confidence for drawing
-            start_kp = keypoints[connection[0]] if len(keypoints) > connection[0] else None
-            end_kp = keypoints[connection[1]] if len(keypoints) > connection[1] else None
+    """
+    Draws keypoints and connections on the frame using OpenPifPaf style.
+    Args:
+        frame: The frame to draw on
+        keypoints: List of keypoints in format [[x, y, confidence], ...]
+        color: Color for keypoints and connections (BGR format)
+        connections: List of connections between keypoints. If None, uses COCO skeleton
+    """
+    if not keypoints:
+        return frame
 
-            if start_kp and end_kp and \
-               (len(start_kp) < 3 or start_kp[2] > 0.5) and \
-               (len(end_kp) < 3 or end_kp[2] > 0.5): # Check visibility confidence if available
-                cv2.line(frame, (int(start_kp[0]), int(start_kp[1])),
-                         (int(end_kp[0]), int(end_kp[1])), color, 2)
+    keypoints = np.array(keypoints)
+    
+    # Use COCO skeleton by default if no connections provided
+    if connections is None:
+        connections = COCO_PERSON_SKELETON_INDICES
+        # Use blue for keypoints and cyan for connections in OpenPifPaf style
+        keypoint_color = (255, 0, 0)  # Blue
+        connection_color = (0, 255, 255)  # Cyan
+    else:
+        keypoint_color = color
+        connection_color = color
+
+    # Draw keypoints
+    for x, y, conf in keypoints:
+        if conf > 0.2:  # Only draw keypoints with confidence > 0.2
+            cv2.circle(frame, (int(x), int(y)), 3, keypoint_color, -1)
+
+    # Draw connections
+    for j1, j2 in connections:
+        if (j1 < len(keypoints) and j2 < len(keypoints) and 
+            keypoints[j1][2] > 0.2 and keypoints[j2][2] > 0.2):
+            pt1 = (int(keypoints[j1][0]), int(keypoints[j1][1]))
+            pt2 = (int(keypoints[j2][0]), int(keypoints[j2][1]))
+            cv2.line(frame, pt1, pt2, connection_color, 2)
+
+    return frame
 
 def draw_gaze(frame, head_pose, color=(255, 0, 0)):
     """Draws a simplified gaze vector based on head pose."""
