@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from core.config import Config
+from core.utils import get_angle_between_keypoints
 
 class AnomalyDetector:
     def __init__(self, config: Config):
@@ -44,6 +45,16 @@ class AnomalyDetector:
 
         iou = inter_area / union_area
         return iou >= threshold
+    
+    def _check_arm_angle(self, keypoints: list, threshold: int = 160) -> bool:
+        """
+        Checks if the angle between the arms (shoulders to wrists) exceeds a threshold.
+        This can indicate suspicious behavior like passing objects.
+        """
+        arm_angle = get_angle_between_keypoints(keypoints[0], keypoints[1], keypoints[2])  # Left arm
+        if arm_angle is None:
+            return False
+        return arm_angle > threshold
 
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
@@ -214,6 +225,31 @@ class AnomalyDetector:
                                 'timestamp': current_timestamp,
                                 'description': f"Hands of {p1_id} and {p2_id} in close proximity, possibly exchanging object or signaling."
                             })
+        
+        # 5. Suspicious Arm Angles (e.g., passing objects)
+        for p_id, p_data in frame_data['pose_estimations']["keypoints"].items():
+            right_arm_kpts_info = [2, 3, 4] # Right shoulder, elbow, wrist
+            left_arm_kpts_info = [5, 6, 7]  # Left shoulder, elbow, wrist
+            right_arm = []
+            left_arm = []
+            for kpt_data in p_data:
+                if kpt_data[-1] in right_arm_kpts_info:
+                    right_arm.append([kpt_data[0], kpt_data[1]])
+                if kpt_data[-1] in left_arm_kpts_info:
+                    left_arm.append([kpt_data[0], kpt_data[1]])
+
+            if len(right_arm) < 3 or len(left_arm) < 3:
+                continue
+            # Check if arms are at suspicious angles (e.g., passing objects)
+            if self._check_arm_angle(right_arm) or self._check_arm_angle(left_arm):
+                anomalies.append({
+                    'type': 'suspicious_arm_angle',
+                    'person_ids': [p_id],
+                    'confidence': 0.6,
+                    'timestamp': current_timestamp,
+                    'description': f"{p_id} detected with suspicious arm angle, possibly passing an object."
+                })
+                print("Suspicious arm angle detected for", anomalies)
 
         return anomalies
 

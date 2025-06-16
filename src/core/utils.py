@@ -79,4 +79,15 @@ def pil_to_cv2(pil_image):
         return None
     return cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
 
+def get_angle_between_keypoints(kpt1, kpt2, kpt3):
+    if None in [kpt1, kpt2, kpt3]: return 0
+    kpt1 = np.array(kpt1)
+    kpt2 = np.array(kpt2)
+    kpt3 = np.array(kpt3)
 
+    kpt21 = kpt1 - kpt2
+    kpt23 = kpt3 - kpt2
+
+    angle_radians = np.arccos(np.dot(kpt21, kpt23) / (np.linalg.norm(kpt21) * np.linalg.norm(kpt23)))
+    angle_degrees = np.degrees(angle_radians)
+    return angle_degrees
