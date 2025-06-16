@@ -61,6 +61,12 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
+- Install pretrained model for OpenPose
+``` bash
+cd models
+wget -O pose_model_scratch.pth 'https://www.dropbox.com/s/5v654d2u65fuvyr/pose_model_scratch.pth?e=1&dl=1'
+```
+
 ## Run
 ``` bash
 cd proctor-agent
