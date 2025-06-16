@@ -155,12 +155,28 @@ class PoseEstimator(BaseDetector):
 
         # Decode poses
         _, result_img, joint_list, person_to_joint_assoc = decode_pose(oriImg, heatmaps, pafs)
+        joint_list, person_to_joint_assoc = joint_list.tolist(), person_to_joint_assoc.tolist()
         result_img = cv2.cvtColor(result_img, cv2.COLOR_BGR2RGB)
-        
+
         poses_data = {
             'image': result_img,  # The image with poses drawn
+            'keypoints': {}
         }
 
+        for i, person_joint in enumerate(person_to_joint_assoc):
+            keypoints = []
+            for joint in person_joint[:-2]: # Exclude last two elements which are not joints
+                joint = int(joint)  # Ensure joint index is an integer
+                if joint < 0 or joint >= len(joint_list):
+                    continue
+                keypoints.append([
+                    joint_list[joint][0], 
+                    joint_list[joint][1], 
+                    joint_list[joint][2],
+                    int(joint_list[joint][4])
+                ])
+            poses_data['keypoints'][i] = keypoints
+        
         return poses_data
 
     def draw_results(self, original_frame: np.ndarray, poses_data: list) -> np.ndarray:
