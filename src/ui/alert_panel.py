@@ -1,12 +1,43 @@
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem,
-    QPushButton, QFrame
+    QPushButton, QFrame, QScrollArea
 )
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import Qt, pyqtSignal, QSize
 from PyQt6.QtGui import QColor
 
+class EventCard(QFrame):
+    """A custom widget to display an event as a card."""
+    def __init__(self, event_data: dict, parent: QWidget | None = None) -> None:
+        super().__init__(parent)
+        layout = QHBoxLayout(self)
+        timestamp = f"[{event_data.get('timestamp', 0):.2f}s]"
+        event_type = event_data.get('type', 'Event').replace('_', ' ').title()
+        
+        self.timestamp_label = QLabel(timestamp)
+        self.type_label = QLabel(event_type)
+        self.type_label.setStyleSheet("font-weight: bold;")
+        
+        layout.addWidget(self.timestamp_label)
+        layout.addWidget(self.type_label, 1)
+        self.set_selected(False)
+
+    def set_selected(self, selected: bool) -> None:
+        if selected:
+            self.setStyleSheet("""
+                background-color: #06C755;
+                border-radius: 4px;
+                padding: 2px;
+                margin: 1px;
+            """)
+        else:
+            self.setStyleSheet("""
+                background-color: #555;
+                border-radius: 4px;
+                padding: 2px;
+                margin: 1px;
+            """)
+
 class AlertPanel(QWidget):
-    """A panel for displaying anomaly events and AI reasoning."""
     feedback_provided = pyqtSignal(dict, str)
     analysis_requested = pyqtSignal(dict)
 
@@ -16,106 +47,81 @@ class AlertPanel(QWidget):
         self._init_ui()
 
     def _init_ui(self) -> None:
-        """Initializes the user interface of the alert panel."""
         self.setStyleSheet("""
             #AlertContentFrame {
                 background-color: #3c3c3c;
-                border-radius: 8px;
+                border-radius:8px;
             }
-            QListWidget, QFrame#InfoBox {
-                background-color: transparent;
+            QLabel.TitleLabel {
+                font-size: 14px;
+                font-weight: bold;
+                color: #ffffff;
+                padding-top: 10px;
+            }
+            QListWidget, QScrollArea {
+                background-color: #2b2b2b;
                 border: 1px solid #444;
                 border-radius: 5px;
             }
-            QLabel { font-size: 14px; color: #e0e0e0; }
-            QLabel#TitleLabel { font-size: 18px; font-weight: bold; padding-bottom: 10px; color: #ffffff; }
-            QListWidget::item { padding: 10px; border-bottom: 1px solid #444; }
-            QListWidget::item:selected { background-color: #06C755; color: #ffffff; }
+            QPushButton {
+                padding: 10px 24px; font-size: 14px; margin: 4px 2px;
+                border-radius: 8px; font-weight: bold;
+            }
         """)
 
-        # Main layout for the entire widget
         outer_layout = QVBoxLayout(self)
         outer_layout.setContentsMargins(0, 0, 0, 0)
+        content_frame = self._create_content_frame(outer_layout)
+        main_layout = content_frame.layout()
 
-        # Content frame that has the styled background and border
-        content_frame = QFrame()
-        content_frame.setObjectName("AlertContentFrame")
-        main_layout = QVBoxLayout(content_frame)
-        main_layout.setContentsMargins(15, 15, 15, 15)
-        main_layout.setSpacing(15)
-        
-        outer_layout.addWidget(content_frame)
-
-        title_label = QLabel("Anomaly Detection & AI Reasoning")
-        title_label.setObjectName("TitleLabel")
-        main_layout.addWidget(title_label)
-
-        main_layout.addWidget(QLabel("Detected Anomalies:"))
+        # Section 1: Detected Anomalies
+        anomalies_title = QLabel("Detected Anomalies")
+        anomalies_title.setProperty("class", "TitleLabel")
+        main_layout.addWidget(anomalies_title)
         self.event_list_widget = QListWidget()
         self.event_list_widget.itemClicked.connect(self._on_event_clicked)
         main_layout.addWidget(self.event_list_widget, 1)
 
-        main_layout.addWidget(self._create_separator())
-        main_layout.addWidget(QLabel("AI Reasoning Process:"))
+        # Section 2: Monitoring Constraint
+        constraint_title = QLabel("Monitoring Constraint")
+        constraint_title.setProperty("class", "TitleLabel")
+        main_layout.addWidget(constraint_title)
+        self.llm_constraint_label, constraint_scroll_area = self._create_text_area()
+        main_layout.addWidget(constraint_scroll_area, 1)
 
-        self.llm_label_box = self._create_info_box("LLM Generated Constraint")
-        self.vlm_label_box = self._create_info_box("VLM Analysis & Decision")
-        main_layout.addWidget(self.llm_label_box)
-        main_layout.addWidget(self.vlm_label_box)
-        main_layout.addStretch(1)
-
+        # Section 3: Proctor Results
+        results_title = QLabel("Proctor Results")
+        results_title.setProperty("class", "TitleLabel")
+        main_layout.addWidget(results_title)
+        self.vlm_decision_label, results_scroll_area = self._create_text_area()
+        main_layout.addWidget(results_scroll_area, 1)
+        
         self._init_feedback_buttons(main_layout)
-
-    def _create_info_box(self, title: str) -> QFrame:
-        frame = QFrame()
-        frame.setObjectName("InfoBox")
-        layout = QVBoxLayout(frame)
-        layout.setContentsMargins(10, 10, 10, 10)
-        title_label = QLabel(f"<b>{title}</b>")
-        title_label.setStyleSheet("font-weight: bold; color: #4CC764; border: none; background: none;")
-        info_label = QLabel("No event selected.")
-        info_label.setWordWrap(True)
-        info_label.setObjectName("info_label")
-        info_label.setStyleSheet("border: none; background: none;")
-        layout.addWidget(title_label)
-        layout.addWidget(info_label)
-        return frame
-
-    def _init_feedback_buttons(self, parent_layout: QVBoxLayout) -> None:
-        feedback_layout = QHBoxLayout()
-        self.confirm_btn = QPushButton("✔️ Confirm Cheating")
-        self.false_pos_btn = QPushButton("❌ False Positive")
-        self.confirm_btn.setStyleSheet("background-color: #e74c3c;")
-        self.false_pos_btn.setStyleSheet("background-color: #3498db;")
-        self.confirm_btn.clicked.connect(lambda: self.emit_feedback("confirmed_cheating"))
-        self.false_pos_btn.clicked.connect(lambda: self.emit_feedback("false_positive"))
-        feedback_layout.addWidget(self.confirm_btn)
-        feedback_layout.addWidget(self.false_pos_btn)
-        parent_layout.addLayout(feedback_layout)
+        self.clear_all_events()
 
     def add_event(self, event_data: dict) -> None:
-        item_text = f"[{event_data['timestamp']:.2f}s] {event_data.get('type', 'Event').replace('_', ' ').title()}"
-        list_item = QListWidgetItem(item_text)
-        list_item.setData(Qt.ItemDataRole.UserRole, event_data)
-        self.event_list_widget.addItem(list_item)
-    
+        card = EventCard(event_data)
+        item = QListWidgetItem(self.event_list_widget)
+        item.setSizeHint(QSize(0, 50))
+        item.setData(Qt.ItemDataRole.UserRole, event_data)
+        self.event_list_widget.addItem(item)
+        self.event_list_widget.setItemWidget(item, card)
+        
     def _on_event_clicked(self, item: QListWidgetItem) -> None:
-        """Handles user clicking an event, setting UI to loading and requesting analysis."""
+        for i in range(self.event_list_widget.count()):
+            list_item = self.event_list_widget.item(i)
+            card = self.event_list_widget.itemWidget(list_item)
+            card.set_selected(list_item == item)
+        
         event_data = item.data(Qt.ItemDataRole.UserRole)
         self.active_event_data = event_data
         
-        llm_info = self.llm_label_box.findChild(QLabel, "info_label")
-        vlm_info = self.vlm_label_box.findChild(QLabel, "info_label")
-
-        if llm_info: llm_info.setText("<i>Requesting AI analysis...</i>")
-        if vlm_info: vlm_info.setText("<i>Waiting for LLM constraints...</i>")
-        
+        self.llm_constraint_label.setText("<i>Requesting AI analysis...</i>")
+        self.vlm_decision_label.setText("<i>Waiting for LLM constraints...</i>")
         self.analysis_requested.emit(event_data)
 
     def update_llm_constraint(self, constraint: str) -> None:
-        if self.active_event_data:
-            info_label = self.llm_label_box.findChild(QLabel, "info_label")
-            if info_label: info_label.setText(constraint)
+        if self.active_event_data: self.llm_constraint_label.setText(constraint)
 
     def update_vlm_result(self, data: dict) -> None:
         event_data = data.get('event_data', {})
@@ -123,34 +129,68 @@ class AlertPanel(QWidget):
             vlm_result = data.get('vlm_result', {})
             decision = vlm_result.get('decision', 'N/A')
             explanation = vlm_result.get('explanation', '')
-            info_text = f"<b>{decision}</b><br>{explanation}"
-            info_label = self.vlm_label_box.findChild(QLabel, "info_label")
-            if info_label:
-                info_label.setText(info_text)
-                if "Confirmed" in decision: info_label.setStyleSheet("color: #e74c3c; border: none; background: none;")
-                elif "Not Cheating" in decision: info_label.setStyleSheet("color: #4CC764; border: none; background: none;")
-                else: info_label.setStyleSheet("color: #e0e0e0; border: none; background: none;")
-            self.active_event_data['vlm_decision_text'] = decision
-            self.active_event_data['vlm_explanation_text'] = explanation
+            
+            color = "#e0e0e0"
+            if "Confirmed" in decision: color = "#e74c3c"
+            elif "Not Cheating" in decision: color = "#4CC764"
+            
+            self.vlm_decision_label.setText(f"<span style='color:{color}; font-weight:bold;'>{decision}</span><br>{explanation}")
+            self.active_event_data.update(vlm_decision_text=decision, vlm_explanation_text=explanation)
+
+    def clear_all_events(self) -> None:
+        self.event_list_widget.clear()
+        self.llm_constraint_label.setText("<i>No event selected.</i>")
+        self.vlm_decision_label.setText("<i>No event selected.</i>")
+        self.active_event_data = None
+        
+    # --- UI Creation Helpers ---
+    def _create_text_area(self) -> tuple[QLabel, QScrollArea]:
+        scroll_area = QScrollArea()
+        scroll_area.setStyleSheet("""
+            background-color: #2b2b2b;
+            border: 1px solid #444;
+            border-radius: 5px;
+        """)
+        scroll_area.setWidgetResizable(True)
+        content_label = QLabel("<i>No event selected.</i>")
+        content_label.setWordWrap(True)
+        content_label.setAlignment(Qt.AlignmentFlag.AlignTop)
+        content_label.setStyleSheet("padding: 5px; color: #e0e0e0;")
+        scroll_area.setWidget(content_label)
+        return content_label, scroll_area
+
+    def _create_content_frame(self, parent_layout: QVBoxLayout) -> QFrame:
+        content_frame = QFrame()
+        content_frame.setObjectName("AlertContentFrame")
+        layout = QVBoxLayout(content_frame)
+        layout.setContentsMargins(15, 15, 15, 15)
+        layout.setSpacing(10)
+        parent_layout.addWidget(content_frame)
+        return content_frame
+
+    def _init_feedback_buttons(self, parent_layout: QVBoxLayout) -> None:
+        feedback_layout = QHBoxLayout()
+        self.confirm_btn = QPushButton("✔️ Confirm Cheating")
+        self.false_pos_btn = QPushButton("❌ False Positive")
+        self.confirm_btn.setStyleSheet("""
+            background-color: #e74c3c;
+            padding: 10px 24px; font-size: 14px; margin: 4px 2px;
+            border-radius: 8px; font-weight: bold;
+        """)
+        self.false_pos_btn.setStyleSheet("""
+            background-color: #3498db;
+            padding: 10px 24px; font-size: 14px; margin: 4px 2px;
+            border-radius: 8px; font-weight: bold;
+        """)
+        self.confirm_btn.clicked.connect(lambda: self.emit_feedback("confirmed_cheating"))
+        self.false_pos_btn.clicked.connect(lambda: self.emit_feedback("false_positive"))
+        feedback_layout.addWidget(self.confirm_btn)
+        feedback_layout.addWidget(self.false_pos_btn)
+        parent_layout.addLayout(feedback_layout)
 
     def emit_feedback(self, feedback_type: str) -> None:
         if self.active_event_data:
             self.feedback_provided.emit(self.active_event_data, feedback_type)
             self.confirm_btn.setEnabled(False)
             self.false_pos_btn.setEnabled(False)
-
-    def clear_all_events(self) -> None:
-        self.event_list_widget.clear()
-        llm_info = self.llm_label_box.findChild(QLabel, "info_label")
-        vlm_info = self.vlm_label_box.findChild(QLabel, "info_label")
-        if llm_info: llm_info.setText("No event selected.")
-        if vlm_info: vlm_info.setText("No event selected.")
-        self.active_event_data = None
-
-    def _create_separator(self) -> QFrame:
-        separator = QFrame()
-        separator.setFrameShape(QFrame.Shape.HLine)
-        separator.setFrameShadow(QFrame.Shadow.Sunken)
-        separator.setStyleSheet("background-color: #444;")
-        return separator
 
