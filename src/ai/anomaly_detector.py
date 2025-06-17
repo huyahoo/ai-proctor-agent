@@ -60,44 +60,48 @@ class AnomalyDetector:
         return angle_deg
 
     # Passing material: Suspicious Arm Angles
-    def _check_suspicious_arm_angle(self, pid: int, pose: list, timestamp: float) -> dict | None:
+    def check_suspicious_arm_angle(self, person_map: dict, timestamp: float) -> dict | None:
         """
         Check if this person’s left or right arm is nearly straight (>160°).
         Returns one anomaly dict or None.
         """
-        if not pose:
-            return None
+        anomaly = []
+        for pid, data in person_map.items():
+            pose_data = data.get('pose')
+            if not pose_data:
+                return None
 
-        # keypoint indices: (shoulder, elbow, wrist)
-        RIGHT_IDS = [6, 8, 10]
-        LEFT_IDS  = [5, 7,  9]
+            # keypoint indices: (shoulder, elbow, wrist)
+            RIGHT_IDS = [6, 8, 10]
+            LEFT_IDS  = [5, 7,  9]
 
-        try:
-            right = [pose[i] for i in RIGHT_IDS]
-            left  = [pose[i] for i in LEFT_IDS]
-        except (TypeError, IndexError):
-            return None  # missing or malformed keypoints
+            try:
+                right = [pose_data[i] for i in RIGHT_IDS]
+                left  = [pose_data[i] for i in LEFT_IDS]
+            except (TypeError, IndexError):
+                return None  # missing or malformed keypoints
 
-        # compute elbow angles
-        right_angle = self._calculate_angle(right)
-        left_angle  = self._calculate_angle(left)
-        if right_angle is None or left_angle is None:
-            return None
+            # compute elbow angles
+            right_angle = self._calculate_angle(right)
+            left_angle  = self._calculate_angle(left)
+            if right_angle is None or left_angle is None:
+                return None
 
-        # if either arm is nearly straight, flag it
-        if right_angle > 160 or left_angle > 160:
-            return {
-                'type': 'suspicious_arm_angle',
-                'person_ids': [pid],
-                'timestamp': timestamp,
-                'reason': (
-                    f"PID {pid} arm angles R={right_angle:.1f}°, "
-                    f"L={left_angle:.1f}° — possibly passing an object."
-                )
-            }
+            print(f"Person {pid}: Right arm angle: {right_angle:.1f}°, Left arm angle: {left_angle:.1f}°")
+            # if either arm is nearly straight, flag it
+            if right_angle > 160 or left_angle > 160:
+                anomaly.append({
+                    'type': 'suspicious_arm_angle',
+                    'person_ids': [pid],
+                    'timestamp': timestamp,
+                    'reason': (
+                        f"PID {pid} arm angles R={right_angle:.1f}°, "
+                        f"L={left_angle:.1f}° — possibly passing an object."
+                    )
+                })
 
-        return None
-
+        return anomaly if anomaly else None
+    
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
         Detects anomalies based on YOLO, Pose, and Gaze data for the current frame.
@@ -149,36 +153,14 @@ class AnomalyDetector:
         # print(person_map)
         # person_map = {id: {'bbox': [x1,y1,x2,y2], 'pose': [[x,y,conf],...], 'gaze': {'bbox': [x1,y1,x2,y2], 'point': [x,y], 'vector': [x,y], 'score': 0.0}}}
 
-        # Now detect anomalies per person
-        for pid, info in person_map.items():
-            bbox = info['bbox']
-            pose = info['pose']
-            gaze = info['gaze']
-
-            #     # Update gaze history if we have a valid gaze vector
-            #     if gaze and len(gaze) >= 4:
-            #         # gaze_info: [nose_x, nose_y, pitch_deg, yaw_deg, roll_deg]
-            #         _, _, pitch, yaw, _ = gaze
-            #         hist = self.gaze_history.setdefault(pid, [])
-            #         hist.append((current_timestamp, yaw, pitch))
-            #         # prune old history
-            #         max_age = self.config.MAX_HISTORY_LENGTH_SECONDS
-            #         self.gaze_history[pid] = [
-            #             entry for entry in hist
-            #             if current_timestamp - entry[0] < max_age
-            #         ]
-
-            arm_anomaly = self._check_suspicious_arm_angle(
-                pid,
-                [kp[:2] for kp in pose],
-                current_timestamp
-            )
-            if arm_anomaly:
-                anomalies.append(arm_anomaly)
-
-
         # --- Cheating Detection Logic ---
+        anomalies = []
 
+        # 1. Passing material: Suspicious Arm Angles
+        arm_anomaly = self.check_suspicious_arm_angle(person_map, current_timestamp)
+
+        if arm_anomaly:
+            anomalies.extend(arm_anomaly)
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:
         #     if obj['label'] == 'person': continue # Skip persons
