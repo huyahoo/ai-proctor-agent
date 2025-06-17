@@ -16,7 +16,8 @@ from sharingan.sharingan import Sharingan
 from sharingan.common import spatial_argmax2d, square_bbox
 from core.utils import draw_gaze
 from cv.base_detector import BaseDetector
-from core.config import Config 
+from core.config import Config
+from core.logger import logger
 
 class GazeTracker(BaseDetector):
     """
@@ -36,7 +37,6 @@ class GazeTracker(BaseDetector):
 
         # Device configuration
         self.device = self.config.DEVICE
-        print(f"GazeTracker using device: {self.device}")
         
         # Model configuration
         self._setup_model_config()
@@ -44,7 +44,7 @@ class GazeTracker(BaseDetector):
         # Initialize models
         self._initialize_models()
         
-        print("GazeTracker initialized successfully")
+        logger.info("GazeTracker initialized successfully")
     
     def _setup_model_config(self):
         """Setup model configuration parameters."""
@@ -92,7 +92,7 @@ class GazeTracker(BaseDetector):
         model = model.to(self.device)
         model.eval()
         
-        print("Head detection model loaded successfully")
+        logger.info("Head detection model loaded successfully")
         return model
     
     def _create_sharingan_model(self):
@@ -128,7 +128,7 @@ class GazeTracker(BaseDetector):
         sharingan.eval()
         sharingan.to(self.device)
         
-        print("Sharingan model loaded successfully")
+        logger.info("Sharingan model loaded successfully")
         return sharingan
     
     def detect(self, frame: np.ndarray) -> List[Dict]:

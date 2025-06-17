@@ -1,15 +1,17 @@
 ultralytics==8.3.155
-google-generativeai==0.8.5
+google-generativeai
 PyQt6==6.9.1
+mediapipe==0.10.21
 python-dotenv==1.1.0
+Pillow==11.2.1
 colorama==0.4.6
 einops==0.7.0
 boxmot==10.0.45
 pytorch-lightning==2.1.2
 termcolor==2.4.0
 transformers==4.35.2
-protobuf>=5.26.1
-grpcio-status==1.71.0
+protobuf
+grpcio-status
 wandb==0.16.1
 seaborn==0.13.0
 

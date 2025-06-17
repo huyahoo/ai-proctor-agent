@@ -35,7 +35,7 @@ conda activate proctor-agent
 3. **Install CUDA dependencies**
 ```bash
 # Install PyTorch with CUDA support
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1  pytorch-cuda=11.8 -c pytorch -c nvidia
 conda install -c conda-forge opencv
 ```
 

@@ -4,6 +4,22 @@ import os
 import json
 from PIL import Image # For VLM input processing
 from core.logger import logger
+import warnings
+from torch.cuda.amp import autocast
+
+def setup_warning_filters():
+    # Filter out torch.cuda.amp.autocast deprecation warnings
+    warnings.filterwarnings(
+        "ignore",
+        message=".*torch.cuda.amp.autocast.*",
+        category=FutureWarning
+    )
+    # Filter out pytree node registration warning
+    warnings.filterwarnings(
+        "ignore",
+        message=".*torch.utils._pytree._register_pytree_node*",
+        category=FutureWarning
+    )
 
 def load_video_capture(video_path):
     """Loads a video file and returns a cv2.VideoCapture object."""

@@ -4,6 +4,10 @@ from PyQt6.QtWidgets import QApplication, QMessageBox
 from ui.main_window import ProctorAgentApp
 from core.config import Config
 from core.logger import logger
+from core.utils import setup_warning_filters
+
+# Setup warning filters
+setup_warning_filters()
 
 # Ensure necessary folders exist
 os.makedirs("data/videos", exist_ok=True)
