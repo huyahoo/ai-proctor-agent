@@ -44,6 +44,20 @@ class AnomalyDetector:
 
         iou = inter_area / union_area
         return iou >= threshold
+    
+    def _calculate_angle(self, arm_keypoints: list) -> float:
+        shoulder, elbow, wrist = arm_keypoints
+        
+        # Vector shoulder → elbow và wrist → elbow
+        vec1 = np.array(shoulder) - np.array(elbow)
+        vec2 = np.array(wrist) - np.array(elbow)
+
+        # Tính cos của góc giữa 2 vector
+        cos_angle = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2) + 1e-6)
+        angle_rad = np.arccos(np.clip(cos_angle, -1.0, 1.0))
+        angle_deg = np.degrees(angle_rad)
+
+        return angle_deg
 
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
@@ -74,9 +88,9 @@ class AnomalyDetector:
             person_map[person_id] = {'bbox': p_yolo['bbox'], 'pose': None, 'gaze': None}
 
             # Attempt to match pose and gaze detections to this YOLO person bbox
-            for p_pose in frame_data['pose_estimations']:
-                if self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
-                    person_map[person_id]['pose'] = p_pose['keypoints']
+            # for p_pose in frame_data['pose_estimations']:
+            #     if self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
+            #         person_map[person_id]['pose'] = p_pose['keypoints']
             for p_gaze in frame_data['gaze_estimations']:
                 if self._check_overlap(p_yolo['bbox'], p_gaze['bbox'], threshold=0.6):
                     person_map[person_id]['gaze'] = p_gaze['head_pose']
@@ -92,128 +106,155 @@ class AnomalyDetector:
 
         # --- Cheating Detection Logic ---
 
-        # 1. Individual Cheating: Unauthorized Material
-        for obj in frame_data['yolo_detections']:
-            if obj['label'] == 'person': continue # Skip persons
+        # # 1. Individual Cheating: Unauthorized Material
+        # for obj in frame_data['yolo_detections']:
+        #     if obj['label'] == 'person': continue # Skip persons
 
-            # Check if object is close to a person's hand or lap area
-            for p_id, p_data in person_map.items():
-                if p_data['bbox'] and self._check_overlap(obj['bbox'], p_data['bbox'], threshold=0.1): # Some overlap
-                    # Heuristic: check if object is in the lower half of the person's bbox (lap/desk area)
-                    person_y_center = (p_data['bbox'][1] + p_data['bbox'][3]) / 2
-                    obj_y_center = (obj['bbox'][1] + obj['bbox'][3]) / 2
+        #     # Check if object is close to a person's hand or lap area
+        #     for p_id, p_data in person_map.items():
+        #         if p_data['bbox'] and self._check_overlap(obj['bbox'], p_data['bbox'], threshold=0.1): # Some overlap
+        #             # Heuristic: check if object is in the lower half of the person's bbox (lap/desk area)
+        #             person_y_center = (p_data['bbox'][1] + p_data['bbox'][3]) / 2
+        #             obj_y_center = (obj['bbox'][1] + obj['bbox'][3]) / 2
 
-                    if obj_y_center > person_y_center: # Object is roughly in the lower half of person's bounding box
-                         anomalies.append({
-                            'type': 'individual_unauthorized_material',
-                            'person_ids': [p_id],
-                            'object_label': obj['label'],
-                            'confidence': obj['confidence'],
-                            'bbox': obj['bbox'],
-                            'timestamp': current_timestamp,
-                            'description': f"{p_id} detected with potential unauthorized '{obj['label']}' in lap/desk area."
-                        })
+        #             if obj_y_center > person_y_center: # Object is roughly in the lower half of person's bounding box
+        #                  anomalies.append({
+        #                     'type': 'individual_unauthorized_material',
+        #                     'person_ids': [p_id],
+        #                     'object_label': obj['label'],
+        #                     'confidence': obj['confidence'],
+        #                     'bbox': obj['bbox'],
+        #                     'timestamp': current_timestamp,
+        #                     'description': f"{p_id} detected with potential unauthorized '{obj['label']}' in lap/desk area."
+        #                 })
 
-        # 2. Individual Cheating: Suspicious Gaze (looking away from exam/screen)
-        for p_id, p_data in person_map.items():
-            if p_data['gaze']:
-                _, _, pitch, yaw, _ = p_data['gaze']
+        # # 2. Individual Cheating: Suspicious Gaze (looking away from exam/screen)
+        # for p_id, p_data in person_map.items():
+        #     if p_data['gaze']:
+        #         _, _, pitch, yaw, _ = p_data['gaze']
 
-                # Check for extreme yaw (looking far left/right) or extreme pitch (looking up/down)
-                # These thresholds need tuning!
-                if abs(yaw) > 45 or abs(pitch) > 30: # Example: >45 deg side, >30 deg up/down
-                     anomalies.append({
-                        'type': 'individual_suspicious_gaze',
-                        'person_ids': [p_id],
-                        'confidence': 0.7,
-                        'timestamp': current_timestamp,
-                        'description': f"{p_id} exhibiting extreme gaze (yaw: {yaw:.1f}deg, pitch: {pitch:.1f}deg), possibly looking away from exam."
-                    })
+        #         # Check for extreme yaw (looking far left/right) or extreme pitch (looking up/down)
+        #         # These thresholds need tuning!
+        #         if abs(yaw) > 45 or abs(pitch) > 30: # Example: >45 deg side, >30 deg up/down
+        #              anomalies.append({
+        #                 'type': 'individual_suspicious_gaze',
+        #                 'person_ids': [p_id],
+        #                 'confidence': 0.7,
+        #                 'timestamp': current_timestamp,
+        #                 'description': f"{p_id} exhibiting extreme gaze (yaw: {yaw:.1f}deg, pitch: {pitch:.1f}deg), possibly looking away from exam."
+        #             })
 
-        # 3. Collaborative Cheating: Gaze Correlation (looking at each other's paper/screen)
-        for i, (p1_id, p1_data) in enumerate(person_map.items()):
-            if not p1_data['gaze'] or not p1_data['bbox']: continue
-            p1_center = self._get_person_center(p1_data['bbox'])
+        # # 3. Collaborative Cheating: Gaze Correlation (looking at each other's paper/screen)
+        # for i, (p1_id, p1_data) in enumerate(person_map.items()):
+        #     if not p1_data['gaze'] or not p1_data['bbox']: continue
+        #     p1_center = self._get_person_center(p1_data['bbox'])
 
-            for j, (p2_id, p2_data) in enumerate(person_map.items()):
-                if i >= j or not p2_data['gaze'] or not p2_data['bbox']: continue
-                p2_center = self._get_person_center(p2_data['bbox'])
+        #     for j, (p2_id, p2_data) in enumerate(person_map.items()):
+        #         if i >= j or not p2_data['gaze'] or not p2_data['bbox']: continue
+        #         p2_center = self._get_person_center(p2_data['bbox'])
 
-                # Check if persons are close enough for interaction (normalized by frame width)
-                normalized_distance = self._calculate_distance(p1_center, p2_center) / frame_data['frame_width']
-                if normalized_distance < self.config.COLLABORATIVE_DISTANCE_THRESHOLD:
+        #         # Check if persons are close enough for interaction (normalized by frame width)
+        #         normalized_distance = self._calculate_distance(p1_center, p2_center) / frame_data['frame_width']
+        #         if normalized_distance < self.config.COLLABORATIVE_DISTANCE_THRESHOLD:
 
-                    # Get recent gaze data for both
-                    p1_recent_gaze = [g for g in self.gaze_history.get(p1_id, [])]
-                    p2_recent_gaze = [g for g in self.gaze_history.get(p2_id, [])]
+        #             # Get recent gaze data for both
+        #             p1_recent_gaze = [g for g in self.gaze_history.get(p1_id, [])]
+        #             p2_recent_gaze = [g for g in self.gaze_history.get(p2_id, [])]
 
-                    # Check for sustained, correlated gaze over few frames
-                    if len(p1_recent_gaze) >= self.config.GAZE_CONSECUTIVE_FRAMES and \
-                       len(p2_recent_gaze) >= self.config.GAZE_CONSECUTIVE_FRAMES:
+        #             # Check for sustained, correlated gaze over few frames
+        #             if len(p1_recent_gaze) >= self.config.GAZE_CONSECUTIVE_FRAMES and \
+        #                len(p2_recent_gaze) >= self.config.GAZE_CONSECUTIVE_FRAMES:
 
-                        # Simplified: check if both are looking towards each other's general direction
-                        # A more robust check would involve calculating a vector from head to other person's paper bbox
+        #                 # Simplified: check if both are looking towards each other's general direction
+        #                 # A more robust check would involve calculating a vector from head to other person's paper bbox
 
-                        # Get average yaw/pitch over the last few frames
-                        avg_p1_yaw = np.mean([g[1] for g in p1_recent_gaze])
-                        avg_p1_pitch = np.mean([g[2] for g in p1_recent_gaze])
-                        avg_p2_yaw = np.mean([g[1] for g in p2_recent_gaze])
-                        avg_p2_pitch = np.mean([g[2] for g in p2_recent_gaze])
+        #                 # Get average yaw/pitch over the last few frames
+        #                 avg_p1_yaw = np.mean([g[1] for g in p1_recent_gaze])
+        #                 avg_p1_pitch = np.mean([g[2] for g in p1_recent_gaze])
+        #                 avg_p2_yaw = np.mean([g[1] for g in p2_recent_gaze])
+        #                 avg_p2_pitch = np.mean([g[2] for g in p2_recent_gaze])
 
-                        # Heuristic: if p1 is left of p2 and p1 looks right (positive yaw)
-                        # AND p2 is right of p1 and p2 looks left (negative yaw)
-                        p1_looks_at_p2_approx = (p1_center[0] < p2_center[0] and avg_p1_yaw > self.config.GAZE_YAW_THRESHOLD) or \
-                                                (p1_center[0] > p2_center[0] and avg_p1_yaw < -self.config.GAZE_YAW_THRESHOLD)
-                        p2_looks_at_p1_approx = (p2_center[0] < p1_center[0] and avg_p2_yaw > self.config.GAZE_YAW_THRESHOLD) or \
-                                                (p2_center[0] > p1_center[0] and avg_p2_yaw < -self.config.GAZE_YAW_THRESHOLD)
+        #                 # Heuristic: if p1 is left of p2 and p1 looks right (positive yaw)
+        #                 # AND p2 is right of p1 and p2 looks left (negative yaw)
+        #                 p1_looks_at_p2_approx = (p1_center[0] < p2_center[0] and avg_p1_yaw > self.config.GAZE_YAW_THRESHOLD) or \
+        #                                         (p1_center[0] > p2_center[0] and avg_p1_yaw < -self.config.GAZE_YAW_THRESHOLD)
+        #                 p2_looks_at_p1_approx = (p2_center[0] < p1_center[0] and avg_p2_yaw > self.config.GAZE_YAW_THRESHOLD) or \
+        #                                         (p2_center[0] > p1_center[0] and avg_p2_yaw < -self.config.GAZE_YAW_THRESHOLD)
 
-                        if p1_looks_at_p2_approx and p2_looks_at_p1_approx:
-                             anomalies.append({
-                                'type': 'collaborative_gaze_correlation',
-                                'person_ids': [p1_id, p2_id],
-                                'confidence': 0.8,
-                                'timestamp': current_timestamp,
-                                'description': f"Sustained, correlated side-gaze between {p1_id} and {p2_id} detected. Both students looking towards each other's exam area."
-                            })
+        #                 if p1_looks_at_p2_approx and p2_looks_at_p1_approx:
+        #                      anomalies.append({
+        #                         'type': 'collaborative_gaze_correlation',
+        #                         'person_ids': [p1_id, p2_id],
+        #                         'confidence': 0.8,
+        #                         'timestamp': current_timestamp,
+        #                         'description': f"Sustained, correlated side-gaze between {p1_id} and {p2_id} detected. Both students looking towards each other's exam area."
+        #                     })
 
-        # 4. Collaborative Cheating: Hand Gestures / Object Passing
-        for i, (p1_id, p1_data) in enumerate(person_map.items()):
-            if not p1_data['pose'] or not p1_data['bbox']: continue
-            p1_pose_keypoints = p1_data['pose']
+        # # 4. Collaborative Cheating: Hand Gestures / Object Passing
+        # for i, (p1_id, p1_data) in enumerate(person_map.items()):
+        #     if not p1_data['pose'] or not p1_data['bbox']: continue
+        #     p1_pose_keypoints = p1_data['pose']
 
-            for j, (p2_id, p2_data) in enumerate(person_map.items()):
-                if i >= j or not p2_data['pose'] or not p2_data['bbox']: continue
-                p2_pose_keypoints = p2_data['pose']
+        #     for j, (p2_id, p2_data) in enumerate(person_map.items()):
+        #         if i >= j or not p2_data['pose'] or not p2_data['bbox']: continue
+        #         p2_pose_keypoints = p2_data['pose']
 
-                normalized_distance = self._calculate_distance(self._get_person_center(p1_data['bbox']), self._get_person_center(p2_data['bbox'])) / frame_data['frame_width']
-                if normalized_distance < self.config.COLLABORATIVE_DISTANCE_THRESHOLD:
+        #         normalized_distance = self._calculate_distance(self._get_person_center(p1_data['bbox']), self._get_person_center(p2_data['bbox'])) / frame_data['frame_width']
+        #         if normalized_distance < self.config.COLLABORATIVE_DISTANCE_THRESHOLD:
 
-                    # MediaPipe keypoints for wrists: 15 (left wrist), 16 (right wrist)
-                    # Use a small pixel threshold for hand proximity
-                    hand_proximity_pixel_threshold = 0.05 * frame_data['frame_width'] # 5% of frame width
+        #             # MediaPipe keypoints for wrists: 15 (left wrist), 16 (right wrist)
+        #             # Use a small pixel threshold for hand proximity
+        #             hand_proximity_pixel_threshold = 0.05 * frame_data['frame_width'] # 5% of frame width
 
-                    # Helper to check if two keypoints are close and confident
-                    def are_keypoints_close(kp1, kp2):
-                        if kp1 and kp2 and \
-                           (len(kp1) < 3 or kp1[2] > self.config.POSE_MIN_CONFIDENCE) and \
-                           (len(kp2) < 3 or kp2[2] > self.config.POSE_MIN_CONFIDENCE): # Check visibility confidence if present
-                            return self._calculate_distance((kp1[0], kp1[1]), (kp2[0], kp2[1])) < hand_proximity_pixel_threshold
-                        return False
+        #             # Helper to check if two keypoints are close and confident
+        #             def are_keypoints_close(kp1, kp2):
+        #                 if kp1 and kp2 and \
+        #                    (len(kp1) < 3 or kp1[2] > self.config.POSE_MIN_CONFIDENCE) and \
+        #                    (len(kp2) < 3 or kp2[2] > self.config.POSE_MIN_CONFIDENCE): # Check visibility confidence if present
+        #                     return self._calculate_distance((kp1[0], kp1[1]), (kp2[0], kp2[1])) < hand_proximity_pixel_threshold
+        #                 return False
 
-                    # Check various hand combinations for close proximity
-                    if (p1_pose_keypoints and p2_pose_keypoints):
-                        if (are_keypoints_close(p1_pose_keypoints[15], p2_pose_keypoints[16]) or # P1 Left Wrist, P2 Right Wrist
-                            are_keypoints_close(p1_pose_keypoints[16], p2_pose_keypoints[15]) or # P1 Right Wrist, P2 Left Wrist
-                            are_keypoints_close(p1_pose_keypoints[15], p2_pose_keypoints[15]) or # P1 Left Wrist, P2 Left Wrist (e.g., passing over desk)
-                            are_keypoints_close(p1_pose_keypoints[16], p2_pose_keypoints[16])): # P1 Right Wrist, P2 Right Wrist
+        #             # Check various hand combinations for close proximity
+        #             if (p1_pose_keypoints and p2_pose_keypoints):
+        #                 if (are_keypoints_close(p1_pose_keypoints[15], p2_pose_keypoints[16]) or # P1 Left Wrist, P2 Right Wrist
+        #                     are_keypoints_close(p1_pose_keypoints[16], p2_pose_keypoints[15]) or # P1 Right Wrist, P2 Left Wrist
+        #                     are_keypoints_close(p1_pose_keypoints[15], p2_pose_keypoints[15]) or # P1 Left Wrist, P2 Left Wrist (e.g., passing over desk)
+        #                     are_keypoints_close(p1_pose_keypoints[16], p2_pose_keypoints[16])): # P1 Right Wrist, P2 Right Wrist
 
-                            anomalies.append({
-                                'type': 'collaborative_hand_gesture_proximity',
-                                'person_ids': [p1_id, p2_id],
-                                'confidence': 0.7,
-                                'timestamp': current_timestamp,
-                                'description': f"Hands of {p1_id} and {p2_id} in close proximity, possibly exchanging object or signaling."
-                            })
+        #                     anomalies.append({
+        #                         'type': 'collaborative_hand_gesture_proximity',
+        #                         'person_ids': [p1_id, p2_id],
+        #                         'confidence': 0.7,
+        #                         'timestamp': current_timestamp,
+        #                         'description': f"Hands of {p1_id} and {p2_id} in close proximity, possibly exchanging object or signaling."
+        #                     })
+
+        # 5. Passing material: Suspicious Arm Angles
+        for p_id, p_data in frame_data['pose_estimations'].items():
+            right_arm_kpts_info = [6, 8, 10] # Right shoulder, elbow, wrist
+            left_arm_kpts_info = [5, 7, 9]  # Left shoulder, elbow, wrist
+
+            right_arm = [p_data[i] for i in right_arm_kpts_info]
+            left_arm = [p_data[i] for i in left_arm_kpts_info]
+
+            if len(right_arm) < 3 or len(left_arm) < 3:
+                continue
+
+            right_arm_angle = self._calculate_angle(right_arm)
+            left_arm_angle = self._calculate_angle(left_arm)
+            # print(f"Person {p_id}: Right arm angle: {right_arm_angle}, Left arm angle: {left_arm_angle}")
+
+            # Check if arms are at suspicious angles (e.g., passing objects)
+            if right_arm_angle is None or left_arm_angle is None:
+                continue
+            if right_arm_angle > 160 or left_arm_angle > 160:
+                anomalies.append({
+                    'type': 'suspicious_arm_angle',
+                    'person_ids': [p_id],
+                    'timestamp': current_timestamp,
+                    'description': f"{p_id} detected with suspicious arm angle, possibly passing an object."
+                })
+                print(f"Anomaly detected for {p_id}: suspicious arm angle.")
 
         return anomalies
 
