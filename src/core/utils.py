@@ -4,7 +4,7 @@ import os
 import json
 from PIL import Image # For VLM input processing
 from core.logger import logger
-from core.constants import COCO_PERSON_SKELETON_INDICES
+from core.constants import COCO_PERSON_SKELETON_INDICES, COCO_PERSON_SKELETON, COLORS, UNAUTHORIZED_CLASSES
 import warnings
 from torch.cuda.amp import autocast
 
@@ -37,57 +37,247 @@ def create_blank_frame(width, height, color=(0, 0, 0)):
     """Creates a black frame of specified dimensions."""
     return np.zeros((height, width, 3), dtype=np.uint8) + np.array(color, dtype=np.uint8)
 
-def draw_bbox(frame, bbox, label=None, color=(0, 255, 0)):
-    """Draws a bounding box on the frame."""
-    x1, y1, x2, y2 = map(int, bbox)
-    cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
-    if label:
-        cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-
-def draw_keypoints(frame, keypoints, color=(0, 255, 0), connections=None):
+def iou(boxA, boxB):
     """
-    Draws keypoints and connections on the frame using OpenPifPaf style.
+    Compute IoU of two bboxes in [x1,y1,x2,y2] format.
+    """
+    xa1, ya1, xa2, ya2 = boxA
+    xb1, yb1, xb2, yb2 = boxB
+
+    xi1, yi1 = max(xa1, xb1), max(ya1, yb1)
+    xi2, yi2 = min(xa2, xb2), min(ya2, yb2)
+    inter_w = max(0, xi2 - xi1)
+    inter_h = max(0, yi2 - yi1)
+    inter = inter_w * inter_h
+
+    areaA = (xa2 - xa1) * (ya2 - ya1)
+    areaB = (xb2 - xb1) * (yb2 - yb1)
+    union = areaA + areaB - inter + 1e-6
+
+    return inter / union
+
+def bbox_from_kpts(kpts, conf_th=0.2):
+    """
+    Compute a tight [x1,y1,x2,y2] box over only those keypoints
+    whose confidence > conf_th. Returns None if no keypoints qualify.
+    
     Args:
-        frame: The frame to draw on
-        keypoints: List of keypoints in format [[x, y, confidence], ...]
-        color: Color for keypoints and connections (BGR format)
-        connections: List of connections between keypoints. If None, uses COCO skeleton
+        kpts (List[List[float]]): [[x,y,conf], ...]
+        conf_th (float): confidence threshold
+        
+    Returns:
+        List[int] or None: [x1, y1, x2, y2] or None if no valid points
+    """
+    # filter by confidence
+    good = [(x, y) for x, y, c in kpts if c > conf_th]
+    if not good:
+        return None
+
+    arr = np.array(good)
+    x1, y1 = arr.min(axis=0)
+    x2, y2 = arr.max(axis=0)
+    return [int(x1), int(y1), int(x2), int(y2)]
+
+def assign_yolo_pids(yolo_dets, gaze_data, iou_threshold=0.0):
+    """
+    Attach person IDs from gaze tracking to YOLO detections by spatial overlap.
+
+    For each detection in `yolo_dets`, this function computes the Intersection-over-Union
+    (IoU) against every head bounding box in `gaze_data`. If the highest IoU meets or exceeds
+    `iou_threshold`, the detection inherits the corresponding `pid`; otherwise its `pid` is set to -1.
+
+    Args:
+        yolo_dets (list of dict): Each dict must include:
+            - 'bbox': [x1, y1, x2, y2] coordinates of the detection.
+        gaze_data (list of dict): Each dict must include:
+            - 'bbox': [x1, y1, x2, y2] of a tracked head.
+            - 'pid' : The person ID for that head box.
+        iou_threshold (float): Minimum IoU required to assign a `pid`. Defaults to 0.0
+            (always pick the highest-overlap ID, even if overlap is tiny).
+
+    Returns:
+        list of dict: The same `yolo_dets` list, but each dict now also has a `'pid'` key
+        set to the matched person ID or -1 if no match meets the threshold.
+    """
+    head_boxes = [g['bbox'] for g in gaze_data]
+    head_pids  = [g['pid']  for g in gaze_data]
+
+    for det in yolo_dets:
+        best_iou = 0.0
+        best_pid = -1
+        for hb, pid in zip(head_boxes, head_pids):
+            i = iou(det['bbox'], hb)
+            if i > best_iou:
+                best_iou = i
+                best_pid = pid
+
+        det['pid'] = best_pid if best_iou >= iou_threshold else -1
+
+    return yolo_dets
+
+def assign_pose_pids(raw_pose_data, gaze_data, iou_threshold=0.0):
+    """
+    Aligns pose detections with gaze-tracked person IDs based on spatial overlap.
+
+    For each set of keypoints in `raw_pose_data`, this function first computes a tight
+    bounding box around all keypoints using `bbox_from_kpts`. It then measures the
+    Intersection-over-Union (IoU) between that box and each head bounding box in `gaze_data`.
+    The pose inherits the `pid` of the gaze box with the highest IoU, provided that IoU
+    meets or exceeds `iou_threshold`; otherwise the pose’s `pid` is set to –1.
+
+    Args:
+        raw_pose_data (List[List[List[float]]]):
+            A list of poses, each represented as a list of [x, y, confidence] keypoints.
+        gaze_data (List[Dict]):
+            A list of gaze detections, each a dict containing:
+              - 'bbox': [x1, y1, x2, y2]  head bounding box coordinates
+              - 'pid' : int                the person ID for that head
+        iou_threshold (float):
+            Minimum IoU required to transfer a `pid`. Defaults to 0.0
+            (always pick the best match, even if overlap is minimal).
+
+    Returns:
+        List[Dict]: A list of dicts, one per input pose, each containing:
+            - 'keypoints': the original list of [x, y, confidence] points
+            - 'pid'      : the matched person ID or –1 if no match reaches the threshold
+    """
+    head_boxes = [g['bbox'] for g in gaze_data]
+    head_pids  = [g['pid']  for g in gaze_data]
+
+    out = []
+    for kpts in raw_pose_data:
+        if not kpts:
+            out.append({'keypoints': [], 'pid': -1})
+            continue
+
+        box = bbox_from_kpts(kpts)
+        best_iou, best_pid = 0.0, -1
+
+        for hb, pid in zip(head_boxes, head_pids):
+            i = iou(box, hb)
+            if i > best_iou:
+                best_iou, best_pid = i, pid
+
+        pid_out = best_pid if best_iou >= iou_threshold else -1
+        out.append({'keypoints': kpts, 'pid': pid_out})
+
+    return out
+
+def draw_bbox(
+    frame,
+    bbox,
+    label,
+    text,
+    pid=None,
+    colors=COLORS,
+    thickness=2,
+    font_scale=0.5
+) -> None:
+    """
+    Draws a bounding box on `frame` and overlays `text` just above it.
+    
+    Args:
+      frame:        BGR image.
+      bbox:         [x1, y1, x2, y2].
+      label:        raw class name (e.g. 'person') → used for color decision.
+      text:         Optional text to draw (e.g. 'person: 0.88').
+      pid:          Person ID if label=='person'.
+      colors:       palette for person boxes.
+      thickness:    box line thickness.
+      font_scale:   scale for text.
+    """
+    # 1) pick color
+    if label == 'person' and pid is not None:
+        clr = colors[pid % len(colors)]
+    elif label in UNAUTHORIZED_CLASSES:
+        clr = (0, 0, 255) # red
+    else:
+        clr = (0, 255, 255) # yellow
+
+    # 2) draw the rectangle
+    x1, y1, x2, y2 = map(int, bbox)
+    cv2.rectangle(frame, (x1, y1), (x2, y2), clr, thickness)
+
+    # 3) overlay text if provided
+    if text:
+        (w, h), _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, font_scale, 1)
+        # position the filled background above the box
+        bg_tl = (x1, y1 - h - 6)
+        bg_br = (x1 + w + 2, y1)
+        cv2.rectangle(frame, bg_tl, bg_br, clr, -1)
+        # then put the text in white
+        text_org = (x1 + 1, y1 - 4)
+        cv2.putText(
+            frame,
+            text,
+            text_org,
+            cv2.FONT_HERSHEY_SIMPLEX,
+            font_scale,
+            (255, 255, 255),
+            thickness,
+            cv2.LINE_AA
+        )
+
+def draw_keypoints(
+    frame,
+    keypoints,
+    pid= None,
+    color=None,
+    connections=COCO_PERSON_SKELETON,
+    conf_threshold=0.2,
+    radius=5,
+    thickness=5
+) -> None:
+    """
+    Draws joints and skeleton lines on `frame`.
+
+    Args:
+        frame:         BGR image to draw on.
+        keypoints:     List of [x, y, confidence] for each joint.
+        pid:           Optional person ID; if set and `color` is None,
+                       uses COLORS[pid % len(COLORS)].
+        color:         Optional BGR tuple to override palette color.
+        connections:   List of index‐pairs defining skeleton edges.
+        conf_threshold: Minimum confidence to draw a joint.
+        radius:        Radius of each joint circle.
+        thickness:     Line thickness for skeleton edges.
+
+    Behavior:
+      1. If `color` is given, uses it for both joints and bones.
+      2. Else if `pid` is given, selects palette[pid % len(palette)].
+      3. Otherwise defaults to blue joints / cyan bones.
+      4. Draws only joints with confidence > conf_threshold.
+      5. Draws bones only where both endpoints exceed conf_threshold.
     """
     if not keypoints:
-        return frame
+        return
 
-    keypoints = np.array(keypoints)
-    
-    # Use COCO skeleton by default if no connections provided
-    if connections is None:
-        connections = COCO_PERSON_SKELETON_INDICES
-        # Use blue for keypoints and cyan for connections in OpenPifPaf style
-        keypoint_color = (255, 0, 0)  # Blue
-        connection_color = (0, 255, 255)  # Cyan
+    pts = np.array(keypoints)
+
+    # Determine drawing color
+    if color is not None:
+        joint_color = bone_color = color
+    elif pid is not None:
+        joint_color = (255, 255, 255) # white
+        bone_color = COLORS[pid % len(COLORS)]
     else:
-        keypoint_color = color
-        connection_color = color
+        joint_color = (255, 0, 0)    # default blue
+        bone_color  = (0, 255, 255)  # default cyan
 
-    # Draw keypoints
-    for x, y, conf in keypoints:
-        if conf > 0.2:  # Only draw keypoints with confidence > 0.2
-            cv2.circle(frame, (int(x), int(y)), 3, keypoint_color, -1)
+    # Draw joints
+    for x, y, conf in pts:
+        if conf > conf_threshold:
+            cv2.circle(frame, (int(x), int(y)), radius, joint_color, -1)
 
-    # Draw connections
-    for j1, j2 in connections:
-        if (j1 < len(keypoints) and j2 < len(keypoints) and 
-            keypoints[j1][2] > 0.2 and keypoints[j2][2] > 0.2):
-            pt1 = (int(keypoints[j1][0]), int(keypoints[j1][1]))
-            pt2 = (int(keypoints[j2][0]), int(keypoints[j2][1]))
-            cv2.line(frame, pt1, pt2, connection_color, 2)
-
-    return frame
-
-COLORS = [
-    (199, 21, 133), (0, 128, 0), (30, 144, 255),
-    (220, 20, 60), (218, 165, 32), (47, 79, 79),
-    (139, 69, 19), (128, 0, 128), (0, 128, 128)
-]
+    # Draw bones
+    for i, j in connections:
+        # convert 1-based COCO indices to 0-based
+        idx1, idx2 = i-1, j-1
+        if idx1 < len(pts) and idx2 < len(pts):
+            if pts[idx1,2] > conf_threshold and pts[idx2,2] > conf_threshold:
+                p1 = (int(pts[idx1,0]), int(pts[idx1,1]))
+                p2 = (int(pts[idx2,0]), int(pts[idx2,1]))
+                cv2.line(frame, p1, p2, bone_color, thickness)
 
 def draw_gaze(
     image,

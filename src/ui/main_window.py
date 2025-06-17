@@ -22,6 +22,8 @@ from ai.feedback_learner import FeedbackLearner
 from core.config import Config
 from core.utils import load_video_capture, cv2_to_pil # Renamed to load_video_capture
 from core.logger import logger
+from core.utils import assign_yolo_pids, assign_pose_pids
+
 
 # Thread for processing video frames, running CV models, and emitting frames/anomalies
 class VideoProcessingThread(QThread):
@@ -72,6 +74,10 @@ class VideoProcessingThread(QThread):
                 yolo_detections = self.yolo_detector.detect(frame)
                 pose_estimations = self.pose_estimator.detect(frame)
                 gaze_estimations = self.gaze_tracker.detect(frame)
+
+                # Assign pids to yolo detections and pose estimations
+                yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
+                pose_estimations = assign_pose_pids(pose_estimations, gaze_estimations)
 
                 # Generate CV visualization frames by drawing on a COPY of the original frame
                 # Pass the original frame to the draw_results methods
