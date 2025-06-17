@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer # QTimer for video playback synchronization
 from PyQt6.QtGui import QIcon
 
@@ -97,13 +97,13 @@ class VideoProcessingThread(QThread):
                     'frame_width': frame_width,
                     'frame_height': frame_height
                 }
-                # anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
+                anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
                 
-                # for anomaly in anomalies:
-                #     anomaly['video_path'] = self.video_path
-                #     # Assign a unique ID for each event instance
-                #     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
-                #     self.anomaly_detected.emit(anomaly) 
+                for anomaly in anomalies:
+                    anomaly['video_path'] = self.video_path
+                    # Assign a unique ID for each event instance
+                    anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
+                    self.anomaly_detected.emit(anomaly) 
 
             # Control processing speed to match desired FPS / FRAME_SKIP
             # This sleep is meant to slow down processing if it's faster than target FPS / FRAME_SKIP.
@@ -197,22 +197,99 @@ class AnomalyConsumer(QThread):
         self.stop_flag = True
 
 class ProctorAgentApp(QMainWindow):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent: QWidget | None = None) -> None:
+        super().__init__(parent)
         self.config = Config()
+        self.video_widgets: dict[str, VideoOutputWidget] = {}
+        self.processing_thread: VideoProcessingThread | None = None
+        self.current_video_path: str | None = None
+        self.seeking = False
+
+        self._init_logic_components()
+        self._init_ui()
+        self._init_connections()
+        self._start_anomaly_consumer()
+
+    def _init_ui(self) -> None:
+        self._setup_main_window()
+        self._init_widgets()
+        self._init_layouts()
+
+    def _setup_main_window(self) -> None:
+        self.setWindowTitle("Proctor Agent")
+        self.setGeometry(100, 100, 1800, 1000)
+        self.setStyleSheet("""
+            QMainWindow { background-color: #2b2b2b; }
+            QWidget { color: #e0e0e0; font-family: Arial, sans-serif; }
+            
+            QWidget#MainView {
+                background-color: #3c3c3c;
+                border-radius: 8px;
+            }
+
+            QPushButton {
+                background-color: #4CC764; border: none; color: white;
+                padding: 10px 24px; font-size: 14px; margin: 4px 2px;
+                border-radius: 8px; font-weight: bold;
+            }
+            QPushButton:hover { background-color: #06C755; }
+            QPushButton:disabled { background-color: #555; color: #888; }
+            QSlider::groove:horizontal { height: 8px; border-radius: 4px; background: #555; }
+            QSlider::handle:horizontal { background: #4CC764; width: 16px; margin: -4px 0; border-radius: 8px; }
+        """)
+
+    def _init_widgets(self) -> None:
+        self.video_widgets = {
+            "Original": VideoOutputWidget("Original Input"),
+            "YOLO": VideoOutputWidget("YOLO Detections"),
+            "Pose": VideoOutputWidget("Pose Estimation"),
+            "Gaze": VideoOutputWidget("Gaze Tracking")
+        }
+        self.alert_panel = AlertPanel()
+        self.play_pause_btn = QPushButton(" Play")
+        self.play_pause_btn.setCheckable(True)
+        self.stop_btn = QPushButton(" Stop")
+        self.load_video_btn = QPushButton(" Load Video")
+        self.select_example_btn = QPushButton(" Example Video")
+        self.video_position_slider = QSlider(Qt.Orientation.Horizontal)
+        self._setup_button_icons()
+
+    def _init_layouts(self) -> None:
+        video_grid = self._create_video_grid()
+        controls = self._create_controls_layout()
+        main_view = QWidget()
+        main_view.setObjectName("MainView") # Set object name for styling
+        main_view_layout = QVBoxLayout(main_view)
+        main_view_layout.setContentsMargins(15, 15, 15, 15) # Internal padding
+        main_view_layout.addWidget(video_grid, 1)
+        main_view_layout.addWidget(self.video_position_slider)
+        main_view_layout.addLayout(controls)
+
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+        main_layout = QHBoxLayout(central_widget)
+        main_layout.setContentsMargins(10, 10, 10, 10) # External margin
+        main_layout.setSpacing(10) # Spacing between panels
+        
+        main_layout.addWidget(main_view, 2)
+        main_layout.addWidget(self.alert_panel, 1)
+
+    def _init_logic_components(self):
         self.llm_generator = LLMConstraintGenerator(self.config)
         self.vlm_analyzer = VLMAnalyzer(self.config)
         self.feedback_learner = FeedbackLearner(self.config)
-        self.processing_thread = None
         self.anomaly_event_queue = queue.Queue()
-        self.current_video_path = None # Store current video path for re-processing/seeking
 
-        self.setWindowTitle("Proctor Agent - AI Cheating Detection")
-        self.setGeometry(100, 100, 1600, 900)
+    def _init_connections(self):
+        self.load_video_btn.clicked.connect(self.load_video_file)
+        self.select_example_btn.clicked.connect(self.load_example_video)
+        self.play_pause_btn.toggled.connect(self.toggle_play_pause)
+        self.stop_btn.clicked.connect(self.stop_all_processing)
+        self.alert_panel.feedback_provided.connect(self.on_feedback_provided)
+        self.video_position_slider.sliderMoved.connect(self._on_slider_moved)
+        self.video_position_slider.sliderReleased.connect(self._on_slider_released)
 
-        self._init_ui()
-        self._init_connections()
-
+    def _start_anomaly_consumer(self):
         self.anomaly_consumer_thread = QThread()
         self.anomaly_consumer = AnomalyConsumer(self.anomaly_event_queue, self.llm_generator, self.vlm_analyzer, self.config)
         self.anomaly_consumer.moveToThread(self.anomaly_consumer_thread)
@@ -220,249 +297,110 @@ class ProctorAgentApp(QMainWindow):
         self.anomaly_consumer.llm_constraint_generated.connect(self.alert_panel.update_llm_constraint)
         self.anomaly_consumer.vlm_analysis_complete.connect(self.on_vlm_analysis_complete)
         self.anomaly_consumer_thread.start()
-        logger.success("\nAnomaly consumer thread started.")
-
-
-    def _init_ui(self):
-        main_widget = QWidget()
-        self.setCentralWidget(main_widget)
-        main_layout = QHBoxLayout(main_widget)
-
-        # Left Panel: 4 Video Players and Controls
-        left_panel = QFrame()
-        left_panel.setFrameShape(QFrame.Shape.StyledPanel)
-        left_panel.setLayout(QVBoxLayout())
-        left_panel.setMinimumWidth(960) # Sufficient width for two 480px wide videos
-
-        # Video Display Grid (2x2)
-        video_grid_layout = QVBoxLayout()
-        top_row_layout = QHBoxLayout()
-        bottom_row_layout = QHBoxLayout()
-
-        self.original_video_widget = VideoOutputWidget(title="Original Input")
-        self.yolo_video_widget = VideoOutputWidget(title="YOLO Detections")
-        self.pose_video_widget = VideoOutputWidget(title="Pose Estimation")
-        self.gaze_video_widget = VideoOutputWidget(title="Gaze Tracking")
-
-        # Set size policy for videos to expand equally
-        for widget in [self.original_video_widget, self.yolo_video_widget, self.pose_video_widget, self.gaze_video_widget]:
-            widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-
-        top_row_layout.addWidget(self.original_video_widget)
-        top_row_layout.addWidget(self.yolo_video_widget)
-        bottom_row_layout.addWidget(self.pose_video_widget)
-        bottom_row_layout.addWidget(self.gaze_video_widget)
-
-        video_grid_layout.addLayout(top_row_layout)
-        video_grid_layout.addLayout(bottom_row_layout)
-        left_panel.layout().addLayout(video_grid_layout)
-
-        # Video Controls (Shared for all players)
-        controls_layout = QHBoxLayout()
-        self.load_video_btn = QPushButton("📂 Load Video")
-        self.load_video_btn.setStyleSheet("padding: 8px; font-weight: bold; background-color: #3498db; color: white; border-radius: 5px;")
-        self.select_example_btn = QPushButton("📚 Example Video")
-        self.select_example_btn.setStyleSheet("padding: 8px; font-weight: bold; background-color: #2ecc71; color: white; border-radius: 5px;")
-        self.play_pause_btn = QPushButton("▶️ Play")
-        self.play_pause_btn.setCheckable(True)
-        self.play_pause_btn.setChecked(False) # Start paused, wait for user to hit play
-        self.play_pause_btn.setStyleSheet("""
-            QPushButton {
-                padding: 8px;
-                font-weight: bold;
-                background-color: #f39c12; /* Orange */
-                color: white;
-                border-radius: 5px;
-            }
-            QPushButton:checked {
-                background-color: #e67e22; /* Darker Orange when checked (playing) */
-            }
-        """)
-        self.stop_btn = QPushButton("⏹️ Stop")
-        self.stop_btn.setStyleSheet("padding: 8px; font-weight: bold; background-color: #e74c3c; color: white; border-radius: 5px;")
-
-        controls_layout.addWidget(self.load_video_btn)
-        controls_layout.addWidget(self.select_example_btn)
-        controls_layout.addWidget(self.play_pause_btn)
-        controls_layout.addWidget(self.stop_btn)
-
-        left_panel.layout().addLayout(controls_layout)
-
-        self.video_position_slider = QSlider(Qt.Orientation.Horizontal)
-        self.video_position_slider.setMinimum(0)
-        self.video_position_slider.setMaximum(100) # Placeholder, set on video load
-        self.video_position_slider.setStyleSheet("""
-            QSlider::groove:horizontal {
-                border: 1px solid #bbb;
-                background: #eee;
-                height: 10px;
-                border-radius: 4px;
-            }
-            QSlider::handle:horizontal {
-                background: #3498db;
-                border: 1px solid #3498db;
-                width: 18px;
-                height: 18px;
-                margin: -4px 0;
-                border-radius: 9px;
-            }
-        """)
-        self.video_position_slider.sliderMoved.connect(self._on_slider_moved)
-        self.video_position_slider.sliderReleased.connect(self._on_slider_released)
-        self.seeking = False # Flag to prevent simultaneous updates from thread and user
-
-        left_panel.layout().addWidget(self.video_position_slider)
-
-        main_layout.addWidget(left_panel)
-
-        # Right Panel: Alert and AI Reasoning
-        right_panel = QFrame()
-        right_panel.setFrameShape(QFrame.Shape.StyledPanel)
-        right_panel.setLayout(QVBoxLayout())
-        right_panel.setMinimumWidth(500)
-        right_panel.setStyleSheet("background-color: #fcfcfc; border-radius: 10px; border: 1px solid #e0e0e0;")
-        self.alert_panel = AlertPanel()
-        right_panel.layout().addWidget(self.alert_panel)
-        main_layout.addWidget(right_panel)
-
-    def _init_connections(self):
-        self.load_video_btn.clicked.connect(self.load_video_file)
-        self.select_example_btn.clicked.connect(self.load_example_video)
-        self.play_pause_btn.toggled.connect(self.toggle_play_pause)
-        self.stop_btn.clicked.connect(self.stop_all_processing)
-
-        self.alert_panel.feedback_provided.connect(self.on_feedback_provided)
+        logger.success("Anomaly consumer thread started.")
 
     def _start_video_and_processing(self, video_path: str):
-        self.stop_all_processing() # Ensure previous processes are stopped
-        self.current_video_path = video_path # Store for potential re-play or seeking
-
-        cap_for_info = load_video_capture(video_path)
-        if not cap_for_info:
-            QMessageBox.critical(self, "Error Loading Video", f"Could not load video from {video_path}")
+        self.stop_all_processing()
+        self.current_video_path = video_path
+        cap = load_video_capture(video_path)
+        if not cap:
+            QMessageBox.critical(self, "Error", f"Could not load video: {video_path}")
             return
-
-        total_frames = int(cap_for_info.get(cv2.CAP_PROP_FRAME_COUNT))
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         self.video_position_slider.setMaximum(total_frames - 1)
-        cap_for_info.release()
+        cap.release()
 
         self.processing_thread = VideoProcessingThread(video_path, self.config)
-
-        # Connect CV frame signals to respective video display widgets
         self.processing_thread.frame_update.connect(self.on_frame_update)
-        # Connect anomaly signal to the main window's handler (which adds to consumer queue)
         self.processing_thread.anomaly_detected.connect(self.on_anomaly_detected)
         self.processing_thread.processing_finished.connect(self.on_processing_finished)
-
         self.processing_thread.start()
-        self.play_pause_btn.setChecked(True) # Set to play state
-        self.play_pause_btn.setText("⏸️ Pause")
+        self.play_pause_btn.setChecked(True)
         logger.step(f"Started processing for: {video_path}")
-
-    def load_video_file(self):
-        file_dialog = QFileDialog(self)
-        file_dialog.setNameFilter("Video Files (*.mp4 *.avi *.mov)")
-        if file_dialog.exec():
-            selected_file = file_dialog.selectedFiles()[0]
-            self._start_video_and_processing(selected_file)
-
-    def load_example_video(self):
-        example_path = "data/videos/example_exam.mp4"
-        if not os.path.exists(example_path):
-            QMessageBox.warning(self, "Missing File", f"Example video not found at: {example_path}\nPlease place a video there or use 'Load Video'.")
-            return
-        self._start_video_and_processing(example_path)
-
-    def toggle_play_pause(self, checked: bool):
-        if not self.current_video_path:
-            QMessageBox.information(self, "No Video", "Please load a video first.")
-            self.play_pause_btn.setChecked(False) # Ensure button state reflects no video
-            return
-
-        if checked: # If button is checked (means play is active)
-            if self.processing_thread and not self.processing_thread.isRunning():
-                # If thread was stopped (e.g., after seeking or explicit pause)
-                self._start_video_and_processing(self.current_video_path) # Restart from current position
-            elif self.processing_thread and self.processing_thread.isRunning():
-                self.processing_thread.resume_processing() # Resume if paused
-            self.play_pause_btn.setText("⏸️ Pause")
-        else: # If button is unchecked (means pause is active)
-            if self.processing_thread and self.processing_thread.isRunning():
-                self.processing_thread.pause_processing() # Pause the processing thread
-            self.play_pause_btn.setText("▶️ Play")
 
     def stop_all_processing(self):
         if self.processing_thread and self.processing_thread.isRunning():
             self.processing_thread.stop_processing()
-            self.processing_thread.wait() # Wait for thread to finish gracefully
-        self.processing_thread = None # Clear reference
+            self.processing_thread.wait()
+        self.processing_thread = None
         self.current_video_path = None
-
-        # Clear all video displays
-        self.original_video_widget.display_frame(None)
-        self.yolo_video_widget.display_frame(None)
-        self.pose_video_widget.display_frame(None)
-        self.gaze_video_widget.display_frame(None)
-
+        for widget in self.video_widgets.values():
+            widget.clear()
+        self.alert_panel.clear_all_events()
         self.video_position_slider.setValue(0)
-        self.video_position_slider.setMaximum(0) # Reset slider max
-
         self.play_pause_btn.setChecked(False)
-        self.play_pause_btn.setText("▶️ Play")
+        logger.step("Stopped all processing and reset UI.")
 
-        # Optionally clear anomaly events or reset alert panel
-        # self.alert_panel.clear_all_events()
-        logger.step("Stopped all video processing and cleared displays.")
+    # --- UI Creation Helpers ---
+    def _create_video_grid(self) -> QWidget:
+        grid_widget = QWidget()
+        layout = QGridLayout(grid_widget)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(10)
+        layout.addWidget(self.video_widgets["Original"], 0, 0)
+        layout.addWidget(self.video_widgets["YOLO"], 0, 1)
+        layout.addWidget(self.video_widgets["Pose"], 1, 0)
+        layout.addWidget(self.video_widgets["Gaze"], 1, 1)
+        return grid_widget
 
-    def _on_slider_moved(self, position: int):
-        self.seeking = True
-        # For performance, only update displays without processing if user is actively sliding
-        # No processing will happen until sliderReleased
+    def _create_controls_layout(self) -> QHBoxLayout:
+        layout = QHBoxLayout()
+        layout.addWidget(self.load_video_btn)
+        layout.addWidget(self.select_example_btn)
+        layout.addStretch(1)
+        layout.addWidget(self.play_pause_btn)
+        layout.addWidget(self.stop_btn)
+        return layout
 
-    def _on_slider_released(self):
-        self.seeking = False
-        if self.processing_thread and self.processing_thread.isRunning():
-            # Stop, seek, and restart the processing thread
-            self.processing_thread.pause_processing() # Pause current processing
-            self.processing_thread.set_frame_position(self.video_position_slider.value()) # Set new position
-            self.processing_thread.resume_processing() # Resume processing from new position
-        elif self.current_video_path: # If video loaded but not playing, just seek visuals
-            temp_cap = load_video_capture(self.current_video_path)
-            if temp_cap:
-                temp_cap.set(cv2.CAP_PROP_POS_FRAMES, self.video_position_slider.value())
-                ret, frame = temp_cap.read()
-                if ret:
-                    self.original_video_widget.display_frame(frame)
-                    # For other CV displays, would need to re-process this single frame
-                    # For simplicity in this case, only original video seeks visually without full reprocessing
-                temp_cap.release()
+    def _setup_button_icons(self):
+        self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+        self.stop_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaStop))
+        self.load_video_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_DriveHDIcon))
+        self.select_example_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_FileLinkIcon))
+
+    # --- Event Handlers / Slots ---
+    def load_video_file(self):
+        path, _ = QFileDialog.getOpenFileName(self, "Open Video", "", "Video Files (*.mp4 *.avi)")
+        if path: self._start_video_and_processing(path)
+
+    def load_example_video(self):
+        path = "data/videos/example_exam.mp4"
+        if not os.path.exists(path):
+            QMessageBox.warning(self, "File Not Found", f"Example video not found: {path}")
+            return
+        self._start_video_and_processing(path)
+
+    def toggle_play_pause(self, checked: bool):
+        if not self.current_video_path:
+            self.play_pause_btn.setChecked(False)
+            return
+        if self.processing_thread:
+            if checked:
+                self.play_pause_btn.setText(" Pause")
+                self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPause))
+                self.processing_thread.resume_processing()
+            else:
+                self.play_pause_btn.setText(" Play")
+                self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+                self.processing_thread.pause_processing()
 
     def on_frame_update(self, frame_data: dict):
-        """Receives all updated frames from VideoProcessingThread and updates widgets."""
-        if not self.seeking: # Only update displays if not actively seeking
-            self.original_video_widget.display_frame(frame_data['original'])
-            self.yolo_video_widget.display_frame(frame_data['yolo'])
-            self.pose_video_widget.display_frame(frame_data['pose'])
-            self.gaze_video_widget.display_frame(frame_data['gaze'])
-            self.video_position_slider.setValue(frame_data['frame_idx'])
+        if self.seeking: return
+        self.video_widgets["Original"].display_frame(frame_data['original'])
+        self.video_widgets["YOLO"].display_frame(frame_data['yolo'])
+        self.video_widgets["Pose"].display_frame(frame_data['pose'])
+        self.video_widgets["Gaze"].display_frame(frame_data['gaze'])
+        self.video_position_slider.setValue(frame_data['frame_idx'])
 
     def on_anomaly_detected(self, event_data: dict):
-        """Called when AnomalyDetector flags an event. Adds it to queue."""
         self.anomaly_event_queue.put(event_data)
-        logger.info(f"Anomaly detected and added to queue: {event_data.get('type')} at {event_data.get('timestamp'):.2f}s (ID: {event_data.get('event_id')})")
-        self.alert_panel.add_event(event_data) # Display initial event in UI list
+        logger.info(f"Anomaly detected: {event_data.get('type')} at {event_data.get('timestamp'):.2f}s")
+        self.alert_panel.add_event(event_data)
 
     def on_vlm_analysis_complete(self, data: dict):
-        """Called when VLM analysis is complete by the consumer thread."""
-        event_data = data['event_data']
-        llm_constraint = data['llm_constraint']
-        vlm_result = data['vlm_result']
-
-        # Update the UI with the full AI reasoning process
-        self.alert_panel.update_vlm_result(data) # Pass the whole dict for update
+        self.alert_panel.update_vlm_result(data)
 
     def on_feedback_provided(self, event_data: dict, feedback_type: str):
-        """Handles feedback from the UI and passes it to the FeedbackLearner."""
         logger.info(f"Received feedback: {feedback_type} for event ID: {event_data.get('event_id')}")
 
         # Retrieve the relevant frames for saving for RL
@@ -497,18 +435,31 @@ class ProctorAgentApp(QMainWindow):
             logger.error("Could not retrieve frames for feedback saving.")
 
     def on_processing_finished(self):
-        logger.info("Video processing thread finished.")
+        logger.info("Video processing finished.")
         self.play_pause_btn.setChecked(False)
-        self.play_pause_btn.setText("▶️ Play")
-        # Ensure slider is at end if video finished naturally
-        if self.processing_thread and self.processing_thread.cap:
-             self.video_position_slider.setValue(int(self.processing_thread.cap.get(cv2.CAP_PROP_FRAME_COUNT) - 1))
+        self.play_pause_btn.setText(" Play")
+        self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+
+    def _on_slider_moved(self, position: int):
+        self.seeking = True
+
+    def _on_slider_released(self):
+        if self.current_video_path:
+            pos = self.video_position_slider.value()
+            if self.processing_thread:
+                self.processing_thread.set_frame_position(pos)
+            else: # If paused, manually update the original view
+                cap = load_video_capture(self.current_video_path)
+                cap.set(cv2.CAP_PROP_POS_FRAMES, pos)
+                ret, frame = cap.read()
+                if ret: self.video_widgets["Original"].display_frame(frame)
+                cap.release()
+        self.seeking = False
 
     def closeEvent(self, event):
         self.stop_all_processing()
-        self.anomaly_consumer.stop_consuming()
-        self.anomaly_consumer_thread.quit()
-        self.anomaly_consumer_thread.wait()
+        if hasattr(self, 'anomaly_consumer'): self.anomaly_consumer.stop_consuming()
+        if hasattr(self, 'anomaly_consumer_thread'): self.anomaly_consumer_thread.quit(); self.anomaly_consumer_thread.wait()
         super().closeEvent(event)
 
 

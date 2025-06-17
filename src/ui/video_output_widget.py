@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from PyQt6.QtWidgets import QLabel, QWidget, QVBoxLayout
-from PyQt6.QtGui import QPixmap, QImage
+from PyQt6.QtGui import QPixmap, QImage, QColor
 from PyQt6.QtCore import Qt, QSize
 
 class VideoOutputWidget(QWidget):
@@ -12,35 +12,36 @@ class VideoOutputWidget(QWidget):
     def __init__(self, title="Video Feed", parent=None):
         super().__init__(parent)
         self.setLayout(QVBoxLayout())
-        self.layout().setContentsMargins(5,5,5,5) # Small margins for separation
+        self.layout().setContentsMargins(0, 0, 0, 0)
         self.layout().setSpacing(5)
 
         self.title_label = QLabel(title)
         self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.title_label.setStyleSheet("""
             font-weight: bold;
-            font-size: 14px;
-            background-color: #2c3e50; /* Dark blue/gray */
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
+            font-size: 12px;
+            color: #e0e0e0;
+            padding: 4px;
+            background-color: #3c3c3c;
+            border-radius: 4px;
         """)
         self.image_label = QLabel(self)
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.image_label.setMinimumSize(320, 240) # Smaller default size for 4 views, will scale
+        self.image_label.setMinimumSize(320, 180)
+        self.image_label.setStyleSheet("background-color: #000; border-radius: 5px;")
 
         self.layout().addWidget(self.title_label)
-        self.layout().addWidget(self.image_label)
+        self.layout().addWidget(self.image_label, 1)
 
         self.current_frame = None
+        self.clear() # Start with a cleared state
 
     def display_frame(self, frame_np_array: np.ndarray):
         """
         Receives a numpy array frame and displays it.
         """
         if frame_np_array is None:
-            self.image_label.clear()
-            self.current_frame = None
+            self.clear()
             return
 
         self.current_frame = frame_np_array # Store for potential external use (e.g. feedback frames)
@@ -55,4 +56,11 @@ class VideoOutputWidget(QWidget):
 
         # Scale pixmap to fit label, maintaining aspect ratio
         self.image_label.setPixmap(pixmap.scaled(self.image_label.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
+
+    def clear(self) -> None:
+        """Clears the video display to a black screen and resets the frame."""
+        self.current_frame = None
+        pixmap = QPixmap(self.image_label.size())
+        pixmap.fill(QColor("black"))
+        self.image_label.setPixmap(pixmap)
 
