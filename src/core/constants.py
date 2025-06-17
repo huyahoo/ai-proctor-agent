@@ -14,3 +14,4 @@ COCO_PERSON_SKELETON_INDICES = [(j1-1, j2-1) for j1, j2 in COCO_PERSON_SKELETON]
 # Object classes for YOLO (expand if needed for specific items)
 # These are common COCO dataset classes. You might need to fine-tune YOLO for specific "cheating notes" etc.
 YOLO_CLASSES_OF_INTEREST = ['person', 'cell phone', 'book', 'laptop', 'bottle', 'backpack', 'keyboard', 'mouse', 'tv', 'remote', 'clock', 'scissors', 'pen', 'pencil', 'tablet', 'calculator']
+UNAUTHORIZED_ITEMS = ['cheatsheet', 'Smartwatch', 'Phone', 'earphone']

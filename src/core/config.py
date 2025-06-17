@@ -16,6 +16,9 @@ class Config:
 
     # Model Paths
     YOLO_MODEL_PATH = "models/yolov8n.pt"
+    CHEATSHEET_MODEL_PATH = "models/cheatsheet.pt"
+    EARPODS_MODEL_PATH = "models/earpods.pt"
+    ELECTRONICS_MODEL_PATH = "models/electronics.pt"
 
     # Video Processing
     FPS = 30 # Target frames per second for processing and display
