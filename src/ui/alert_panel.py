@@ -8,6 +8,7 @@ from PyQt6.QtGui import QColor
 class AlertPanel(QWidget):
     """A panel for displaying anomaly events and AI reasoning."""
     feedback_provided = pyqtSignal(dict, str)
+    analysis_requested = pyqtSignal(dict)
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
@@ -51,7 +52,7 @@ class AlertPanel(QWidget):
 
         main_layout.addWidget(QLabel("Detected Anomalies:"))
         self.event_list_widget = QListWidget()
-        self.event_list_widget.itemClicked.connect(self.display_ai_reasoning_placeholder)
+        self.event_list_widget.itemClicked.connect(self._on_event_clicked)
         main_layout.addWidget(self.event_list_widget, 1)
 
         main_layout.addWidget(self._create_separator())
@@ -98,12 +99,18 @@ class AlertPanel(QWidget):
         list_item.setData(Qt.ItemDataRole.UserRole, event_data)
         self.event_list_widget.addItem(list_item)
     
-    def display_ai_reasoning_placeholder(self, item: QListWidgetItem) -> None:
-        self.active_event_data = item.data(Qt.ItemDataRole.UserRole)
+    def _on_event_clicked(self, item: QListWidgetItem) -> None:
+        """Handles user clicking an event, setting UI to loading and requesting analysis."""
+        event_data = item.data(Qt.ItemDataRole.UserRole)
+        self.active_event_data = event_data
+        
         llm_info = self.llm_label_box.findChild(QLabel, "info_label")
         vlm_info = self.vlm_label_box.findChild(QLabel, "info_label")
-        if llm_info: llm_info.setText("<i>Generating constraints from LLM...</i>")
-        if vlm_info: vlm_info.setText("<i>Waiting for VLM analysis...</i>")
+
+        if llm_info: llm_info.setText("<i>Requesting AI analysis...</i>")
+        if vlm_info: vlm_info.setText("<i>Waiting for LLM constraints...</i>")
+        
+        self.analysis_requested.emit(event_data)
 
     def update_llm_constraint(self, constraint: str) -> None:
         if self.active_event_data:

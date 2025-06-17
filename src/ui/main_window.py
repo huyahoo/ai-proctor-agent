@@ -286,6 +286,7 @@ class ProctorAgentApp(QMainWindow):
         self.play_pause_btn.toggled.connect(self.toggle_play_pause)
         self.stop_btn.clicked.connect(self.stop_all_processing)
         self.alert_panel.feedback_provided.connect(self.on_feedback_provided)
+        self.alert_panel.analysis_requested.connect(self._request_ai_analysis)
         self.video_position_slider.sliderMoved.connect(self._on_slider_moved)
         self.video_position_slider.sliderReleased.connect(self._on_slider_released)
 
@@ -298,6 +299,11 @@ class ProctorAgentApp(QMainWindow):
         self.anomaly_consumer.vlm_analysis_complete.connect(self.on_vlm_analysis_complete)
         self.anomaly_consumer_thread.start()
         logger.success("Anomaly consumer thread started.")
+
+    def _request_ai_analysis(self, event_data: dict):
+        """Queues a specific event for AI analysis when requested by the user."""
+        logger.info(f"User requested AI analysis for event: {event_data.get('event_id')}")
+        self.anomaly_event_queue.put(event_data)
 
     def _start_video_and_processing(self, video_path: str):
         self.stop_all_processing()
@@ -393,7 +399,7 @@ class ProctorAgentApp(QMainWindow):
         self.video_position_slider.setValue(frame_data['frame_idx'])
 
     def on_anomaly_detected(self, event_data: dict):
-        self.anomaly_event_queue.put(event_data)
+        """Adds a detected anomaly to the alert panel list without processing it."""
         logger.info(f"Anomaly detected: {event_data.get('type')} at {event_data.get('timestamp'):.2f}s")
         self.alert_panel.add_event(event_data)
 
