@@ -77,32 +77,58 @@ class AnomalyDetector:
         """
         anomalies = []
 
-        # Map CV detections to unique person IDs based on YOLO's 'person' detections
+        # Map CV detections to unique person IDs
         # In a robust system, this would involve a multi-object tracker (e.g., DeepSORT)
-        person_map = {} # {person_id: {'bbox': [], 'pose': [], 'gaze': []}}
+            # Build a map of person_id → their combined data
 
-        persons_yolo = [d for d in frame_data['yolo_detections'] if d['label'] == 'person']
+        person_map = {}  # { pid: {'bbox': ..., 'pose': ..., 'gaze': ...} }
 
-        for i, p_yolo in enumerate(persons_yolo):
-            person_id = f"Person_{i}" # Simple ID for this frame (not persistent across frames yet)
-            person_map[person_id] = {'bbox': p_yolo['bbox'], 'pose': None, 'gaze': None}
+        # Build PID-based map from YOLO
+        person_map = {
+            det['pid']: {'bbox': det['bbox'], 'pose': None, 'gaze': None}
+            for det in frame_data.get('yolo_detections', [])
+            if det['label'] == 'person'
+        }
 
-            # Attempt to match pose and gaze detections to this YOLO person bbox
-            # for p_pose in frame_data['pose_estimations']:
-            #     if self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
-            #         person_map[person_id]['pose'] = p_pose['keypoints']
-            for p_gaze in frame_data['gaze_estimations']:
-                if self._check_overlap(p_yolo['bbox'], p_gaze['bbox'], threshold=0.6):
-                    person_map[person_id]['gaze'] = p_gaze['head_pose']
+        # Associate pose keypoints by pid
+        for p in frame_data.get('pose_estimations', []):
+            pid = p['pid']
+            if pid in person_map:
+                person_map[pid]['pose'] = p['keypoints']
 
-            # Update gaze history for this person
-            if person_map[person_id]['gaze'] and len(person_map[person_id]['gaze']) >= 4:
-                # gaze_info format: [nose_x, nose_y, pitch_deg, yaw_deg, roll_deg]
-                gaze_info = person_map[person_id]['gaze']
-                self.gaze_history.setdefault(person_id, []).append((current_timestamp, gaze_info[3], gaze_info[2])) # (timestamp, yaw_deg, pitch_deg)
-                # Keep only history within MAX_HISTORY_LENGTH_SECONDS
-                self.gaze_history[person_id] = [g for g in self.gaze_history[person_id]
-                                                if current_timestamp - g[0] < self.config.MAX_HISTORY_LENGTH_SECONDS]
+        # Associate gaze data by pid
+        for g in frame_data.get('gaze_estimations', []):
+            pid = g['pid']
+            if pid in person_map:
+                person_map[pid]['gaze'] = {
+                    'bbox': g['bbox'],
+                    'point': g['gaze_point'],
+                    'vector': g['gaze_vector'],
+                    'score': g['inout_score']
+                }
+
+        # print(person_map)
+        # person_map = {id: {'bbox': [x1,y1,x2,y2], 'pose': [[x,y,conf],...], 'gaze': {'bbox': [x1,y1,x2,y2], 'point': [x,y], 'vector': [x,y], 'score': 0.0}}}
+
+        # Now detect anomalies per person
+        for pid, info in person_map.items():
+            bbox = info['bbox']
+            pose = info['pose']
+            gaze = info['gaze']
+
+            #     # Update gaze history if we have a valid gaze vector
+            #     if gaze and len(gaze) >= 4:
+            #         # gaze_info: [nose_x, nose_y, pitch_deg, yaw_deg, roll_deg]
+            #         _, _, pitch, yaw, _ = gaze
+            #         hist = self.gaze_history.setdefault(pid, [])
+            #         hist.append((current_timestamp, yaw, pitch))
+            #         # prune old history
+            #         max_age = self.config.MAX_HISTORY_LENGTH_SECONDS
+            #         self.gaze_history[pid] = [
+            #             entry for entry in hist
+            #             if current_timestamp - entry[0] < max_age
+            #         ]
+
 
         # --- Cheating Detection Logic ---
 
@@ -229,32 +255,32 @@ class AnomalyDetector:
         #                         'description': f"Hands of {p1_id} and {p2_id} in close proximity, possibly exchanging object or signaling."
         #                     })
 
-        # 5. Passing material: Suspicious Arm Angles
-        for p_id, p_data in frame_data['pose_estimations'].items():
-            right_arm_kpts_info = [6, 8, 10] # Right shoulder, elbow, wrist
-            left_arm_kpts_info = [5, 7, 9]  # Left shoulder, elbow, wrist
+        # # 5. Passing material: Suspicious Arm Angles
+        # for p_id, p_data in frame_data['pose_estimations'].items():
+        #     right_arm_kpts_info = [6, 8, 10] # Right shoulder, elbow, wrist
+        #     left_arm_kpts_info = [5, 7, 9]  # Left shoulder, elbow, wrist
 
-            right_arm = [p_data[i] for i in right_arm_kpts_info]
-            left_arm = [p_data[i] for i in left_arm_kpts_info]
+        #     right_arm = [p_data[i] for i in right_arm_kpts_info]
+        #     left_arm = [p_data[i] for i in left_arm_kpts_info]
 
-            if len(right_arm) < 3 or len(left_arm) < 3:
-                continue
+        #     if len(right_arm) < 3 or len(left_arm) < 3:
+        #         continue
 
-            right_arm_angle = self._calculate_angle(right_arm)
-            left_arm_angle = self._calculate_angle(left_arm)
-            # print(f"Person {p_id}: Right arm angle: {right_arm_angle}, Left arm angle: {left_arm_angle}")
+        #     right_arm_angle = self._calculate_angle(right_arm)
+        #     left_arm_angle = self._calculate_angle(left_arm)
+        #     # print(f"Person {p_id}: Right arm angle: {right_arm_angle}, Left arm angle: {left_arm_angle}")
 
-            # Check if arms are at suspicious angles (e.g., passing objects)
-            if right_arm_angle is None or left_arm_angle is None:
-                continue
-            if right_arm_angle > 160 or left_arm_angle > 160:
-                anomalies.append({
-                    'type': 'suspicious_arm_angle',
-                    'person_ids': [p_id],
-                    'timestamp': current_timestamp,
-                    'description': f"{p_id} detected with suspicious arm angle, possibly passing an object."
-                })
-                print(f"Anomaly detected for {p_id}: suspicious arm angle.")
+        #     # Check if arms are at suspicious angles (e.g., passing objects)
+        #     if right_arm_angle is None or left_arm_angle is None:
+        #         continue
+        #     if right_arm_angle > 160 or left_arm_angle > 160:
+        #         anomalies.append({
+        #             'type': 'suspicious_arm_angle',
+        #             'person_ids': [p_id],
+        #             'timestamp': current_timestamp,
+        #             'description': f"{p_id} detected with suspicious arm angle, possibly passing an object."
+        #         })
+        #         print(f"Anomaly detected for {p_id}: suspicious arm angle.")
 
         return anomalies
 
