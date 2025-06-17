@@ -18,6 +18,34 @@ pip install openpifpaf=0.13.11
 conda install -c conda-forge libstdcxx-ng
 ```
 
+## ⚠️ Compatibility Warning
+Installing `openpifpaf` via `pip` may downgrade your existing `torch` and `torchvision` versions  
+to match its requirements (e.g., `torch==1.13.1`, `torchvision==0.14.1`).  
+If you’re using a newer PyTorch version (e.g., 2.x), this can break other packages.  
+Consider building from source in editable mode and rebuilding extensions manually instead of using `pip`.
+
+## 🔧 Building for PyTorch 2.5.1
+
+If you need compatibility with **PyTorch 2.5.1**, follow these steps to build OpenPifPaf:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/openpifpaf/openpifpaf.git
+   cd openpifpaf
+   ```
+
+3. **Install editable mode without dependency checks:**
+   ```bash
+   pip install -e . --no-deps
+   ```
+
+4. **Build the C++ extension:**
+   ```bash
+   python setup.py build_ext --inplace
+   ```
+
+> This rebuilds `_cpp.so` against your installed PyTorch 2.5.1.
+
 ## 🧪 Usage and Testing
 
 ### Video Processing Test
