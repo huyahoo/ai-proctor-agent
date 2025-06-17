@@ -44,6 +44,20 @@ class AnomalyDetector:
 
         iou = inter_area / union_area
         return iou >= threshold
+    
+    def _calculate_angle(self, arm_keypoints: list) -> float:
+        shoulder, elbow, wrist = arm_keypoints
+        
+        # Vector shoulder → elbow và wrist → elbow
+        vec1 = np.array(shoulder) - np.array(elbow)
+        vec2 = np.array(wrist) - np.array(elbow)
+
+        # Tính cos của góc giữa 2 vector
+        cos_angle = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2) + 1e-6)
+        angle_rad = np.arccos(np.clip(cos_angle, -1.0, 1.0))
+        angle_deg = np.degrees(angle_rad)
+
+        return angle_deg
 
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
@@ -74,9 +88,9 @@ class AnomalyDetector:
             person_map[person_id] = {'bbox': p_yolo['bbox'], 'pose': None, 'gaze': None}
 
             # Attempt to match pose and gaze detections to this YOLO person bbox
-            for p_pose in frame_data['pose_estimations']:
-                if self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
-                    person_map[person_id]['pose'] = p_pose['keypoints']
+            # for p_pose in frame_data['pose_estimations']:
+            #     if self._check_overlap(p_yolo['bbox'], p_pose['bbox'], threshold=0.6): # Higher overlap needed
+            #         person_map[person_id]['pose'] = p_pose['keypoints']
             for p_gaze in frame_data['gaze_estimations']:
                 if self._check_overlap(p_yolo['bbox'], p_gaze['bbox'], threshold=0.6):
                     person_map[person_id]['gaze'] = p_gaze['head_pose']
@@ -214,6 +228,33 @@ class AnomalyDetector:
                                 'timestamp': current_timestamp,
                                 'description': f"Hands of {p1_id} and {p2_id} in close proximity, possibly exchanging object or signaling."
                             })
+
+        # 5. Passing material: Suspicious Arm Angles
+        for p_id, p_data in frame_data['pose_estimations'].items():
+            right_arm_kpts_info = [6, 8, 10] # Right shoulder, elbow, wrist
+            left_arm_kpts_info = [5, 7, 9]  # Left shoulder, elbow, wrist
+
+            right_arm = [p_data[i] for i in right_arm_kpts_info]
+            left_arm = [p_data[i] for i in left_arm_kpts_info]
+
+            if len(right_arm) < 3 or len(left_arm) < 3:
+                continue
+
+            right_arm_angle = self._calculate_angle(right_arm)
+            left_arm_angle = self._calculate_angle(left_arm)
+            # print(f"Person {p_id}: Right arm angle: {right_arm_angle}, Left arm angle: {left_arm_angle}")
+
+            # Check if arms are at suspicious angles (e.g., passing objects)
+            if right_arm_angle is None or left_arm_angle is None:
+                continue
+            if right_arm_angle > 160 or left_arm_angle > 160:
+                anomalies.append({
+                    'type': 'suspicious_arm_angle',
+                    'person_ids': [p_id],
+                    'timestamp': current_timestamp,
+                    'description': f"{p_id} detected with suspicious arm angle, possibly passing an object."
+                })
+                print(f"Anomaly detected for {p_id}: suspicious arm angle.")
 
         return anomalies
 

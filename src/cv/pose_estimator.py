@@ -23,9 +23,9 @@ class PoseEstimator(BaseDetector):
         # Get predictions
         predictions, _, _ = self.predictor.numpy_image(frame_rgb)
         
-        poses_data = []
+        poses_data = {}
         
-        for pred in predictions:
+        for id, pred in enumerate(predictions):
             # Reshape keypoints to match the format in the provided code
             keypoints = pred.data.reshape(-1, 3)
             
@@ -33,11 +33,10 @@ class PoseEstimator(BaseDetector):
             keypoints_list = []
             
             for x, y, conf in keypoints:
-                if conf > 0.2:  # Only consider keypoints with confidence > 0.2
-                    cx, cy = int(x), int(y)
-                    keypoints_list.append([cx, cy, conf])
+                cx, cy = int(x), int(y)
+                keypoints_list.append([cx, cy, conf])
             
-            poses_data.append(keypoints_list)
+            poses_data[id] = keypoints_list
             
         return poses_data
 
@@ -52,9 +51,13 @@ class PoseEstimator(BaseDetector):
             np.ndarray: A new frame with pose detections drawn.
         """
         display_frame = original_frame.copy()
+
+        keypoints_list = []
+        for id in poses_data:
+            if poses_data[id]:
+                keypoints_list.append(poses_data[id])
         
-        for keypoints in poses_data:
-            if keypoints:
-                draw_keypoints(display_frame, keypoints)
-                    
+        for keypoint in keypoints_list:
+            draw_keypoints(display_frame, keypoint)
+
         return display_frame
