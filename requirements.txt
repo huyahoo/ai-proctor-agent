@@ -1,9 +1,24 @@
-opencv-python==4.11.0.86
-numpy==1.26.4
-mediapipe==0.10.21
+opencv-python==4.8.1.78
 ultralytics==8.3.155
 google-generativeai==0.8.5
 PyQt6==6.9.1
-Pillow==11.2.1
 python-dotenv==1.1.0
 colorama==0.4.6
+einops==0.7.0
+boxmot==10.0.45
+pytorch-lightning==2.1.2
+termcolor==2.4.0
+transformers==4.35.2
+protobuf>=5.26.1
+grpcio-status==1.71.0
+wandb==0.16.1
+seaborn==0.13.0
+
+# Note: PyTorch and related packages should be installed via conda for proper CUDA support
+# Run these commands in order:
+# conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+# conda install -c conda-forge opencv
+
+# To fix OpenMP warning, use conda to install packages instead of pip where possible
+# This ensures consistent OpenMP runtime across all packages
+

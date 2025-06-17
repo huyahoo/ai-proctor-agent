@@ -1,20 +1,20 @@
-import mediapipe as mp
+# import mediapipe as mp
 import cv2
 import numpy as np
 from cv.base_detector import BaseDetector
 from core.config import Config
 from core.utils import draw_keypoints
-from core.constants import POSE_CONNECTIONS_INDICES # Use the pre-converted indices
+# from core.constants import POSE_CONNECTIONS_INDICES # Use the pre-converted indices
 
 class PoseEstimator(BaseDetector):
     def __init__(self, config: Config):
         super().__init__(config)
-        self.mp_pose = mp.solutions.pose
+        # self.mp_pose = mp.solutions.pose
         self.pose = self.mp_pose.Pose(
             min_detection_confidence=self.config.POSE_MIN_CONFIDENCE,
             min_tracking_confidence=self.config.POSE_MIN_CONFIDENCE
         )
-        self.mp_drawing = mp.solutions.drawing_utils
+        # self.mp_drawing = mp.solutions.drawing_utils
 
     def detect(self, frame: np.ndarray) -> list:
         """

@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import torch
 
 # Load environment variables from .env file
 load_dotenv()
@@ -9,9 +10,12 @@ class Config:
     GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
     # Add OpenAI key if needed for future integration
     # OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+    
+    # Device
+    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Model Paths
-    YOLO_MODEL_PATH = "models/yolov8n.pt" # Ensure this path is correct
+    YOLO_MODEL_PATH = "models/yolov8n.pt"
 
     # Video Processing
     FPS = 30 # Target frames per second for processing and display
@@ -32,6 +36,15 @@ class Config:
     # Feedback Learning
     FEEDBACK_DATA_DIR = "data/feedback"
     FEEDBACK_ANNOTATIONS_FILE = os.path.join(FEEDBACK_DATA_DIR, "annotations.jsonl")
+
+    # Gaze Tracker
+    GAZE_DET_THR = 0.4  # head detection threshold
+    GAZE_CONF_THR = 0.5 # gaze confidence threshold
+    GAZE_IMG_MEAN = [0.44232, 0.40506, 0.36457]
+    GAZE_IMG_STD = [0.28674, 0.27776, 0.27995]
+    GAZE_WEIGHTS_PATH = "models/sharingan/weights/yolov5m_crowdhuman.pt"
+    GAZE_CHECKPOINT_PATH = "models/sharingan/checkpoints/videoattentiontarget.pt"
+
 
     def __str__(self):
         return f"Proctor Agent Configuration:\n" \
