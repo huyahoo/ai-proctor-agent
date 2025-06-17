@@ -59,6 +59,45 @@ class AnomalyDetector:
 
         return angle_deg
 
+    # Passing material: Suspicious Arm Angles
+    def _check_suspicious_arm_angle(self, pid: int, pose: list, timestamp: float) -> dict | None:
+        """
+        Check if this person’s left or right arm is nearly straight (>160°).
+        Returns one anomaly dict or None.
+        """
+        if not pose:
+            return None
+
+        # keypoint indices: (shoulder, elbow, wrist)
+        RIGHT_IDS = [6, 8, 10]
+        LEFT_IDS  = [5, 7,  9]
+
+        try:
+            right = [pose[i] for i in RIGHT_IDS]
+            left  = [pose[i] for i in LEFT_IDS]
+        except (TypeError, IndexError):
+            return None  # missing or malformed keypoints
+
+        # compute elbow angles
+        right_angle = self._calculate_angle(right)
+        left_angle  = self._calculate_angle(left)
+        if right_angle is None or left_angle is None:
+            return None
+
+        # if either arm is nearly straight, flag it
+        if right_angle > 160 or left_angle > 160:
+            return {
+                'type': 'suspicious_arm_angle',
+                'person_ids': [pid],
+                'timestamp': timestamp,
+                'reason': (
+                    f"PID {pid} arm angles R={right_angle:.1f}°, "
+                    f"L={left_angle:.1f}° — possibly passing an object."
+                )
+            }
+
+        return None
+
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
         Detects anomalies based on YOLO, Pose, and Gaze data for the current frame.
@@ -128,6 +167,14 @@ class AnomalyDetector:
             #             entry for entry in hist
             #             if current_timestamp - entry[0] < max_age
             #         ]
+
+            arm_anomaly = self._check_suspicious_arm_angle(
+                pid,
+                [kp[:2] for kp in pose],
+                current_timestamp
+            )
+            if arm_anomaly:
+                anomalies.append(arm_anomaly)
 
 
         # --- Cheating Detection Logic ---

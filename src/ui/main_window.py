@@ -103,7 +103,7 @@ class VideoProcessingThread(QThread):
                     'frame_width': frame_width,
                     'frame_height': frame_height
                 }
-                # anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
+                anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
                 
                 # for anomaly in anomalies:
                 #     anomaly['video_path'] = self.video_path
