@@ -12,7 +12,7 @@ class YOLODetector(BaseDetector):
         super().__init__(config)
         try:
             self.model = YOLO(self.config.YOLO_MODEL_PATH)
-            logger.info(f"YOLO model loaded from {self.config.YOLO_MODEL_PATH}")
+            logger.success(f"YOLO model loaded from {self.config.YOLO_MODEL_PATH}")
         except Exception as e:
             logger.error(f"Error loading YOLO model from {self.config.YOLO_MODEL_PATH}: {e}. Make sure the model file exists and path is correct.")
             self.model = None

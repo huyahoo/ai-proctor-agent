@@ -1,134 +1,301 @@
-import mediapipe as mp
+import os
+import sys
+
+# Add models directory to Python path for sharingan module
+models_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'models'))
+sys.path.insert(0, models_path)
+
 import numpy as np
-import cv2
+import torch
+import torchvision.transforms.functional as TF
+from PIL import Image
+from typing import List, Dict, Tuple
+from boxmot import OCSORT
+
+from sharingan.sharingan import Sharingan
+from sharingan.common import spatial_argmax2d, square_bbox
+from core.utils import draw_gaze
 from cv.base_detector import BaseDetector
 from core.config import Config
-from core.utils import draw_gaze
 from core.logger import logger
 
 class GazeTracker(BaseDetector):
+    """
+    Advanced gaze tracking using Sharingan model.
+    
+    Features:
+    - Multi-person gaze tracking
+    - Real-time head detection and tracking
+    - Accurate gaze point and vector prediction
+    - Confidence scoring for predictions
+    """
+    
     def __init__(self, config: Config):
+        """Initialize the GazeTracker with Sharingan model."""
+        
         super().__init__(config)
-        self.mp_face_mesh = mp.solutions.face_mesh
-        self.face_mesh = self.mp_face_mesh.FaceMesh(
-            static_image_mode=False,
-            max_num_faces=2, # Detect up to 2 faces for interaction analysis
-            min_detection_confidence=self.config.POSE_MIN_CONFIDENCE,
-            min_tracking_confidence=self.config.POSE_MIN_CONFIDENCE
-        )
-        self.mp_drawing = mp.solutions.drawing_utils
 
-        # 3D model points for head pose estimation (simplified based on a generic face model)
-        # These points are indices of relevant landmarks in the MediaPipe Face Mesh model
-        # Using a subset for stability and relevance to head pose.
-        # This is a general approach, exact mapping to MediaPipe landmarks is crucial.
-        # Common points: Nose tip (1), Chin (152), Left Eye (33), Right Eye (263), Left Mouth (61), Right Mouth (291)
-        # Note: Mediapipe Face Mesh has more detailed landmarks, choosing a robust subset for PnP
-        self.model_points = np.array([
-            (0.0, 0.0, 0.0),             # Nose tip (index 1)
-            (0.0, -330.0, -65.0),        # Chin (index 152)
-            (-225.0, 170.0, -135.0),     # Left eye corner (index 33, approx)
-            (225.0, 170.0, -135.0),      # Right eye corner (index 263, approx)
-            (-150.0, -150.0, -125.0),    # Left mouth corner (index 61, approx)
-            (150.0, -150.0, -125.0)      # Right mouth corner (index 291, approx)
-        ], dtype=np.double)
-
-        # Landmark indices corresponding to model_points for MediaPipe Face Mesh
-        # These are approximate and should be refined with actual landmark definitions if precision is critical
-        self.mesh_points_indices = [1, 152, 33, 263, 61, 291]
-
-        # Camera intrinsic parameters (will be updated per frame for dynamic resolution)
-        self.focal_length_factor = 1.0 # Heuristic, will scale with frame width
-        self.camera_matrix = np.array([
-            [self.focal_length_factor, 0, 0],
-            [0, self.focal_length_factor, 0],
-            [0, 0, 1]
-        ], dtype=np.double)
-        self.dist_coeffs = np.zeros((4,1)) # Assuming no lens distortion (k1, k2, p1, p2)
-
-    def detect(self, frame: np.ndarray) -> list:
+        # Device configuration
+        self.device = self.config.DEVICE
+        
+        # Model configuration
+        self._setup_model_config()
+        
+        # Initialize models
+        self._initialize_models()
+        
+        logger.info("GazeTracker initialized successfully")
+    
+    def _setup_model_config(self):
+        """Setup model configuration parameters."""
+        # Detection thresholds
+        self.head_detection_threshold = self.config.GAZE_DET_THR
+        self.gaze_confidence_threshold = self.config.GAZE_CONF_THR
+        
+        # Image normalization parameters
+        self.image_mean = self.config.GAZE_IMG_MEAN
+        self.image_std = self.config.GAZE_IMG_STD
+        
+        # Model paths - now using absolute paths from config
+        self.checkpoint_path = self.config.GAZE_CHECKPOINT_PATH
+        self.weights_path = self.config.GAZE_WEIGHTS_PATH
+        
+        # Validate paths
+        if not os.path.exists(self.checkpoint_path):
+            raise FileNotFoundError(f"Sharingan checkpoint not found: {self.checkpoint_path}")
+        if not os.path.exists(self.weights_path):
+            raise FileNotFoundError(f"Head detection weights not found: {self.weights_path}")
+    
+    def _initialize_models(self):
+        """Initialize all required models."""
+        # Initialize tracker
+        self.tracker = OCSORT()
+        
+        # Initialize head detector
+        self.head_detector = self._create_head_detector()
+        
+        # Initialize Sharingan model
+        self.sharingan = self._create_sharingan_model()
+    
+    def _create_head_detector(self):
+        """Create and configure the YOLOv5 head detection model."""
+        model = torch.hub.load("ultralytics/yolov5", "custom", 
+                             path=self.weights_path, 
+                             verbose=False)
+        
+        # Configure detection parameters
+        model.conf = 0.25  # NMS confidence threshold
+        model.iou = 0.45   # NMS IoU threshold
+        model.classes = [1]  # Filter for head class only
+        model.amp = False  # Disable automatic mixed precision
+        
+        model = model.to(self.device)
+        model.eval()
+        
+        logger.info("Head detection model loaded successfully")
+        return model
+    
+    def _create_sharingan_model(self):
+        """Create and configure the Sharingan gaze prediction model."""
+        # Model architecture configuration
+        model_config = {
+            'patch_size': 16,
+            'token_dim': 768,
+            'image_size': 224,
+            'gaze_feature_dim': 512,
+            'encoder_depth': 12,
+            'encoder_num_heads': 12,
+            'encoder_num_global_tokens': 0,
+            'encoder_mlp_ratio': 4.0,
+            'encoder_use_qkv_bias': True,
+            'encoder_drop_rate': 0.0,
+            'encoder_attn_drop_rate': 0.0,
+            'encoder_drop_path_rate': 0.0,
+            'decoder_feature_dim': 128,
+            'decoder_hooks': [2, 5, 8, 11],
+            'decoder_hidden_dims': [48, 96, 192, 384],
+            'decoder_use_bn': True,
+        }
+        
+        # Create model
+        sharingan = Sharingan(**model_config)
+        
+        # Load pretrained weights
+        checkpoint = torch.load(self.checkpoint_path, map_location="cpu")
+        checkpoint = {name.replace("model.", ""): value for name, value in checkpoint["state_dict"].items()}
+        sharingan.load_state_dict(checkpoint, strict=True)
+        
+        sharingan.eval()
+        sharingan.to(self.device)
+        
+        logger.info("Sharingan model loaded successfully")
+        return sharingan
+    
+    def detect(self, frame: np.ndarray) -> List[Dict]:
         """
-        Detects faces and estimates head pose (for simplified gaze) in a frame.
-        Returns a list of dictionaries:
-        [{'bbox': [x1, y1, x2, y2], 'head_pose': [nose_x, nose_y, pitch_deg, yaw_deg, roll_deg]}, ...]
-        """
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        results = self.face_mesh.process(frame_rgb)
-
-        gaze_data = []
-        if results.multi_face_landmarks:
-            h, w, _ = frame.shape
-
-            # Update camera intrinsics based on current frame size
-            self.camera_matrix[0, 0] = self.focal_length_factor * w # fx = focal_length * image_width
-            self.camera_matrix[1, 1] = self.focal_length_factor * w # fy = fx (assuming square pixels)
-            self.camera_matrix[0, 2] = w / 2 # cx = image_width / 2
-            self.camera_matrix[1, 2] = h / 2 # cy = image_height / 2
-
-            for face_landmarks in results.multi_face_landmarks:
-                image_points = []
-                for idx in self.mesh_points_indices:
-                    if idx < len(face_landmarks.landmark):
-                        lm = face_landmarks.landmark[idx]
-                        image_points.append((lm.x * w, lm.y * h))
-                    else:
-                        # Fallback if landmark index is out of bounds (shouldn't happen with correct indices)
-                        image_points.append((0,0))
-                image_points = np.array(image_points, dtype=np.double)
-
-                if len(image_points) != len(self.model_points):
-                    logger.warning(f"Warning: Mismatch in model points ({len(self.model_points)}) and image points ({len(image_points)}). Skipping face.")
-                    continue
-
-                # Solve for pose
-                try:
-                    (success, rotation_vector, translation_vector) = cv2.solvePnP(
-                        self.model_points, image_points, self.camera_matrix, self.dist_coeffs,
-                        flags=cv2.SOLVEPNP_ITERATIVE
-                    )
-
-                    # Convert rotation vector to rotation matrix and then Euler angles
-                    rmat, _ = cv2.Rodrigues(rotation_vector)
-                    angles, _, _, _, _, _ = cv2.RQDecomp3x3(rmat) # angles are (pitch, yaw, roll) in radians
-
-                    pitch_deg = np.degrees(angles[0])
-                    yaw_deg = np.degrees(angles[1])
-                    roll_deg = np.degrees(angles[2])
-
-                    # Get nose tip for drawing direction
-                    nose_tip = (face_landmarks.landmark[1].x * w, face_landmarks.landmark[1].y * h)
-
-                    # Calculate bounding box for the face
-                    x_coords = [lm.x * w for lm in face_landmarks.landmark]
-                    y_coords = [lm.y * h for lm in face_landmarks.landmark]
-                    if x_coords and y_coords:
-                        x_min, y_min = min(x_coords), min(y_coords)
-                        x_max, y_max = max(x_coords), max(y_coords)
-                        bbox = [x_min, y_min, x_max, y_max]
-                    else:
-                        bbox = [0,0,0,0]
-
-                    gaze_data.append({
-                        'bbox': bbox,
-                        'head_pose': [nose_tip[0], nose_tip[1], pitch_deg, yaw_deg, roll_deg] # Storing in degrees
-                    })
-                except cv2.error as e:
-                    logger.error(f"Head pose estimation solvePnP error: {e}")
-                    continue
-
-        return gaze_data
-
-    def draw_results(self, original_frame: np.ndarray, gaze_data: list) -> np.ndarray:
-        """
-        Draws gaze estimation (head pose vectors) on a copy of the original frame.
+        Detect faces and predict gaze directions in a frame.
+        
         Args:
-            original_frame (np.ndarray): The frame to draw on.
-            gaze_data (list): Output from self.detect method.
+            frame: Input frame as numpy array (BGR format)
+            
         Returns:
-            np.ndarray: A new frame with gaze detections drawn.
+            List of dictionaries containing gaze data for each detected person:
+            [
+                {
+                    'bbox': [x1, y1, x2, y2],
+                    'gaze_point': [x, y],
+                    'gaze_vector': [x, y],
+                    'inout_score': float,
+                    'pid': int
+                },
+                ...
+            ]
         """
-        display_frame = original_frame.copy() # Draw on a copy of the original frame
-        for data in gaze_data:
-            if data['head_pose']:
-                draw_gaze(display_frame, data['head_pose'], color=(255, 0, 0)) # Red color for gaze
-        return display_frame
+        # Predict gaze using Sharingan
+        gaze_points, gaze_vectors, inout_scores, head_bboxes, _, person_ids = self._predict_gaze(frame)
+        
+        # Format results
+        gaze_data = []
+        for i in range(len(head_bboxes)):
+            gaze_data.append({
+                'bbox': head_bboxes[i].detach().numpy().tolist(),
+                'gaze_point': gaze_points[i].detach().numpy().tolist() if len(gaze_points) > i else None,
+                'gaze_vector': gaze_vectors[i].detach().numpy().tolist() if len(gaze_vectors) > i else None,
+                'inout_score': inout_scores[i].item() if len(inout_scores) > i else 0.0,
+                'pid': person_ids[i] if len(person_ids) > i else i
+            })
+        
+        return gaze_data
+    
+    def _predict_gaze(self, image: np.ndarray) -> Tuple:
+        """
+        Core gaze prediction pipeline.
+        
+        Args:
+            image: Input image as numpy array
+            
+        Returns:
+            Tuple of (gaze_points, gaze_vectors, inout_scores, head_bboxes, gaze_heatmaps, person_ids)
+        """
+        # Convert to PIL Image (RGB)
+        if isinstance(image, np.ndarray):
+            image = Image.fromarray(image[..., ::-1])  # BGR to RGB
+        
+        image_np = np.array(image)
+        img_height, img_width, _ = image_np.shape
+        
+        # Step 1: Detect heads
+        head_detections = self._detect_heads(image_np)
+        if len(head_detections) == 0:
+            return [], [], [], [], [], []
+        
+        # Step 2: Track heads across frames
+        tracks = self.tracker.update(head_detections, image_np)
+        if len(tracks) == 0:
+            return [], [], [], [], [], []
+        
+        # Step 3: Process tracked heads
+        person_ids = (tracks[:, 4] - 1).astype(int)
+        head_bboxes = torch.from_numpy(tracks[:, :4]).float()
+        normalized_bboxes = square_bbox(head_bboxes, img_width, img_height)
+        
+        # Step 4: Extract and preprocess head crops
+        head_crops = self._extract_head_crops(image, normalized_bboxes)
+        
+        # Step 5: Prepare model inputs
+        model_inputs = self._prepare_model_inputs(image, head_crops, normalized_bboxes, img_width, img_height)
+        
+        # Step 6: Run Sharingan model
+        with torch.no_grad():
+            gaze_vectors, gaze_heatmaps, inout_logits = self.sharingan(model_inputs)
+        
+        # Step 7: Post-process outputs
+        gaze_heatmaps = gaze_heatmaps.squeeze(0).cpu()
+        gaze_vectors = gaze_vectors.squeeze(0).cpu()
+        gaze_points = spatial_argmax2d(gaze_heatmaps, normalize=True)
+        inout_scores = torch.sigmoid(inout_logits.squeeze(0)).flatten().cpu()
+        
+        return gaze_points, gaze_vectors, inout_scores, head_bboxes, gaze_heatmaps, person_ids
+    
+    def _detect_heads(self, image: np.ndarray) -> np.ndarray:
+        """Detect heads in the image using YOLOv5."""
+        with torch.no_grad():
+            detections = self.head_detector(image, size=640).pred[0].cpu().numpy()[:, :-1]
+        
+        # Filter by confidence threshold
+        filtered_detections = []
+        for detection in detections:
+            bbox, confidence = detection[:4], detection[4]
+            if confidence > self.head_detection_threshold:
+                class_id = np.array([0.])
+                filtered_detection = np.concatenate([bbox, confidence[None], class_id])
+                filtered_detections.append(filtered_detection)
+        
+        return np.stack(filtered_detections) if filtered_detections else np.array([])
+    
+    def _extract_head_crops(self, image: Image.Image, bboxes: torch.Tensor) -> torch.Tensor:
+        """Extract and preprocess head crops from the image."""
+        head_crops = []
+        for bbox in bboxes:
+            # Crop head region
+            head_crop = TF.resize(TF.to_tensor(image.crop(bbox.numpy())), (224, 224))
+            head_crops.append(head_crop)
+        
+        head_crops = torch.stack(head_crops)
+        # Normalize
+        head_crops = TF.normalize(head_crops, mean=self.image_mean, std=self.image_std)
+        
+        return head_crops
+    
+    def _prepare_model_inputs(self, image: Image.Image, head_crops: torch.Tensor, 
+                            bboxes: torch.Tensor, img_width: int, img_height: int) -> Dict:
+        """Prepare inputs for the Sharingan model."""
+        # Process full image
+        image_tensor = TF.to_tensor(image)
+        image_tensor = TF.resize(image_tensor, (224, 224))
+        image_tensor = TF.normalize(image_tensor, mean=self.image_mean, std=self.image_std)
+        
+        # Normalize bounding boxes
+        scale = torch.tensor([img_width, img_height, img_width, img_height], dtype=torch.float32)
+        normalized_bboxes = bboxes / scale
+        
+        # Build sample dictionary
+        sample = {
+            "image": image_tensor.unsqueeze(0).to(self.device),
+            "heads": head_crops.unsqueeze(0).to(self.device),
+            "head_bboxes": normalized_bboxes.unsqueeze(0).to(self.device)
+        }
+        
+        return sample
+    
+    def draw_results(self, original_frame: np.ndarray, data, gaze_heatmaps=None, heatmap_pid=None, frame_nb=None) -> np.ndarray:
+        """
+        Draw gaze predictions on a copy of the original frame using the utility draw_gaze().
+        """
+        if not data:
+            return original_frame.copy()
+
+        head_bboxes = []
+        gaze_points = []
+        gaze_vecs = []
+        inouts = []
+        pids = []
+
+        for entry in data:
+            head_bboxes.append(entry['bbox'])
+            gaze_points.append(entry['gaze_point'])
+            gaze_vecs.append(entry['gaze_vector'])
+            inouts.append(entry['inout_score'])
+            pids.append(entry['pid'])
+
+        return draw_gaze(
+            image=original_frame,
+            head_bboxes=head_bboxes,
+            gaze_points=gaze_points,
+            gaze_vecs=gaze_vecs,
+            inouts=inouts,
+            pids=np.array(pids),
+            gaze_heatmaps=gaze_heatmaps or [],
+            heatmap_pid=heatmap_pid,
+            frame_nb=frame_nb
+        )
