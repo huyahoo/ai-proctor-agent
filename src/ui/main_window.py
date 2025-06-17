@@ -97,13 +97,13 @@ class VideoProcessingThread(QThread):
                     'frame_width': frame_width,
                     'frame_height': frame_height
                 }
-                anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
+                # anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
                 
-                for anomaly in anomalies:
-                    anomaly['video_path'] = self.video_path
-                    # Assign a unique ID for each event instance
-                    anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
-                    self.anomaly_detected.emit(anomaly) 
+                # for anomaly in anomalies:
+                #     anomaly['video_path'] = self.video_path
+                #     # Assign a unique ID for each event instance
+                #     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
+                #     self.anomaly_detected.emit(anomaly) 
 
             # Control processing speed to match desired FPS / FRAME_SKIP
             # This sleep is meant to slow down processing if it's faster than target FPS / FRAME_SKIP.

@@ -44,7 +44,7 @@ class GazeTracker(BaseDetector):
         # Initialize models
         self._initialize_models()
         
-        logger.info("GazeTracker initialized successfully")
+        logger.success("GazeTracker initialized successfully")
     
     def _setup_model_config(self):
         """Setup model configuration parameters."""
@@ -92,7 +92,7 @@ class GazeTracker(BaseDetector):
         model = model.to(self.device)
         model.eval()
         
-        logger.info("Head detection model loaded successfully")
+        logger.success("Head detection model loaded successfully")
         return model
     
     def _create_sharingan_model(self):
@@ -128,7 +128,7 @@ class GazeTracker(BaseDetector):
         sharingan.eval()
         sharingan.to(self.device)
         
-        logger.info("Sharingan model loaded successfully")
+        logger.success("Sharingan model loaded successfully")
         return sharingan
     
     def detect(self, frame: np.ndarray) -> List[Dict]:
