@@ -3,7 +3,6 @@ import numpy as np
 import os
 import json
 from PIL import Image # For VLM input processing
-import mediapipe as mp # For pose drawing connections if needed for utility
 from core.logger import logger
 
 def load_video_capture(video_path):

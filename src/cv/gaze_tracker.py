@@ -1,28 +1,24 @@
 import os
 import sys
 
-# sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__))))
+# Add models directory to Python path for sharingan module
 models_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'models'))
 sys.path.insert(0, models_path)
 
 import numpy as np
-import cv2
 import torch
 import torchvision.transforms.functional as TF
 from PIL import Image
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Tuple
 from boxmot import OCSORT
 
 from sharingan.sharingan import Sharingan
 from sharingan.common import spatial_argmax2d, square_bbox
 from core.utils import draw_gaze
+from cv.base_detector import BaseDetector
+from core.config import Config 
 
-# Constants
-DET_THR = 0.4  # head detection threshold
-IMG_MEAN = [0.44232, 0.40506, 0.36457]
-IMG_STD = [0.28674, 0.27776, 0.27995]
-
-class GazeTracker:
+class GazeTracker(BaseDetector):
     """
     Advanced gaze tracking using Sharingan model.
     
@@ -33,10 +29,13 @@ class GazeTracker:
     - Confidence scoring for predictions
     """
     
-    def __init__(self, device=None):
+    def __init__(self, config: Config):
         """Initialize the GazeTracker with Sharingan model."""
+        
+        super().__init__(config)
+
         # Device configuration
-        self.device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = self.config.DEVICE
         print(f"GazeTracker using device: {self.device}")
         
         # Model configuration
@@ -50,18 +49,16 @@ class GazeTracker:
     def _setup_model_config(self):
         """Setup model configuration parameters."""
         # Detection thresholds
-        self.head_detection_threshold = DET_THR
-        self.gaze_confidence_threshold = 0.5
+        self.head_detection_threshold = self.config.GAZE_DET_THR
+        self.gaze_confidence_threshold = self.config.GAZE_CONF_THR
         
         # Image normalization parameters
-        self.image_mean = IMG_MEAN
-        self.image_std = IMG_STD
+        self.image_mean = self.config.GAZE_IMG_MEAN
+        self.image_std = self.config.GAZE_IMG_STD
         
-        # Model paths
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.abspath(os.path.join(current_dir, '../..'))
-        self.checkpoint_path = os.path.join(project_root, "models/sharingan/checkpoints/videoattentiontarget.pt")
-        self.weights_path = os.path.join(project_root, "models/sharingan/weights/yolov5m_crowdhuman.pt")
+        # Model paths - now using absolute paths from config
+        self.checkpoint_path = self.config.GAZE_CHECKPOINT_PATH
+        self.weights_path = self.config.GAZE_WEIGHTS_PATH
         
         # Validate paths
         if not os.path.exists(self.checkpoint_path):

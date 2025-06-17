@@ -12,8 +12,8 @@ from cv.gaze_tracker import GazeTracker
 def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Test gaze tracking on video")
-    parser.add_argument("--input", type=str, help="Path to input video file")
-    parser.add_argument("--output", type=str, default="data/videos/test_gaze.mp4", help="Path to output video file")
+    parser.add_argument("--input", type=str, default="data/videos/test_video.mp4", help="Path to input video file")
+    parser.add_argument("--output", type=str, default="data/output/test_gaze_output.mp4", help="Path to output video file")
     return parser.parse_args()
 
 def main():

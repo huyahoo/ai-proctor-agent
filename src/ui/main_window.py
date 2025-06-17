@@ -13,7 +13,7 @@ from PyQt6.QtGui import QIcon
 from ui.video_output_widget import VideoOutputWidget
 from ui.alert_panel import AlertPanel
 from cv.yolo_detector import YOLODetector
-from cv.pose_estimator import PoseEstimator
+# from cv.pose_estimator import PoseEstimator
 from cv.gaze_tracker import GazeTracker
 from ai.anomaly_detector import AnomalyDetector
 from ai.llm_constraint_generator import LLMConstraintGenerator
@@ -41,7 +41,7 @@ class VideoProcessingThread(QThread):
 
         # Initialize CV detectors
         self.yolo_detector = YOLODetector(config)
-        self.pose_estimator = PoseEstimator(config)
+        # self.pose_estimator = PoseEstimator(config)
         self.gaze_tracker = GazeTracker(config)
         self.anomaly_detector = AnomalyDetector(config)
 
@@ -70,20 +70,20 @@ class VideoProcessingThread(QThread):
 
                 # Perform CV detections (get raw data)
                 yolo_detections = self.yolo_detector.detect(frame)
-                pose_estimations = self.pose_estimator.detect(frame)
+                # pose_estimations = self.pose_estimator.detect(frame)
                 gaze_estimations = self.gaze_tracker.detect(frame)
 
                 # Generate CV visualization frames by drawing on a COPY of the original frame
                 # Pass the original frame to the draw_results methods
                 yolo_viz_frame = self.yolo_detector.draw_results(frame.copy(), yolo_detections)
-                pose_viz_frame = self.pose_estimator.draw_results(frame.copy(), pose_estimations)
+                # pose_viz_frame = self.pose_estimator.draw_results(frame.copy(), pose_estimations)
                 gaze_viz_frame = self.gaze_tracker.draw_results(frame.copy(), gaze_estimations)
 
                 # Emit all frames and current timestamp for UI display
                 self.frame_update.emit({
                     'original': frame.copy(), # Send a copy for the original display
                     'yolo': yolo_viz_frame,
-                    'pose': pose_viz_frame,
+                    # 'pose': pose_viz_frame,
                     'gaze': gaze_viz_frame,
                     'timestamp': current_timestamp_sec,
                     'frame_idx': self.current_frame_idx
@@ -92,18 +92,18 @@ class VideoProcessingThread(QThread):
                 # Detect anomalies using raw data
                 frame_info_for_anomaly = {
                     'yolo_detections': yolo_detections,
-                    'pose_estimations': pose_estimations,
+                    # 'pose_estimations': pose_estimations,
                     'gaze_estimations': gaze_estimations,
                     'frame_width': frame_width,
                     'frame_height': frame_height
                 }
-                anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
+                # anomalies = self.anomaly_detector.detect_anomalies(frame_info_for_anomaly, current_timestamp_sec)
                 
-                for anomaly in anomalies:
-                    anomaly['video_path'] = self.video_path
-                    # Assign a unique ID for each event instance
-                    anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
-                    self.anomaly_detected.emit(anomaly) 
+                # for anomaly in anomalies:
+                #     anomaly['video_path'] = self.video_path
+                #     # Assign a unique ID for each event instance
+                #     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
+                #     self.anomaly_detected.emit(anomaly) 
 
             # Control processing speed to match desired FPS / FRAME_SKIP
             # This sleep is meant to slow down processing if it's faster than target FPS / FRAME_SKIP.
@@ -442,7 +442,7 @@ class ProctorAgentApp(QMainWindow):
         if not self.seeking: # Only update displays if not actively seeking
             self.original_video_widget.display_frame(frame_data['original'])
             self.yolo_video_widget.display_frame(frame_data['yolo'])
-            self.pose_video_widget.display_frame(frame_data['pose'])
+            # self.pose_video_widget.display_frame(frame_data['pose'])
             self.gaze_video_widget.display_frame(frame_data['gaze'])
             self.video_position_slider.setValue(frame_data['frame_idx'])
 
