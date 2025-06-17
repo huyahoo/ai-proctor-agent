@@ -27,24 +27,14 @@ cd proctor-agent
 ```
 
 2. **Create and activate conda environment**
+- This command creates a new conda environment named `proctor-agent` and installs all necessary dependencies from the `environment.yml` file.
+- Note that you should change CUDA toolkit version suitable for your environment.
 ```bash
-conda create -n proctor-agent python=3.10
+conda env create -f environment.yml
 conda activate proctor-agent
 ```
 
-3. **Install CUDA dependencies**
-```bash
-# Install PyTorch with CUDA support
-conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1  pytorch-cuda=11.8 -c pytorch -c nvidia
-conda install -c conda-forge opencv
-```
-
-4. **Install Python packages**
-```bash
-pip install -r requirements.txt
-```
-
-5. **Configure environment variables**
+3. **Configure environment variables**
 ```bash
 cp .env.example .env
 # Edit .env and add your Gemini API key

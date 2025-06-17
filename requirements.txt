@@ -3,8 +3,8 @@ torch==1.13.1
 torchvision==0.14.1
 google-generativeai
 PyQt6==6.9.1
+Pillow==11.2.1
 python-dotenv==1.1.0
-# Pillow==11.2.1
 colorama==0.4.6
 einops==0.7.0
 boxmot==10.0.45
@@ -15,3 +15,4 @@ protobuf
 grpcio-status
 wandb==0.16.1
 seaborn==0.13.0
+openpifpaf==0.13.11

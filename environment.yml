@@ -1,0 +1,31 @@
+name: proctor-agent
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch=1.13.1
+  - torchvision=0.14.1
+  - torchaudio=0.13.1
+  - pytorch-cuda=11.6
+  - opencv
+  - pip
+  - pip:
+    - ultralytics==8.3.155
+    - google-generativeai
+    - PyQt6==6.9.1
+    - Pillow==11.2.1
+    - python-dotenv==1.1.0
+    - colorama==0.4.6
+    - einops==0.7.0
+    - boxmot==10.0.45
+    - pytorch-lightning==2.1.2
+    - termcolor==2.4.0
+    - transformers==4.35.2
+    - protobuf
+    - grpcio-status
+    - wandb==0.16.1
+    - seaborn==0.13.0
+    - openpifpaf==0.13.11
