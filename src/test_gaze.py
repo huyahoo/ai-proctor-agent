@@ -8,6 +8,7 @@ import argparse
 from tqdm import tqdm
 
 from cv.gaze_tracker import GazeTracker
+from core.config import Config
 
 def parse_args():
     """Parse command line arguments."""
@@ -43,7 +44,7 @@ def main():
     out = cv2.VideoWriter(args.output, fourcc, fps, (width, height))
     
     # Initialize gaze tracker
-    tracker = GazeTracker()
+    tracker = GazeTracker(config=Config())
     
     # Process video
     print(f"Processing video: {args.input}")

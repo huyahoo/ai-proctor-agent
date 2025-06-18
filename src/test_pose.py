@@ -107,13 +107,13 @@ def process_video(input_video_path: str, output_video_path: str):
 
 def main():
     # Ensure the input video exists
-    input_video = "data/videos/IMG_4721.mp4"  # Relative to src directory
+    input_video = "data/videos/IMG_4723.mp4"  # Relative to src directory
     if not os.path.exists(input_video):
         logger.error(f"Input video not found at {input_video}")
         sys.exit(1)
     
     # Create output directory if it doesn't exist
-    output_video = "data/videos/IMG_4721_annotated.mp4"  # Relative to src directory
+    output_video = "data/videos/IMG_4723_annotated.mp4"  # Relative to src directory
     os.makedirs(os.path.dirname(output_video), exist_ok=True)
     
     try:

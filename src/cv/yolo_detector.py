@@ -45,20 +45,19 @@ class YOLODetector(BaseDetector):
 
     def draw_results(self, original_frame: np.ndarray, detections: list) -> np.ndarray:
         """
-        Draws YOLO bounding boxes and labels on a copy of the original frame.
-        Args:
-            original_frame (np.ndarray): The frame to draw on.
-            detections (list): Output from self.detect method.
-        Returns:
-            np.ndarray: A new frame with YOLO detections drawn.
+        Draws YOLO detections on a copy of the original frame,
+        syncing person colors by pid and overriding colors for other labels.
         """
-        display_frame = original_frame.copy() # Draw on a copy of the original frame
+        frame = original_frame.copy()
+
         for det in detections:
-            color = (0, 255, 0) # Green for persons
-            if det['label'] in ['cell phone', 'book', 'note', 'earbud', 'smartwatch', 'calculator']: # Unauthorized items in red
-                color = (0, 0, 255) 
-            elif det['label'] != 'person': # Other objects in yellow
-                color = (255, 255, 0) 
-            
-            draw_bbox(display_frame, det['bbox'], f"{det['label']}: {det['confidence']:.2f}", color)
-        return display_frame
+            label = det.get('label', '')
+            bbox  = det['bbox']
+            conf  = det.get('confidence', 0.0)
+            pid   = det.get('pid', None)
+
+            # Build the text you'll draw
+            text = f"{label}: {conf:.2f}"
+            draw_bbox(frame, bbox, label, text, pid)
+
+        return frame
