@@ -29,7 +29,7 @@ def get_person_map(frame_data):
         if pid in person_map:
             person_map[pid]['gaze'] = {
                 'bbox': g['bbox'],
-                'point': g['gaze_point'],
+                'point': [g['gaze_point'][0] * frame_data["frame_width"], g['gaze_point'][1] * frame_data["frame_height"]],
                 'vector': g['gaze_vector'],
                 'score': g['inout_score']
             }
@@ -50,16 +50,18 @@ def main():
         'yolo_detections': yolo_detections,
         'pose_estimations': pose_estimations,
         'gaze_estimations': gaze_estimations,
-        'frame_width': 1920,
-        'frame_height': 1080
+        'frame_width': 4032,
+        'frame_height': 3024
     }
 
     person_map = get_person_map(frame_data)
     time_stamp = 0
-    # print("Person Map:", person_map)
+    print("Person Map:", person_map)
 
     arm_anomaly = anomaly_detector.check_suspicious_arm_angle(person_map, time_stamp)
-    print("Arm Anomaly Detected:", arm_anomaly)
+    # print("Arm Anomaly Detected:", arm_anomaly)
+    head_anomaly = anomaly_detector.check_looking_away(person_map, time_stamp)
+    print("Head Anomaly Detected:", head_anomaly)
 
 if __name__ == "__main__":
     main()
