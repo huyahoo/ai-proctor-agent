@@ -19,7 +19,7 @@ class Config:
 
     # Video Processing
     FPS = 30 # Target frames per second for processing and display
-    FRAME_SKIP = 5 # Process every Nth frame (1 = process every frame)
+    FRAME_SKIP =1 # Process every Nth frame (1 = process every frame)
 
     # Anomaly Detection Thresholds (adjust these during testing)
     GAZE_CONSECUTIVE_FRAMES = 5 # How many frames must gaze be detected towards a target
@@ -31,7 +31,7 @@ class Config:
     # LLM/VLM Settings
     LLM_MODEL_NAME = "gemini-1.5-flash-latest"
     VLM_MODEL_NAME = "gemini-2.5-flash-preview-05-20"
-    VLM_ANALYSIS_CLIP_SECONDS = 2 # How many seconds of video to send to VLM (centered on anomaly)
+    VLM_ANALYSIS_CLIP_SECONDS = 4 # How many seconds of video to send to VLM (centered on anomaly)
 
     # Feedback Learning
     FEEDBACK_DATA_DIR = "data/feedback"

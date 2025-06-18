@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from core.config import Config
+from core.logger import logger
 
 class AnomalyDetector:
     def __init__(self, config: Config):
@@ -90,7 +91,7 @@ class AnomalyDetector:
             except (TypeError, IndexError):
                 return None  # missing or malformed keypoints
 
-            print(f"Person {pid}: Right arm: {right}, Left arm: {left}")
+            # logger.info(f"Person {pid}: Right arm: {right}, Left arm: {left}")
             
             # compute elbow angles
             right_angle = self._calculate_angle(right)
@@ -98,16 +99,16 @@ class AnomalyDetector:
             if right_angle is None or left_angle is None:
                 return None
 
-            print(f"Person {pid}: Right arm angle: {right_angle:.1f}°, Left arm angle: {left_angle:.1f}°")
+            # logger.info(f"Person {pid}: Right arm angle: {right_angle:.1f}°, Left arm angle: {left_angle:.1f}°")
             # if either arm is nearly straight, flag it
             if right_angle > 160 or left_angle > 160:
                 anomaly.append({
                     'type': 'suspicious_arm_angle',
                     'person_ids': [pid],
                     'timestamp': timestamp,
-                    'reason': (
-                        f"PID {pid} arm angles R={right_angle:.1f}°, "
-                        f"L={left_angle:.1f}° — possibly passing an object."
+                    'description': (
+                        f"At timestamp {timestamp:.2f}s, Student ID {pid}'s arm angles right={right_angle:.1f}°, "
+                        f"left={left_angle:.1f}° — possibly passing an unauthorized object."
                     )
                 })
 
@@ -163,7 +164,7 @@ class AnomalyDetector:
                                 'person_ids': [pid1],
                                 # 'confidence': gaze_score1,
                                 'timestamp': timestamp,
-                                'description': f"Person {pid1} is looking at person {pid2}"
+                                'description': f"Student {pid1} is looking at student {pid2}"
                             })
 
         return anomalies if anomalies else None
@@ -215,7 +216,7 @@ class AnomalyDetector:
                     'person_ids': [pid],
                     'timestamp': timestamp,
                     'missing': missing_wrists,
-                    'description': f"Person {pid} has high probability of using the phone under the table."
+                    'description': f"Student {pid} has high probability of using the phone under the table."
                 })
         
         return anomalies if anomalies else None
@@ -284,6 +285,11 @@ class AnomalyDetector:
         gaze_anomalies = self.check_looking_away(person_map, current_timestamp)
         if gaze_anomalies:
             anomalies.extend(gaze_anomalies)
+
+        # 3. Missing wrists: Check for missing or low confidence wrist keypoints
+        # wrist_anomalies = self.check_missing_wrists(person_map, current_timestamp)
+        # if wrist_anomalies:
+        #     anomalies.extend(wrist_anomalies)
             
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:

@@ -13,6 +13,9 @@ class VLMAnalyzer:
         self.config = config
         genai.configure(api_key=self.config.GEMINI_API_KEY)
         self.model = genai.GenerativeModel(self.config.VLM_MODEL_NAME)
+        self.generation_config = genai.types.GenerationConfig(
+            temperature=0.1,
+        )
         logger.success(f"VLM model '{self.config.VLM_MODEL_NAME}' initialized for analysis.")
 
     def analyze_and_explain(self, frame_sequence: list, constraints: str) -> dict:
@@ -26,6 +29,8 @@ class VLMAnalyzer:
         """
         if not frame_sequence:
             return {"decision": "No Visual Data", "explanation": "No frames provided for analysis."}
+
+        logger.step(f"VLMAnalyzer: Analyzing {len(frame_sequence)} frames with constraints: {constraints}")
 
         # Prepare content for VLM - Google Gemini's vision models accept up to 16 images
         # Select evenly spaced frames if the sequence is too long
@@ -57,14 +62,30 @@ class VLMAnalyzer:
         if not image_parts:
             return {"decision": "No Valid Images", "explanation": "Could not prepare valid images for VLM analysis."}
 
+        prompt_text = f"""You are a specialized AI assistant for proctoring exams. Your task is to analyze a sequence of images and determine if a student's actions violate a given rule.
+
+**Analysis Task:**
+Based *only* on the visual evidence in the image sequence, verify the following:
+> {constraints}
+
+**Output Requirements:**
+Your response MUST strictly follow this format, with no extra text or markdown (e.g., no `*`, `-`, or `###`). The explanation must be a single, concise paragraph.
+
+Decision: [Cheating Confirmed / Not Cheating / Ambiguous]
+Explanation: [A brief summary of your reasoning, linking specific visual evidence to the analysis task.]
+"""
+
         prompt_parts = [
-            f"Analyze the following sequence of images from an exam. The original alert suggested a suspicious event. Based on these visual frames, and strictly adhering to the following verification constraints, determine if cheating is confirmed and provide a detailed explanation:\n\nConstraints: {constraints}\n\n"
-            f"Please format your response strictly as:\nDecision: [Cheating Confirmed / Not Cheating / Ambiguous]\nExplanation: [Detailed explanation of reasoning based on visual evidence and constraints from the image sequence.]\n\n",
-            *image_parts, # Unpack image parts here
+            prompt_text,
+            *image_parts,
         ]
 
         try:
-            response = self.model.generate_content(prompt_parts)
+            response = self.model.generate_content(
+                prompt_parts,
+                generation_config=self.generation_config
+            )
+            
             # Access the first part of the first candidate's content
             if response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
                 response_text = response.candidates[0].content.parts[0].text

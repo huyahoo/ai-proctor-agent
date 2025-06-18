@@ -9,7 +9,7 @@ class LLMConstraintGenerator:
         genai.configure(api_key=self.config.GEMINI_API_KEY)
         self.model = genai.GenerativeModel(self.config.LLM_MODEL_NAME)
         self.generation_config = genai.types.GenerationConfig(
-            max_output_tokens=100,
+            max_output_tokens=512,
             temperature=0.2,
         )
         logger.success(f"LLM model '{self.config.LLM_MODEL_NAME}' initialized for constraint generation.")
@@ -23,6 +23,9 @@ class LLMConstraintGenerator:
             str: A natural language string of constraints for the VLM.
         """
         prompt = self._build_prompt(event_data)
+
+        logger.info(f"\nLLM Prompt: {prompt}")
+        
         try:
             response = self.model.generate_content(
                 prompt,
@@ -33,50 +36,25 @@ class LLMConstraintGenerator:
                 return constraint.strip()
             else:
                 logger.warning("LLM response did not contain expected content or was blocked.")
-                return "Analyze for any further suspicious activity in the video segment."
+                return "Monitoring for any further suspicious activity in the video segment."
         except Exception as e:
             logger.error(f"Error calling LLM for constraint generation: {e}")
-            return f"Analyze for any further suspicious activity. LLM error: {e}"
-
-    def _get_event_description(self, event_data: dict) -> str:
-        """Creates a natural language description of the event."""
-        logger.info(f"Event data: {event_data}")
-        event_type = event_data.get('type', 'unknown_event')
-        person_ids = event_data.get('person_ids', [])
-        object_label = event_data.get('object_label', '')
-
-        if event_type == 'collaborative_gaze_correlation':
-            p1, p2 = person_ids[0], person_ids[1] if len(person_ids) > 1 else 'another student'
-            return f"Sustained, correlated side-gaze detected between students {p1} and {p2}."
-
-        elif event_type == 'individual_unauthorized_material':
-            p_id = person_ids[0] if person_ids else 'a student'
-            return f"Student {p_id} detected with a potential unauthorized item ('{object_label}') in their immediate vicinity."
-
-        elif event_type == 'collaborative_hand_gesture_proximity':
-            p1, p2 = person_ids[0], person_ids[1] if len(person_ids) > 1 else 'another student'
-            return f"Close hand proximity detected between students {p1} and {p2}, suggesting a physical interaction."
-
-        elif event_type == 'individual_suspicious_gaze':
-            p_id = person_ids[0] if person_ids else 'a student'
-            return f"Student {p_id} is exhibiting extreme or sustained gaze away from their exam paper."
-
-        else:
-            return event_data.get('description', 'An unclassified suspicious event occurred.')
+            return f"Monitoring for any further suspicious activity. LLM error: {e}"
 
     def _build_prompt(self, event_data: dict) -> str:
         """Constructs the prompt for the LLM based on event data."""
         base_prompt = (
-            "You are an expert AI proctoring assistant. Your task is to generate a single, concise, and actionable instruction for a subordinate Vision-Language Model (VLM). "
-            "This instruction will guide the VLM in analyzing a 5-second video clip that immediately follows a potential academic integrity violation during an in-person exam.\n\n"
-            "The instruction must be a direct command to the VLM, focusing on specific, observable actions to confirm or deny cheating. "
+            "You are an expert AI proctoring assistant. Your task is to generate a single, concise, and actionable instruction for a subordinate Vision-Language Model (VLM) to monitor provided suspicious actions of students. "
+            f"This instruction will guide the VLM in monitoring a sequence of images representing a cut video clip of {self.config.VLM_ANALYSIS_CLIP_SECONDS} seconds."
+            "that immediately follows a potential academic integrity violation during an in-person exam. Each seconds will take 2 frames.\n\n"
+            f"The instruction must be a direct command to the VLM, focusing on specific, observable actions based on the suspicious event to confirm or deny cheating. "
             "Frame your response as a direct order to the VLM. Be brief, clear, and focus only on verifiable visual evidence.\n\n"
             "---"
         )
-        event_description = self._get_event_description(event_data)
+        event_description = event_data.get('description', 'An unclassified suspicious event occurred.')
         final_prompt = (
             f"{base_prompt}\n"
-            f"Initial Event: {event_description}\n\n"
+            f"Suspicious Event: {event_description}\n\n"
             "Instruction for VLM:"
         )
         return final_prompt

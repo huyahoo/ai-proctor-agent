@@ -154,12 +154,12 @@ class AnomalyConsumer(QThread):
             try:
                 # Use a short timeout to allow the thread to gracefully exit if stop_flag is set
                 event_data = self.event_queue.get(timeout=0.1)
-                logger.info(f"Consumer: Processing event {event_data.get('type')} at {event_data.get('timestamp'):.2f}s")
+                logger.info(f"AnomalyConsumer: Processing event {event_data.get('type')} at {event_data.get('timestamp'):.2f}s")
 
                 # Step 1: LLM generates constraints
                 llm_constraint = self.llm_generator.generate_constraints(event_data)
                 self.llm_constraint_generated.emit(llm_constraint)
-                logger.info(f"Consumer: LLM generated constraint: {llm_constraint}")
+                logger.success(f"\nLLM generated constraint: {llm_constraint}")
 
                 # Step 2: VLM analyzes frames with constraints
                 # Retrieve a short sequence of original frames around the timestamp for VLM
@@ -170,22 +170,44 @@ class AnomalyConsumer(QThread):
                 cap_temp = load_video_capture(video_path)
                 if cap_temp:
                     fps = cap_temp.get(cv2.CAP_PROP_FPS)
-                    # Grab a clip of VLM_ANALYSIS_CLIP_SECONDS centered on event
-                    half_clip_frames = int((self.config.VLM_ANALYSIS_CLIP_SECONDS / 2) * fps)
-                    start_frame_idx = max(0, int(timestamp_sec * fps) - half_clip_frames)
-                    end_frame_idx = int(timestamp_sec * fps) + half_clip_frames
+                    if fps > 0:
+                        # As per request: clip starts 2s before event, lasts for VLM_ANALYSIS_CLIP_SECONDS,
+                        # and samples 2 frames per second.
+                        seconds_before = 2.0
+                        vlm_clip_duration = self.config.VLM_ANALYSIS_CLIP_SECONDS
+                        seconds_after = vlm_clip_duration - seconds_before
+                        vlm_frames_per_sec = 2
 
-                    cap_temp.set(cv2.CAP_PROP_POS_FRAMES, start_frame_idx)
-                    for _ in range(start_frame_idx, end_frame_idx):
-                        ret, frame = cap_temp.read()
-                        if not ret: break
-                        frames_for_vlm.append(cv2_to_pil(frame)) # Convert to PIL Image for VLM
+                        if seconds_after < 0:
+                            logger.warning(f"VLM_ANALYSIS_CLIP_SECONDS ({vlm_clip_duration}s) is less than 2s. Adjusting clip to be only before the event.")
+                            seconds_after = 0
+
+                        # Calculate start and end frame indices for the entire clip
+                        start_frame_idx = max(0, int((timestamp_sec - seconds_before) * fps))
+                        end_frame_idx = int((timestamp_sec + seconds_after) * fps)
+
+                        # Calculate how many frames to skip to achieve the desired sampling rate
+                        frame_step = int(fps / vlm_frames_per_sec)
+                        if frame_step < 1:
+                            frame_step = 1 # Ensure we always advance, even for low FPS videos
+
+                        # Seek to and read each sampled frame
+                        for frame_to_grab in range(start_frame_idx, end_frame_idx, frame_step):
+                            cap_temp.set(cv2.CAP_PROP_POS_FRAMES, frame_to_grab)
+                            ret, frame = cap_temp.read()
+                            if ret:
+                                frames_for_vlm.append(cv2_to_pil(frame))
+                            else:
+                                break # Reached end of video
+                    else:
+                        logger.error("Could not determine FPS for VLM frame extraction.")
+
                     cap_temp.release()
                 else:
-                    logger.error(f"Consumer: Failed to open video {video_path} for VLM frame extraction.")
+                    logger.error(f"VLM: Failed to open video {video_path} for VLM frame extraction.")
 
                 vlm_result = self.vlm_analyzer.analyze_and_explain(frames_for_vlm, llm_constraint)
-                logger.info(f"Consumer: VLM analysis complete: {vlm_result}")
+                logger.success(f"VLM Response: {vlm_result}")
 
                 # Emit full data for UI update
                 self.vlm_analysis_complete.emit({'event_data': event_data, 'llm_constraint': llm_constraint, 'vlm_result': vlm_result})
