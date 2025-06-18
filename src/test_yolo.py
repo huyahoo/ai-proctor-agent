@@ -32,6 +32,7 @@ def test_yolo_with_image():
     gaze_estimations = [{'bbox': [2747.9052734375, 1191.8621826171875, 2980.486572265625, 1501.100341796875], 'gaze_point': [0.703125, 0.609375], 'gaze_vector': [-0.196572944521904, 0.9804891347885132], 'inout_score': 0.9973465204238892, 'pid': 1}, {'bbox': [1141.3909912109375, 998.2349243164062, 1410.483642578125, 1278.93115234375], 'gaze_point': [0.703125, 0.484375], 'gaze_vector': [0.9483205676078796, 0.31731361150741577], 'inout_score': 0.9280946850776672, 'pid': 0}]
     yolo_detections = yolo_detector.detect(image)
     yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
+    # print(f"Detected {len(yolo_detections)} YOLO objects in the image: ", yolo_detections)
     
     yolo_viz_frame = yolo_detector.draw_results(image, yolo_detections)
 
