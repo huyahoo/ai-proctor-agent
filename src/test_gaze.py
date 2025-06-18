@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument("--output", type=str, default="data/output/test_gaze_output.mp4", help="Path to output video file")
     return parser.parse_args()
 
-def main():
+def test_gaze_with_video():
     """Main function to process video."""
     # Parse arguments
     args = parse_args()
@@ -72,6 +72,37 @@ def main():
     cap.release()
     out.release()
     print("Done!")
+
+def test_gaze_with_image():
+    """Test gaze tracking on a single image."""
+    # Initialize gaze tracker
+    tracker = GazeTracker(config=Config())
+    # Load test image
+    parent_dir = os.path.dirname(os.path.dirname(__file__))
+    test_image_path = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg")
+
+    if not os.path.exists(test_image_path):
+        print(f"Error: Test image '{test_image_path}' does not exist")
+        return
+    frame = cv2.imread(test_image_path)
+    if frame is None:
+        print(f"Error: Could not read image '{test_image_path}'")
+        return
+    # Detect and track gaze
+    results = tracker.detect(frame)
+    print(f"Detected {len(results)} gaze points in the image: ", results)
+    # Draw results
+    output_frame = tracker.draw_results(frame, results)
+    # Save output image
+    output_image_path = "results/test_gaze_output.jpg"
+    os.makedirs(os.path.dirname(output_image_path), exist_ok=True)
+    cv2.imwrite(output_image_path, output_frame)
+    print(f"Output image saved to: {output_image_path}")
+
+
+def main():
+    # test_gaze_with_video()
+    test_gaze_with_image()
 
 if __name__ == "__main__":
     main() 

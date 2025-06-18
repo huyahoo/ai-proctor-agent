@@ -2,6 +2,7 @@ import os
 import sys
 import time
 from tqdm import tqdm
+from core.utils import assign_yolo_pids, assign_pose_pids
 
 # Add the parent directory (project root) to Python path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,7 +106,7 @@ def process_video(input_video_path: str, output_video_path: str):
         logger.info(f"Max FPS: {max_fps:.1f}")
         logger.info(f"Average frame processing time: {avg_frame_time*1000:.1f}ms")
 
-def main():
+def test_pose_with_video():
     # Ensure the input video exists
     input_video = "data/videos/IMG_4723.mp4"  # Relative to src directory
     if not os.path.exists(input_video):
@@ -121,6 +122,45 @@ def main():
     except Exception as e:
         logger.error(f"Error processing video: {str(e)}")
         sys.exit(1)
+
+def test_pose_with_image():
+    # Ensure the input image exists
+    parent_dir = os.path.dirname(os.path.dirname(__file__))
+    input_image = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg") # Relative to src directory
+    
+    if not os.path.exists(input_image):
+        logger.error(f"Input image not found at {input_image}")
+        sys.exit(1)
+    
+    # Create config
+    config = Config()
+    
+    # Initialize pose estimator
+    pose_estimator = PoseEstimator(config)
+    
+    # Read the image
+    frame = cv2.imread(input_image)
+    if frame is None:
+        logger.error(f"Could not read image: {input_image}")
+        sys.exit(1)
+    
+    # Process the image
+    gaze_data = [{'bbox': [2747.9052734375, 1191.8621826171875, 2980.486572265625, 1501.100341796875], 'gaze_point': [0.703125, 0.609375], 'gaze_vector': [-0.196572944521904, 0.9804891347885132], 'inout_score': 0.9973465204238892, 'pid': 1}, {'bbox': [1141.3909912109375, 998.2349243164062, 1410.483642578125, 1278.93115234375], 'gaze_point': [0.703125, 0.484375], 'gaze_vector': [0.9483205676078796, 0.31731361150741577], 'inout_score': 0.9280946850776672, 'pid': 0}]
+    poses_data = pose_estimator.detect(frame)
+    pose_estimations = assign_pose_pids(poses_data, gaze_data)
+    annotated_frame = pose_estimator.draw_results(frame, pose_estimations)
+    print(f"Detected {len(pose_estimations)} poses in the image: ", pose_estimations)
+    
+    # Save the annotated image
+    output_image = "results/test_pose_output.jpg"
+    os.makedirs(os.path.dirname(output_image), exist_ok=True)
+    cv2.imwrite(output_image, annotated_frame)
+    
+    logger.success(f"Annotated image saved to: {output_image}")
+
+def main():
+    # test_pose_with_video()
+    test_pose_with_image()
 
 if __name__ == "__main__":
     main() 
