@@ -47,7 +47,7 @@ class Config:
 
     # --- Example / Demo Mode ---
     EXAMPLE_VIDEO_PATH = "data/videos/IMG_4723.mp4"
-    EXAMPLE_DETECTIONS_PATH = "data/output/IMG_4723.json"
+    EXAMPLE_DETECTIONS_PATH = "data/output/example_exam.json"
 
 
     def __str__(self):
