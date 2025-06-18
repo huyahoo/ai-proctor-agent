@@ -83,12 +83,15 @@ class AnomalyDetector:
             RIGHT_IDS = [6, 8, 10]
             LEFT_IDS  = [5, 7,  9]
 
+            # Remove confidence score from keypoints
             try:
-                right = [pose_data[i] for i in RIGHT_IDS]
-                left  = [pose_data[i] for i in LEFT_IDS]
+                right = [pose_data[i][:2] for i in RIGHT_IDS]
+                left  = [pose_data[i][:2] for i in LEFT_IDS]
             except (TypeError, IndexError):
                 return None  # missing or malformed keypoints
 
+            print(f"Person {pid}: Right arm: {right}, Left arm: {left}")
+            
             # compute elbow angles
             right_angle = self._calculate_angle(right)
             left_angle  = self._calculate_angle(left)
