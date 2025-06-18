@@ -290,6 +290,7 @@ class AnomalyDetector:
         # wrist_anomalies = self.check_missing_wrists(person_map, current_timestamp)
         # if wrist_anomalies:
         #     anomalies.extend(wrist_anomalies)
+
             
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:
