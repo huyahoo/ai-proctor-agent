@@ -9,6 +9,7 @@ class AnomalyDetector:
         # Stores recent gaze history for each detected person ID
         # Format: {person_id: [(timestamp, yaw, pitch), ...]}
         self.gaze_history = {}
+        self.temp_anomalies_history = []
 
     def _get_person_center(self, bbox: list) -> tuple:
         """Calculates the center of a person's bounding box."""
@@ -69,10 +70,10 @@ class AnomalyDetector:
         return x1 <= x <= x2 and y1 <= y <= y2
     
     # Passing material: Suspicious Arm Angles
-    def check_suspicious_arm_angle(self, person_map: dict, timestamp: float) -> dict | None:
+    def check_suspicious_arm_angle(self, person_map: dict, timestamp: float) -> list | None:
         """
-        Check if this person’s left or right arm is nearly straight (>160°).
-        Returns one anomaly dict or None.
+        Check if this person's left or right arm is nearly straight (>160°).
+        Returns a list of anomaly dicts or None.
         """
         anomaly = []
         for pid, data in person_map.items():
@@ -221,6 +222,26 @@ class AnomalyDetector:
         
         return anomalies if anomalies else None
     
+    def _add_anomaly_if_not_duplicate(self, new_anomaly: dict, anomalies: list):
+        is_duplicate = False
+        for history_anomaly in self.temp_anomalies_history:
+            # Check for malformed entries in history (which could be lists)
+            if not isinstance(history_anomaly, dict):
+                continue
+            
+            if (history_anomaly.get('type') == new_anomaly['type'] and
+                    history_anomaly.get('person_ids') == new_anomaly['person_ids'] and
+                    abs(history_anomaly.get('timestamp', float('inf')) - new_anomaly['timestamp']) < 2):
+                
+                # logger.debug(f"Skipping adding {new_anomaly['type']} anomaly for {new_anomaly['person_ids']} to history at {new_anomaly['timestamp']:.2f}s (near previous at {history_anomaly['timestamp']:.2f}s)")
+                is_duplicate = True
+                break
+        
+        if not is_duplicate:
+            self.temp_anomalies_history.append(new_anomaly)
+            # logger.debug(f"Appending {new_anomaly['type']} anomaly for {new_anomaly['person_ids']} to history at {new_anomaly['timestamp']:.2f}s")
+            anomalies.append(new_anomaly)
+    
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
         Detects anomalies based on YOLO, Pose, and Gaze data for the current frame.
@@ -276,16 +297,20 @@ class AnomalyDetector:
         anomalies = []
 
         # 1. Passing material: Suspicious Arm Angles
-        arm_anomaly = self.check_suspicious_arm_angle(person_map, current_timestamp)
+        arm_anomalies = self.check_suspicious_arm_angle(person_map, current_timestamp)
 
-        if arm_anomaly:
-            anomalies.extend(arm_anomaly)
+        if arm_anomalies:
+            for new_anomaly in arm_anomalies:
+                self._add_anomaly_if_not_duplicate(new_anomaly, anomalies)
+
 
         # 2. Looking away: Mutual gaze detection
         gaze_anomalies = self.check_looking_away(person_map, current_timestamp)
         if gaze_anomalies:
-            anomalies.extend(gaze_anomalies)
+            for new_anomaly in gaze_anomalies:
+                self._add_anomaly_if_not_duplicate(new_anomaly, anomalies)
 
+    
         # 3. Missing wrists: Check for missing or low confidence wrist keypoints
         # wrist_anomalies = self.check_missing_wrists(person_map, current_timestamp)
         # if wrist_anomalies:
