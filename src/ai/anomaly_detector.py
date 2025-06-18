@@ -59,6 +59,164 @@ class AnomalyDetector:
 
         return angle_deg
 
+    def _is_point_in_bbox(self, point: list, bbox: list) -> bool:
+        """
+        Check if a point (x, y) is inside a bounding box defined by [x1, y1, x2, y2].
+        """
+        x, y = point
+        x1, y1, x2, y2 = bbox
+        return x1 <= x <= x2 and y1 <= y <= y2
+    
+    # Passing material: Suspicious Arm Angles
+    def check_suspicious_arm_angle(self, person_map: dict, timestamp: float) -> dict | None:
+        """
+        Check if this person’s left or right arm is nearly straight (>160°).
+        Returns one anomaly dict or None.
+        """
+        anomaly = []
+        for pid, data in person_map.items():
+            pose_data = data.get('pose')
+            if not pose_data:
+                return None
+
+            # keypoint indices: (shoulder, elbow, wrist)
+            RIGHT_IDS = [6, 8, 10]
+            LEFT_IDS  = [5, 7,  9]
+
+            try:
+                right = [pose_data[i] for i in RIGHT_IDS]
+                left  = [pose_data[i] for i in LEFT_IDS]
+            except (TypeError, IndexError):
+                return None  # missing or malformed keypoints
+
+            # compute elbow angles
+            right_angle = self._calculate_angle(right)
+            left_angle  = self._calculate_angle(left)
+            if right_angle is None or left_angle is None:
+                return None
+
+            print(f"Person {pid}: Right arm angle: {right_angle:.1f}°, Left arm angle: {left_angle:.1f}°")
+            # if either arm is nearly straight, flag it
+            if right_angle > 160 or left_angle > 160:
+                anomaly.append({
+                    'type': 'suspicious_arm_angle',
+                    'person_ids': [pid],
+                    'timestamp': timestamp,
+                    'reason': (
+                        f"PID {pid} arm angles R={right_angle:.1f}°, "
+                        f"L={left_angle:.1f}° — possibly passing an object."
+                    )
+                })
+
+        return anomaly if anomaly else None
+    
+    def check_looking_away(self, person_map: dict, timestamp: float) -> list:
+        """
+        Check if people are looking at each other.
+        Returns a list of anomaly dictionaries.
+        """
+        anomalies = []
+        
+        # Check each pair of people
+        for pid1, data1 in person_map.items():
+            if not data1.get('gaze') or not data1.get('bbox'):
+                continue
+                
+            gaze1 = data1['gaze']
+            bbox1 = data1['bbox']
+            
+            # Get gaze point for person 1
+            gaze_point1 = gaze1['point']
+            gaze_score1 = gaze1['score']
+            
+            # Check against all other people
+            for pid2, data2 in person_map.items():
+                if pid1 == pid2 or not data2.get('bbox'):
+                    continue
+                    
+                # Check if person 1's gaze point is inside person 2's bbox
+                bbox2 = data2['bbox']
+                if gaze_score1 > 0.7 and self._is_point_in_bbox(gaze_point1, bbox2):
+                    # Person 1 is looking at person 2
+                    # Check if person 2 is also looking at person 1
+                    if data2.get('gaze'):
+                        gaze2 = data2['gaze']
+                        gaze_point2 = gaze2['point']
+                        gaze_score2 = gaze2['score']
+                        
+                        if gaze_score2 > 0.7 and self._is_point_in_bbox(gaze_point2, bbox1):
+                            # Both people are looking at each other
+                            anomalies.append({
+                                'type': 'mutual_gaze',
+                                'person_ids': [pid1, pid2],
+                                # 'confidence': min(gaze_score1, gaze_score2),
+                                'timestamp': timestamp,
+                                'description': f"People {pid1} and {pid2} are looking at each other"
+                            })
+                        else:
+                            # Only person 1 is looking at person 2
+                            anomalies.append({
+                                'type': 'one_way_gaze',
+                                'person_ids': [pid1],
+                                # 'confidence': gaze_score1,
+                                'timestamp': timestamp,
+                                'description': f"Person {pid1} is looking at person {pid2}"
+                            })
+
+        return anomalies if anomalies else None
+    
+    def check_missing_wrists(self, person_map: dict, timestamp: float) -> list:
+        """
+        Check if any person has missing or low confidence wrist keypoints.
+        
+        Args:
+            person_map (dict): Dictionary containing person detections and their keypoints
+            timestamp (float): Current frame timestamp
+        
+        Returns:
+            list: List of anomaly dictionaries for people with missing wrists
+        """
+        anomalies = []
+        # Wrist indices in pose keypoints
+        LEFT_WRIST_IDX = 9   # Index for left wrist
+        RIGHT_WRIST_IDX = 10  # Index for right wrist
+        CONFIDENCE_THRESHOLD = 0.3  # Minimum confidence threshold
+        
+        for pid, data in person_map.items():
+            if not data.get('pose'):
+                continue
+                
+            pose_data = data['pose']
+            missing_wrists = []
+            
+            # Check left wrist
+            try:
+                left_wrist = pose_data[LEFT_WRIST_IDX]
+                if left_wrist[2] < CONFIDENCE_THRESHOLD or (left_wrist[0] == 0 and left_wrist[1] == 0):
+                    missing_wrists.append('left')
+            except (IndexError, TypeError):
+                missing_wrists.append('left')
+                
+            # Check right wrist
+            try:
+                right_wrist = pose_data[RIGHT_WRIST_IDX]
+                if right_wrist[2] < CONFIDENCE_THRESHOLD or (right_wrist[0] == 0 and right_wrist[1] == 0):
+                    missing_wrists.append('right')
+            except (IndexError, TypeError):
+                missing_wrists.append('right')
+                
+            # Create anomaly if any wrists are missing
+            if missing_wrists:
+                anomalies.append({
+                    'type': 'missing_wrists',
+                    'person_ids': [pid],
+                    'timestamp': timestamp,
+                    'missing': missing_wrists,
+                    'description': f"Person {pid} has high probability of using the phone under the table."
+                })
+        
+        return anomalies if anomalies else None
+    
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
         Detects anomalies based on YOLO, Pose, and Gaze data for the current frame.

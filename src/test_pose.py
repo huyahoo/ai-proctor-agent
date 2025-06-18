@@ -126,7 +126,7 @@ def test_pose_with_video():
 def test_pose_with_image():
     # Ensure the input image exists
     parent_dir = os.path.dirname(os.path.dirname(__file__))
-    input_image = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg") # Relative to src directory
+    input_image = os.path.join(parent_dir, "data", "images", "162.jpg") # Relative to src directory
     
     if not os.path.exists(input_image):
         logger.error(f"Input image not found at {input_image}")
@@ -145,7 +145,7 @@ def test_pose_with_image():
         sys.exit(1)
     
     # Process the image
-    gaze_data = [{'bbox': [2747.9052734375, 1191.8621826171875, 2980.486572265625, 1501.100341796875], 'gaze_point': [0.703125, 0.609375], 'gaze_vector': [-0.196572944521904, 0.9804891347885132], 'inout_score': 0.9973465204238892, 'pid': 1}, {'bbox': [1141.3909912109375, 998.2349243164062, 1410.483642578125, 1278.93115234375], 'gaze_point': [0.703125, 0.484375], 'gaze_vector': [0.9483205676078796, 0.31731361150741577], 'inout_score': 0.9280946850776672, 'pid': 0}]
+    gaze_data = [{'bbox': [1051.534912109375, 427.95166015625, 1151.1109619140625, 558.1237182617188], 'gaze_point': [0.609375, 0.625], 'gaze_vector': [0.08420028537511826, 0.996448814868927], 'inout_score': 0.9989210367202759, 'pid': 3}, {'bbox': [734.8357543945312, 342.3213806152344, 812.5286865234375, 446.6407775878906], 'gaze_point': [0.421875, 0.546875], 'gaze_vector': [0.06804251670837402, 0.9976824522018433], 'inout_score': 0.9987419247627258, 'pid': 2}, {'bbox': [1281.304443359375, 329.313720703125, 1361.4693603515625, 423.94091796875], 'gaze_point': [0.5625, 0.609375], 'gaze_vector': [-0.7742968201637268, 0.6328225135803223], 'inout_score': 0.9274418950080872, 'pid': 1}, {'bbox': [367.7159729003906, 396.76495361328125, 458.3671875, 523.9398193359375], 'gaze_point': [0.234375, 0.609375], 'gaze_vector': [0.0857202410697937, 0.9963192939758301], 'inout_score': 0.9791598320007324, 'pid': 0}]
     poses_data = pose_estimator.detect(frame)
     pose_estimations = assign_pose_pids(poses_data, gaze_data)
     annotated_frame = pose_estimator.draw_results(frame, pose_estimations)
