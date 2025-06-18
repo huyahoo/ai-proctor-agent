@@ -165,6 +165,58 @@ class AnomalyDetector:
 
         return anomalies if anomalies else None
     
+    def check_missing_wrists(self, person_map: dict, timestamp: float) -> list:
+        """
+        Check if any person has missing or low confidence wrist keypoints.
+        
+        Args:
+            person_map (dict): Dictionary containing person detections and their keypoints
+            timestamp (float): Current frame timestamp
+        
+        Returns:
+            list: List of anomaly dictionaries for people with missing wrists
+        """
+        anomalies = []
+        # Wrist indices in pose keypoints
+        LEFT_WRIST_IDX = 9   # Index for left wrist
+        RIGHT_WRIST_IDX = 10  # Index for right wrist
+        CONFIDENCE_THRESHOLD = 0.3  # Minimum confidence threshold
+        
+        for pid, data in person_map.items():
+            if not data.get('pose'):
+                continue
+                
+            pose_data = data['pose']
+            missing_wrists = []
+            
+            # Check left wrist
+            try:
+                left_wrist = pose_data[LEFT_WRIST_IDX]
+                if left_wrist[2] < CONFIDENCE_THRESHOLD or (left_wrist[0] == 0 and left_wrist[1] == 0):
+                    missing_wrists.append('left')
+            except (IndexError, TypeError):
+                missing_wrists.append('left')
+                
+            # Check right wrist
+            try:
+                right_wrist = pose_data[RIGHT_WRIST_IDX]
+                if right_wrist[2] < CONFIDENCE_THRESHOLD or (right_wrist[0] == 0 and right_wrist[1] == 0):
+                    missing_wrists.append('right')
+            except (IndexError, TypeError):
+                missing_wrists.append('right')
+                
+            # Create anomaly if any wrists are missing
+            if missing_wrists:
+                anomalies.append({
+                    'type': 'missing_wrists',
+                    'person_ids': [pid],
+                    'timestamp': timestamp,
+                    'missing': missing_wrists,
+                    'description': f"Person {pid} has high probability of using the phone under the table."
+                })
+        
+        return anomalies if anomalies else None
+    
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
         Detects anomalies based on YOLO, Pose, and Gaze data for the current frame.

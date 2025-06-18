@@ -79,7 +79,7 @@ def test_gaze_with_image():
     tracker = GazeTracker(config=Config())
     # Load test image
     parent_dir = os.path.dirname(os.path.dirname(__file__))
-    test_image_path = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg")
+    test_image_path = os.path.join(parent_dir, "data", "images", "162.jpg")
 
     if not os.path.exists(test_image_path):
         print(f"Error: Test image '{test_image_path}' does not exist")
