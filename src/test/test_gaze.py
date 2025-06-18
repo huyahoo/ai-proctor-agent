@@ -29,6 +29,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Test gaze tracking on video")
     parser.add_argument("--input", type=str, default="data/videos/test_video.mp4", help="Path to input video file")
     parser.add_argument("--output", type=str, default="data/output/test_gaze_output.mp4", help="Path to output video file")
+    parser.add_argument("--input_image", type=str, default="IMG_4741.jpg", help="Path to input image file")
     return parser.parse_args()
 
 def test_gaze_with_video():
@@ -89,11 +90,12 @@ def test_gaze_with_video():
 
 def test_gaze_with_image():
     """Test gaze tracking on a single image."""
+    args = parse_args()
     # Initialize gaze tracker
     tracker = GazeTracker(config=Config())
     # Load test image
     parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    test_image_path = os.path.join(parent_dir, "data", "images", "IMG_4741.jpg")
+    test_image_path = os.path.join(parent_dir, "data", "images", args.input_image)
 
     if not os.path.exists(test_image_path):
         print(f"Error: Test image '{test_image_path}' does not exist")
