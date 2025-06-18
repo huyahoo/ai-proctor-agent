@@ -24,6 +24,8 @@ def test_yolo_with_image():
     parent_dir = os.path.dirname(os.path.dirname(__file__))
     input_image = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg") 
     image = cv2.imread(input_image)
+    height, width = image.shape[:2]
+    print(f"Image dimensions: {width}x{height}")
     
     if image is None:
         logger.error(f"Could not read image from {input_image}")
