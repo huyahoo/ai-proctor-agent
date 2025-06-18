@@ -224,6 +224,12 @@ class AnomalyDetector:
 
         if arm_anomaly:
             anomalies.extend(arm_anomaly)
+
+        # 2. Looking away: Mutual gaze detection
+        gaze_anomalies = self.check_looking_away(person_map, current_timestamp)
+        if gaze_anomalies:
+            anomalies.extend(gaze_anomalies)
+            
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:
         #     if obj['label'] == 'person': continue # Skip persons
