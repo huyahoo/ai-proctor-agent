@@ -2,17 +2,23 @@ import os
 import sys
 import time
 from tqdm import tqdm
-from core.utils import assign_yolo_pids, assign_pose_pids
+import json
+from pathlib import Path
 
-# Add the parent directory (project root) to Python path
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, project_root)
+# Get the project root directory and src directory
+project_root = Path(__file__).resolve().parent.parent.parent
+src_dir = project_root / "src"
+
+# Add src directory to Python path
+if str(src_dir) not in sys.path:
+    sys.path.insert(0, str(src_dir))
 
 import cv2
 import numpy as np
 from cv.pose_estimator import PoseEstimator
 from core.config import Config
 from core.logger import logger
+from core.utils import assign_pose_pids
 
 def format_time(seconds):
     """Format time in seconds to a human-readable string."""
@@ -125,8 +131,10 @@ def test_pose_with_video():
 
 def test_pose_with_image():
     # Ensure the input image exists
-    parent_dir = os.path.dirname(os.path.dirname(__file__))
-    input_image = os.path.join(parent_dir, "data", "images", "162.jpg") # Relative to src directory
+    parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    with open(os.path.join(parent_dir, "src", "test", "gaze_estimations.json"), "r") as f:
+        gaze_info = json.load(f)
+    input_image = gaze_info["image_path"] # Relative to src directory
     
     if not os.path.exists(input_image):
         logger.error(f"Input image not found at {input_image}")
@@ -145,19 +153,41 @@ def test_pose_with_image():
         sys.exit(1)
     
     # Process the image
-    gaze_data = [{'bbox': [1051.534912109375, 427.95166015625, 1151.1109619140625, 558.1237182617188], 'gaze_point': [0.609375, 0.625], 'gaze_vector': [0.08420028537511826, 0.996448814868927], 'inout_score': 0.9989210367202759, 'pid': 3}, {'bbox': [734.8357543945312, 342.3213806152344, 812.5286865234375, 446.6407775878906], 'gaze_point': [0.421875, 0.546875], 'gaze_vector': [0.06804251670837402, 0.9976824522018433], 'inout_score': 0.9987419247627258, 'pid': 2}, {'bbox': [1281.304443359375, 329.313720703125, 1361.4693603515625, 423.94091796875], 'gaze_point': [0.5625, 0.609375], 'gaze_vector': [-0.7742968201637268, 0.6328225135803223], 'inout_score': 0.9274418950080872, 'pid': 1}, {'bbox': [367.7159729003906, 396.76495361328125, 458.3671875, 523.9398193359375], 'gaze_point': [0.234375, 0.609375], 'gaze_vector': [0.0857202410697937, 0.9963192939758301], 'inout_score': 0.9791598320007324, 'pid': 0}]
+    gaze_data = gaze_info["gaze_estimations"]
     poses_data = pose_estimator.detect(frame)
     pose_estimations = assign_pose_pids(poses_data, gaze_data)
+    pose_info = {
+        "image_path": input_image,
+        "pose_estimations": convert_to_python_types(pose_estimations)
+    }
+    with open(os.path.join(parent_dir, "src", "test", "pose_estimations.json"), "w") as f:
+        json.dump(pose_info, f, indent=4)
+        print(f"Results saved to pose_estimations.json")
     annotated_frame = pose_estimator.draw_results(frame, pose_estimations)
     print(f"Detected {len(pose_estimations)} poses in the image: ", pose_estimations)
     
     # Save the annotated image
-    output_image = "results/test_pose_output.jpg"
+    output_image = os.path.join(parent_dir, "data", "output", "test_pose_output.jpg")
     os.makedirs(os.path.dirname(output_image), exist_ok=True)
     cv2.imwrite(output_image, annotated_frame)
     
     logger.success(f"Annotated image saved to: {output_image}")
 
+# Convert NumPy types to native Python types for JSON serialization
+def convert_to_python_types(obj):
+    if isinstance(obj, dict):
+        return {key: convert_to_python_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_to_python_types(item) for item in obj]
+    elif isinstance(obj, (np.int_, np.intc, np.intp, np.int8, np.int16, np.int32,
+                        np.int64, np.uint8, np.uint16, np.uint32, np.uint64)):
+        return int(obj)
+    elif isinstance(obj, (np.float_, np.float16, np.float32, np.float64)):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    return obj
+    
 def main():
     # test_pose_with_video()
     test_pose_with_image()
