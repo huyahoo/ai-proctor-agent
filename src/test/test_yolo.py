@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import os
 import sys
+import json
 from pathlib import Path
 
 # Get the project root directory and src directory
@@ -18,7 +19,7 @@ import numpy as np
 from cv.yolo_detector import YOLODetector
 from core.config import Config
 from core.logger import logger
-from core.utils import assign_yolo_pids, assign_pose_pids
+from core.utils import assign_yolo_pids
 
 config = Config()
 yolo_detector = YOLODetector(config)
@@ -28,7 +29,9 @@ def test_yolo_with_image():
     Test YOLO object detection on a sample image.
     """
     parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    input_image = os.path.join(parent_dir, "data", "images", "IMG_4741.jpg") 
+    with open(os.path.join(parent_dir, "src", "test", "gaze_estimations.json"), "r") as f:
+        gaze_info = json.load(f)
+    input_image = gaze_info["image_path"] 
     image = cv2.imread(input_image)
     height, width = image.shape[:2]
     print(f"Image dimensions: {width}x{height}")
@@ -37,15 +40,24 @@ def test_yolo_with_image():
         logger.error(f"Could not read image from {input_image}")
         return
     
-    gaze_estimations = [{'bbox': [1202.5040283203125, 720.3736572265625, 1428.29150390625, 1026.041748046875], 'gaze_point': [0.34375, 0.5], 'gaze_vector': [0.19035454094409943, 0.9817154407501221], 'inout_score': 0.9985774755477905, 'pid': 1}, {'bbox': [2880.576171875, 928.5159912109375, 3132.960693359375, 1240.22607421875], 'gaze_point': [0.75, 0.515625], 'gaze_vector': [-0.10129646956920624, 0.9948562383651733], 'inout_score': 0.9992438554763794, 'pid': 0}]
+    gaze_estimations = gaze_info["gaze_estimations"]
     yolo_detections = yolo_detector.detect(image)
     yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
+    yolo_info = {
+        "image_path": input_image,
+        "yolo_detections": yolo_detections,
+        "frame_width": width,
+        "frame_height": height
+    }
+    with open(os.path.join(parent_dir, "src", "test", "yolo_detections.json"), "w") as f:
+        json.dump(yolo_info, f, indent=4)
+        print(f"Results saved to gaze_estimations.json")
     print(f"Detected {len(yolo_detections)} YOLO objects in the image: ", yolo_detections)
 
     
     yolo_viz_frame = yolo_detector.draw_results(image, yolo_detections)
 
-    output_image = "results/test_yolo_output.jpg"
+    output_image = os.path.join(parent_dir, "data", "output", "test_yolo_output.jpg")
     os.makedirs(os.path.dirname(output_image), exist_ok=True)
     cv2.imwrite(output_image, yolo_viz_frame)
     logger.success(f"Annotated image saved to: {output_image}")

@@ -2,6 +2,7 @@ import os
 import sys
 import time
 from tqdm import tqdm
+import json
 from pathlib import Path
 
 # Get the project root directory and src directory
@@ -17,7 +18,7 @@ import numpy as np
 from cv.pose_estimator import PoseEstimator
 from core.config import Config
 from core.logger import logger
-from core.utils import assign_yolo_pids, assign_pose_pids
+from core.utils import assign_pose_pids
 
 def format_time(seconds):
     """Format time in seconds to a human-readable string."""
@@ -131,7 +132,9 @@ def test_pose_with_video():
 def test_pose_with_image():
     # Ensure the input image exists
     parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    input_image = os.path.join(parent_dir, "data", "images", "IMG_4741.jpg") # Relative to src directory
+    with open(os.path.join(parent_dir, "src", "test", "gaze_estimations.json"), "r") as f:
+        gaze_info = json.load(f)
+    input_image = gaze_info["image_path"] # Relative to src directory
     
     if not os.path.exists(input_image):
         logger.error(f"Input image not found at {input_image}")
@@ -150,19 +153,41 @@ def test_pose_with_image():
         sys.exit(1)
     
     # Process the image
-    gaze_data = [{'bbox': [1202.5040283203125, 720.3736572265625, 1428.29150390625, 1026.041748046875], 'gaze_point': [0.34375, 0.5], 'gaze_vector': [0.19035454094409943, 0.9817154407501221], 'inout_score': 0.9985774755477905, 'pid': 1}, {'bbox': [2880.576171875, 928.5159912109375, 3132.960693359375, 1240.22607421875], 'gaze_point': [0.75, 0.515625], 'gaze_vector': [-0.10129646956920624, 0.9948562383651733], 'inout_score': 0.9992438554763794, 'pid': 0}]
+    gaze_data = gaze_info["gaze_estimations"]
     poses_data = pose_estimator.detect(frame)
     pose_estimations = assign_pose_pids(poses_data, gaze_data)
+    pose_info = {
+        "image_path": input_image,
+        "pose_estimations": convert_to_python_types(pose_estimations)
+    }
+    with open(os.path.join(parent_dir, "src", "test", "pose_estimations.json"), "w") as f:
+        json.dump(pose_info, f, indent=4)
+        print(f"Results saved to pose_estimations.json")
     annotated_frame = pose_estimator.draw_results(frame, pose_estimations)
     print(f"Detected {len(pose_estimations)} poses in the image: ", pose_estimations)
     
     # Save the annotated image
-    output_image = "results/test_pose_output.jpg"
+    output_image = os.path.join(parent_dir, "data", "output", "test_pose_output.jpg")
     os.makedirs(os.path.dirname(output_image), exist_ok=True)
     cv2.imwrite(output_image, annotated_frame)
     
     logger.success(f"Annotated image saved to: {output_image}")
 
+# Convert NumPy types to native Python types for JSON serialization
+def convert_to_python_types(obj):
+    if isinstance(obj, dict):
+        return {key: convert_to_python_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_to_python_types(item) for item in obj]
+    elif isinstance(obj, (np.int_, np.intc, np.intp, np.int8, np.int16, np.int32,
+                        np.int64, np.uint8, np.uint16, np.uint32, np.uint64)):
+        return int(obj)
+    elif isinstance(obj, (np.float_, np.float16, np.float32, np.float64)):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    return obj
+    
 def main():
     # test_pose_with_video()
     test_pose_with_image()

@@ -48,20 +48,28 @@ def get_person_map(frame_data):
 
 def main():
     anomaly_detector = AnomalyDetector(Config())
-    dummy_file = '/Users/ducky/Downloads/proctor-agent/dummy.json'
-    with open(dummy_file, 'r') as f:
-        frame_data = json.load(f)
     
-    gaze_estimations = [{'bbox': [1202.5040283203125, 720.3736572265625, 1428.29150390625, 1026.041748046875], 'gaze_point': [0.34375, 0.5], 'gaze_vector': [0.19035454094409943, 0.9817154407501221], 'inout_score': 0.9985774755477905, 'pid': 1}, {'bbox': [2880.576171875, 928.5159912109375, 3132.960693359375, 1240.22607421875], 'gaze_point': [0.75, 0.515625], 'gaze_vector': [-0.10129646956920624, 0.9948562383651733], 'inout_score': 0.9992438554763794, 'pid': 0}]
-    pose_estimations = [{'keypoints': [[1335, 959, 0.99655986], [1371, 913, 0.98335433], [1300, 916, 0.9909903], [1404, 879, 0.895593], [1228, 881, 0.9756579], [1488, 1046, 0.9043865], [1118, 1036, 0.9619447], [1569, 1277, 0.90428007], [1044, 1267, 0.9067887], [1513, 1350, 0.89524233], [1153, 1378, 0.89112836], [1516, 1430, 0.69332856], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0]], 'pid': 1}, {'keypoints': [[2980, 1198, 0.96752983], [3034, 1167, 0.9980983], [2955, 1150, 0.9757154], [0, 0, 0.0], [2895, 1068, 0.9083508], [3108, 1177, 0.5522549], [2754, 1130, 0.90443397], [3220, 1332, 0.53227305], [2573, 1340, 0.8817467], [3162, 1408, 0.67375934], [2773, 1419, 0.8958108], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0], [0, 0, 0.0]], 'pid': 0}]
-    yolo_detections = [{'bbox': [989.7490234375, 697.2697143554688, 1612.502685546875, 1457.103515625], 'label': 'person', 'confidence': 0.9137017726898193, 'pid': 1}, {'bbox': [2521.2197265625, 921.1282958984375, 3280.34619140625, 1528.0670166015625], 'label': 'person', 'confidence': 0.866401731967926, 'pid': 0}]
+    parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    test_dir = os.path.join(parent_dir, "src", "test")
+    with open(os.path.join(test_dir, "gaze_estimations.json"), "r") as f:
+        gaze_info = json.load(f)
+    with open(os.path.join(test_dir, "pose_estimations.json"), "r") as f:
+        pose_info = json.load(f)
+    with open(os.path.join(test_dir, "yolo_detections.json"), "r") as f:
+        yolo_info = json.load(f)
+    
+    gaze_estimations = gaze_info["gaze_estimations"]
+    pose_estimations = pose_info["pose_estimations"]
+    yolo_detections = yolo_info["yolo_detections"]
+    frame_width = yolo_info["frame_width"]
+    frame_height = yolo_info["frame_height"]
 
     frame_data = {
         'yolo_detections': yolo_detections,
         'pose_estimations': pose_estimations,
         'gaze_estimations': gaze_estimations,
-        'frame_width': 4032,
-        'frame_height': 3024
+        'frame_width': frame_width,
+        'frame_height': frame_height
     }
 
     person_map = get_person_map(frame_data)
