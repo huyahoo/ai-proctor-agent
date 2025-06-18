@@ -308,6 +308,7 @@ class ProctorAgentApp(QMainWindow):
         self.processing_thread: VideoProcessingThread | None = None
         self.current_video_path: str | None = None
         self.seeking = False
+        self.is_example_mode = False
 
         self._init_logic_components()
         self._init_ui()
@@ -405,11 +406,29 @@ class ProctorAgentApp(QMainWindow):
         logger.success("Anomaly consumer thread started.")
 
     def _request_ai_analysis(self, event_data: dict):
-        """Queues a specific event for AI analysis when requested by the user."""
+        """Queues a specific event for AI analysis and seeks video if in example mode."""
         logger.info(f"User requested AI analysis for event: {event_data.get('event_id')}")
         self.anomaly_event_queue.put(event_data)
 
+        # TODO: Remove if application is untable when seeking to the event's timestamp
+        # If in example mode, also seek the video to the event's timestamp
+        if self.is_example_mode and self.processing_thread:
+            timestamp = event_data.get('timestamp')
+            if timestamp is not None and self.current_video_path:
+                cap = load_video_capture(self.current_video_path)
+                if cap:
+                    fps = cap.get(cv2.CAP_PROP_FPS)
+                    if fps > 0:
+                        frame_idx = int(timestamp * fps)
+                        logger.info(f"Seeking to frame {frame_idx} for event at {timestamp:.2f}s.")
+                        self.processing_thread.set_frame_position(frame_idx)
+                        # If paused, resume playback to see the event in motion
+                        if not self.play_pause_btn.isChecked():
+                            self.play_pause_btn.setChecked(True)
+                    cap.release()
+
     def _start_video_and_processing(self, video_path: str, is_example: bool = False):
+        self.is_example_mode = is_example
         self.stop_all_processing()
         self.current_video_path = video_path
         cap = load_video_capture(video_path)

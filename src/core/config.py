@@ -46,7 +46,7 @@ class Config:
     GAZE_CHECKPOINT_PATH = "models/sharingan/checkpoints/videoattentiontarget.pt"
 
     # --- Example / Demo Mode ---
-    EXAMPLE_VIDEO_PATH = "data/videos/IMG_4723.mp4"
+    EXAMPLE_VIDEO_PATH = "data/videos/example_exam.mp4"
     EXAMPLE_DETECTIONS_PATH = "data/output/example_exam.json"
 
 
