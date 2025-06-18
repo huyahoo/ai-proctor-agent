@@ -1,10 +1,20 @@
 import os
 import json
 import argparse
+import sys
 
 import cv2
 import numpy as np
 from tqdm import tqdm
+from pathlib import Path
+
+# Get the project root directory and src directory
+project_root = Path(__file__).resolve().parent.parent.parent
+src_dir = project_root / "src"
+
+# Add src directory to Python path
+if str(src_dir) not in sys.path:
+    sys.path.insert(0, str(src_dir))
 
 from core.config import Config
 from core.utils import load_video_capture, assign_yolo_pids, assign_pose_pids
