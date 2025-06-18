@@ -19,7 +19,7 @@ class Config:
 
     # Video Processing
     FPS = 30 # Target frames per second for processing and display
-    FRAME_SKIP =1 # Process every Nth frame (1 = process every frame)
+    FRAME_SKIP = 1 # Process every Nth frame (1 = process every frame)
 
     # Anomaly Detection Thresholds (adjust these during testing)
     GAZE_CONSECUTIVE_FRAMES = 5 # How many frames must gaze be detected towards a target
@@ -31,7 +31,7 @@ class Config:
     # LLM/VLM Settings
     LLM_MODEL_NAME = "gemini-1.5-flash-latest"
     VLM_MODEL_NAME = "gemini-2.5-flash-preview-05-20"
-    VLM_ANALYSIS_CLIP_SECONDS = 4 # How many seconds of video to send to VLM (centered on anomaly)
+    VLM_ANALYSIS_CLIP_SECONDS = 4 # Duration of clip for VLM analysis
 
     # Feedback Learning
     FEEDBACK_DATA_DIR = "data/feedback"
@@ -44,6 +44,10 @@ class Config:
     GAZE_IMG_STD = [0.28674, 0.27776, 0.27995]
     GAZE_WEIGHTS_PATH = "models/sharingan/weights/yolov5m_crowdhuman.pt"
     GAZE_CHECKPOINT_PATH = "models/sharingan/checkpoints/videoattentiontarget.pt"
+
+    # --- Example / Demo Mode ---
+    EXAMPLE_VIDEO_PATH = "data/videos/IMG_4723.mp4"
+    EXAMPLE_DETECTIONS_PATH = "data/output/IMG_4723.json"
 
 
     def __str__(self):

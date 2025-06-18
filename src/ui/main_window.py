@@ -5,6 +5,7 @@ import queue
 import cv2
 import numpy as np
 from PIL import Image
+import json
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer # QTimer for video playback synchronization
@@ -32,12 +33,13 @@ class VideoProcessingThread(QThread):
     anomaly_detected = pyqtSignal(dict) # Anomaly event data
     processing_finished = pyqtSignal()
 
-    def __init__(self, video_path: str, config: Config):
+    def __init__(self, video_path: str, config: Config, is_example: bool = False):
         super().__init__()
         self.video_path = video_path
         self.config = config
+        self.is_example = is_example
         self.stop_flag = False
-        self.pause_flag = False # New flag for pausing processing
+        self.pause_flag = False
         self.current_frame_idx = 0
         self.cap = None
 
@@ -48,6 +50,88 @@ class VideoProcessingThread(QThread):
         self.anomaly_detector = AnomalyDetector(config)
 
     def run(self):
+        """Dispatches to the correct run method based on the mode."""
+        if self.is_example:
+            self.run_from_json()
+        else:
+            self.run_live_detection()
+
+    def run_from_json(self):
+        """Runs video processing by reading detection data from a JSON file."""
+        logger.step(f"Running in example mode from: {self.config.EXAMPLE_DETECTIONS_PATH}")
+        try:
+            with open(self.config.EXAMPLE_DETECTIONS_PATH, 'r') as f:
+                detection_data = json.load(f)
+            # Create a dictionary for quick lookup by frame_idx
+            detections_by_frame = {item['frame_idx']: item for item in detection_data.get('data', [])}
+        except (IOError, json.JSONDecodeError) as e:
+            logger.error(f"Failed to load or parse example detections JSON: {e}")
+            self.processing_finished.emit()
+            return
+
+        self.cap = load_video_capture(self.video_path)
+        if not self.cap:
+            logger.error("Failed to open video in processing thread for example mode.")
+            self.processing_finished.emit()
+            return
+
+        self.cap.set(cv2.CAP_PROP_POS_FRAMES, self.current_frame_idx)
+
+        while not self.stop_flag:
+            if self.pause_flag:
+                self.msleep(100)
+                continue
+
+            ret, frame = self.cap.read()
+            if not ret:
+                break # End of video
+
+            current_timestamp_sec = self.cap.get(cv2.CAP_PROP_POS_MSEC) / 1000.0
+            self.current_frame_idx = int(self.cap.get(cv2.CAP_PROP_POS_FRAMES)) - 1
+
+            # Get pre-computed results from the JSON data
+            frame_detections = detections_by_frame.get(self.current_frame_idx)
+
+            if frame_detections:
+                # Use pre-computed data instead of running live detectors
+                start_time = time.time()
+                yolo_detections = frame_detections.get('yolo_detections', [])
+                pose_estimations = frame_detections.get('pose_estimations', [])
+                gaze_estimations = frame_detections.get('gaze_estimations', [])
+                anomalies = frame_detections.get('anomalies', [])
+                end_time1 = time.time()
+                logger.debug(f"Time taken to get pre-computed data: {end_time1 - start_time} seconds")
+                # We still need to assign PIDs as this might not be in the stored raw data
+                # yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
+                # pose_estimations = assign_pose_pids(pose_estimations, gaze_estimations)
+                start_time1 = time.time()
+                # Generate visualization frames
+                yolo_viz_frame = self.yolo_detector.draw_results(frame.copy(), yolo_detections)
+                pose_viz_frame = self.pose_estimator.draw_results(frame.copy(), pose_estimations)
+                gaze_viz_frame = self.gaze_tracker.draw_results(frame.copy(), gaze_estimations)
+                end_time2 = time.time()
+                logger.debug(f"Time taken to generate visualization frames: {end_time2 - start_time1} seconds")
+
+                self.frame_update.emit({
+                    'original': frame.copy(), 'yolo': yolo_viz_frame, 'pose': pose_viz_frame,
+                    'gaze': gaze_viz_frame, 'timestamp': current_timestamp_sec, 'frame_idx': self.current_frame_idx
+                })
+
+                # Emit any anomalies found in the JSON for this frame
+                for anomaly in anomalies:
+                    anomaly['video_path'] = self.video_path
+                    anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
+                    self.anomaly_detected.emit(anomaly)
+
+            # Control playback speed
+            time.sleep(1 / self.config.FPS)
+
+        self.cap.release()
+        self.processing_finished.emit()
+
+    def run_live_detection(self):
+        """Runs video processing by performing live detection on each frame."""
+        logger.step("Running in live detection mode.")
         self.cap = load_video_capture(self.video_path)
         if not self.cap:
             logger.error("Failed to open video in processing thread.")
@@ -57,7 +141,7 @@ class VideoProcessingThread(QThread):
 
         while not self.stop_flag:
             if self.pause_flag:
-                self.msleep(100) # Sleep briefly if paused
+                self.msleep(100)
                 continue
 
             ret, frame = self.cap.read()
@@ -333,7 +417,7 @@ class ProctorAgentApp(QMainWindow):
         logger.info(f"User requested AI analysis for event: {event_data.get('event_id')}")
         self.anomaly_event_queue.put(event_data)
 
-    def _start_video_and_processing(self, video_path: str):
+    def _start_video_and_processing(self, video_path: str, is_example: bool = False):
         self.stop_all_processing()
         self.current_video_path = video_path
         cap = load_video_capture(video_path)
@@ -344,7 +428,7 @@ class ProctorAgentApp(QMainWindow):
         self.video_position_slider.setMaximum(total_frames - 1)
         cap.release()
 
-        self.processing_thread = VideoProcessingThread(video_path, self.config)
+        self.processing_thread = VideoProcessingThread(video_path, self.config, is_example=is_example)
         self.processing_thread.frame_update.connect(self.on_frame_update)
         self.processing_thread.anomaly_detected.connect(self.on_anomaly_detected)
         self.processing_thread.processing_finished.connect(self.on_processing_finished)
@@ -395,14 +479,14 @@ class ProctorAgentApp(QMainWindow):
     # --- Event Handlers / Slots ---
     def load_video_file(self):
         path, _ = QFileDialog.getOpenFileName(self, "Open Video", "", "Video Files (*.mp4 *.avi)")
-        if path: self._start_video_and_processing(path)
+        if path: self._start_video_and_processing(path, is_example=False)
 
     def load_example_video(self):
-        path = "data/videos/example_exam.mp4"
+        path = self.config.EXAMPLE_VIDEO_PATH
         if not os.path.exists(path):
             QMessageBox.warning(self, "File Not Found", f"Example video not found: {path}")
             return
-        self._start_video_and_processing(path)
+        self._start_video_and_processing(path, is_example=True)
 
     def toggle_play_pause(self, checked: bool):
         if not self.current_video_path:
