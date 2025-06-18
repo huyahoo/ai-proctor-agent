@@ -53,7 +53,7 @@ class AlertPanel(QWidget):
                 border-radius:8px;
             }
             QLabel.TitleLabel {
-                font-size: 14px;
+                font-size: 18px;
                 font-weight: bold;
                 color: #ffffff;
                 padding-top: 10px;
@@ -74,8 +74,8 @@ class AlertPanel(QWidget):
         content_frame = self._create_content_frame(outer_layout)
         main_layout = content_frame.layout()
 
-        # Section 1: Detected Anomalies
-        anomalies_title = QLabel("Detected Anomalies")
+        # Section 1: Detected Suspicious Actions
+        anomalies_title = QLabel("Detected Suspicious Actions")
         anomalies_title.setProperty("class", "TitleLabel")
         main_layout.addWidget(anomalies_title)
         self.event_list_widget = QListWidget()
@@ -141,6 +141,12 @@ class AlertPanel(QWidget):
         self.event_list_widget.clear()
         self.llm_constraint_label.setText("<i>No event selected.</i>")
         self.vlm_decision_label.setText("<i>No event selected.</i>")
+        # self.llm_constraint_label.setStyleSheet("""
+        #     font-size: 14px;
+        # """)
+        # self.vlm_decision_label.setStyleSheet("""
+        #     font-size: 14px;
+        # """)
         self.active_event_data = None
         
     # --- UI Creation Helpers ---
@@ -155,7 +161,7 @@ class AlertPanel(QWidget):
         content_label = QLabel("<i>No event selected.</i>")
         content_label.setWordWrap(True)
         content_label.setAlignment(Qt.AlignmentFlag.AlignTop)
-        content_label.setStyleSheet("padding: 5px; color: #e0e0e0;")
+        content_label.setStyleSheet("padding: 5px; color: #e0e0e0; font-size: 14px;")
         scroll_area.setWidget(content_label)
         return content_label, scroll_area
 

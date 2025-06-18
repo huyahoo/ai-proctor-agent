@@ -226,7 +226,7 @@ class ProctorAgentApp(QMainWindow):
         self.setGeometry(100, 100, 1800, 1000)
         self.setStyleSheet("""
             QMainWindow { background-color: #2b2b2b; }
-            QWidget { color: #e0e0e0; font-family: Arial, sans-serif; }
+            QWidget { color: #e0e0e0; font-family: Georgia, sans-serif; }
             
             QWidget#MainView {
                 background-color: #3c3c3c;

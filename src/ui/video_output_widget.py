@@ -19,9 +19,9 @@ class VideoOutputWidget(QWidget):
         self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.title_label.setStyleSheet("""
             font-weight: bold;
-            font-size: 12px;
-            color: #e0e0e0;
-            padding: 4px;
+            font-size: 18px;
+            color: #ffffff;
+            padding: 5px;
             background-color: #3c3c3c;
             border-radius: 4px;
         """)
