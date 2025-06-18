@@ -7,6 +7,8 @@ import cv2
 import argparse
 from tqdm import tqdm
 import sys
+import json
+import numpy as np
 from pathlib import Path
 
 # Get the project root directory
@@ -103,15 +105,36 @@ def test_gaze_with_image():
     # Detect and track gaze
     results = tracker.detect(frame)
     print(f"Detected {len(results)} gaze points in the image: ", results)
+    gaze_info = {
+        "image_path": test_image_path,
+        "gaze_estimations": convert_to_python_types(results)
+    }
+    with open(os.path.join(parent_dir, "src", "test", "gaze_estimations.json"), "w") as f:
+        json.dump(gaze_info, f, indent=4)
+        print(f"Results saved to gaze_estimations.json")
     # Draw results
     output_frame = tracker.draw_results(frame, results)
     # Save output image
-    output_image_path = "results/test_gaze_output.jpg"
+    output_image_path = os.path.join(parent_dir, "data", "output", "test_gaze_output.jpg")
     os.makedirs(os.path.dirname(output_image_path), exist_ok=True)
     cv2.imwrite(output_image_path, output_frame)
     print(f"Output image saved to: {output_image_path}")
 
-
+# Convert NumPy types to native Python types for JSON serialization
+def convert_to_python_types(obj):
+    if isinstance(obj, dict):
+        return {key: convert_to_python_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_to_python_types(item) for item in obj]
+    elif isinstance(obj, (np.int_, np.intc, np.intp, np.int8, np.int16, np.int32,
+                        np.int64, np.uint8, np.uint16, np.uint32, np.uint64)):
+        return int(obj)
+    elif isinstance(obj, (np.float_, np.float16, np.float32, np.float64)):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    return obj
+    
 def main():
     # test_gaze_with_video()
     test_gaze_with_image()
