@@ -94,23 +94,15 @@ class VideoProcessingThread(QThread):
 
             if frame_detections:
                 # Use pre-computed data instead of running live detectors
-                start_time = time.time()
                 yolo_detections = frame_detections.get('yolo_detections', [])
                 pose_estimations = frame_detections.get('pose_estimations', [])
                 gaze_estimations = frame_detections.get('gaze_estimations', [])
                 anomalies = frame_detections.get('anomalies', [])
-                end_time1 = time.time()
-                logger.debug(f"Time taken to get pre-computed data: {end_time1 - start_time} seconds")
-                # We still need to assign PIDs as this might not be in the stored raw data
-                # yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
-                # pose_estimations = assign_pose_pids(pose_estimations, gaze_estimations)
-                start_time1 = time.time()
+                
                 # Generate visualization frames
                 yolo_viz_frame = self.yolo_detector.draw_results(frame.copy(), yolo_detections)
                 pose_viz_frame = self.pose_estimator.draw_results(frame.copy(), pose_estimations)
                 gaze_viz_frame = self.gaze_tracker.draw_results(frame.copy(), gaze_estimations)
-                end_time2 = time.time()
-                logger.debug(f"Time taken to generate visualization frames: {end_time2 - start_time1} seconds")
 
                 self.frame_update.emit({
                     'original': frame.copy(), 'yolo': yolo_viz_frame, 'pose': pose_viz_frame,
