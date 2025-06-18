@@ -22,7 +22,7 @@ def test_yolo_with_image():
     Test YOLO object detection on a sample image.
     """
     parent_dir = os.path.dirname(os.path.dirname(__file__))
-    input_image = os.path.join(parent_dir, "data", "images", "162.jpg") 
+    input_image = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg") 
     image = cv2.imread(input_image)
     height, width = image.shape[:2]
     print(f"Image dimensions: {width}x{height}")
@@ -35,6 +35,7 @@ def test_yolo_with_image():
     yolo_detections = yolo_detector.detect(image)
     yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
     print(f"Detected {len(yolo_detections)} YOLO objects in the image: ", yolo_detections)
+
     
     yolo_viz_frame = yolo_detector.draw_results(image, yolo_detections)
 
