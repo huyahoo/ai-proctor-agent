@@ -59,6 +59,14 @@ class AnomalyDetector:
 
         return angle_deg
 
+    def _is_point_in_bbox(self, point: list, bbox: list) -> bool:
+        """
+        Check if a point (x, y) is inside a bounding box defined by [x1, y1, x2, y2].
+        """
+        x, y = point
+        x1, y1, x2, y2 = bbox
+        return x1 <= x <= x2 and y1 <= y <= y2
+    
     # Passing material: Suspicious Arm Angles
     def check_suspicious_arm_angle(self, person_map: dict, timestamp: float) -> dict | None:
         """
@@ -101,6 +109,61 @@ class AnomalyDetector:
                 })
 
         return anomaly if anomaly else None
+    
+    def check_looking_away(self, person_map: dict, timestamp: float) -> list:
+        """
+        Check if people are looking at each other.
+        Returns a list of anomaly dictionaries.
+        """
+        anomalies = []
+        
+        # Check each pair of people
+        for pid1, data1 in person_map.items():
+            if not data1.get('gaze') or not data1.get('bbox'):
+                continue
+                
+            gaze1 = data1['gaze']
+            bbox1 = data1['bbox']
+            
+            # Get gaze point for person 1
+            gaze_point1 = gaze1['point']
+            gaze_score1 = gaze1['score']
+            
+            # Check against all other people
+            for pid2, data2 in person_map.items():
+                if pid1 == pid2 or not data2.get('bbox'):
+                    continue
+                    
+                # Check if person 1's gaze point is inside person 2's bbox
+                bbox2 = data2['bbox']
+                if gaze_score1 > 0.7 and self._is_point_in_bbox(gaze_point1, bbox2):
+                    # Person 1 is looking at person 2
+                    # Check if person 2 is also looking at person 1
+                    if data2.get('gaze'):
+                        gaze2 = data2['gaze']
+                        gaze_point2 = gaze2['point']
+                        gaze_score2 = gaze2['score']
+                        
+                        if gaze_score2 > 0.7 and self._is_point_in_bbox(gaze_point2, bbox1):
+                            # Both people are looking at each other
+                            anomalies.append({
+                                'type': 'mutual_gaze',
+                                'person_ids': [pid1, pid2],
+                                # 'confidence': min(gaze_score1, gaze_score2),
+                                'timestamp': timestamp,
+                                'description': f"People {pid1} and {pid2} are looking at each other"
+                            })
+                        else:
+                            # Only person 1 is looking at person 2
+                            anomalies.append({
+                                'type': 'one_way_gaze',
+                                'person_ids': [pid1],
+                                # 'confidence': gaze_score1,
+                                'timestamp': timestamp,
+                                'description': f"Person {pid1} is looking at person {pid2}"
+                            })
+
+        return anomalies if anomalies else None
     
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
@@ -145,7 +208,7 @@ class AnomalyDetector:
             if pid in person_map:
                 person_map[pid]['gaze'] = {
                     'bbox': g['bbox'],
-                    'point': g['gaze_point'],
+                    'point': [g['gaze_point'][0] * frame_data["frame_width"], g['gaze_point'][1] * frame_data["frame_height"]],
                     'vector': g['gaze_vector'],
                     'score': g['inout_score']
                 }
