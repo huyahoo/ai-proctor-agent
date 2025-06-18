@@ -6,6 +6,18 @@ import os
 import cv2
 import argparse
 from tqdm import tqdm
+import sys
+from pathlib import Path
+
+# Get the project root directory
+current_file = Path(__file__).resolve()
+project_root = current_file.parent.parent.parent
+src_dir = project_root / "src"
+
+# Add parent directory to sys.path
+parent_dir = str(current_file.parent.parent)
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
 
 from cv.gaze_tracker import GazeTracker
 from core.config import Config
@@ -78,8 +90,8 @@ def test_gaze_with_image():
     # Initialize gaze tracker
     tracker = GazeTracker(config=Config())
     # Load test image
-    parent_dir = os.path.dirname(os.path.dirname(__file__))
-    test_image_path = os.path.join(parent_dir, "data", "images", "IMG_4732.jpg")
+    parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    test_image_path = os.path.join(parent_dir, "data", "images", "IMG_4741.jpg")
 
     if not os.path.exists(test_image_path):
         print(f"Error: Test image '{test_image_path}' does not exist")

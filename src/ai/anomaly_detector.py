@@ -105,7 +105,7 @@ class AnomalyDetector:
                     'type': 'suspicious_arm_angle',
                     'person_ids': [pid],
                     'timestamp': timestamp,
-                    'reason': (
+                    'description': (
                         f"PID {pid} arm angles R={right_angle:.1f}°, "
                         f"L={left_angle:.1f}° — possibly passing an object."
                     )
@@ -284,6 +284,11 @@ class AnomalyDetector:
         gaze_anomalies = self.check_looking_away(person_map, current_timestamp)
         if gaze_anomalies:
             anomalies.extend(gaze_anomalies)
+
+        # 3. Missing wrists: Check for missing or low confidence wrist keypoints
+        wrist_anomalies = self.check_missing_wrists(person_map, current_timestamp)
+        if wrist_anomalies:
+            anomalies.extend(wrist_anomalies)
             
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:

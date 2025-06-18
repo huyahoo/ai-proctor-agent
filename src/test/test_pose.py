@@ -2,17 +2,22 @@ import os
 import sys
 import time
 from tqdm import tqdm
-from core.utils import assign_yolo_pids, assign_pose_pids
+from pathlib import Path
 
-# Add the parent directory (project root) to Python path
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, project_root)
+# Get the project root directory and src directory
+project_root = Path(__file__).resolve().parent.parent.parent
+src_dir = project_root / "src"
+
+# Add src directory to Python path
+if str(src_dir) not in sys.path:
+    sys.path.insert(0, str(src_dir))
 
 import cv2
 import numpy as np
 from cv.pose_estimator import PoseEstimator
 from core.config import Config
 from core.logger import logger
+from core.utils import assign_yolo_pids, assign_pose_pids
 
 def format_time(seconds):
     """Format time in seconds to a human-readable string."""
@@ -125,8 +130,8 @@ def test_pose_with_video():
 
 def test_pose_with_image():
     # Ensure the input image exists
-    parent_dir = os.path.dirname(os.path.dirname(__file__))
-    input_image = os.path.join(parent_dir, "data", "images", "162.jpg") # Relative to src directory
+    parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+    input_image = os.path.join(parent_dir, "data", "images", "IMG_4741.jpg") # Relative to src directory
     
     if not os.path.exists(input_image):
         logger.error(f"Input image not found at {input_image}")
@@ -145,7 +150,7 @@ def test_pose_with_image():
         sys.exit(1)
     
     # Process the image
-    gaze_data = [{'bbox': [1051.534912109375, 427.95166015625, 1151.1109619140625, 558.1237182617188], 'gaze_point': [0.609375, 0.625], 'gaze_vector': [0.08420028537511826, 0.996448814868927], 'inout_score': 0.9989210367202759, 'pid': 3}, {'bbox': [734.8357543945312, 342.3213806152344, 812.5286865234375, 446.6407775878906], 'gaze_point': [0.421875, 0.546875], 'gaze_vector': [0.06804251670837402, 0.9976824522018433], 'inout_score': 0.9987419247627258, 'pid': 2}, {'bbox': [1281.304443359375, 329.313720703125, 1361.4693603515625, 423.94091796875], 'gaze_point': [0.5625, 0.609375], 'gaze_vector': [-0.7742968201637268, 0.6328225135803223], 'inout_score': 0.9274418950080872, 'pid': 1}, {'bbox': [367.7159729003906, 396.76495361328125, 458.3671875, 523.9398193359375], 'gaze_point': [0.234375, 0.609375], 'gaze_vector': [0.0857202410697937, 0.9963192939758301], 'inout_score': 0.9791598320007324, 'pid': 0}]
+    gaze_data = [{'bbox': [1202.5040283203125, 720.3736572265625, 1428.29150390625, 1026.041748046875], 'gaze_point': [0.34375, 0.5], 'gaze_vector': [0.19035454094409943, 0.9817154407501221], 'inout_score': 0.9985774755477905, 'pid': 1}, {'bbox': [2880.576171875, 928.5159912109375, 3132.960693359375, 1240.22607421875], 'gaze_point': [0.75, 0.515625], 'gaze_vector': [-0.10129646956920624, 0.9948562383651733], 'inout_score': 0.9992438554763794, 'pid': 0}]
     poses_data = pose_estimator.detect(frame)
     pose_estimations = assign_pose_pids(poses_data, gaze_data)
     annotated_frame = pose_estimator.draw_results(frame, pose_estimations)
