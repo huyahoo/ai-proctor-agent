@@ -181,8 +181,8 @@ def draw_bbox(
     text,
     pid=None,
     colors=COLORS,
-    thickness=5,
-    font_scale=0.5
+    thickness=2,
+    font_scale=0.6
 ) -> None:
     """
     Draws a bounding box on `frame` and overlays `text` just above it.
@@ -225,7 +225,7 @@ def draw_bbox(
             cv2.FONT_HERSHEY_SIMPLEX,
             font_scale,
             (255, 255, 255),
-            thickness,
+            1,
             cv2.LINE_AA
         )
 
