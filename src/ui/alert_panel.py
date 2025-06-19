@@ -25,13 +25,15 @@ class EventCard(QFrame):
         if selected:
             self.setStyleSheet("""
                 background-color: #06C755;
+                color: white;
                 border-radius: 4px;
                 padding: 2px;
                 margin: 1px;
             """)
         else:
             self.setStyleSheet("""
-                background-color: #555;
+                background-color: #d7d7d7;
+                color: #333333;
                 border-radius: 4px;
                 padding: 2px;
                 margin: 1px;
@@ -49,18 +51,18 @@ class AlertPanel(QWidget):
     def _init_ui(self) -> None:
         self.setStyleSheet("""
             #AlertContentFrame {
-                background-color: #3c3c3c;
+                background-color: #6fd283;
                 border-radius:8px;
             }
             QLabel.TitleLabel {
                 font-size: 18px;
                 font-weight: bold;
-                color: #ffffff;
+                color: #333333;
                 padding-top: 10px;
             }
             QListWidget, QScrollArea {
-                background-color: #2b2b2b;
-                border: 1px solid #444;
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
                 border-radius: 5px;
             }
             QPushButton {
@@ -80,7 +82,7 @@ class AlertPanel(QWidget):
         main_layout.addWidget(anomalies_title)
         self.event_list_widget = QListWidget()
         self.event_list_widget.itemClicked.connect(self._on_event_clicked)
-        main_layout.addWidget(self.event_list_widget, 1)
+        main_layout.addWidget(self.event_list_widget, 2)
 
         # Section 2: Monitoring Constraint
         constraint_title = QLabel("Monitoring Constraint")
@@ -94,7 +96,7 @@ class AlertPanel(QWidget):
         results_title.setProperty("class", "TitleLabel")
         main_layout.addWidget(results_title)
         self.vlm_decision_label, results_scroll_area = self._create_text_area()
-        main_layout.addWidget(results_scroll_area, 1)
+        main_layout.addWidget(results_scroll_area, 2)
         
         self._init_feedback_buttons(main_layout)
         self.clear_all_events()
@@ -130,7 +132,7 @@ class AlertPanel(QWidget):
             decision = vlm_result.get('decision', 'N/A')
             explanation = vlm_result.get('explanation', '')
             
-            color = "#e0e0e0"
+            color = "#333333"
             if "Confirmed" in decision: color = "#e74c3c"
             elif "Not Cheating" in decision: color = "#4CC764"
             
@@ -152,16 +154,11 @@ class AlertPanel(QWidget):
     # --- UI Creation Helpers ---
     def _create_text_area(self) -> tuple[QLabel, QScrollArea]:
         scroll_area = QScrollArea()
-        scroll_area.setStyleSheet("""
-            background-color: #2b2b2b;
-            border: 1px solid #444;
-            border-radius: 5px;
-        """)
         scroll_area.setWidgetResizable(True)
         content_label = QLabel("<i>No event selected.</i>")
         content_label.setWordWrap(True)
         content_label.setAlignment(Qt.AlignmentFlag.AlignTop)
-        content_label.setStyleSheet("padding: 5px; color: #e0e0e0; font-size: 14px;")
+        content_label.setStyleSheet("padding: 5px; color: #333333; font-size: 14px;")
         scroll_area.setWidget(content_label)
         return content_label, scroll_area
 
@@ -193,10 +190,11 @@ class AlertPanel(QWidget):
         feedback_layout.addWidget(self.confirm_btn)
         feedback_layout.addWidget(self.false_pos_btn)
         parent_layout.addLayout(feedback_layout)
+        # Hide the buttons as requested
+        self.confirm_btn.setVisible(False)
+        self.false_pos_btn.setVisible(False)
 
     def emit_feedback(self, feedback_type: str) -> None:
         if self.active_event_data:
             self.feedback_provided.emit(self.active_event_data, feedback_type)
-            self.confirm_btn.setEnabled(False)
-            self.false_pos_btn.setEnabled(False)
 

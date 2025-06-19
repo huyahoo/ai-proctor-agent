@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 import json
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle, QScrollArea
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer # QTimer for video playback synchronization
 from PyQt6.QtGui import QIcon
 
@@ -324,11 +324,11 @@ class ProctorAgentApp(QMainWindow):
         self.setWindowTitle("Proctor Agent")
         self.setGeometry(100, 100, 1800, 1000)
         self.setStyleSheet("""
-            QMainWindow { background-color: #2b2b2b; }
-            QWidget { color: #e0e0e0; font-family: Georgia, sans-serif; }
+            QMainWindow { background-color: #ebebeb; }
+            QWidget { color: #333333; font-family: Montserrat, sans-serif; }
             
             QWidget#MainView {
-                background-color: #3c3c3c;
+                background-color: #FFFFFF;
                 border-radius: 8px;
             }
 
@@ -338,9 +338,9 @@ class ProctorAgentApp(QMainWindow):
                 border-radius: 8px; font-weight: bold;
             }
             QPushButton:hover { background-color: #06C755; }
-            QPushButton:disabled { background-color: #555; color: #888; }
-            QSlider::groove:horizontal { height: 8px; border-radius: 4px; background: #555; }
-            QSlider::handle:horizontal { background: #4CC764; width: 16px; margin: -4px 0; border-radius: 8px; }
+            QPushButton:disabled { background-color: #d7d7d7; color: #888; }
+            QSlider::groove:horizontal { height: 8px; border-radius: 4px; background: #d7d7d7; }
+            QSlider::handle:horizontal { background: #06C755; width: 16px; margin: -4px 0; border-radius: 8px; }
         """)
 
     def _init_widgets(self) -> None:
@@ -360,23 +360,41 @@ class ProctorAgentApp(QMainWindow):
         self._setup_button_icons()
 
     def _init_layouts(self) -> None:
+        # Component 1: Video Grid
         video_grid = self._create_video_grid()
+        video_grid_container = QWidget()
+        video_grid_container.setObjectName("MainView")  # Use same style as before
+        video_grid_layout = QVBoxLayout(video_grid_container)
+        video_grid_layout.setContentsMargins(15, 15, 15, 15)
+        video_grid_layout.addWidget(video_grid)
+
+        # Component 3: Controls Block
         controls = self._create_controls_layout()
-        main_view = QWidget()
-        main_view.setObjectName("MainView") # Set object name for styling
-        main_view_layout = QVBoxLayout(main_view)
-        main_view_layout.setContentsMargins(15, 15, 15, 15) # Internal padding
-        main_view_layout.addWidget(video_grid, 1)
-        main_view_layout.addWidget(self.video_position_slider)
-        main_view_layout.addLayout(controls)
+        controls_block = QWidget()
+        controls_block.setObjectName("MainView")  # Use same style for a consistent block look
+        controls_block_layout = QVBoxLayout(controls_block)
+        controls_block_layout.setContentsMargins(15, 15, 15, 15)
+        controls_block_layout.addWidget(self.video_position_slider)
+        controls_block_layout.addLayout(controls)
+
+        # Left side panel containing video and controls
+        left_panel_layout = QVBoxLayout()
+        left_panel_layout.setContentsMargins(0, 0, 0, 0)
+        left_panel_layout.setSpacing(10)
+        left_panel_layout.addWidget(video_grid_container, 1)  # Video grid takes most space
+        left_panel_layout.addWidget(controls_block)
+
+        left_panel_widget = QWidget()
+        left_panel_widget.setLayout(left_panel_layout)
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         main_layout = QHBoxLayout(central_widget)
-        main_layout.setContentsMargins(10, 10, 10, 10) # External margin
-        main_layout.setSpacing(10) # Spacing between panels
-        
-        main_layout.addWidget(main_view, 2)
+        main_layout.setContentsMargins(10, 10, 10, 10)  # External margin
+        main_layout.setSpacing(10)  # Spacing between panels
+
+        # Add the left panel and the alert panel (Component 2)
+        main_layout.addWidget(left_panel_widget, 2)
         main_layout.addWidget(self.alert_panel, 1)
 
     def _init_logic_components(self):

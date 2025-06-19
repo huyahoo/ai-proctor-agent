@@ -22,13 +22,13 @@ class VideoOutputWidget(QWidget):
             font-size: 18px;
             color: #ffffff;
             padding: 5px;
-            background-color: #3c3c3c;
+            background-color: #06C755;
             border-radius: 4px;
         """)
         self.image_label = QLabel(self)
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.image_label.setMinimumSize(320, 180)
-        self.image_label.setStyleSheet("background-color: #000; border-radius: 5px;")
+        self.image_label.setStyleSheet("border-radius: 5px;")
 
         self.layout().addWidget(self.title_label)
         self.layout().addWidget(self.image_label, 1)
@@ -58,9 +58,9 @@ class VideoOutputWidget(QWidget):
         self.image_label.setPixmap(pixmap.scaled(self.image_label.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
 
     def clear(self) -> None:
-        """Clears the video display to a black screen and resets the frame."""
+        """Clears the video display to a white screen and resets the frame."""
         self.current_frame = None
         pixmap = QPixmap(self.image_label.size())
-        pixmap.fill(QColor("black"))
+        pixmap.fill(QColor("white"))
         self.image_label.setPixmap(pixmap)
 
