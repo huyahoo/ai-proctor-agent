@@ -339,8 +339,25 @@ class ProctorAgentApp(QMainWindow):
             }
             QPushButton:hover { background-color: #06C755; }
             QPushButton:disabled { background-color: #d7d7d7; color: #888; }
-            QSlider::groove:horizontal { height: 8px; border-radius: 4px; background: #d7d7d7; }
-            QSlider::handle:horizontal { background: #06C755; width: 16px; margin: -4px 0; border-radius: 8px; }
+            
+            QSlider::groove:horizontal {
+                border-radius: 4px;
+                height: 8px;
+                margin: 0px;
+                background-color: #d7d7d7;
+            }
+            QSlider::handle:horizontal {
+                background-color: #06C755;
+                border: none;
+                height: 16px;
+                width: 16px;
+                margin: -4px 0;
+                border-radius: 8px;
+            }
+            QSlider::sub-page:horizontal {
+                border-radius: 4px;
+                background-color: #06C755;
+            }
         """)
 
     def _init_widgets(self) -> None:
