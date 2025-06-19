@@ -86,6 +86,8 @@ def main():
     print("Head Anomaly Detected:", head_anomaly)
     under_table_anomaly = anomaly_detector.check_suspicious_under_table(person_map, time_stamp)
     print("Missing Wrist Anomaly Detected:", under_table_anomaly)
+    copying_answer_anomalies = anomaly_detector.check_looking_others_paper(person_map, time_stamp)
+    print("Copying Answer Anomaly Detected: ", copying_answer_anomalies)
 
 if __name__ == "__main__":
     main()
