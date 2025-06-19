@@ -102,7 +102,7 @@ def assign_yolo_pids(yolo_dets, gaze_data, iou_threshold=0.0):
     head_boxes = [g['bbox'] for g in gaze_data]
     head_pids  = [g['pid']  for g in gaze_data]
 
-    for det in yolo_dets:
+    for det in yolo_dets["person"]:
         best_iou = 0.0
         best_pid = -1
         for hb, pid in zip(head_boxes, head_pids):
@@ -110,8 +110,19 @@ def assign_yolo_pids(yolo_dets, gaze_data, iou_threshold=0.0):
             if i > best_iou:
                 best_iou = i
                 best_pid = pid
-
+        
         det['pid'] = best_pid if best_iou >= iou_threshold else -1
+
+    for paper_exam in yolo_dets["exam_paper"]:
+        best_paper_iou = 0.0
+        best_paper_id = -1
+        for det in yolo_dets["person"]:
+            i = iou(paper_exam["bbox"], det["bbox"])
+            if i > best_paper_iou:
+                best_paper_iou = i
+                best_paper_id = det["pid"]
+        
+        paper_exam["pid"] = best_paper_id if best_paper_iou >= iou_threshold else -1
 
     return yolo_dets
 
@@ -170,7 +181,7 @@ def draw_bbox(
     text,
     pid=None,
     colors=COLORS,
-    thickness=2,
+    thickness=5,
     font_scale=0.5
 ) -> None:
     """
@@ -187,7 +198,7 @@ def draw_bbox(
       font_scale:   scale for text.
     """
     # 1) pick color
-    if label == 'person' and pid is not None:
+    if label in ['person', 'paper'] and pid is not None:
         clr = colors[pid % len(colors)]
     elif label in UNAUTHORIZED_CLASSES:
         clr = (0, 0, 255) # red

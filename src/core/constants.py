@@ -20,7 +20,7 @@ COLORS = [
 
 # Object classes for YOLO (expand if needed for specific items)
 # These are common COCO dataset classes. You might need to fine-tune YOLO for specific "cheating notes" etc.
-YOLO_CLASSES_OF_INTEREST = ['person', 'cell phone', 'book', 'laptop', 'bottle', 'backpack', 'keyboard', 'mouse', 'tv', 'remote', 'clock', 'scissors', 'pen', 'pencil', 'tablet', 'calculator']
+YOLO_CLASSES_OF_INTEREST = ['person', 'cell phone', 'book', 'laptop', 'bottle', 'backpack', 'keyboard', 'mouse', 'tv', 'remote', 'clock', 'scissors', 'pen', 'pencil', 'tablet', 'calculator', 'paper']
 
 # Unauthorized classes
 UNAUTHORIZED_CLASSES = ['cell phone','book','note','earbud','smartwatch','calculator']

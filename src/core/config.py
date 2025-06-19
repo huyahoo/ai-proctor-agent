@@ -16,6 +16,7 @@ class Config:
 
     # Model Paths
     YOLO_MODEL_PATH = "models/yolov8n.pt"
+    EXAM_PAPER_MODEL_PATH = "models/exam_paper.pt"  # Placeholder for exam paper model
 
     # Video Processing
     FPS = 30 # Target frames per second for processing and display
