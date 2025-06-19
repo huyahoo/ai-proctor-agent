@@ -23,13 +23,18 @@ def get_person_map(frame_data):
     # Build PID-based map from YOLO
     person_map = {
         det['pid']: {'bbox': det['bbox'], 'pose': None, 'gaze': None}
-        for det in frame_data["yolo_detections"]["person"]
+        for det in frame_data.get("yolo_detections", [])
         if det['label'] == 'person'
     }
 
-    for det in frame_data["yolo_detections"]["exam_paper"]:
+    # Associate exam paper to pid
+    for det in frame_data["yolo_detections"]:
         if det["label"] == "paper" and det["pid"] != -1: 
             person_map[det["pid"]]["exam_paper"] = det["bbox"]
+    # Handle exam paper not detected case
+    for pid in person_map:
+        if "exam_paper" not in person_map[pid]:
+            person_map[pid]["exam_paper"] = []
 
     # Associate pose keypoints by pid
     for p in frame_data.get('pose_estimations', []):
@@ -86,6 +91,8 @@ def main():
     print("Head Anomaly Detected:", head_anomaly)
     under_table_anomaly = anomaly_detector.check_suspicious_under_table(person_map, time_stamp)
     print("Missing Wrist Anomaly Detected:", under_table_anomaly)
+    copying_answer_anomalies = anomaly_detector.check_looking_others_paper(person_map, time_stamp)
+    print("Copying Answer Anomaly Detected: ", copying_answer_anomalies)
 
 if __name__ == "__main__":
     main()

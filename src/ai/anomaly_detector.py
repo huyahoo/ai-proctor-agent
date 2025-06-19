@@ -65,6 +65,7 @@ class AnomalyDetector:
         """
         Check if a point (x, y) is inside a bounding box defined by [x1, y1, x2, y2].
         """
+        if not bbox: return True
         x, y = point
         x1, y1, x2, y2 = bbox
         return x1 <= x <= x2 and y1 <= y <= y2
@@ -242,7 +243,25 @@ class AnomalyDetector:
                     if anomaly: wrist_anomalies.append(anomaly)
         
         return wrist_anomalies
-    
+
+    def check_looking_others_paper(self, person_map: dict, timestamp: float) -> list:
+        anomalies = []
+        for pid in person_map:
+            is_not_looking_at_own_paper = self.check_gaze_on_exam_paper(pid, person_map, timestamp)
+            pid_gaze_point = person_map[pid]["gaze"]["point"]
+            if is_not_looking_at_own_paper:
+                for student_id in person_map:
+                    if student_id == pid: continue
+                    exam_paper_bbox = person_map[student_id]["exam_paper"]
+                    if not self._is_point_in_bbox(pid_gaze_point, exam_paper_bbox):
+                        anomalies.append({
+                            'type': 'copying_others_answer',
+                            'person_ids': [pid],
+                            'timestamp': timestamp,
+                            'description': f"Student {pid} is looking at student {student_id} exam paper and copying student {student_id}'s answer"
+                        })
+        return anomalies if anomalies else None
+
     def _add_anomaly_if_not_duplicate(self, new_anomaly: dict, anomalies: list):
         is_duplicate = False
         for history_anomaly in self.temp_anomalies_history:
@@ -290,14 +309,18 @@ class AnomalyDetector:
         # Build PID-based map from YOLO
         person_map = {
             det['pid']: {'bbox': det['bbox'], 'pose': None, 'gaze': None}
-            for det in frame_data["yolo_detections"]["person"]
+            for det in frame_data.get("yolo_detections", [])
             if det['label'] == 'person'
         }
 
-        # Associate exam paper bu pid
-        for det in frame_data["yolo_detections"]["exam_paper"]:
+        # Associate exam paper to pid
+        for det in frame_data["yolo_detections"]:
             if det["label"] == "paper" and det["pid"] != -1: 
                 person_map[det["pid"]]["exam_paper"] = det["bbox"]
+        # Handle exam paper not detected case
+        for pid in person_map:
+            if "exam_paper" not in person_map[pid]:
+                person_map[pid]["exam_paper"] = []
 
         # Associate pose keypoints by pid
         for p in frame_data.get('pose_estimations', []):
@@ -342,6 +365,13 @@ class AnomalyDetector:
         if under_table_anomalies:
             for new_anomaly in under_table_anomalies:
                 self._add_anomaly_if_not_duplicate(new_anomaly, anomalies)
+
+        # 4. Looking at others exam paper for copying answer
+        copying_answer_anomalies = self.check_looking_others_paper(person_map, current_timestamp)
+        if copying_answer_anomalies:
+            for new_anomaly in under_table_anomalies:
+                self._add_anomaly_if_not_duplicate(new_anomaly, anomalies)
+
             
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:
