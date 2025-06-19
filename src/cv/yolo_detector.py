@@ -65,17 +65,19 @@ class YOLODetector(BaseDetector):
 
         person_results = self.model(frame, verbose=False)
         exam_paper_results = self.exam_paper_model(frame, verbose=False) if self.exam_paper_model else []
-        yolo_detections = {}
+        # yolo_detections = {}
 
-        person_detections = self._post_process_detections(self.model, person_results)
-        yolo_detections["person"] = person_detections
+        detections = self._post_process_detections(self.model, person_results)
+        # yolo_detections["person"] = person_detections
 
-        exam_paper_results = self._post_process_detections(self.exam_paper_model, exam_paper_results) if self.exam_paper_model else []
-        yolo_detections["exam_paper"] = exam_paper_results
+        exam_paper_detections = self._post_process_detections(self.exam_paper_model, exam_paper_results) if self.exam_paper_model else []
+        # yolo_detections["exam_paper"] = exam_paper_results
 
-        yolo_detections["unauthorized_objects"] = []
+        detections.extend(exam_paper_detections)
+
+        # yolo_detections["unauthorized_objects"] = []
         
-        return yolo_detections
+        return detections
 
     def draw_results(self, original_frame: np.ndarray, detections: list) -> np.ndarray:
         """
@@ -84,8 +86,8 @@ class YOLODetector(BaseDetector):
         """
         frame = original_frame.copy()
 
-        self._draw_frame(frame, detections["person"])
-        self._draw_frame(frame, detections["exam_paper"])
-        self._draw_frame(frame, detections["unauthorized_objects"])
+        self._draw_frame(frame, detections)
+        # self._draw_frame(frame, detections["exam_paper"])
+        # self._draw_frame(frame, detections["unauthorized_objects"])
 
         return frame

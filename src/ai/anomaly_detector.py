@@ -65,6 +65,7 @@ class AnomalyDetector:
         """
         Check if a point (x, y) is inside a bounding box defined by [x1, y1, x2, y2].
         """
+        if not bbox: return True
         x, y = point
         x1, y1, x2, y2 = bbox
         return x1 <= x <= x2 and y1 <= y <= y2
@@ -308,14 +309,18 @@ class AnomalyDetector:
         # Build PID-based map from YOLO
         person_map = {
             det['pid']: {'bbox': det['bbox'], 'pose': None, 'gaze': None}
-            for det in frame_data["yolo_detections"]["person"]
+            for det in frame_data.get("yolo_detections", [])
             if det['label'] == 'person'
         }
 
-        # Associate exam paper bu pid
-        for det in frame_data["yolo_detections"]["exam_paper"]:
+        # Associate exam paper to pid
+        for det in frame_data["yolo_detections"]:
             if det["label"] == "paper" and det["pid"] != -1: 
                 person_map[det["pid"]]["exam_paper"] = det["bbox"]
+        # Handle exam paper not detected case
+        for pid in person_map:
+            if "exam_paper" not in person_map[pid]:
+                person_map[pid]["exam_paper"] = []
 
         # Associate pose keypoints by pid
         for p in frame_data.get('pose_estimations', []):
