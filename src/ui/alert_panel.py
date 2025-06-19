@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem,
-    QPushButton, QFrame, QScrollArea
+    QPushButton, QFrame, QScrollArea, QGraphicsDropShadowEffect
 )
 from PyQt6.QtCore import Qt, pyqtSignal, QSize
 from PyQt6.QtGui import QColor
@@ -26,7 +26,7 @@ class EventCard(QFrame):
             self.setStyleSheet("""
                 background-color: #06C755;
                 color: white;
-                border-radius: 4px;
+                border-radius: 8px;
                 padding: 2px;
                 margin: 1px;
             """)
@@ -34,7 +34,7 @@ class EventCard(QFrame):
             self.setStyleSheet("""
                 background-color: #d7d7d7;
                 color: #333333;
-                border-radius: 4px;
+                border-radius: 8px;
                 padding: 2px;
                 margin: 1px;
             """)
@@ -62,8 +62,8 @@ class AlertPanel(QWidget):
             }
             QListWidget, QScrollArea {
                 background-color: #ffffff;
-                border: 1px solid #cccccc;
-                border-radius: 5px;
+                border: 1px solid #6fd283;
+                border-radius: 8px;
             }
             QPushButton {
                 padding: 10px 24px; font-size: 14px; margin: 4px 2px;
@@ -74,6 +74,14 @@ class AlertPanel(QWidget):
         outer_layout = QVBoxLayout(self)
         outer_layout.setContentsMargins(0, 0, 0, 0)
         content_frame = self._create_content_frame(outer_layout)
+
+        shadow = QGraphicsDropShadowEffect(self)
+        shadow.setBlurRadius(5)
+        shadow.setXOffset(0)
+        shadow.setYOffset(2)
+        shadow.setColor(QColor(215,215,215, 80))
+        content_frame.setGraphicsEffect(shadow)
+
         main_layout = content_frame.layout()
 
         # Section 1: Detected Suspicious Actions
@@ -155,6 +163,11 @@ class AlertPanel(QWidget):
     def _create_text_area(self) -> tuple[QLabel, QScrollArea]:
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
+        scroll_area.setStyleSheet("""
+            background-color: #ffffff;
+            border: 1px solid #6fd283;
+            border-radius: 8px;
+        """)
         content_label = QLabel("<i>No event selected.</i>")
         content_label.setWordWrap(True)
         content_label.setAlignment(Qt.AlignmentFlag.AlignTop)

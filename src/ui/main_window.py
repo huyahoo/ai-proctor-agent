@@ -7,9 +7,9 @@ import numpy as np
 from PIL import Image
 import json
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle, QScrollArea
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle, QScrollArea, QGraphicsDropShadowEffect
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer # QTimer for video playback synchronization
-from PyQt6.QtGui import QIcon
+from PyQt6.QtGui import QIcon, QColor
 
 from ui.video_output_widget import VideoOutputWidget
 from ui.alert_panel import AlertPanel
@@ -324,8 +324,8 @@ class ProctorAgentApp(QMainWindow):
         self.setWindowTitle("Proctor Agent")
         self.setGeometry(100, 100, 1800, 1000)
         self.setStyleSheet("""
-            QMainWindow { background-color: #ebebeb; }
-            QWidget { color: #333333; font-family: Montserrat, sans-serif; }
+            QMainWindow { background-color: #d7d7d7; }
+            QWidget { color: #d7d7d7; font-family: Montserrat, sans-serif; }
             
             QWidget#MainView {
                 background-color: #FFFFFF;
@@ -367,6 +367,7 @@ class ProctorAgentApp(QMainWindow):
         video_grid_layout = QVBoxLayout(video_grid_container)
         video_grid_layout.setContentsMargins(15, 15, 15, 15)
         video_grid_layout.addWidget(video_grid)
+        self._apply_shadow(video_grid_container)
 
         # Component 3: Controls Block
         controls = self._create_controls_layout()
@@ -376,6 +377,7 @@ class ProctorAgentApp(QMainWindow):
         controls_block_layout.setContentsMargins(15, 15, 15, 15)
         controls_block_layout.addWidget(self.video_position_slider)
         controls_block_layout.addLayout(controls)
+        self._apply_shadow(controls_block)
 
         # Left side panel containing video and controls
         left_panel_layout = QVBoxLayout()
@@ -396,6 +398,14 @@ class ProctorAgentApp(QMainWindow):
         # Add the left panel and the alert panel (Component 2)
         main_layout.addWidget(left_panel_widget, 2)
         main_layout.addWidget(self.alert_panel, 1)
+
+    def _apply_shadow(self, widget: QWidget):
+        shadow = QGraphicsDropShadowEffect(self)
+        shadow.setBlurRadius(5)
+        shadow.setXOffset(0)
+        shadow.setYOffset(2)
+        shadow.setColor(QColor(215,215,215, 80))
+        widget.setGraphicsEffect(shadow)
 
     def _init_logic_components(self):
         self.llm_generator = LLMConstraintGenerator(self.config)

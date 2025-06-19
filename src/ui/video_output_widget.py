@@ -22,13 +22,13 @@ class VideoOutputWidget(QWidget):
             font-size: 18px;
             color: #ffffff;
             padding: 5px;
-            background-color: #06C755;
-            border-radius: 4px;
+            background-color: #4CC764;
+            border-radius: 8px;
         """)
         self.image_label = QLabel(self)
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.image_label.setMinimumSize(320, 180)
-        self.image_label.setStyleSheet("border-radius: 5px;")
+        self.image_label.setStyleSheet("border-radius: 8px;")
 
         self.layout().addWidget(self.title_label)
         self.layout().addWidget(self.image_label, 1)
