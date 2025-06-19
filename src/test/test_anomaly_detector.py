@@ -81,11 +81,11 @@ def main():
     print("Person Map:", person_map)
 
     arm_anomaly = anomaly_detector.check_suspicious_arm_angle(person_map, time_stamp)
-    # print("Arm Anomaly Detected:", arm_anomaly)
+    print("Arm Anomaly Detected:", arm_anomaly)
     head_anomaly = anomaly_detector.check_looking_away(person_map, time_stamp)
-    # print("Head Anomaly Detected:", head_anomaly)
-    missing_wrist_anomaly = anomaly_detector.check_missing_wrists(person_map, time_stamp)
-    print("Missing Wrist Anomaly Detected:", missing_wrist_anomaly)
+    print("Head Anomaly Detected:", head_anomaly)
+    under_table_anomaly = anomaly_detector.check_suspicious_under_table(person_map, time_stamp)
+    print("Missing Wrist Anomaly Detected:", under_table_anomaly)
 
 if __name__ == "__main__":
     main()

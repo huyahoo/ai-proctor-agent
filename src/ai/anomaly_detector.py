@@ -181,7 +181,7 @@ class AnomalyDetector:
         Returns:
             list: List of anomaly dictionaries for people with missing wrists
         """
-        anomalies = []
+        anomaly_pid = []
         # Wrist indices in pose keypoints
         LEFT_WRIST_IDX = 9   # Index for left wrist
         RIGHT_WRIST_IDX = 10  # Index for right wrist
@@ -212,15 +212,36 @@ class AnomalyDetector:
                 
             # Create anomaly if any wrists are missing
             if missing_wrists:
-                anomalies.append({
-                    'type': 'missing_wrists',
-                    'person_ids': [pid],
-                    'timestamp': timestamp,
-                    'missing': missing_wrists,
-                    'description': f"Student {pid} has high probability of using the phone under the table."
-                })
+                anomaly_pid.append(pid)
         
-        return anomalies if anomalies else None
+        return anomaly_pid if anomaly_pid else None
+    
+    def check_gaze_on_exam_paper(self, pid: int,  person_map: dict, timestamp: float) -> list:
+        anomaly_person_data = person_map[pid]
+        gaze_point = anomaly_person_data["gaze"]["point"]
+        exam_paper_bbox = anomaly_person_data["exam_paper"]
+
+        # Check if student is looking at their exam paper
+        if not self._is_point_in_bbox(gaze_point, exam_paper_bbox):
+            # Create anomaly for looking away from paper
+            return {
+                'type': 'suspicious_under_table',
+                'person_ids': [pid],
+                'timestamp': timestamp,
+                'description': f"Student {pid} is not looking at his/her exam paper and do something under table"
+            }
+        
+        return None
+    
+    def check_suspicious_under_table(self, person_map: dict, timestamp: float) -> list:
+        wrist_anomalies = []
+        wrist_anomaly_pid = self.check_missing_wrists(person_map, timestamp)
+        if wrist_anomaly_pid:
+                for pid in wrist_anomaly_pid:
+                    anomaly = self.check_gaze_on_exam_paper(pid, person_map, timestamp)
+                    if anomaly: wrist_anomalies.append(anomaly)
+        
+        return wrist_anomalies
     
     def _add_anomaly_if_not_duplicate(self, new_anomaly: dict, anomalies: list):
         is_duplicate = False
@@ -241,9 +262,6 @@ class AnomalyDetector:
             self.temp_anomalies_history.append(new_anomaly)
             # logger.debug(f"Appending {new_anomaly['type']} anomaly for {new_anomaly['person_ids']} to history at {new_anomaly['timestamp']:.2f}s")
             anomalies.append(new_anomaly)
-    
-    def check_gaze_on_exam_paper(self, person_map: dict, timestamp: float) -> list:
-        pass
     
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
@@ -320,9 +338,10 @@ class AnomalyDetector:
 
     
         # 3. Missing wrists: Check for missing or low confidence wrist keypoints
-        # wrist_anomalies = self.check_missing_wrists(person_map, current_timestamp)
-        # if wrist_anomalies:
-        #     anomalies.extend(wrist_anomalies)
+        under_table_anomalies = self.check_suspicious_under_table(person_map, current_timestamp)
+        if under_table_anomalies:
+            for new_anomaly in under_table_anomalies:
+                self._add_anomaly_if_not_duplicate(new_anomaly, anomalies)
             
         # # 1. Individual Cheating: Unauthorized Material
         # for obj in frame_data['yolo_detections']:
