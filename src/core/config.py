@@ -33,7 +33,8 @@ class Config:
     LLM_MODEL_NAME = "gemini-1.5-flash-latest"
     VLM_MODEL_NAME = "gemini-2.5-flash-preview-05-20"
     VLM_ANALYSIS_CLIP_SECONDS = 4 # Duration of clip for VLM analysis
-
+    VLM_FRAMES_DIR = "data/output/vlm_frames"
+    
     # Feedback Learning
     FEEDBACK_DATA_DIR = "data/feedback"
     FEEDBACK_ANNOTATIONS_FILE = os.path.join(FEEDBACK_DATA_DIR, "annotations.jsonl")

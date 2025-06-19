@@ -7,6 +7,8 @@ import re
 import numpy as np # For np.linspace
 from core.config import Config
 from core.logger import logger
+import os
+from datetime import datetime
 
 class VLMAnalyzer:
     def __init__(self, config: Config):
@@ -17,6 +19,13 @@ class VLMAnalyzer:
             temperature=0.1,
         )
         logger.success(f"VLM model '{self.config.VLM_MODEL_NAME}' initialized for analysis.")
+
+    def _save_frames(self, frame_sequence: list):
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        os.makedirs(self.config.VLM_FRAMES_DIR, exist_ok=True)
+        for i, frame in enumerate(frame_sequence):
+            frame.save(f"{self.config.VLM_FRAMES_DIR}/frame_{timestamp}_{i}.jpg")
+        logger.debug(f"Saved {len(frame_sequence)} frames to {self.config.VLM_FRAMES_DIR} directory")
 
     def analyze_and_explain(self, frame_sequence: list, constraints: str) -> dict:
         """
@@ -29,6 +38,9 @@ class VLMAnalyzer:
         """
         if not frame_sequence:
             return {"decision": "No Visual Data", "explanation": "No frames provided for analysis."}
+
+        # TODO: Debug save the frames to a output/vlm_frames directory
+        self._save_frames(frame_sequence)
 
         logger.step(f"VLMAnalyzer: Analyzing {len(frame_sequence)} frames with constraints: {constraints}")
 
@@ -64,16 +76,16 @@ class VLMAnalyzer:
 
         prompt_text = f"""You are a specialized AI assistant for proctoring exams. Your task is to analyze a sequence of images and determine if a student's actions violate a given rule.
 
-**Analysis Task:**
-Based *only* on the visual evidence in the image sequence, verify the following:
-> {constraints}
+            **Analysis Task:**
+            Based *only* on the visual evidence in the image sequence, verify the following:
+            > {constraints}
 
-**Output Requirements:**
-Your response MUST strictly follow this format, with no extra text or markdown (e.g., no `*`, `-`, or `###`). The explanation must be a single, concise paragraph.
+            **Output Requirements:**
+            Your response MUST strictly follow this format, with no extra text or markdown (e.g., no `*`, `-`, or `###`). The explanation must be a single, concise paragraph.
 
-Decision: [Cheating Confirmed / Not Cheating / Ambiguous]
-Explanation: [A brief summary of your reasoning, linking specific visual evidence to the analysis task.]
-"""
+            Decision: [Cheating Confirmed / Not Cheating / Ambiguous]
+            Explanation: [A brief summary of your reasoning, linking specific visual evidence to the analysis task.]
+        """
 
         prompt_parts = [
             prompt_text,

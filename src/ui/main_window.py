@@ -32,6 +32,7 @@ class VideoProcessingThread(QThread):
     frame_update = pyqtSignal(dict) # Contains original, yolo, pose, gaze frames & timestamp
     anomaly_detected = pyqtSignal(dict) # Anomaly event data
     processing_finished = pyqtSignal()
+    processing_error = pyqtSignal(str) # Signal for critical errors
 
     def __init__(self, video_path: str, config: Config, is_example: bool = False):
         super().__init__()
@@ -51,10 +52,16 @@ class VideoProcessingThread(QThread):
 
     def run(self):
         """Dispatches to the correct run method based on the mode."""
-        if self.is_example:
-            self.run_from_json()
-        else:
-            self.run_live_detection()
+        try:
+            if self.is_example:
+                self.run_from_json()
+            else:
+                self.run_live_detection()
+        except Exception as e:
+            import traceback
+            error_trace = traceback.format_exc()
+            logger.error(f"Critical error in video processing thread: {e}\n{error_trace}")
+            self.processing_error.emit(f"A critical error occurred in the video processing thread:\n\n{e}\n\nPlease check the logs for the full traceback.")
 
     def run_from_json(self):
         """Runs video processing by reading detection data from a JSON file."""
@@ -488,6 +495,7 @@ class ProctorAgentApp(QMainWindow):
         self.processing_thread.frame_update.connect(self.on_frame_update)
         self.processing_thread.anomaly_detected.connect(self.on_anomaly_detected)
         self.processing_thread.processing_finished.connect(self.on_processing_finished)
+        self.processing_thread.processing_error.connect(self.on_processing_error)
         self.processing_thread.start()
         self.play_pause_btn.setChecked(True)
         logger.step(f"Started processing for: {video_path}")
@@ -573,6 +581,11 @@ class ProctorAgentApp(QMainWindow):
 
     def on_vlm_analysis_complete(self, data: dict):
         self.alert_panel.update_vlm_result(data)
+
+    def on_processing_error(self, error_message: str):
+        """Shows a critical error message and closes the application."""
+        QMessageBox.critical(self, "Processing Error", error_message)
+        self.close()
 
     def on_feedback_provided(self, event_data: dict, feedback_type: str):
         logger.info(f"Received feedback: {feedback_type} for event ID: {event_data.get('event_id')}")
