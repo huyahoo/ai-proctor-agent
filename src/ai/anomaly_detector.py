@@ -290,7 +290,7 @@ class AnomalyDetector:
         # Build PID-based map from YOLO
         person_map = {
             det['pid']: {'bbox': det['bbox'], 'pose': None, 'gaze': None}
-            for det in frame_data.get('yolo_detections', [])
+            for det in frame_data["yolo_detections"]["person"]
             if det['label'] == 'person'
         }
 
