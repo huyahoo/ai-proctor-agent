@@ -23,9 +23,13 @@ def get_person_map(frame_data):
     # Build PID-based map from YOLO
     person_map = {
         det['pid']: {'bbox': det['bbox'], 'pose': None, 'gaze': None}
-        for det in frame_data.get('yolo_detections', [])
+        for det in frame_data["yolo_detections"]["person"]
         if det['label'] == 'person'
     }
+
+    for det in frame_data["yolo_detections"]["exam_paper"]:
+        if det["label"] == "paper" and det["pid"] != -1: 
+            person_map[det["pid"]]["exam_paper"] = det["bbox"]
 
     # Associate pose keypoints by pid
     for p in frame_data.get('pose_estimations', []):

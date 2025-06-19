@@ -242,6 +242,9 @@ class AnomalyDetector:
             # logger.debug(f"Appending {new_anomaly['type']} anomaly for {new_anomaly['person_ids']} to history at {new_anomaly['timestamp']:.2f}s")
             anomalies.append(new_anomaly)
     
+    def check_gaze_on_exam_paper(self, person_map: dict, timestamp: float) -> list:
+        pass
+    
     def detect_anomalies(self, frame_data: dict, current_timestamp: float) -> list:
         """
         Detects anomalies based on YOLO, Pose, and Gaze data for the current frame.
@@ -264,7 +267,7 @@ class AnomalyDetector:
         # In a robust system, this would involve a multi-object tracker (e.g., DeepSORT)
             # Build a map of person_id → their combined data
 
-        person_map = {}  # { pid: {'bbox': ..., 'pose': ..., 'gaze': ...} }
+        person_map = {}  # { pid: {'bbox': ..., 'pose': ..., 'gaze': ..., 'exam_paper': ...} }
 
         # Build PID-based map from YOLO
         person_map = {
@@ -272,6 +275,11 @@ class AnomalyDetector:
             for det in frame_data.get('yolo_detections', [])
             if det['label'] == 'person'
         }
+
+        # Associate exam paper bu pid
+        for det in frame_data["yolo_detections"]["exam_paper"]:
+            if det["label"] == "paper" and det["pid"] != -1: 
+                person_map[det["pid"]]["exam_paper"] = det["bbox"]
 
         # Associate pose keypoints by pid
         for p in frame_data.get('pose_estimations', []):
