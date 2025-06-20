@@ -65,7 +65,7 @@ class AnomalyDetector:
         """
         Check if a point (x, y) is inside a bounding box defined by [x1, y1, x2, y2].
         """
-        if not bbox: return True
+        if not bbox: return False
         x, y = point
         x1, y1, x2, y2 = bbox
         return x1 <= x <= x2 and y1 <= y <= y2
@@ -259,7 +259,7 @@ class AnomalyDetector:
                 for student_id in person_map:
                     if student_id == pid: continue
                     exam_paper_bbox = person_map[student_id]["exam_paper"]
-                    if not self._is_point_in_bbox(pid_gaze_point, exam_paper_bbox):
+                    if self._is_point_in_bbox(pid_gaze_point, exam_paper_bbox):
                         anomalies.append({
                             'type': 'copying_others_answer',
                             'person_ids': [pid],
@@ -383,7 +383,7 @@ class AnomalyDetector:
         # 4. Looking at others exam paper for copying answer
         copying_answer_anomalies = self.check_looking_others_paper(person_map, current_timestamp)
         if copying_answer_anomalies:
-            for new_anomaly in under_table_anomalies:
+            for new_anomaly in copying_answer_anomalies:
                 self._add_anomaly_if_not_duplicate(new_anomaly, anomalies)
 
         return anomalies
