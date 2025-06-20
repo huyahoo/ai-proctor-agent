@@ -22,7 +22,7 @@ An intelligent proctoring system that uses computer vision and AI to detect pote
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/proctor-agent.git
+git clone https://github.com/huyahoo/proctor-agent.git
 cd proctor-agent
 ```
 

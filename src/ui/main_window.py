@@ -235,6 +235,7 @@ class VideoProcessingThread(QThread):
     def extract_person_feature(self, frame: np.ndarray, detection: dict) -> list:
         cropped_person = crop_image_by_bbox(frame, detection["bbox"])
         feature = self.vlm_analyzer.extract_person_features(cropped_person)
+        # logger.debug(f"Extracted person feature: {feature}")
         return feature
 
 

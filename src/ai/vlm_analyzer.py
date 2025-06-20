@@ -126,12 +126,7 @@ class VLMAnalyzer:
         Args:
             person_image (PIL.Image): Cropped image containing only the person.
         Returns:
-            str: Description of the person's features in the format:
-                students
-                men/women
-                glasses: yes/no
-                hair: 
-                outer: 
+            str: A structured description of the person's visual features.
         """
         # Convert np.ndarray (BGR) to PIL.Image (RGB)
         if isinstance(person_image, np.ndarray):
@@ -139,14 +134,15 @@ class VLMAnalyzer:
             person_image = Image.fromarray(person_image)
 
         prompt = (
-            "You are an AI assistant for exam proctoring. "
-            "Describe the following person's visual features in English, following this format:\n"
-            "students\n"
-            "men/women\n"
-            "glasses: Is the person wearing glasses or not?\n"
-            "hair: How is the hair\n"
-            "outer: How is the outer\n"
-            "Only use the visual evidence in the image. Do not add extra information."
+            "You are an expert AI proctoring assistant. Your task is to create a concise visual description of the student in the image. "
+            "This description is critical for identifying students in real-time proctoring alerts. "
+            "Stick to visual facts from the image only. Do not invent details. "
+            "Respond using this exact format:\n\n"
+            "Gender: [Man/Woman]. "
+            "Hair: [Color and style, e.g., Short black hair]. "
+            "Clothing: [Main color and type, text in clothing e.g., Blue T-shirt]. "
+            "Glasses: [What kind of glasses, e.g., Round-framed glasses, Glasses, or None]. "
+            "Headwear: [e.g., Headphones, Hat, or None]. "
         )
 
         # Prepare image for VLM

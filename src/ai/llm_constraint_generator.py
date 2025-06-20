@@ -42,20 +42,38 @@ class LLMConstraintGenerator:
             return f"Monitoring for any further suspicious activity. LLM error: {e}"
 
     def _build_prompt(self, event_data: dict) -> str:
-        """Constructs the prompt for the LLM based on event data."""
+        """Constructs the prompt for the LLM based on event data, using few-shot examples."""
         base_prompt = (
-            "You are an expert AI proctoring assistant. Your task is to generate a single, concise, and actionable instruction for a subordinate Vision-Language Model (VLM) to monitor provided suspicious actions of students. "
-            f"This instruction will guide the VLM in monitoring a sequence of images representing a cut video clip of {self.config.VLM_ANALYSIS_CLIP_SECONDS} seconds."
-            "that immediately follows a potential academic integrity violation during an in-person exam. Each seconds will take 2 frames.\n\n"
-            f"The instruction must be a direct command to the VLM, focusing on specific, observable actions based on the suspicious event to confirm or deny cheating. "
-            "Frame your response as a direct order to the VLM. Be brief, clear, and focus only on verifiable visual evidence.\n\n"
-            "---"
+            "You are an expert AI proctoring assistant. Your task is to generate a single, concise, and actionable instruction for a subordinate Vision-Language Model (VLM). "
+            "This instruction will guide the VLM in analyzing a short video clip to verify if cheating occurred, based on an initial suspicious event. "
+            "The student(s) involved are identified by their visual features.\n\n"
+            "Your instruction must be a direct command to the VLM, focused on specific, observable actions. "
+            "Your response must contain ONLY the instruction, with no extra text like 'Instruction for VLM:'.\n\n"
+            "--- EXAMPLES ---\n\n"
+            "**Suspicious Event:** Student ID 1, described as 'Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: None.', "
+            "was seen looking at Student ID 0, described as 'Gender: Woman. Hair: Long brown hair. Clothing: Red sweater. Glasses: Yes.'.\n"
+            "**Instruction for VLM:**\n"
+            "Verify if the student in the 'White T-shirt' continues to look at the 'Red sweater' student's exam paper. Track head and eye movements to determine if they are copying.\n\n"
+            "---\n\n"
+            "**Suspicious Event:** The wrists of Student ID 5, described as 'Gender: Man. Hair: Blond hair. Clothing: Green hoodie. Glasses: None.', "
+            "are not visible, and they are looking down, not at their exam paper.\n"
+            "**Instruction for VLM:**\n"
+            "Closely monitor the student in the 'Green hoodie'. Determine if they are interacting with unauthorized items like a phone or notes under the desk. "
+            "Watch for their hands to reappear and what they might be holding.\n\n"
+            "---\n\n"
+            "**Suspicious Event:** Student ID 2, described as 'Gender: Woman. Hair: Black ponytail. Clothing: Grey sweatshirt. Glasses: Yes.', "
+            "has an arm extended at a suspicious angle towards another student.\n"
+            "**Instruction for VLM:**\n"
+            "Focus on the student in the 'Grey sweatshirt'. Observe their arm and hand movements to determine if they are passing an object to another student.\n\n"
+            "--- TASK ---\n"
         )
+        
         event_description = event_data.get('description', 'An unclassified suspicious event occurred.')
+        
         final_prompt = (
             f"{base_prompt}\n"
-            f"Suspicious Event: {event_description}\n\n"
-            "Instruction for VLM:"
+            f"**Suspicious Event:** {event_description}\n"
+            "**Instruction for VLM:**"
         )
         return final_prompt
 
