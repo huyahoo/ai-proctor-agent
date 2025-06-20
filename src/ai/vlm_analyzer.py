@@ -74,19 +74,31 @@ class VLMAnalyzer:
         if not image_parts:
             return {"decision": "No Valid Images", "explanation": "Could not prepare valid images for VLM analysis."}
 
-        prompt_text = f"""You are a specialized AI assistant for proctoring exams. 
-            Your task is to analyze a sequence of images and determine if a student's actions violate a given rule.
-            If you are not sure, you should say "Ambiguous".
+        prompt_text = f"""You are an expert AI proctoring assistant. Your task is to analyze a sequence of images to determine if a student has violated an exam rule.
+
+            **Image Sequence Structure:**
+            The provided image sequence has a specific structure:
+            1.  **Analytical Frames (First 3 Images):** These are special visualizations from the exact moment a potential anomaly was flagged.
+                -   **Image 1 (Object Detection):** Shows detected objects like phones, books, etc.
+                -   **Image 2 (Pose Estimation):** Outlines the student's body posture and key points.
+                -   **Image 3 (Gaze Estimation):** Indicates the direction of the student's gaze. Note: 'P1' refers to Student ID 01, 'P2' to Student ID 02, and so on.
+            2.  **Contextual Frames (Remaining Images):** This is a chronological sequence of original video frames showing the moments before and after the flagged event.
 
             **Analysis Task:**
-            Based *only* on the visual evidence in the image sequence, verify the following:
+            Your goal is to carefully examine all images to verify if the following rule was broken:
             > {constraints}
 
-            **Output Requirements:**
+            **Instructions:**
+            -   Use the first three analytical frames as your primary evidence to understand the anomaly.
+            -   Use the subsequent contextual frames to understand the sequence of actions and confirm your assessment.
+            -   Synthesize all visual information to make a single, final judgment.
+            -   If the evidence is truly unclear or insufficient, you must classify the event as 'Ambiguous'. Do not guess.
+
+            **Output Format:**
             Your response MUST strictly follow this format, with no extra text or markdown (e.g., no `*`, `-`, or `###`). The explanation must be a single, concise paragraph.
 
             Decision: [Cheating Confirmed / Not Cheating / Ambiguous]
-            Explanation: [A brief summary of your reasoning, linking specific visual evidence to the analysis task.]
+            Explanation: [A brief summary of your reasoning, linking specific visual evidence from both the analytical and contextual frames to the analysis task.]
         """
 
         prompt_parts = [
@@ -120,7 +132,6 @@ class VLMAnalyzer:
         except Exception as e:
             logger.error(f"Error calling VLM for analysis: {e}")
             return {"decision": "Error", "explanation": f"VLM API error: {e}. Check API key, quota, or input content."}
-
 
     def extract_person_features(self, person_image: Image.Image) -> str:
         """

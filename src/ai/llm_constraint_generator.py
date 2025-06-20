@@ -42,7 +42,13 @@ class LLMConstraintGenerator:
             return f"Monitoring for any further suspicious activity. LLM error: {e}"
 
     def _build_prompt(self, event_data: dict) -> str:
-        """Constructs the prompt for the LLM based on event data, using few-shot examples."""
+        """
+        Constructs the prompt for the LLM based on event data, using few-shot examples.
+        Args:
+            event_data (dict): A dictionary describing the initial anomaly event.
+        Returns:
+            str: A natural language string of constraints for the VLM.
+        """
         base_prompt = (
             "You are an expert AI proctoring assistant. Your task is to generate a single, concise, and actionable instruction for a subordinate Vision-Language Model (VLM). "
             "This instruction will guide the VLM in analyzing a short video clip to verify if cheating occurred, based on an initial suspicious event. "

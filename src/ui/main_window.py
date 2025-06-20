@@ -121,6 +121,10 @@ class VideoProcessingThread(QThread):
                 for anomaly in anomalies:
                     anomaly['video_path'] = self.video_path
                     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
+                    # Add visualization frames for VLM analysis
+                    anomaly['yolo_viz_frame'] = yolo_viz_frame.copy()
+                    anomaly['pose_viz_frame'] = pose_viz_frame.copy()
+                    anomaly['gaze_viz_frame'] = gaze_viz_frame.copy()
                     self.anomaly_detected.emit(anomaly)
 
             # Control playback speed
@@ -206,7 +210,11 @@ class VideoProcessingThread(QThread):
                     anomaly['video_path'] = self.video_path
                     # Assign a unique ID for each event instance
                     anomaly['event_id'] = f"{anomaly['type']}_{int(current_timestamp_sec*1000)}_{np.random.randint(1000, 9999)}"
-                    self.anomaly_detected.emit(anomaly) 
+                    # Add visualization frames for VLM analysis
+                    anomaly['yolo_viz_frame'] = yolo_viz_frame.copy()
+                    anomaly['pose_viz_frame'] = pose_viz_frame.copy()
+                    anomaly['gaze_viz_frame'] = gaze_viz_frame.copy()
+                    self.anomaly_detected.emit(anomaly)
 
             # Control processing speed to match desired FPS / FRAME_SKIP
             # This sleep is meant to slow down processing if it's faster than target FPS / FRAME_SKIP.
@@ -265,8 +273,22 @@ class AnomalyConsumer(QThread):
                 logger.success(f"\nLLM generated constraint: {llm_constraint}")
 
                 # Step 2: VLM analyzes frames with constraints
-                # Retrieve a short sequence of original frames around the timestamp for VLM
                 frames_for_vlm = []
+
+                # Check if visualization frames are already in the event data
+                yolo_frame = event_data.get('yolo_viz_frame')
+                pose_frame = event_data.get('pose_viz_frame')
+                gaze_frame = event_data.get('gaze_viz_frame')
+
+                # if yolo_frame is not None and pose_frame is not None and gaze_frame is not None:
+                logger.info("Using pre-rendered visualization frames for VLM analysis.")
+                frames_for_vlm.extend([
+                    cv2_to_pil(yolo_frame),
+                    cv2_to_pil(pose_frame),
+                    cv2_to_pil(gaze_frame)
+                ])
+                # else:
+                # Retrieve a short sequence of original frames around the timestamp for VLM
                 video_path = event_data['video_path']
                 timestamp_sec = event_data['timestamp']
 
@@ -276,7 +298,7 @@ class AnomalyConsumer(QThread):
                     if fps > 0:
                         # As per request: clip starts 2s before event, lasts for VLM_ANALYSIS_CLIP_SECONDS,
                         # and samples 2 frames per second.
-                        seconds_before = 2.0
+                        seconds_before = 1.0
                         vlm_clip_duration = self.config.VLM_ANALYSIS_CLIP_SECONDS
                         seconds_after = vlm_clip_duration - seconds_before
                         vlm_frames_per_sec = self.config.VLM_FRAMES_PER_SECOND

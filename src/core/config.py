@@ -32,8 +32,8 @@ class Config:
     # LLM/VLM Settings
     LLM_MODEL_NAME = "gemini-1.5-flash-latest"
     VLM_MODEL_NAME = "gemini-2.5-flash-preview-05-20"
-    VLM_ANALYSIS_CLIP_SECONDS = 4 # Duration of clip for VLM analysis
-    VLM_FRAMES_PER_SECOND = 4 # Number of frames to sample per second for VLM analysis
+    VLM_ANALYSIS_CLIP_SECONDS = 3 # Duration of clip for VLM analysis
+    VLM_FRAMES_PER_SECOND = 3 # Number of frames to sample per second for VLM analysis
     MAX_VLM_FRAMES = 32 # Maximum number of frames to send to VLM
     VLM_FRAMES_DIR = "data/output/vlm_frames"
     
