@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem,
-    QPushButton, QFrame, QScrollArea, QGraphicsDropShadowEffect
+    QPushButton, QFrame, QScrollArea, QGraphicsDropShadowEffect, QGridLayout
 )
 from PyQt6.QtCore import Qt, pyqtSignal, QSize
 from PyQt6.QtGui import QColor
@@ -52,22 +52,29 @@ class AlertPanel(QWidget):
         self.setStyleSheet("""
             #AlertContentFrame {
                 background-color: #6fd283;
-                border-radius:8px;
-            }
-            QLabel.TitleLabel {
-                font-size: 18px;
-                font-weight: bold;
-                color: #333333;
-                padding-top: 10px;
-            }
-            QListWidget, QScrollArea {
-                background-color: #ffffff;
-                border: 1px solid #6fd283;
                 border-radius: 8px;
             }
-            QPushButton {
-                padding: 10px 24px; font-size: 14px; margin: 4px 2px;
-                border-radius: 8px; font-weight: bold;
+            QLabel.TitleLabel {
+                font-size: 14px;
+                font-weight: bold;
+                color: #333333;
+                background-color: white;
+                border: 1px solid #e0e0e0;
+                border-radius: 11px;
+                padding: 4px 16px;
+                max-height: 22px;
+            }
+            QListWidget#ContentBox, QWidget#ContentBox {
+                background-color: white;
+                border: 1px solid #e0e0e0;
+                border-radius: 16px;
+                padding-top: 25px;
+            }
+            QLabel.ContentLabel {
+                padding: 10px;
+                color: #333333;
+                font-size: 14px;
+                background-color: transparent;
             }
         """)
 
@@ -83,28 +90,68 @@ class AlertPanel(QWidget):
         content_frame.setGraphicsEffect(shadow)
 
         main_layout = content_frame.layout()
+        main_layout.setSpacing(15)
 
-        # Section 1: Detected Suspicious Actions
+        # --- Section 1: Detected Suspicious Actions ---
+        section1_container = QWidget()
+        section1_layout = QGridLayout(section1_container)
+        section1_layout.setContentsMargins(0, 0, 0, 0)
+        section1_layout.setSpacing(0)
+        
         anomalies_title = QLabel("Detected Suspicious Actions")
         anomalies_title.setProperty("class", "TitleLabel")
-        main_layout.addWidget(anomalies_title)
+        
         self.event_list_widget = QListWidget()
+        self.event_list_widget.setObjectName("ContentBox")
         self.event_list_widget.itemClicked.connect(self._on_event_clicked)
-        main_layout.addWidget(self.event_list_widget, 2)
+        
+        section1_layout.addWidget(anomalies_title, 0, 0, Qt.AlignmentFlag.AlignHCenter)
+        section1_layout.addWidget(self.event_list_widget, 1, 0)
+        main_layout.addWidget(section1_container, 2)
 
-        # Section 2: Monitoring Constraint
+        # --- Section 2: Monitoring Constraint ---
+        section2_container = QWidget()
+        section2_layout = QGridLayout(section2_container)
+        section2_layout.setContentsMargins(0, 0, 0, 0)
+        section2_layout.setSpacing(0)
+
         constraint_title = QLabel("Monitoring Constraint")
         constraint_title.setProperty("class", "TitleLabel")
-        main_layout.addWidget(constraint_title)
-        self.llm_constraint_label, constraint_scroll_area = self._create_text_area()
-        main_layout.addWidget(constraint_scroll_area, 1)
+        
+        constraint_content_box = QWidget()
+        constraint_content_box.setObjectName("ContentBox")
+        constraint_box_layout = QVBoxLayout(constraint_content_box)
+        self.llm_constraint_label = QLabel("<i>No event selected.</i>")
+        self.llm_constraint_label.setProperty("class", "ContentLabel")
+        self.llm_constraint_label.setWordWrap(True)
+        self.llm_constraint_label.setAlignment(Qt.AlignmentFlag.AlignTop)
+        constraint_box_layout.addWidget(self.llm_constraint_label)
 
-        # Section 3: Proctor Results
+        section2_layout.addWidget(constraint_title, 0, 0, Qt.AlignmentFlag.AlignHCenter)
+        section2_layout.addWidget(constraint_content_box, 1, 0)
+        main_layout.addWidget(section2_container, 1)
+
+        # --- Section 3: Proctor Results ---
+        section3_container = QWidget()
+        section3_layout = QGridLayout(section3_container)
+        section3_layout.setContentsMargins(0, 0, 0, 0)
+        section3_layout.setSpacing(0)
+
         results_title = QLabel("Proctor Results")
         results_title.setProperty("class", "TitleLabel")
-        main_layout.addWidget(results_title)
-        self.vlm_decision_label, results_scroll_area = self._create_text_area()
-        main_layout.addWidget(results_scroll_area, 2)
+        
+        results_content_box = QWidget()
+        results_content_box.setObjectName("ContentBox")
+        results_box_layout = QVBoxLayout(results_content_box)
+        self.vlm_decision_label = QLabel("<i>No event selected.</i>")
+        self.vlm_decision_label.setProperty("class", "ContentLabel")
+        self.vlm_decision_label.setWordWrap(True)
+        self.vlm_decision_label.setAlignment(Qt.AlignmentFlag.AlignTop)
+        results_box_layout.addWidget(self.vlm_decision_label)
+        
+        section3_layout.addWidget(results_title, 0, 0, Qt.AlignmentFlag.AlignHCenter)
+        section3_layout.addWidget(results_content_box, 1, 0)
+        main_layout.addWidget(section3_container, 2)
         
         self._init_feedback_buttons(main_layout)
         self.clear_all_events()
@@ -151,30 +198,9 @@ class AlertPanel(QWidget):
         self.event_list_widget.clear()
         self.llm_constraint_label.setText("<i>No event selected.</i>")
         self.vlm_decision_label.setText("<i>No event selected.</i>")
-        # self.llm_constraint_label.setStyleSheet("""
-        #     font-size: 14px;
-        # """)
-        # self.vlm_decision_label.setStyleSheet("""
-        #     font-size: 14px;
-        # """)
         self.active_event_data = None
         
     # --- UI Creation Helpers ---
-    def _create_text_area(self) -> tuple[QLabel, QScrollArea]:
-        scroll_area = QScrollArea()
-        scroll_area.setWidgetResizable(True)
-        scroll_area.setStyleSheet("""
-            background-color: #ffffff;
-            border: 1px solid #6fd283;
-            border-radius: 8px;
-        """)
-        content_label = QLabel("<i>No event selected.</i>")
-        content_label.setWordWrap(True)
-        content_label.setAlignment(Qt.AlignmentFlag.AlignTop)
-        content_label.setStyleSheet("padding: 5px; color: #333333; font-size: 14px;")
-        scroll_area.setWidget(content_label)
-        return content_label, scroll_area
-
     def _create_content_frame(self, parent_layout: QVBoxLayout) -> QFrame:
         content_frame = QFrame()
         content_frame.setObjectName("AlertContentFrame")
