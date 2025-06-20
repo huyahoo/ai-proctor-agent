@@ -27,7 +27,7 @@
           "label": "person",
           "confidence": 0.721025824546814,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -299,7 +299,7 @@
           "label": "person",
           "confidence": 0.7610939145088196,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -571,7 +571,7 @@
           "label": "person",
           "confidence": 0.7453953623771667,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -831,7 +831,7 @@
           "label": "person",
           "confidence": 0.7876923680305481,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1103,7 +1103,7 @@
           "label": "person",
           "confidence": 0.8076909780502319,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1375,7 +1375,7 @@
           "label": "person",
           "confidence": 0.7771196961402893,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1659,7 +1659,7 @@
           "label": "person",
           "confidence": 0.7722909450531006,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1931,7 +1931,7 @@
           "label": "person",
           "confidence": 0.7758306264877319,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -2203,7 +2203,7 @@
           "label": "person",
           "confidence": 0.8044871687889099,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -2475,7 +2475,7 @@
           "label": "person",
           "confidence": 0.7543009519577026,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -2747,7 +2747,7 @@
           "label": "person",
           "confidence": 0.7495300769805908,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3019,7 +3019,7 @@
           "label": "person",
           "confidence": 0.7405312657356262,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3291,7 +3291,7 @@
           "label": "person",
           "confidence": 0.7412469387054443,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3563,7 +3563,7 @@
           "label": "person",
           "confidence": 0.7252709269523621,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3835,7 +3835,7 @@
           "label": "person",
           "confidence": 0.7439857721328735,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4107,7 +4107,7 @@
           "label": "person",
           "confidence": 0.7041943073272705,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4379,7 +4379,7 @@
           "label": "person",
           "confidence": 0.71205735206604,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4651,7 +4651,7 @@
           "label": "person",
           "confidence": 0.7239171266555786,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4911,7 +4911,7 @@
           "label": "person",
           "confidence": 0.7347555160522461,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -5183,7 +5183,7 @@
           "label": "person",
           "confidence": 0.7368335127830505,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -5467,7 +5467,7 @@
           "label": "person",
           "confidence": 0.7250012755393982,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -5739,7 +5739,7 @@
           "label": "person",
           "confidence": 0.7275633811950684,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6011,7 +6011,7 @@
           "label": "person",
           "confidence": 0.7097958922386169,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6283,7 +6283,7 @@
           "label": "person",
           "confidence": 0.7193963527679443,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6555,7 +6555,7 @@
           "label": "person",
           "confidence": 0.7357853651046753,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6827,7 +6827,7 @@
           "label": "person",
           "confidence": 0.7315265536308289,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7099,7 +7099,7 @@
           "label": "person",
           "confidence": 0.7360990643501282,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7371,7 +7371,7 @@
           "label": "person",
           "confidence": 0.7410944104194641,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7643,7 +7643,7 @@
           "label": "person",
           "confidence": 0.7562099695205688,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7915,7 +7915,7 @@
           "label": "person",
           "confidence": 0.7265428304672241,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -8187,7 +8187,7 @@
           "label": "person",
           "confidence": 0.7636051177978516,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -8459,7 +8459,7 @@
           "label": "person",
           "confidence": 0.7722200751304626,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -8731,7 +8731,7 @@
           "label": "person",
           "confidence": 0.7745221853256226,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9003,7 +9003,7 @@
           "label": "person",
           "confidence": 0.7762987017631531,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9263,7 +9263,7 @@
           "label": "person",
           "confidence": 0.7768036723136902,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9547,7 +9547,7 @@
           "label": "person",
           "confidence": 0.7684332728385925,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9819,7 +9819,7 @@
           "label": "person",
           "confidence": 0.7775412797927856,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10091,7 +10091,7 @@
           "label": "person",
           "confidence": 0.7726598381996155,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10363,7 +10363,7 @@
           "label": "person",
           "confidence": 0.7867065668106079,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10635,7 +10635,7 @@
           "label": "person",
           "confidence": 0.780569851398468,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10907,7 +10907,7 @@
           "label": "person",
           "confidence": 0.7567372918128967,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11179,7 +11179,7 @@
           "label": "person",
           "confidence": 0.7418530583381653,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11451,7 +11451,7 @@
           "label": "person",
           "confidence": 0.7481463551521301,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11723,7 +11723,7 @@
           "label": "person",
           "confidence": 0.7571200132369995,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11995,7 +11995,7 @@
           "label": "person",
           "confidence": 0.7504557371139526,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12267,7 +12267,7 @@
           "label": "person",
           "confidence": 0.7378286123275757,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12539,7 +12539,7 @@
           "label": "person",
           "confidence": 0.7340472936630249,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12811,7 +12811,7 @@
           "label": "person",
           "confidence": 0.751234233379364,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13083,7 +13083,7 @@
           "label": "person",
           "confidence": 0.7353573441505432,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13355,7 +13355,7 @@
           "label": "person",
           "confidence": 0.7452165484428406,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13627,7 +13627,7 @@
           "label": "person",
           "confidence": 0.755578875541687,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13899,7 +13899,7 @@
           "label": "person",
           "confidence": 0.7701091766357422,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14171,7 +14171,7 @@
           "label": "person",
           "confidence": 0.7903485894203186,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14443,7 +14443,7 @@
           "label": "person",
           "confidence": 0.7983173131942749,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14715,7 +14715,7 @@
           "label": "person",
           "confidence": 0.7690245509147644,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14987,7 +14987,7 @@
           "label": "person",
           "confidence": 0.7640259861946106,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15259,7 +15259,7 @@
           "label": "person",
           "confidence": 0.7785472273826599,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15531,7 +15531,7 @@
           "label": "person",
           "confidence": 0.753896176815033,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15803,7 +15803,7 @@
           "label": "person",
           "confidence": 0.7808407545089722,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16075,7 +16075,7 @@
           "label": "person",
           "confidence": 0.7799431085586548,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16347,7 +16347,7 @@
           "label": "person",
           "confidence": 0.7799226641654968,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16619,7 +16619,7 @@
           "label": "person",
           "confidence": 0.8001824617385864,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16879,7 +16879,7 @@
           "label": "person",
           "confidence": 0.8130136132240295,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17163,7 +17163,7 @@
           "label": "person",
           "confidence": 0.792043149471283,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17435,7 +17435,7 @@
           "label": "person",
           "confidence": 0.7589506506919861,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17707,7 +17707,7 @@
           "label": "person",
           "confidence": 0.7241337895393372,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17979,7 +17979,7 @@
           "label": "person",
           "confidence": 0.7014474868774414,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18251,7 +18251,7 @@
           "label": "person",
           "confidence": 0.6808810830116272,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18523,7 +18523,7 @@
           "label": "person",
           "confidence": 0.726729691028595,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18795,7 +18795,7 @@
           "label": "person",
           "confidence": 0.7538054585456848,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19067,7 +19067,7 @@
           "label": "person",
           "confidence": 0.8132889866828918,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19339,7 +19339,7 @@
           "label": "person",
           "confidence": 0.7809888124465942,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19611,7 +19611,7 @@
           "label": "person",
           "confidence": 0.7727735638618469,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19883,7 +19883,7 @@
           "label": "person",
           "confidence": 0.7020253539085388,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20155,7 +20155,7 @@
           "label": "person",
           "confidence": 0.714218020439148,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20427,7 +20427,7 @@
           "label": "person",
           "confidence": 0.6901299357414246,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20699,7 +20699,7 @@
           "label": "person",
           "confidence": 0.7003645300865173,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20971,7 +20971,7 @@
           "label": "person",
           "confidence": 0.7069445252418518,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -21243,7 +21243,7 @@
           "label": "person",
           "confidence": 0.7162140011787415,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -21515,7 +21515,7 @@
           "label": "person",
           "confidence": 0.7163021564483643,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -21787,7 +21787,7 @@
           "label": "person",
           "confidence": 0.6900738477706909,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22059,7 +22059,7 @@
           "label": "person",
           "confidence": 0.6929945349693298,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22331,7 +22331,7 @@
           "label": "person",
           "confidence": 0.6819586753845215,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22603,7 +22603,7 @@
           "label": "person",
           "confidence": 0.7098371386528015,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22875,7 +22875,7 @@
           "label": "person",
           "confidence": 0.6908223032951355,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23147,7 +23147,7 @@
           "label": "person",
           "confidence": 0.6890075206756592,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23419,7 +23419,7 @@
           "label": "person",
           "confidence": 0.6915821433067322,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23691,7 +23691,7 @@
           "label": "person",
           "confidence": 0.7032524347305298,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23963,7 +23963,7 @@
           "label": "person",
           "confidence": 0.7299010157585144,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -24235,7 +24235,7 @@
           "label": "person",
           "confidence": 0.7426692843437195,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -24507,7 +24507,7 @@
           "label": "person",
           "confidence": 0.7318414449691772,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -24779,7 +24779,7 @@
           "label": "person",
           "confidence": 0.7544028759002686,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -25051,7 +25051,7 @@
           "label": "person",
           "confidence": 0.7593876719474792,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -25323,7 +25323,7 @@
           "label": "person",
           "confidence": 0.7853206396102905,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -25595,7 +25595,7 @@
           "label": "person",
           "confidence": 0.8036922216415405,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -25867,7 +25867,7 @@
           "label": "person",
           "confidence": 0.8016639351844788,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26139,7 +26139,7 @@
           "label": "person",
           "confidence": 0.7802127003669739,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26411,7 +26411,7 @@
           "label": "person",
           "confidence": 0.7394513487815857,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26683,7 +26683,7 @@
           "label": "person",
           "confidence": 0.7475526332855225,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26955,7 +26955,7 @@
           "label": "person",
           "confidence": 0.7410171627998352,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27227,7 +27227,7 @@
           "label": "person",
           "confidence": 0.7418460845947266,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27499,7 +27499,7 @@
           "label": "person",
           "confidence": 0.7338199019432068,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27771,7 +27771,7 @@
           "label": "person",
           "confidence": 0.7458176612854004,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -28043,7 +28043,7 @@
           "label": "person",
           "confidence": 0.7454834580421448,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -28315,7 +28315,7 @@
           "label": "person",
           "confidence": 0.7292475700378418,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -28587,7 +28587,7 @@
           "label": "person",
           "confidence": 0.7039685845375061,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -28859,7 +28859,7 @@
           "label": "person",
           "confidence": 0.7231441140174866,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -29111,7 +29111,7 @@
             1
           ],
           "timestamp": 3.533333333333333,
-          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None. — possibly Student ID 1 looking at exam paper of Student ID 0."
+          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None. — possibly Student ID 1 looking at exam paper of Student ID 0."
         }
       ]
     },
@@ -29140,7 +29140,7 @@
           "label": "person",
           "confidence": 0.7352070212364197,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -29392,7 +29392,7 @@
             1
           ],
           "timestamp": 3.5666666666666664,
-          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None. exam paper and copying student ID 0's answer - possibly cheating."
+          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None. exam paper and copying student ID 0's answer - possibly cheating."
         }
       ]
     },
@@ -29421,7 +29421,7 @@
           "label": "person",
           "confidence": 0.731499195098877,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -29693,7 +29693,7 @@
           "label": "person",
           "confidence": 0.6781575083732605,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -29965,7 +29965,7 @@
           "label": "person",
           "confidence": 0.6378361582756042,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30237,7 +30237,7 @@
           "label": "person",
           "confidence": 0.6474702954292297,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30509,7 +30509,7 @@
           "label": "person",
           "confidence": 0.6777762770652771,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30781,7 +30781,7 @@
           "label": "person",
           "confidence": 0.6482632160186768,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -31053,7 +31053,7 @@
           "label": "person",
           "confidence": 0.6615097522735596,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -31325,7 +31325,7 @@
           "label": "person",
           "confidence": 0.6925783157348633,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -31597,7 +31597,7 @@
           "label": "person",
           "confidence": 0.631969690322876,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -31869,7 +31869,7 @@
           "label": "person",
           "confidence": 0.6570695042610168,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -32141,7 +32141,7 @@
           "label": "person",
           "confidence": 0.6799518465995789,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -32413,7 +32413,7 @@
           "label": "person",
           "confidence": 0.6814345717430115,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -32685,7 +32685,7 @@
           "label": "person",
           "confidence": 0.6925753951072693,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -32957,7 +32957,7 @@
           "label": "person",
           "confidence": 0.6588000655174255,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -33229,7 +33229,7 @@
           "label": "person",
           "confidence": 0.6704609394073486,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -33501,7 +33501,7 @@
           "label": "person",
           "confidence": 0.6649224758148193,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -33773,7 +33773,7 @@
           "label": "person",
           "confidence": 0.6507510542869568,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34045,7 +34045,7 @@
           "label": "person",
           "confidence": 0.6427866220474243,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34317,7 +34317,7 @@
           "label": "person",
           "confidence": 0.6319277286529541,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34589,7 +34589,7 @@
           "label": "person",
           "confidence": 0.6416789293289185,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34861,7 +34861,7 @@
           "label": "person",
           "confidence": 0.6326130032539368,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35133,7 +35133,7 @@
           "label": "person",
           "confidence": 0.6739166378974915,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35405,7 +35405,7 @@
           "label": "person",
           "confidence": 0.6650863885879517,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35677,7 +35677,7 @@
           "label": "person",
           "confidence": 0.6598145961761475,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35949,7 +35949,7 @@
           "label": "person",
           "confidence": 0.6510360836982727,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -36221,7 +36221,7 @@
           "label": "person",
           "confidence": 0.6588150858879089,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -36493,7 +36493,7 @@
           "label": "person",
           "confidence": 0.6664300560951233,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -36765,7 +36765,7 @@
           "label": "person",
           "confidence": 0.6724439859390259,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -37037,7 +37037,7 @@
           "label": "person",
           "confidence": 0.6592311263084412,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -37309,7 +37309,7 @@
           "label": "person",
           "confidence": 0.6820794939994812,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -37581,7 +37581,7 @@
           "label": "person",
           "confidence": 0.6726322770118713,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -37853,7 +37853,7 @@
           "label": "person",
           "confidence": 0.6902583241462708,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38125,7 +38125,7 @@
           "label": "person",
           "confidence": 0.6774814128875732,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38397,7 +38397,7 @@
           "label": "person",
           "confidence": 0.6826999187469482,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38669,7 +38669,7 @@
           "label": "person",
           "confidence": 0.7120581865310669,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38941,7 +38941,7 @@
           "label": "person",
           "confidence": 0.6810534596443176,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -39213,7 +39213,7 @@
           "label": "person",
           "confidence": 0.6987154483795166,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -39485,7 +39485,7 @@
           "label": "person",
           "confidence": 0.6832938194274902,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -39757,7 +39757,7 @@
           "label": "person",
           "confidence": 0.7067549824714661,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40029,7 +40029,7 @@
           "label": "person",
           "confidence": 0.7192192673683167,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40301,7 +40301,7 @@
           "label": "person",
           "confidence": 0.7087767124176025,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40573,7 +40573,7 @@
           "label": "person",
           "confidence": 0.6881824135780334,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40845,7 +40845,7 @@
           "label": "person",
           "confidence": 0.683898389339447,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -41117,7 +41117,7 @@
           "label": "person",
           "confidence": 0.7053083181381226,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -41389,7 +41389,7 @@
           "label": "person",
           "confidence": 0.7145236134529114,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -41661,7 +41661,7 @@
           "label": "person",
           "confidence": 0.7132726907730103,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -41933,7 +41933,7 @@
           "label": "person",
           "confidence": 0.7257078289985657,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -42205,7 +42205,7 @@
           "label": "person",
           "confidence": 0.7173737287521362,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -42477,7 +42477,7 @@
           "label": "person",
           "confidence": 0.717415452003479,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -42749,7 +42749,7 @@
           "label": "person",
           "confidence": 0.7229902148246765,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -43021,7 +43021,7 @@
           "label": "person",
           "confidence": 0.7452383637428284,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -43293,7 +43293,7 @@
           "label": "person",
           "confidence": 0.7613692879676819,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -43565,7 +43565,7 @@
           "label": "person",
           "confidence": 0.7795013785362244,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -43837,7 +43837,7 @@
           "label": "person",
           "confidence": 0.7499385476112366,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -44109,7 +44109,7 @@
           "label": "person",
           "confidence": 0.758953869342804,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -44381,7 +44381,7 @@
           "label": "person",
           "confidence": 0.7730176448822021,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -44653,7 +44653,7 @@
           "label": "person",
           "confidence": 0.7755357623100281,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -44925,7 +44925,7 @@
           "label": "person",
           "confidence": 0.7810878157615662,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -45197,7 +45197,7 @@
           "label": "person",
           "confidence": 0.7715771794319153,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -45469,7 +45469,7 @@
           "label": "person",
           "confidence": 0.7997018098831177,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -45741,7 +45741,7 @@
           "label": "person",
           "confidence": 0.8256509900093079,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -46013,7 +46013,7 @@
           "label": "person",
           "confidence": 0.8004722595214844,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -46285,7 +46285,7 @@
           "label": "person",
           "confidence": 0.8141272664070129,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -46557,7 +46557,7 @@
           "label": "person",
           "confidence": 0.7812183499336243,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -46829,7 +46829,7 @@
           "label": "person",
           "confidence": 0.7584108710289001,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47101,7 +47101,7 @@
           "label": "person",
           "confidence": 0.7420804500579834,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47373,7 +47373,7 @@
           "label": "person",
           "confidence": 0.7527586221694946,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47645,7 +47645,7 @@
           "label": "person",
           "confidence": 0.740324079990387,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47917,7 +47917,7 @@
           "label": "person",
           "confidence": 0.7172620296478271,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48189,7 +48189,7 @@
           "label": "person",
           "confidence": 0.6994044780731201,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48461,7 +48461,7 @@
           "label": "person",
           "confidence": 0.6988591551780701,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48733,7 +48733,7 @@
           "label": "person",
           "confidence": 0.6720390915870667,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49005,7 +49005,7 @@
           "label": "person",
           "confidence": 0.6734243035316467,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49277,7 +49277,7 @@
           "label": "person",
           "confidence": 0.6523261666297913,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49549,7 +49549,7 @@
           "label": "person",
           "confidence": 0.6484182476997375,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49821,7 +49821,7 @@
           "label": "person",
           "confidence": 0.6550307273864746,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50093,7 +50093,7 @@
           "label": "person",
           "confidence": 0.6548819541931152,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50365,7 +50365,7 @@
           "label": "person",
           "confidence": 0.6571541428565979,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50637,7 +50637,7 @@
           "label": "person",
           "confidence": 0.66084885597229,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50909,7 +50909,7 @@
           "label": "person",
           "confidence": 0.6715717315673828,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51181,7 +51181,7 @@
           "label": "person",
           "confidence": 0.6614388227462769,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51453,7 +51453,7 @@
           "label": "person",
           "confidence": 0.727226972579956,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51725,7 +51725,7 @@
           "label": "person",
           "confidence": 0.7516314387321472,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51997,7 +51997,7 @@
           "label": "person",
           "confidence": 0.7528367042541504,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -52269,7 +52269,7 @@
           "label": "person",
           "confidence": 0.677684485912323,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -52541,7 +52541,7 @@
           "label": "person",
           "confidence": 0.6572777628898621,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -52813,7 +52813,7 @@
           "label": "person",
           "confidence": 0.6676660180091858,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53085,7 +53085,7 @@
           "label": "person",
           "confidence": 0.6724025011062622,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53357,7 +53357,7 @@
           "label": "person",
           "confidence": 0.6415866613388062,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53629,7 +53629,7 @@
           "label": "person",
           "confidence": 0.6394676566123962,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53901,7 +53901,7 @@
           "label": "person",
           "confidence": 0.6579763889312744,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54173,7 +54173,7 @@
           "label": "person",
           "confidence": 0.752556562423706,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54445,7 +54445,7 @@
           "label": "person",
           "confidence": 0.6908159255981445,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54717,7 +54717,7 @@
           "label": "person",
           "confidence": 0.6752001047134399,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54989,7 +54989,7 @@
           "label": "person",
           "confidence": 0.6973558664321899,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -55261,7 +55261,7 @@
           "label": "person",
           "confidence": 0.776239275932312,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -55533,7 +55533,7 @@
           "label": "person",
           "confidence": 0.8085788488388062,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -55805,7 +55805,7 @@
           "label": "person",
           "confidence": 0.701861560344696,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56077,7 +56077,7 @@
           "label": "person",
           "confidence": 0.7791745662689209,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56349,7 +56349,7 @@
           "label": "person",
           "confidence": 0.7592251896858215,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56621,7 +56621,7 @@
           "label": "person",
           "confidence": 0.778479814529419,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56893,7 +56893,7 @@
           "label": "person",
           "confidence": 0.7484607100486755,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57165,7 +57165,7 @@
           "label": "person",
           "confidence": 0.7432339787483215,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57437,7 +57437,7 @@
           "label": "person",
           "confidence": 0.7262646555900574,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57709,7 +57709,7 @@
           "label": "person",
           "confidence": 0.7490857243537903,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57981,7 +57981,7 @@
           "label": "person",
           "confidence": 0.7741094827651978,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -58253,7 +58253,7 @@
           "label": "person",
           "confidence": 0.812462329864502,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -58525,7 +58525,7 @@
           "label": "person",
           "confidence": 0.8114454746246338,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -58797,7 +58797,7 @@
           "label": "person",
           "confidence": 0.8509672284126282,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -59069,7 +59069,7 @@
           "label": "person",
           "confidence": 0.8566041588783264,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -59341,7 +59341,7 @@
           "label": "person",
           "confidence": 0.8530173301696777,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -59613,7 +59613,7 @@
           "label": "person",
           "confidence": 0.8488004207611084,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -59885,7 +59885,7 @@
           "label": "person",
           "confidence": 0.8514660596847534,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60157,7 +60157,7 @@
           "label": "person",
           "confidence": 0.8418328166007996,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60417,7 +60417,7 @@
           "label": "person",
           "confidence": 0.8481020331382751,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60689,7 +60689,7 @@
           "label": "person",
           "confidence": 0.8653978109359741,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60961,7 +60961,7 @@
           "label": "person",
           "confidence": 0.871997594833374,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -61233,7 +61233,7 @@
           "label": "person",
           "confidence": 0.864936113357544,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -61497,7 +61497,7 @@
             1
           ],
           "timestamp": 7.5,
-          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None. — possibly Student ID 1 looking at exam paper of Student ID 0."
+          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None. — possibly Student ID 1 looking at exam paper of Student ID 0."
         },
         {
           "type": "copying_others_answer",
@@ -61505,7 +61505,7 @@
             1
           ],
           "timestamp": 7.5,
-          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None. exam paper and copying student ID 0's answer - possibly cheating."
+          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None. exam paper and copying student ID 0's answer - possibly cheating."
         }
       ]
     },
@@ -61522,7 +61522,7 @@
           "label": "person",
           "confidence": 0.8702681064605713,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -61794,7 +61794,7 @@
           "label": "person",
           "confidence": 0.8558429479598999,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -62066,7 +62066,7 @@
           "label": "person",
           "confidence": 0.85713130235672,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -62338,7 +62338,7 @@
           "label": "person",
           "confidence": 0.8586021065711975,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -62610,7 +62610,7 @@
           "label": "person",
           "confidence": 0.8496801853179932,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -62882,7 +62882,7 @@
           "label": "person",
           "confidence": 0.8349838256835938,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -63154,7 +63154,7 @@
           "label": "person",
           "confidence": 0.8409435749053955,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -63426,7 +63426,7 @@
           "label": "person",
           "confidence": 0.8385224342346191,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -63698,7 +63698,7 @@
           "label": "person",
           "confidence": 0.8376985788345337,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -63970,7 +63970,7 @@
           "label": "person",
           "confidence": 0.839785635471344,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64242,7 +64242,7 @@
           "label": "person",
           "confidence": 0.8506902456283569,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64514,7 +64514,7 @@
           "label": "person",
           "confidence": 0.8547637462615967,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64786,7 +64786,7 @@
           "label": "person",
           "confidence": 0.8586204648017883,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65058,7 +65058,7 @@
           "label": "person",
           "confidence": 0.8713060617446899,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65330,7 +65330,7 @@
           "label": "person",
           "confidence": 0.8590098023414612,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65602,7 +65602,7 @@
           "label": "person",
           "confidence": 0.8634629249572754,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65874,7 +65874,7 @@
           "label": "person",
           "confidence": 0.8632148504257202,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66146,7 +66146,7 @@
           "label": "person",
           "confidence": 0.8561180233955383,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66418,7 +66418,7 @@
           "label": "person",
           "confidence": 0.8758335709571838,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66690,7 +66690,7 @@
           "label": "person",
           "confidence": 0.8610109686851501,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66962,7 +66962,7 @@
           "label": "person",
           "confidence": 0.8546620607376099,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67234,7 +67234,7 @@
           "label": "person",
           "confidence": 0.8528590202331543,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67506,7 +67506,7 @@
           "label": "person",
           "confidence": 0.8706067800521851,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67778,7 +67778,7 @@
           "label": "person",
           "confidence": 0.8588993549346924,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68038,7 +68038,7 @@
           "label": "person",
           "confidence": 0.8559808731079102,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68298,7 +68298,7 @@
           "label": "person",
           "confidence": 0.8716781139373779,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68558,7 +68558,7 @@
           "label": "person",
           "confidence": 0.8745850920677185,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68818,7 +68818,7 @@
           "label": "person",
           "confidence": 0.8723536729812622,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69078,7 +69078,7 @@
           "label": "person",
           "confidence": 0.8598634004592896,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69338,7 +69338,7 @@
           "label": "person",
           "confidence": 0.8632330894470215,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69610,7 +69610,7 @@
           "label": "person",
           "confidence": 0.8592086434364319,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69882,7 +69882,7 @@
           "label": "person",
           "confidence": 0.8412092924118042,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70154,7 +70154,7 @@
           "label": "person",
           "confidence": 0.8478114008903503,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70426,7 +70426,7 @@
           "label": "person",
           "confidence": 0.8434967994689941,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70698,7 +70698,7 @@
           "label": "person",
           "confidence": 0.8693913817405701,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70970,7 +70970,7 @@
           "label": "person",
           "confidence": 0.8783025741577148,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -71242,7 +71242,7 @@
           "label": "person",
           "confidence": 0.8775649070739746,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -71514,7 +71514,7 @@
           "label": "person",
           "confidence": 0.870462954044342,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -71786,7 +71786,7 @@
           "label": "person",
           "confidence": 0.8611658811569214,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72058,7 +72058,7 @@
           "label": "person",
           "confidence": 0.8512053489685059,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72330,7 +72330,7 @@
           "label": "person",
           "confidence": 0.8664370775222778,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72602,7 +72602,7 @@
           "label": "person",
           "confidence": 0.8619794249534607,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72874,7 +72874,7 @@
           "label": "person",
           "confidence": 0.7985729575157166,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73146,7 +73146,7 @@
           "label": "person",
           "confidence": 0.8167181015014648,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73418,7 +73418,7 @@
           "label": "person",
           "confidence": 0.8375452756881714,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73690,7 +73690,7 @@
           "label": "person",
           "confidence": 0.8689808249473572,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73962,7 +73962,7 @@
           "label": "person",
           "confidence": 0.850635826587677,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -74234,7 +74234,7 @@
           "label": "person",
           "confidence": 0.8265581727027893,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -74506,7 +74506,7 @@
           "label": "person",
           "confidence": 0.8579039573669434,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -74778,7 +74778,7 @@
           "label": "person",
           "confidence": 0.8387837409973145,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75050,7 +75050,7 @@
           "label": "person",
           "confidence": 0.839389979839325,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75310,7 +75310,7 @@
           "label": "person",
           "confidence": 0.7618030309677124,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75570,7 +75570,7 @@
           "label": "person",
           "confidence": 0.8065614104270935,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75830,7 +75830,7 @@
           "label": "person",
           "confidence": 0.873471200466156,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76090,7 +76090,7 @@
           "label": "person",
           "confidence": 0.8647676706314087,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76362,7 +76362,7 @@
           "label": "person",
           "confidence": 0.8562294244766235,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76634,7 +76634,7 @@
           "label": "person",
           "confidence": 0.8506231904029846,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76894,7 +76894,7 @@
           "label": "person",
           "confidence": 0.8419001698493958,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77166,7 +77166,7 @@
           "label": "person",
           "confidence": 0.8380757570266724,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77438,7 +77438,7 @@
           "label": "person",
           "confidence": 0.8329906463623047,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77702,7 +77702,7 @@
             1
           ],
           "timestamp": 9.5,
-          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None. — possibly Student ID 1 looking at exam paper of Student ID 0."
+          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None. — possibly Student ID 1 looking at exam paper of Student ID 0."
         },
         {
           "type": "copying_others_answer",
@@ -77710,7 +77710,7 @@
             1
           ],
           "timestamp": 9.5,
-          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None. exam paper and copying student ID 0's answer - possibly cheating."
+          "description": "Student ID 1 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: White T-shirt. Glasses: Round-framed glasses. Headwear: None. is looking at student ID 0 who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None. exam paper and copying student ID 0's answer - possibly cheating."
         }
       ]
     },
@@ -77727,7 +77727,7 @@
           "label": "person",
           "confidence": 0.8443992137908936,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77987,7 +77987,7 @@
           "label": "person",
           "confidence": 0.8535125255584717,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78247,7 +78247,7 @@
           "label": "person",
           "confidence": 0.8785861730575562,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78519,7 +78519,7 @@
           "label": "person",
           "confidence": 0.8741863369941711,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78791,7 +78791,7 @@
           "label": "person",
           "confidence": 0.8710833787918091,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79051,7 +79051,7 @@
           "label": "person",
           "confidence": 0.873612105846405,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79311,7 +79311,7 @@
           "label": "person",
           "confidence": 0.8697260618209839,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79571,7 +79571,7 @@
           "label": "person",
           "confidence": 0.8487499356269836,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79831,7 +79831,7 @@
           "label": "person",
           "confidence": 0.8766507506370544,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -80103,7 +80103,7 @@
           "label": "person",
           "confidence": 0.8763166069984436,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -80375,7 +80375,7 @@
           "label": "person",
           "confidence": 0.8694475293159485,
           "pid": 0,
-          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"BEN DAVIS Est.1935 SAN FRANCISCO\" text. Glasses: Thin-framed, light-colored glasses. Headwear: None."
         },
         {
           "bbox": [
