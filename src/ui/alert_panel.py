@@ -95,7 +95,8 @@ class AlertPanel(QWidget):
         # --- Section 1: Detected Suspicious Actions ---
         section1_container = QWidget()
         section1_layout = QGridLayout(section1_container)
-        section1_layout.setContentsMargins(0,0,0,0)
+        section1_layout.setContentsMargins(0, 0, 0, 0)
+        section1_layout.setSpacing(0)
         
         anomalies_title = QLabel("Detected Suspicious Actions")
         anomalies_title.setProperty("class", "TitleLabel")
@@ -104,14 +105,15 @@ class AlertPanel(QWidget):
         self.event_list_widget.setObjectName("ContentBox")
         self.event_list_widget.itemClicked.connect(self._on_event_clicked)
         
-        section1_layout.addWidget(self.event_list_widget, 0, 0, 2, 1)
-        section1_layout.addWidget(anomalies_title, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
+        section1_layout.addWidget(anomalies_title, 0, 0, Qt.AlignmentFlag.AlignHCenter)
+        section1_layout.addWidget(self.event_list_widget, 1, 0)
         main_layout.addWidget(section1_container, 2)
 
         # --- Section 2: Monitoring Constraint ---
         section2_container = QWidget()
         section2_layout = QGridLayout(section2_container)
-        section2_layout.setContentsMargins(0,0,0,0)
+        section2_layout.setContentsMargins(0, 0, 0, 0)
+        section2_layout.setSpacing(0)
 
         constraint_title = QLabel("Monitoring Constraint")
         constraint_title.setProperty("class", "TitleLabel")
@@ -125,14 +127,15 @@ class AlertPanel(QWidget):
         self.llm_constraint_label.setAlignment(Qt.AlignmentFlag.AlignTop)
         constraint_box_layout.addWidget(self.llm_constraint_label)
 
-        section2_layout.addWidget(constraint_content_box, 0, 0, 2, 1)
-        section2_layout.addWidget(constraint_title, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
+        section2_layout.addWidget(constraint_title, 0, 0, Qt.AlignmentFlag.AlignHCenter)
+        section2_layout.addWidget(constraint_content_box, 1, 0)
         main_layout.addWidget(section2_container, 1)
 
         # --- Section 3: Proctor Results ---
         section3_container = QWidget()
         section3_layout = QGridLayout(section3_container)
-        section3_layout.setContentsMargins(0,0,0,0)
+        section3_layout.setContentsMargins(0, 0, 0, 0)
+        section3_layout.setSpacing(0)
 
         results_title = QLabel("Proctor Results")
         results_title.setProperty("class", "TitleLabel")
@@ -146,8 +149,8 @@ class AlertPanel(QWidget):
         self.vlm_decision_label.setAlignment(Qt.AlignmentFlag.AlignTop)
         results_box_layout.addWidget(self.vlm_decision_label)
         
-        section3_layout.addWidget(results_content_box, 0, 0, 2, 1)
-        section3_layout.addWidget(results_title, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
+        section3_layout.addWidget(results_title, 0, 0, Qt.AlignmentFlag.AlignHCenter)
+        section3_layout.addWidget(results_content_box, 1, 0)
         main_layout.addWidget(section3_container, 2)
         
         self._init_feedback_buttons(main_layout)
