@@ -23,7 +23,7 @@ from ai.feedback_learner import FeedbackLearner
 from core.config import Config
 from core.utils import load_video_capture, cv2_to_pil # Renamed to load_video_capture
 from core.logger import logger
-from core.utils import assign_yolo_pids, assign_pose_pids
+from core.utils import *
 
 
 # Thread for processing video frames, running CV models, and emitting frames/anomalies
@@ -49,6 +49,7 @@ class VideoProcessingThread(QThread):
         self.pose_estimator = PoseEstimator(config)
         self.gaze_tracker = GazeTracker(config)
         self.anomaly_detector = AnomalyDetector(config)
+        self.vlm_analyzer = VLMAnalyzer(self.config)
 
     def run(self):
         """Dispatches to the correct run method based on the mode."""
@@ -138,6 +139,8 @@ class VideoProcessingThread(QThread):
 
         self.cap.set(cv2.CAP_PROP_POS_FRAMES, self.current_frame_idx) # Set initial position
 
+        student_features = {}
+
         while not self.stop_flag:
             if self.pause_flag:
                 self.msleep(100)
@@ -160,6 +163,17 @@ class VideoProcessingThread(QThread):
 
                 # Assign pids to yolo detections and pose estimations
                 yolo_detections = assign_yolo_pids(yolo_detections, gaze_estimations)
+                if not student_features:
+                    for i, detection in enumerate(yolo_detections):
+                        if detection["label"] == "person":
+                            feature = self.extract_person_feature(frame, detection)
+                            yolo_detections[i]["person_feature"] = feature
+                            student_features[detection["pid"]] = feature
+                else:
+                    for i, detection in enumerate(yolo_detections):
+                        if detection["label"] == "person":
+                            yolo_detections[i]["person_feature"] = student_features[detection["pid"]]
+
                 pose_estimations = assign_pose_pids(pose_estimations, gaze_estimations)
 
                 # Generate CV visualization frames by drawing on a COPY of the original frame
@@ -217,6 +231,11 @@ class VideoProcessingThread(QThread):
         if self.cap and self.cap.isOpened():
             self.current_frame_idx = frame_idx
             self.cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
+
+    def extract_person_feature(self, frame: np.ndarray, detection: dict) -> list:
+        cropped_person = crop_image_by_bbox(frame, detection["bbox"])
+        feature = self.vlm_analyzer.extract_person_features(cropped_person)
+        return feature
 
 
 # Thread for consuming anomaly events and running LLM/VLM

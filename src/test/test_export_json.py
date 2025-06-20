@@ -17,11 +17,13 @@ if str(src_dir) not in sys.path:
     sys.path.insert(0, str(src_dir))
 
 from core.config import Config
-from core.utils import load_video_capture, assign_yolo_pids, assign_pose_pids
+from core.logger import logger
+from core.utils import load_video_capture, assign_yolo_pids, assign_pose_pids, crop_image_by_bbox
 from cv.yolo_detector import YOLODetector
 from cv.pose_estimator import PoseEstimator
 from cv.gaze_tracker import GazeTracker
 from ai.anomaly_detector import AnomalyDetector
+from ai.vlm_analyzer import VLMAnalyzer
 
 
 def parse_args():
@@ -44,6 +46,10 @@ def convert_to_python_types(obj):
         return obj.tolist()
     return obj
 
+def extract_person_feature(vlm_analyzer, frame: np.ndarray, detection: dict) -> list:
+    cropped_person = crop_image_by_bbox(frame, detection["bbox"])
+    feature = vlm_analyzer.extract_person_features(cropped_person)
+    return feature
 
 def process_video(video_path: str, config: Config, export_dir: str = None) -> dict:
     """
@@ -67,9 +73,11 @@ def process_video(video_path: str, config: Config, export_dir: str = None) -> di
     pose = PoseEstimator(config)
     gaze = GazeTracker(config)
     anomaly = AnomalyDetector(config)
+    vlm_analyzer = VLMAnalyzer(config)
     base_name = os.path.splitext(os.path.basename(video_path))[0]
 
     result_data = []
+    student_features = {}
 
     for frame_idx in tqdm(range(total_frames), desc="Processing frames"):
         ret, frame = cap.read()
@@ -86,6 +94,17 @@ def process_video(video_path: str, config: Config, export_dir: str = None) -> di
         gaze_ests = gaze.detect(frame)
         # Assign PIDs
         yolo_dets = assign_yolo_pids(yolo_dets, gaze_ests)
+        if not student_features:
+            for i, detection in enumerate(yolo_dets):
+                if detection["label"] == "person":
+                    feature = extract_person_feature(vlm_analyzer, frame, detection)
+                    yolo_dets[i]["person_feature"] = feature
+                    student_features[detection["pid"]] = feature
+        else:
+            for i, detection in enumerate(yolo_dets):
+                if detection["label"] == "person":
+                    yolo_dets[i]["person_feature"] = student_features[detection["pid"]]
+        logger.info(f"GET yolo detection with feature {yolo_dets}")
         pose_ests = assign_pose_pids(pose_ests, gaze_ests)
         # Detect anomalies
         frame_info = {
