@@ -53,7 +53,6 @@ class YOLODetector(BaseDetector):
             text = f"{label}: {conf:.2f}"
             draw_bbox(frame, bbox, label, text, pid)
 
-
     def detect(self, frame: np.ndarray) -> list:
         """
         Detects objects in a frame using YOLOv8.
@@ -65,18 +64,16 @@ class YOLODetector(BaseDetector):
 
         person_results = self.model(frame, verbose=False)
         exam_paper_results = self.exam_paper_model(frame, verbose=False) if self.exam_paper_model else []
-        # yolo_detections = {}
 
         detections = self._post_process_detections(self.model, person_results)
-        # yolo_detections["person"] = person_detections
-
         exam_paper_detections = self._post_process_detections(self.exam_paper_model, exam_paper_results) if self.exam_paper_model else []
-        # yolo_detections["exam_paper"] = exam_paper_results
-
         detections.extend(exam_paper_detections)
 
-        # yolo_detections["unauthorized_objects"] = []
-        
+        # if is_first_frame:
+        #     for detection in detections:
+        #         if detection["label"] != "person": continue
+        #         feature = self.extract_person_feature(frame, detection)
+
         return detections
 
     def draw_results(self, original_frame: np.ndarray, detections: list) -> np.ndarray:

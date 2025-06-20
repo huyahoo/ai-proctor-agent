@@ -37,6 +37,24 @@ def create_blank_frame(width, height, color=(0, 0, 0)):
     """Creates a black frame of specified dimensions."""
     return np.zeros((height, width, 3), dtype=np.uint8) + np.array(color, dtype=np.uint8)
 
+def crop_image_by_bbox(frame: np.ndarray, bbox: list) -> np.ndarray:
+        """
+        Crop a region from the frame using the given bounding box [x1, y1, x2, y2].
+        Args:
+            frame (np.ndarray): The original image.
+            bbox (list): Bounding box [x1, y1, x2, y2].
+        Returns:
+            np.ndarray: Cropped image region.
+        """
+        x1, y1, x2, y2 = map(int, bbox)
+        h, w = frame.shape[:2]
+        # Ensure bbox is within image bounds
+        x1 = max(0, min(x1, w - 1))
+        x2 = max(0, min(x2, w - 1))
+        y1 = max(0, min(y1, h - 1))
+        y2 = max(0, min(y2, h - 1))
+        return frame[y1:y2, x1:x2]
+
 def iou(boxA, boxB):
     """
     Compute IoU of two bboxes in [x1,y1,x2,y2] format.

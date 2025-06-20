@@ -120,3 +120,60 @@ class VLMAnalyzer:
             return {"decision": "Error", "explanation": f"VLM API error: {e}. Check API key, quota, or input content."}
 
 
+    def extract_person_features(self, person_image: Image.Image) -> str:
+        """
+        Extracts visual features of a person from a given image using VLM.
+        Args:
+            person_image (PIL.Image): Cropped image containing only the person.
+        Returns:
+            str: Description of the person's features in the format:
+                students
+                men/women
+                glasses: yes/no
+                hair: 
+                outer: 
+        """
+        # Convert np.ndarray (BGR) to PIL.Image (RGB)
+        if isinstance(person_image, np.ndarray):
+            person_image = cv2.cvtColor(person_image, cv2.COLOR_BGR2RGB)
+            person_image = Image.fromarray(person_image)
+
+        prompt = (
+            "You are an AI assistant for exam proctoring. "
+            "Describe the following person's visual features in English, following this format:\n"
+            "students\n"
+            "men/women\n"
+            "glasses: Is the person wearing glasses or not?\n"
+            "hair: How is the hair\n"
+            "outer: How is the outer\n"
+            "Only use the visual evidence in the image. Do not add extra information."
+        )
+
+        # Prepare image for VLM
+        buffered = io.BytesIO()
+        person_image.save(buffered, format="JPEG", quality=80)
+        image_part = {
+            'mime_type': 'image/jpeg',
+            'data': base64.b64encode(buffered.getvalue()).decode('utf-8')
+        }
+
+        prompt_parts = [
+            prompt,
+            image_part,
+        ]
+
+        try:
+            response = self.model.generate_content(
+                prompt_parts,
+                generation_config=self.generation_config
+            )
+            # Parse response text
+            if response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
+                response_text = response.candidates[0].content.parts[0].text
+                return response_text.strip()
+            else:
+                logger.warning("VLM response did not contain expected content.")
+                return "Cannot extract features."
+        except Exception as e:
+            logger.error(f"Error calling VLM for feature extraction: {e}")
+            return f"API error: {e}"
