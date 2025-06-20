@@ -39,19 +39,19 @@ class VLMAnalyzer:
         if not frame_sequence:
             return {"decision": "No Visual Data", "explanation": "No frames provided for analysis."}
 
-        # TODO: Debug save the frames to a output/vlm_frames directory
-        self._save_frames(frame_sequence)
-
         logger.step(f"VLMAnalyzer: Analyzing {len(frame_sequence)} frames with constraints: {constraints}")
 
         # Prepare content for VLM - Google Gemini's vision models accept up to 16 images
         # Select evenly spaced frames if the sequence is too long
-        max_images_for_gemini = 16
+        max_images_for_gemini = self.config.MAX_VLM_FRAMES
         if len(frame_sequence) > max_images_for_gemini:
             indices = np.linspace(0, len(frame_sequence) - 1, max_images_for_gemini, dtype=int)
             selected_frames = [frame_sequence[i] for i in indices]
         else:
             selected_frames = frame_sequence
+
+        # TODO: Debug save the frames to a output/vlm_frames directory
+        self._save_frames(selected_frames)
 
         image_parts = []
         for img in selected_frames:
@@ -74,7 +74,9 @@ class VLMAnalyzer:
         if not image_parts:
             return {"decision": "No Valid Images", "explanation": "Could not prepare valid images for VLM analysis."}
 
-        prompt_text = f"""You are a specialized AI assistant for proctoring exams. Your task is to analyze a sequence of images and determine if a student's actions violate a given rule.
+        prompt_text = f"""You are a specialized AI assistant for proctoring exams. 
+            Your task is to analyze a sequence of images and determine if a student's actions violate a given rule.
+            If you are not sure, you should say "Ambiguous".
 
             **Analysis Task:**
             Based *only* on the visual evidence in the image sequence, verify the following:

@@ -235,7 +235,7 @@ class VideoProcessingThread(QThread):
     def extract_person_feature(self, frame: np.ndarray, detection: dict) -> list:
         cropped_person = crop_image_by_bbox(frame, detection["bbox"])
         feature = self.vlm_analyzer.extract_person_features(cropped_person)
-        # logger.debug(f"Extracted person feature: {feature}")
+        logger.debug(f"Extracted person feature: {feature}\n")
         return feature
 
 
@@ -279,7 +279,7 @@ class AnomalyConsumer(QThread):
                         seconds_before = 2.0
                         vlm_clip_duration = self.config.VLM_ANALYSIS_CLIP_SECONDS
                         seconds_after = vlm_clip_duration - seconds_before
-                        vlm_frames_per_sec = 2
+                        vlm_frames_per_sec = self.config.VLM_FRAMES_PER_SECOND
 
                         if seconds_after < 0:
                             logger.warning(f"VLM_ANALYSIS_CLIP_SECONDS ({vlm_clip_duration}s) is less than 2s. Adjusting clip to be only before the event.")

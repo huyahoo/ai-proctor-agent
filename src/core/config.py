@@ -33,6 +33,8 @@ class Config:
     LLM_MODEL_NAME = "gemini-1.5-flash-latest"
     VLM_MODEL_NAME = "gemini-2.5-flash-preview-05-20"
     VLM_ANALYSIS_CLIP_SECONDS = 4 # Duration of clip for VLM analysis
+    VLM_FRAMES_PER_SECOND = 4 # Number of frames to sample per second for VLM analysis
+    MAX_VLM_FRAMES = 32 # Maximum number of frames to send to VLM
     VLM_FRAMES_DIR = "data/output/vlm_frames"
     
     # Feedback Learning
@@ -48,8 +50,8 @@ class Config:
     GAZE_CHECKPOINT_PATH = "models/sharingan/checkpoints/videoattentiontarget.pt"
 
     # --- Example / Demo Mode ---
-    EXAMPLE_VIDEO_PATH = "data/videos/example_exam.mp4"
-    EXAMPLE_DETECTIONS_PATH = "data/output/example_exam.json"
+    EXAMPLE_VIDEO_PATH = "data/videos/one_way_gaze_to_front.mp4"
+    EXAMPLE_DETECTIONS_PATH = "data/output/examples/one_way_gaze_to_front.json"
 
 
     def __str__(self):
