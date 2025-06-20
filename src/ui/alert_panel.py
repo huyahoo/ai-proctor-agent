@@ -83,10 +83,10 @@ class AlertPanel(QWidget):
         content_frame = self._create_content_frame(outer_layout)
 
         shadow = QGraphicsDropShadowEffect(self)
-        shadow.setBlurRadius(15)
+        shadow.setBlurRadius(5)
         shadow.setXOffset(0)
-        shadow.setYOffset(4)
-        shadow.setColor(QColor(0, 0, 0, 40))
+        shadow.setYOffset(2)
+        shadow.setColor(QColor(215,215,215, 80))
         content_frame.setGraphicsEffect(shadow)
 
         main_layout = content_frame.layout()
