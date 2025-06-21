@@ -27,7 +27,7 @@
           "label": "person",
           "confidence": 0.7008857131004333,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -272,16 +272,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 0.0,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=163.3°, left=34.6° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 1,
@@ -308,7 +299,7 @@
           "label": "person",
           "confidence": 0.6800937056541443,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -580,7 +571,7 @@
           "label": "person",
           "confidence": 0.6853659152984619,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -852,7 +843,7 @@
           "label": "person",
           "confidence": 0.6653423309326172,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1124,7 +1115,7 @@
           "label": "person",
           "confidence": 0.6875318884849548,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1396,7 +1387,7 @@
           "label": "person",
           "confidence": 0.7111856341362,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1668,7 +1659,7 @@
           "label": "person",
           "confidence": 0.6876299977302551,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -1940,7 +1931,7 @@
           "label": "person",
           "confidence": 0.6998181939125061,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -2212,7 +2203,7 @@
           "label": "person",
           "confidence": 0.7142308354377747,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -2484,7 +2475,7 @@
           "label": "person",
           "confidence": 0.690457820892334,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -2756,7 +2747,7 @@
           "label": "person",
           "confidence": 0.6961851716041565,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3028,7 +3019,7 @@
           "label": "person",
           "confidence": 0.6952018141746521,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3300,7 +3291,7 @@
           "label": "person",
           "confidence": 0.7053277492523193,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3572,7 +3563,7 @@
           "label": "person",
           "confidence": 0.7102528810501099,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -3844,7 +3835,7 @@
           "label": "person",
           "confidence": 0.7216945290565491,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4116,7 +4107,7 @@
           "label": "person",
           "confidence": 0.737342894077301,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4388,7 +4379,7 @@
           "label": "person",
           "confidence": 0.7474358677864075,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4660,7 +4651,7 @@
           "label": "person",
           "confidence": 0.7398514747619629,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -4932,7 +4923,7 @@
           "label": "person",
           "confidence": 0.7417001724243164,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -5204,7 +5195,7 @@
           "label": "person",
           "confidence": 0.7352625131607056,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -5476,7 +5467,7 @@
           "label": "person",
           "confidence": 0.7458082437515259,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -5748,7 +5739,7 @@
           "label": "person",
           "confidence": 0.7248225212097168,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6020,7 +6011,7 @@
           "label": "person",
           "confidence": 0.7164402008056641,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6292,7 +6283,7 @@
           "label": "person",
           "confidence": 0.7258929014205933,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6564,7 +6555,7 @@
           "label": "person",
           "confidence": 0.7126591801643372,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -6836,7 +6827,7 @@
           "label": "person",
           "confidence": 0.6616845726966858,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7108,7 +7099,7 @@
           "label": "person",
           "confidence": 0.6702275276184082,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7380,7 +7371,7 @@
           "label": "person",
           "confidence": 0.6595365405082703,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7652,7 +7643,7 @@
           "label": "person",
           "confidence": 0.6258945465087891,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -7924,7 +7915,7 @@
           "label": "person",
           "confidence": 0.6360154151916504,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -8196,7 +8187,7 @@
           "label": "person",
           "confidence": 0.6559786200523376,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -8468,7 +8459,7 @@
           "label": "person",
           "confidence": 0.6597151756286621,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -8740,7 +8731,7 @@
           "label": "person",
           "confidence": 0.6204363107681274,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9012,7 +9003,7 @@
           "label": "person",
           "confidence": 0.631623387336731,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9284,7 +9275,7 @@
           "label": "person",
           "confidence": 0.6505239605903625,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9556,7 +9547,7 @@
           "label": "person",
           "confidence": 0.6260575652122498,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -9828,7 +9819,7 @@
           "label": "person",
           "confidence": 0.6655439734458923,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10100,7 +10091,7 @@
           "label": "person",
           "confidence": 0.6716024279594421,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10372,7 +10363,7 @@
           "label": "person",
           "confidence": 0.6838359832763672,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10617,16 +10608,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            0
-          ],
-          "timestamp": 1.2666666666666666,
-          "description": "Student ID 0's who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"nocturnal\" text. Glasses: Thin-framed glasses. Headwear: None. has suspicious arm angles right=161.0°, left=111.4° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 39,
@@ -10653,7 +10635,7 @@
           "label": "person",
           "confidence": 0.7188243269920349,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -10925,7 +10907,7 @@
           "label": "person",
           "confidence": 0.7141980528831482,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11197,7 +11179,7 @@
           "label": "person",
           "confidence": 0.693172037601471,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11469,7 +11451,7 @@
           "label": "person",
           "confidence": 0.7005594372749329,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -11741,7 +11723,7 @@
           "label": "person",
           "confidence": 0.6697138547897339,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12013,7 +11995,7 @@
           "label": "person",
           "confidence": 0.6784654259681702,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12285,7 +12267,7 @@
           "label": "person",
           "confidence": 0.6778251528739929,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12557,7 +12539,7 @@
           "label": "person",
           "confidence": 0.7017247676849365,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -12829,7 +12811,7 @@
           "label": "person",
           "confidence": 0.7368882298469543,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13101,7 +13083,7 @@
           "label": "person",
           "confidence": 0.7782557010650635,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13373,7 +13355,7 @@
           "label": "person",
           "confidence": 0.780961275100708,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13645,7 +13627,7 @@
           "label": "person",
           "confidence": 0.7517263293266296,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -13917,7 +13899,7 @@
           "label": "person",
           "confidence": 0.7205408811569214,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14189,7 +14171,7 @@
           "label": "person",
           "confidence": 0.7101733088493347,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14461,7 +14443,7 @@
           "label": "person",
           "confidence": 0.7143793702125549,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -14733,7 +14715,7 @@
           "label": "person",
           "confidence": 0.7280957698822021,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15005,7 +14987,7 @@
           "label": "person",
           "confidence": 0.728935182094574,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15277,7 +15259,7 @@
           "label": "person",
           "confidence": 0.7317543029785156,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15549,7 +15531,7 @@
           "label": "person",
           "confidence": 0.7221649885177612,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -15821,7 +15803,7 @@
           "label": "person",
           "confidence": 0.7209855914115906,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16093,7 +16075,7 @@
           "label": "person",
           "confidence": 0.7491047978401184,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16365,7 +16347,7 @@
           "label": "person",
           "confidence": 0.7440625429153442,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16610,16 +16592,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 2.0,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=163.8°, left=80.8° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 61,
@@ -16646,7 +16619,7 @@
           "label": "person",
           "confidence": 0.7250546216964722,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -16918,7 +16891,7 @@
           "label": "person",
           "confidence": 0.7295258045196533,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17190,7 +17163,7 @@
           "label": "person",
           "confidence": 0.7218882441520691,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17462,7 +17435,7 @@
           "label": "person",
           "confidence": 0.713497519493103,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -17734,7 +17707,7 @@
           "label": "person",
           "confidence": 0.7190148234367371,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18006,7 +17979,7 @@
           "label": "person",
           "confidence": 0.7092118859291077,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18278,7 +18251,7 @@
           "label": "person",
           "confidence": 0.6970372796058655,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18550,7 +18523,7 @@
           "label": "person",
           "confidence": 0.7124776244163513,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -18822,7 +18795,7 @@
           "label": "person",
           "confidence": 0.716073751449585,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19094,7 +19067,7 @@
           "label": "person",
           "confidence": 0.7154624462127686,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19366,7 +19339,7 @@
           "label": "person",
           "confidence": 0.7415619492530823,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19638,7 +19611,7 @@
           "label": "person",
           "confidence": 0.7408632636070251,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -19910,7 +19883,7 @@
           "label": "person",
           "confidence": 0.7379008531570435,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20182,7 +20155,7 @@
           "label": "person",
           "confidence": 0.7344970107078552,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20454,7 +20427,7 @@
           "label": "person",
           "confidence": 0.7312978506088257,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20726,7 +20699,7 @@
           "label": "person",
           "confidence": 0.7450058460235596,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -20998,7 +20971,7 @@
           "label": "person",
           "confidence": 0.7446975111961365,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -21270,7 +21243,7 @@
           "label": "person",
           "confidence": 0.7409170866012573,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -21542,7 +21515,7 @@
           "label": "person",
           "confidence": 0.7396836280822754,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -21814,7 +21787,7 @@
           "label": "person",
           "confidence": 0.7368524670600891,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22086,7 +22059,7 @@
           "label": "person",
           "confidence": 0.7210552096366882,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22358,7 +22331,7 @@
           "label": "person",
           "confidence": 0.7099165320396423,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22630,7 +22603,7 @@
           "label": "person",
           "confidence": 0.7024902701377869,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -22902,7 +22875,7 @@
           "label": "person",
           "confidence": 0.6949790120124817,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23174,7 +23147,7 @@
           "label": "person",
           "confidence": 0.6564624309539795,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23446,7 +23419,7 @@
           "label": "person",
           "confidence": 0.6088365316390991,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -23718,7 +23691,7 @@
           "label": "person",
           "confidence": 0.6005530953407288,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -25550,7 +25523,7 @@
           "label": "person",
           "confidence": 0.650701105594635,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -25822,7 +25795,7 @@
           "label": "person",
           "confidence": 0.6620139479637146,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26094,7 +26067,7 @@
           "label": "person",
           "confidence": 0.6589499711990356,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26366,7 +26339,7 @@
           "label": "person",
           "confidence": 0.6780552268028259,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26638,7 +26611,7 @@
           "label": "person",
           "confidence": 0.6881264448165894,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -26910,7 +26883,7 @@
           "label": "person",
           "confidence": 0.6695398092269897,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27182,7 +27155,7 @@
           "label": "person",
           "confidence": 0.6544551253318787,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27454,7 +27427,7 @@
           "label": "person",
           "confidence": 0.6826475858688354,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27726,7 +27699,7 @@
           "label": "person",
           "confidence": 0.7118775844573975,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -27998,7 +27971,7 @@
           "label": "person",
           "confidence": 0.670907199382782,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -28270,7 +28243,7 @@
           "label": "person",
           "confidence": 0.6583458781242371,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -28802,7 +28775,7 @@
           "label": "person",
           "confidence": 0.6047418117523193,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30114,7 +30087,7 @@
           "label": "person",
           "confidence": 0.6130713820457458,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30386,7 +30359,7 @@
           "label": "person",
           "confidence": 0.6259545087814331,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30658,7 +30631,7 @@
           "label": "person",
           "confidence": 0.6043108105659485,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -30930,7 +30903,7 @@
           "label": "person",
           "confidence": 0.6440155506134033,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -31202,7 +31175,7 @@
           "label": "person",
           "confidence": 0.6143060922622681,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -31994,7 +31967,7 @@
           "label": "person",
           "confidence": 0.6190058588981628,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -32266,7 +32239,7 @@
           "label": "person",
           "confidence": 0.6131749153137207,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -33058,7 +33031,7 @@
           "label": "person",
           "confidence": 0.6197081804275513,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -33303,16 +33276,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 4.066666666666666,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=162.3°, left=97.7° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 123,
@@ -33599,7 +33563,7 @@
           "label": "person",
           "confidence": 0.6767595410346985,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -33871,7 +33835,7 @@
           "label": "person",
           "confidence": 0.7013745903968811,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34143,7 +34107,7 @@
           "label": "person",
           "confidence": 0.7271091341972351,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34415,7 +34379,7 @@
           "label": "person",
           "confidence": 0.7307958006858826,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34687,7 +34651,7 @@
           "label": "person",
           "confidence": 0.725042998790741,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -34959,7 +34923,7 @@
           "label": "person",
           "confidence": 0.661760687828064,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35231,7 +35195,7 @@
           "label": "person",
           "confidence": 0.6449227333068848,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35503,7 +35467,7 @@
           "label": "person",
           "confidence": 0.6765652298927307,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -35775,7 +35739,7 @@
           "label": "person",
           "confidence": 0.6630647778511047,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -36047,7 +36011,7 @@
           "label": "person",
           "confidence": 0.6185224652290344,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38139,7 +38103,7 @@
           "label": "person",
           "confidence": 0.6138091087341309,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38400,7 +38364,7 @@
           "label": "person",
           "confidence": 0.6734651923179626,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -38661,7 +38625,7 @@
           "label": "person",
           "confidence": 0.6427190899848938,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -39193,7 +39157,7 @@
           "label": "person",
           "confidence": 0.6072278618812561,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -39465,7 +39429,7 @@
           "label": "person",
           "confidence": 0.6179414391517639,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -39737,7 +39701,7 @@
           "label": "person",
           "confidence": 0.6441687345504761,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40009,7 +39973,7 @@
           "label": "person",
           "confidence": 0.6390356421470642,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40281,7 +40245,7 @@
           "label": "person",
           "confidence": 0.6693552136421204,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40553,7 +40517,7 @@
           "label": "person",
           "confidence": 0.609610915184021,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -40825,7 +40789,7 @@
           "label": "person",
           "confidence": 0.613601803779602,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -46817,7 +46781,7 @@
           "label": "person",
           "confidence": 0.6291406750679016,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47089,7 +47053,7 @@
           "label": "person",
           "confidence": 0.7138784527778625,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47361,7 +47325,7 @@
           "label": "person",
           "confidence": 0.729116678237915,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47633,7 +47597,7 @@
           "label": "person",
           "confidence": 0.7322778105735779,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -47905,7 +47869,7 @@
           "label": "person",
           "confidence": 0.7341844439506531,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48177,7 +48141,7 @@
           "label": "person",
           "confidence": 0.7157346606254578,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48449,7 +48413,7 @@
           "label": "person",
           "confidence": 0.7016626000404358,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48721,7 +48685,7 @@
           "label": "person",
           "confidence": 0.7307633757591248,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -48993,7 +48957,7 @@
           "label": "person",
           "confidence": 0.7239663004875183,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49238,16 +49202,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 6.066666666666666,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=162.4°, left=106.9° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 183,
@@ -49274,7 +49229,7 @@
           "label": "person",
           "confidence": 0.7287257313728333,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49546,7 +49501,7 @@
           "label": "person",
           "confidence": 0.7328144907951355,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -49818,7 +49773,7 @@
           "label": "person",
           "confidence": 0.7283191680908203,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50090,7 +50045,7 @@
           "label": "person",
           "confidence": 0.7620284557342529,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50362,7 +50317,7 @@
           "label": "person",
           "confidence": 0.7608076930046082,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50634,7 +50589,7 @@
           "label": "person",
           "confidence": 0.7691619396209717,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -50906,7 +50861,7 @@
           "label": "person",
           "confidence": 0.7664945721626282,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51178,7 +51133,7 @@
           "label": "person",
           "confidence": 0.767112135887146,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51450,7 +51405,7 @@
           "label": "person",
           "confidence": 0.7667146325111389,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51722,7 +51677,7 @@
           "label": "person",
           "confidence": 0.7552965879440308,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -51994,7 +51949,7 @@
           "label": "person",
           "confidence": 0.7668340802192688,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -52266,7 +52221,7 @@
           "label": "person",
           "confidence": 0.7064252495765686,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -52538,7 +52493,7 @@
           "label": "person",
           "confidence": 0.697330117225647,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -52810,7 +52765,7 @@
           "label": "person",
           "confidence": 0.6767321825027466,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53082,7 +53037,7 @@
           "label": "person",
           "confidence": 0.6828245520591736,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53354,7 +53309,7 @@
           "label": "person",
           "confidence": 0.6890006065368652,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53626,7 +53581,7 @@
           "label": "person",
           "confidence": 0.6783074140548706,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -53898,7 +53853,7 @@
           "label": "person",
           "confidence": 0.6883460879325867,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54170,7 +54125,7 @@
           "label": "person",
           "confidence": 0.6966012120246887,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54442,7 +54397,7 @@
           "label": "person",
           "confidence": 0.7045679092407227,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54714,7 +54669,7 @@
           "label": "person",
           "confidence": 0.697713315486908,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -54986,7 +54941,7 @@
           "label": "person",
           "confidence": 0.6963863372802734,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -55258,7 +55213,7 @@
           "label": "person",
           "confidence": 0.6855393648147583,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -55530,7 +55485,7 @@
           "label": "person",
           "confidence": 0.678360641002655,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -55802,7 +55757,7 @@
           "label": "person",
           "confidence": 0.6572567820549011,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56074,7 +56029,7 @@
           "label": "person",
           "confidence": 0.6372730135917664,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56346,7 +56301,7 @@
           "label": "person",
           "confidence": 0.6603966355323792,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56618,7 +56573,7 @@
           "label": "person",
           "confidence": 0.6772929430007935,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -56890,7 +56845,7 @@
           "label": "person",
           "confidence": 0.6851219534873962,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57162,7 +57117,7 @@
           "label": "person",
           "confidence": 0.6773595809936523,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57434,7 +57389,7 @@
           "label": "person",
           "confidence": 0.6836577653884888,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57706,7 +57661,7 @@
           "label": "person",
           "confidence": 0.6685343980789185,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -57978,7 +57933,7 @@
           "label": "person",
           "confidence": 0.6583571434020996,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -58250,7 +58205,7 @@
           "label": "person",
           "confidence": 0.6420351266860962,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -58522,7 +58477,7 @@
           "label": "person",
           "confidence": 0.6835907101631165,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -58794,7 +58749,7 @@
           "label": "person",
           "confidence": 0.6510834693908691,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -59066,7 +59021,7 @@
           "label": "person",
           "confidence": 0.6576603651046753,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60378,7 +60333,7 @@
           "label": "person",
           "confidence": 0.6108115315437317,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60650,7 +60605,7 @@
           "label": "person",
           "confidence": 0.6354559659957886,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -60922,7 +60877,7 @@
           "label": "person",
           "confidence": 0.6556574106216431,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -61194,7 +61149,7 @@
           "label": "person",
           "confidence": 0.6383581161499023,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -61466,7 +61421,7 @@
           "label": "person",
           "confidence": 0.60218346118927,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -61738,7 +61693,7 @@
           "label": "person",
           "confidence": 0.6504201889038086,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -62010,7 +61965,7 @@
           "label": "person",
           "confidence": 0.630580723285675,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -62282,7 +62237,7 @@
           "label": "person",
           "confidence": 0.6050282120704651,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -63854,7 +63809,7 @@
           "label": "person",
           "confidence": 0.6465044617652893,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64126,7 +64081,7 @@
           "label": "person",
           "confidence": 0.6631458401679993,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64398,7 +64353,7 @@
           "label": "person",
           "confidence": 0.6536699533462524,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64670,7 +64625,7 @@
           "label": "person",
           "confidence": 0.6897798776626587,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -64942,7 +64897,7 @@
           "label": "person",
           "confidence": 0.6880365610122681,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65214,7 +65169,7 @@
           "label": "person",
           "confidence": 0.6963658332824707,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65459,16 +65414,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 8.066666666666666,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=160.8°, left=107.2° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 243,
@@ -65495,7 +65441,7 @@
           "label": "person",
           "confidence": 0.7446638941764832,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -65767,7 +65713,7 @@
           "label": "person",
           "confidence": 0.6861388683319092,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66039,7 +65985,7 @@
           "label": "person",
           "confidence": 0.6660729050636292,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66311,7 +66257,7 @@
           "label": "person",
           "confidence": 0.654231071472168,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66583,7 +66529,7 @@
           "label": "person",
           "confidence": 0.6672024130821228,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -66855,7 +66801,7 @@
           "label": "person",
           "confidence": 0.7329192161560059,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67127,7 +67073,7 @@
           "label": "person",
           "confidence": 0.6693745851516724,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67399,7 +67345,7 @@
           "label": "person",
           "confidence": 0.738788902759552,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67671,7 +67617,7 @@
           "label": "person",
           "confidence": 0.722042441368103,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -67943,7 +67889,7 @@
           "label": "person",
           "confidence": 0.7328400015830994,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68215,7 +68161,7 @@
           "label": "person",
           "confidence": 0.7427328824996948,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68487,7 +68433,7 @@
           "label": "person",
           "confidence": 0.7272418141365051,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -68759,7 +68705,7 @@
           "label": "person",
           "confidence": 0.7406269311904907,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69031,7 +68977,7 @@
           "label": "person",
           "confidence": 0.740269124507904,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69303,7 +69249,7 @@
           "label": "person",
           "confidence": 0.7448962926864624,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69575,7 +69521,7 @@
           "label": "person",
           "confidence": 0.7265182733535767,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -69847,7 +69793,7 @@
           "label": "person",
           "confidence": 0.714713990688324,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70119,7 +70065,7 @@
           "label": "person",
           "confidence": 0.7084198594093323,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70391,7 +70337,7 @@
           "label": "person",
           "confidence": 0.734167754650116,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70663,7 +70609,7 @@
           "label": "person",
           "confidence": 0.7402902841567993,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -70935,7 +70881,7 @@
           "label": "person",
           "confidence": 0.741970419883728,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -71207,7 +71153,7 @@
           "label": "person",
           "confidence": 0.7037409543991089,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -71479,7 +71425,7 @@
           "label": "person",
           "confidence": 0.6996694207191467,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -71751,7 +71697,7 @@
           "label": "person",
           "confidence": 0.6853885054588318,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72023,7 +71969,7 @@
           "label": "person",
           "confidence": 0.6700752973556519,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72295,7 +72241,7 @@
           "label": "person",
           "confidence": 0.6698235273361206,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72567,7 +72513,7 @@
           "label": "person",
           "confidence": 0.6727253794670105,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -72839,7 +72785,7 @@
           "label": "person",
           "confidence": 0.6817890405654907,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73111,7 +73057,7 @@
           "label": "person",
           "confidence": 0.6530396938323975,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73383,7 +73329,7 @@
           "label": "person",
           "confidence": 0.6676125526428223,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73655,7 +73601,7 @@
           "label": "person",
           "confidence": 0.6842865943908691,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -73927,7 +73873,7 @@
           "label": "person",
           "confidence": 0.6857272386550903,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -74199,7 +74145,7 @@
           "label": "person",
           "confidence": 0.686183512210846,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -74471,7 +74417,7 @@
           "label": "person",
           "confidence": 0.6685387492179871,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -74743,7 +74689,7 @@
           "label": "person",
           "confidence": 0.6441943049430847,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75015,7 +74961,7 @@
           "label": "person",
           "confidence": 0.6860947012901306,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75287,7 +75233,7 @@
           "label": "person",
           "confidence": 0.7064648866653442,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75559,7 +75505,7 @@
           "label": "person",
           "confidence": 0.6544089317321777,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -75831,7 +75777,7 @@
           "label": "person",
           "confidence": 0.6718716025352478,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76103,7 +76049,7 @@
           "label": "person",
           "confidence": 0.6144624352455139,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76375,7 +76321,7 @@
           "label": "person",
           "confidence": 0.6316859126091003,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76647,7 +76593,7 @@
           "label": "person",
           "confidence": 0.6215806007385254,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -76919,7 +76865,7 @@
           "label": "person",
           "confidence": 0.665035605430603,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77191,7 +77137,7 @@
           "label": "person",
           "confidence": 0.7041820883750916,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77463,7 +77409,7 @@
           "label": "person",
           "confidence": 0.7229450941085815,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -77735,7 +77681,7 @@
           "label": "person",
           "confidence": 0.7366006374359131,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78007,7 +77953,7 @@
           "label": "person",
           "confidence": 0.7216976881027222,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78279,7 +78225,7 @@
           "label": "person",
           "confidence": 0.689309298992157,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78551,7 +78497,7 @@
           "label": "person",
           "confidence": 0.6681437492370605,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -78823,7 +78769,7 @@
           "label": "person",
           "confidence": 0.6974169611930847,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79095,7 +79041,7 @@
           "label": "person",
           "confidence": 0.6645820140838623,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79367,7 +79313,7 @@
           "label": "person",
           "confidence": 0.623760461807251,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79639,7 +79585,7 @@
           "label": "person",
           "confidence": 0.6360512971878052,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -79911,7 +79857,7 @@
           "label": "person",
           "confidence": 0.6737244725227356,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -80183,7 +80129,7 @@
           "label": "person",
           "confidence": 0.717498779296875,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -80455,7 +80401,7 @@
           "label": "person",
           "confidence": 0.6855446100234985,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -80727,7 +80673,7 @@
           "label": "person",
           "confidence": 0.7048789262771606,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -80999,7 +80945,7 @@
           "label": "person",
           "confidence": 0.7052772045135498,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -81271,7 +81217,7 @@
           "label": "person",
           "confidence": 0.7349748015403748,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -81543,7 +81489,7 @@
           "label": "person",
           "confidence": 0.7407875657081604,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -81788,16 +81734,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 10.066666666666666,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=160.5°, left=107.1° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 303,
@@ -81824,7 +81761,7 @@
           "label": "person",
           "confidence": 0.7560077905654907,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -82096,7 +82033,7 @@
           "label": "person",
           "confidence": 0.7639515399932861,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -82368,7 +82305,7 @@
           "label": "person",
           "confidence": 0.760104238986969,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -82640,7 +82577,7 @@
           "label": "person",
           "confidence": 0.7689260244369507,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -82912,7 +82849,7 @@
           "label": "person",
           "confidence": 0.7828484177589417,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -83184,7 +83121,7 @@
           "label": "person",
           "confidence": 0.7867741584777832,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -83456,7 +83393,7 @@
           "label": "person",
           "confidence": 0.7745890617370605,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -83728,7 +83665,7 @@
           "label": "person",
           "confidence": 0.7910581231117249,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -84000,7 +83937,7 @@
           "label": "person",
           "confidence": 0.7956018447875977,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -84272,7 +84209,7 @@
           "label": "person",
           "confidence": 0.785370409488678,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -84544,7 +84481,7 @@
           "label": "person",
           "confidence": 0.787721574306488,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -84816,7 +84753,7 @@
           "label": "person",
           "confidence": 0.7692219614982605,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -85088,7 +85025,7 @@
           "label": "person",
           "confidence": 0.7828031182289124,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -85360,7 +85297,7 @@
           "label": "person",
           "confidence": 0.7907933592796326,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -85632,7 +85569,7 @@
           "label": "person",
           "confidence": 0.7915424108505249,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -85904,7 +85841,7 @@
           "label": "person",
           "confidence": 0.786959707736969,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -86176,7 +86113,7 @@
           "label": "person",
           "confidence": 0.799964427947998,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -86448,7 +86385,7 @@
           "label": "person",
           "confidence": 0.7842031717300415,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -86693,16 +86630,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            0
-          ],
-          "timestamp": 10.666666666666666,
-          "description": "Student ID 0's who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"nocturnal\" text. Glasses: Thin-framed glasses. Headwear: None. has suspicious arm angles right=160.3°, left=112.3° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 321,
@@ -86729,7 +86657,7 @@
           "label": "person",
           "confidence": 0.800352931022644,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -87001,7 +86929,7 @@
           "label": "person",
           "confidence": 0.790901780128479,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -87273,7 +87201,7 @@
           "label": "person",
           "confidence": 0.7932389378547668,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -87545,7 +87473,7 @@
           "label": "person",
           "confidence": 0.7936057448387146,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -87817,7 +87745,7 @@
           "label": "person",
           "confidence": 0.8026342391967773,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -88089,7 +88017,7 @@
           "label": "person",
           "confidence": 0.8154934644699097,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -88361,7 +88289,7 @@
           "label": "person",
           "confidence": 0.8176838755607605,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -88633,7 +88561,7 @@
           "label": "person",
           "confidence": 0.8215760588645935,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -88905,7 +88833,7 @@
           "label": "person",
           "confidence": 0.8238621354103088,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -89177,7 +89105,7 @@
           "label": "person",
           "confidence": 0.8259240388870239,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -89449,7 +89377,7 @@
           "label": "person",
           "confidence": 0.8206061124801636,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -89721,7 +89649,7 @@
           "label": "person",
           "confidence": 0.819614052772522,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -89993,7 +89921,7 @@
           "label": "person",
           "confidence": 0.8150382041931152,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -90265,7 +90193,7 @@
           "label": "person",
           "confidence": 0.8120517134666443,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -90537,7 +90465,7 @@
           "label": "person",
           "confidence": 0.8246211409568787,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -90809,7 +90737,7 @@
           "label": "person",
           "confidence": 0.817760705947876,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -91081,7 +91009,7 @@
           "label": "person",
           "confidence": 0.8172997236251831,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -91353,7 +91281,7 @@
           "label": "person",
           "confidence": 0.8192756772041321,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -91625,7 +91553,7 @@
           "label": "person",
           "confidence": 0.8163973689079285,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -91897,7 +91825,7 @@
           "label": "person",
           "confidence": 0.8030197620391846,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -92169,7 +92097,7 @@
           "label": "person",
           "confidence": 0.7947477102279663,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -92441,7 +92369,7 @@
           "label": "person",
           "confidence": 0.7948750257492065,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -92713,7 +92641,7 @@
           "label": "person",
           "confidence": 0.8074900507926941,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -92985,7 +92913,7 @@
           "label": "person",
           "confidence": 0.7979347109794617,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -93257,7 +93185,7 @@
           "label": "person",
           "confidence": 0.8004162311553955,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -93529,7 +93457,7 @@
           "label": "person",
           "confidence": 0.7878824472427368,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -93801,7 +93729,7 @@
           "label": "person",
           "confidence": 0.7796052694320679,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -94073,7 +94001,7 @@
           "label": "person",
           "confidence": 0.7903420329093933,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -94345,7 +94273,7 @@
           "label": "person",
           "confidence": 0.796972393989563,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -94617,7 +94545,7 @@
           "label": "person",
           "confidence": 0.8002601861953735,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -94889,7 +94817,7 @@
           "label": "person",
           "confidence": 0.7777388691902161,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -95161,7 +95089,7 @@
           "label": "person",
           "confidence": 0.7189720273017883,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -95433,7 +95361,7 @@
           "label": "person",
           "confidence": 0.7535530924797058,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -95705,7 +95633,7 @@
           "label": "person",
           "confidence": 0.7729364037513733,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -95977,7 +95905,7 @@
           "label": "person",
           "confidence": 0.7539771199226379,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -96249,7 +96177,7 @@
           "label": "person",
           "confidence": 0.7425311207771301,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -96521,7 +96449,7 @@
           "label": "person",
           "confidence": 0.773792564868927,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -96793,7 +96721,7 @@
           "label": "person",
           "confidence": 0.7953290343284607,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -97065,7 +96993,7 @@
           "label": "person",
           "confidence": 0.7916402220726013,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -97337,7 +97265,7 @@
           "label": "person",
           "confidence": 0.7975656390190125,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -97609,7 +97537,7 @@
           "label": "person",
           "confidence": 0.8131198883056641,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -97881,7 +97809,7 @@
           "label": "person",
           "confidence": 0.822506308555603,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -98153,7 +98081,7 @@
           "label": "person",
           "confidence": 0.8344323635101318,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -98425,7 +98353,7 @@
           "label": "person",
           "confidence": 0.8409537076950073,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -98697,7 +98625,7 @@
           "label": "person",
           "confidence": 0.8277362585067749,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -98969,7 +98897,7 @@
           "label": "person",
           "confidence": 0.8338094353675842,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -99241,7 +99169,7 @@
           "label": "person",
           "confidence": 0.8321056962013245,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -99513,7 +99441,7 @@
           "label": "person",
           "confidence": 0.8325508832931519,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -99785,7 +99713,7 @@
           "label": "person",
           "confidence": 0.8368948698043823,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -100057,7 +99985,7 @@
           "label": "person",
           "confidence": 0.8343535661697388,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -100329,7 +100257,7 @@
           "label": "person",
           "confidence": 0.8360267281532288,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -100601,7 +100529,7 @@
           "label": "person",
           "confidence": 0.8389763832092285,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -100873,7 +100801,7 @@
           "label": "person",
           "confidence": 0.8393389582633972,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -101145,7 +101073,7 @@
           "label": "person",
           "confidence": 0.8369850516319275,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -101390,16 +101318,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 12.466666666666667,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=161.3°, left=108.8° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 375,
@@ -101426,7 +101345,7 @@
           "label": "person",
           "confidence": 0.8255299925804138,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -101698,7 +101617,7 @@
           "label": "person",
           "confidence": 0.8200175166130066,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
@@ -101970,7 +101889,7 @@
           "label": "person",
           "confidence": 0.8170402646064758,
           "pid": 1,
-          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red logo on the left chest. Glasses: Dark-framed rectangular glasses. Headwear: None."
+          "person_feature": "Gender: Man. Hair: Short black hair with faded sides. Clothing: White polo shirt with a small red emblem on the left chest. Glasses: Rectangular-framed glasses. Headwear: None."
         },
         {
           "bbox": [
