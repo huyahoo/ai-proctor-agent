@@ -53,11 +53,11 @@ class LLMConstraintGenerator:
         # Define the specific verification goal for each anomaly type.
         if event_type == 'suspicious_arm_angle':
             instruction_goal = """
-                Determine if the student is passing an object or signaling to another student. Focus on their arm and hand movements to see if an object is exchanged.
+                Determine if the student is holding unauthorized object or passing an object or signaling to another student. Focus on their arm and hand movements to see if an object is exchanged.
             """
         elif event_type == 'mutual_gaze':
             instruction_goal = """
-                Determine if the students are communicating. Analyze their mouth movements for talking, facial expressions for non-verbal cues, and any subtle hand gestures between them.
+                Determine if the students are communicating. Analyze their mouth movements for talking, facial expressions for non-verbal cues, and any subtle hand gestures between them. Or do they have potentially exchange unauthorized object.
             """
         elif event_type == 'one_way_gaze':
             instruction_goal = """
