@@ -419,10 +419,10 @@ class ProctorAgentApp(QMainWindow):
             "Gaze": VideoOutputWidget("Gaze Estimation")
         }
         self.alert_panel = AlertPanel()
-        self.play_pause_btn = QPushButton(" Play")
+        self.play_pause_btn = QPushButton(" ► Play")
         self.play_pause_btn.setCheckable(True)
-        self.stop_btn = QPushButton(" Stop")
-        self.load_video_btn = QPushButton(" Live Detection")
+        self.stop_btn = QPushButton(" ■ Stop")
+        self.load_video_btn = QPushButton(" ● Live Detection")
         self.select_example_btn = QPushButton(" Example Video")
         self.video_position_slider = QSlider(Qt.Orientation.Horizontal)
         self._setup_button_icons()
@@ -579,9 +579,9 @@ class ProctorAgentApp(QMainWindow):
         return layout
 
     def _setup_button_icons(self):
-        self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
-        self.stop_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaStop))
-        self.load_video_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_DriveHDIcon))
+        # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+        # self.stop_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaStop))
+        # self.load_video_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_DriveHDIcon))
         self.select_example_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_FileLinkIcon))
 
     # --- Event Handlers / Slots ---
@@ -603,12 +603,12 @@ class ProctorAgentApp(QMainWindow):
             return
         if self.processing_thread:
             if checked:
-                self.play_pause_btn.setText(" Pause")
-                self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPause))
+                self.play_pause_btn.setText(" ❚❚ Pause")
+                # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPause))
                 self.processing_thread.resume_processing()
             else:
-                self.play_pause_btn.setText(" Play")
-                self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+                self.play_pause_btn.setText(" ► Play")
+                # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
                 self.processing_thread.pause_processing()
 
     def on_frame_update(self, frame_data: dict):
@@ -669,8 +669,8 @@ class ProctorAgentApp(QMainWindow):
     def on_processing_finished(self):
         logger.info("Video processing finished.")
         self.play_pause_btn.setChecked(False)
-        self.play_pause_btn.setText(" Play")
-        self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+        self.play_pause_btn.setText(" ► Play")
+        # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
 
     def _on_slider_moved(self, position: int):
         self.seeking = True
