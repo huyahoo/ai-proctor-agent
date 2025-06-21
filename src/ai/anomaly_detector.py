@@ -103,7 +103,7 @@ class AnomalyDetector:
 
             # logger.info(f"Person {pid}: Right arm angle: {right_angle:.1f}°, Left arm angle: {left_angle:.1f}°")
             # if either arm is nearly straight, flag it
-            if right_angle > 160 or left_angle > 160:
+            if right_angle > 170 or left_angle > 170:
                 anomaly.append({
                     'type': 'suspicious_arm_angle',
                     'person_ids': [pid],
