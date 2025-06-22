@@ -65459,16 +65459,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 8.0,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"nocturnal\" text. Glasses: Thin-framed glasses. Headwear: None. has suspicious arm angles right=162.3°, left=95.8° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 241,
@@ -66828,7 +66819,16 @@
           "pid": 0
         }
       ],
-      "anomalies": []
+      "anomalies": [
+        {
+          "type": "suspicious_arm_angle",
+          "person_ids": [
+            1
+          ],
+          "timestamp": 8.166666666666666,
+          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"nocturnal\" text. Glasses: Thin-framed glasses. Headwear: None. has suspicious arm angles right=172.3°, left=94.3° — possibly holding or passing an unauthorized object."
+        }
+      ]
     },
     {
       "frame_idx": 246,
@@ -73628,16 +73628,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            0
-          ],
-          "timestamp": 9.0,
-          "description": "Student ID 0's who has visual feature desbribe as Gender: Man. Hair: Short dark hair. Clothing: White polo shirt. Glasses: Dark-framed rectangular glasses. Headwear: None. has suspicious arm angles right=161.1°, left=95.3° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 271,
@@ -81797,16 +81788,7 @@
           "pid": 0
         }
       ],
-      "anomalies": [
-        {
-          "type": "suspicious_arm_angle",
-          "person_ids": [
-            1
-          ],
-          "timestamp": 10.0,
-          "description": "Student ID 1's who has visual feature desbribe as Gender: Man. Hair: Short black hair. Clothing: Dark blue T-shirt with \"nocturnal\" text. Glasses: Thin-framed glasses. Headwear: None. has suspicious arm angles right=166.4°, left=97.2° — possibly holding or passing an unauthorized object."
-        }
-      ]
+      "anomalies": []
     },
     {
       "frame_idx": 301,

@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import json
+from pathlib import Path
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QLabel, QFrame, QSlider, QMessageBox, QSizePolicy, QGridLayout, QStyle, QScrollArea, QGraphicsDropShadowEffect
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer # QTimer for video playback synchronization
@@ -66,9 +67,10 @@ class VideoProcessingThread(QThread):
 
     def run_from_json(self):
         """Runs video processing by reading detection data from a JSON file."""
-        logger.step(f"Running in example mode from: {self.config.EXAMPLE_DETECTIONS_PATH}")
+        # logger.step(f"Running in example mode from: {self.config.EXAMPLE_DETECTIONS_PATH}")
         try:
-            with open(self.config.EXAMPLE_DETECTIONS_PATH, 'r') as f:
+            example_detections_path = Path("data/output/examples") / f"{Path(self.video_path).stem}.json"
+            with open(example_detections_path, 'r') as f:
                 detection_data = json.load(f)
             # Create a dictionary for quick lookup by frame_idx
             detections_by_frame = {item['frame_idx']: item for item in detection_data.get('data', [])}
@@ -412,15 +414,15 @@ class ProctorAgentApp(QMainWindow):
     def _init_widgets(self) -> None:
         self.video_widgets = {
             "Original": VideoOutputWidget("Original Input"),
-            "YOLO": VideoOutputWidget("YOLO Detections"),
+            "YOLO": VideoOutputWidget("YOLO Detection"),
             "Pose": VideoOutputWidget("Pose Estimation"),
-            "Gaze": VideoOutputWidget("Gaze Tracking")
+            "Gaze": VideoOutputWidget("Gaze Estimation")
         }
         self.alert_panel = AlertPanel()
-        self.play_pause_btn = QPushButton(" Play")
+        self.play_pause_btn = QPushButton(" ► Play")
         self.play_pause_btn.setCheckable(True)
-        self.stop_btn = QPushButton(" Stop")
-        self.load_video_btn = QPushButton(" Load Video")
+        self.stop_btn = QPushButton(" ■ Stop")
+        self.load_video_btn = QPushButton(" ● Live Detection")
         self.select_example_btn = QPushButton(" Example Video")
         self.video_position_slider = QSlider(Qt.Orientation.Horizontal)
         self._setup_button_icons()
@@ -577,9 +579,9 @@ class ProctorAgentApp(QMainWindow):
         return layout
 
     def _setup_button_icons(self):
-        self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
-        self.stop_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaStop))
-        self.load_video_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_DriveHDIcon))
+        # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+        # self.stop_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaStop))
+        # self.load_video_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_DriveHDIcon))
         self.select_example_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_FileLinkIcon))
 
     # --- Event Handlers / Slots ---
@@ -588,11 +590,12 @@ class ProctorAgentApp(QMainWindow):
         if path: self._start_video_and_processing(path, is_example=False)
 
     def load_example_video(self):
-        path = self.config.EXAMPLE_VIDEO_PATH
-        if not os.path.exists(path):
-            QMessageBox.warning(self, "File Not Found", f"Example video not found: {path}")
-            return
-        self._start_video_and_processing(path, is_example=True)
+        # path = self.config.EXAMPLE_VIDEO_PATH
+        # if not os.path.exists(path):
+        #     QMessageBox.warning(self, "File Not Found", f"Example video not found: {path}")
+        #     return
+        path, _ = QFileDialog.getOpenFileName(self, "Open Video", "", "Video Files (*.mp4 *.avi)")
+        if path: self._start_video_and_processing(path, is_example=True)
 
     def toggle_play_pause(self, checked: bool):
         if not self.current_video_path:
@@ -600,12 +603,12 @@ class ProctorAgentApp(QMainWindow):
             return
         if self.processing_thread:
             if checked:
-                self.play_pause_btn.setText(" Pause")
-                self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPause))
+                self.play_pause_btn.setText(" ❚❚ Pause")
+                # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPause))
                 self.processing_thread.resume_processing()
             else:
-                self.play_pause_btn.setText(" Play")
-                self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+                self.play_pause_btn.setText(" ► Play")
+                # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
                 self.processing_thread.pause_processing()
 
     def on_frame_update(self, frame_data: dict):
@@ -666,8 +669,8 @@ class ProctorAgentApp(QMainWindow):
     def on_processing_finished(self):
         logger.info("Video processing finished.")
         self.play_pause_btn.setChecked(False)
-        self.play_pause_btn.setText(" Play")
-        self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+        self.play_pause_btn.setText(" ► Play")
+        # self.play_pause_btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
 
     def _on_slider_moved(self, position: int):
         self.seeking = True
