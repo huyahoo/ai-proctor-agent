@@ -1,6 +1,9 @@
-# Proctor Agent
+# AI Proctor Agent
 
-Proctor Agent is an XAI system designed to bolster exam integrity in in-person settings. It uses a sophisticated multi-stage AI approach, combining cutting-edge Computer Vision (YOLOv8 for objects, OpenPifPaf for precise pose, Sharingan for Gaze Estimation) to comprehensively analyze both individual and collaborative suspicious behaviors. A AI reasoning pipeline, powered by LLMs for dynamic constraint generation and VLMs for contextual verification, provides highly accurate and explainable alerts. This project was developed for the "HACK U TOKYO 2025" hackathon organized by LINE YAHOO Corporation.
+AI Proctor Agent is an XAI system designed to bolster exam integrity in in-person settings. It uses a sophisticated multi-stage AI approach, combining cutting-edge Computer Vision (YOLOv8 for objects, OpenPifPaf for precise pose, Sharingan for Gaze Estimation) to comprehensively analyze both individual and collaborative suspicious behaviors. A AI reasoning pipeline, powered by LLMs for dynamic constraint generation and VLMs for contextual verification, provides highly accurate and explainable alerts. This project was developed for the "HACK U TOKYO 2025" hackathon organized by LINE YAHOO Corporation.
+
+# 🏆 Hackathon - First Prize Winner 🏆
+This repository proudly represents the project that secured **1st place** at the **Open Hack U 2025 TOKYO hackathon**!
 
 ## 🚀 Features
 
